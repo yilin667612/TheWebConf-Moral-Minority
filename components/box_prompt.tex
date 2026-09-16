@@ -1,0 +1,62 @@
+\begin{figure*}[p]
+\begin{tcolorbox}[colback=gray!5, colframe=black!50, title=Task Prompt, 
+width=\textwidth, fontupper=\small, left=2mm, right=2mm, top=2mm, bottom=2mm]
+
+\textbf{Task:} In the AmITheAsshole subreddit, rate the certainty of the commenter in the chosen judgement, using a Likert scale from 1 to 4.
+
+\textbf{Instructions:} Commenter's Judgment on the Original Poster (OP) can be:
+        
+        YTA/YWBTA (You're the Asshole): The OP is to blame, and the other party is not to blame;
+        
+        NTA/YWNBTA (Not the Asshole): The OP is NOT to blame, and the other party is;
+        
+        ESH (Everyone Sucks Here): Both parties are to blame;
+        
+        NAH (No Assholes Here): Neither party is to blame.
+
+
+\textbf{Certainty is defined as the commenter's confidence in the chosen judgement:}
+
+\textbf{4 - Very certain:} The commenter only chooses one judgement and justifies the judgement with a confident tone, e.g. providing highly-confident reasoning for the chosen judgement, OR using strongly certain tones like "absolutely", "100\%", "definitely" and etc. or strongly emotional words like "WTF" and etc.
+
+\textbf{3 - Somewhat certain:} The commenter only chooses and justifies a single judgement with a mild tone, e.g. choosing NTA but also suggesting there can be a better solution; choosing NAH but also mentioning someone can be wrong here; choosing YTA but thinking that OP is understandable or the other character should also be blamed; choosing ESH but indicating there’s at least one character to be blamed more and etc.
+
+\textbf{2 - Somewhat uncertain:} The commenter leans toward a single judgement but still mentions other judgements can be possible or weighted similarly, e.g. leaning YTA but saying NTA could be possible if some condition occurs.
+
+\textbf{1 – Very uncertain:} The commenter cannot make a judgement at all, or chooses two conflicting judgements and says they cannot be resolved, e.g. Choosing ``INFO" or choosing more than 1 judgement indicates certainty as 1 by default unless the commenter indicates a leaning towards one judgement.
+
+\textbf{Examples per Certainty level are shown below:}
+
+        
+    \textbf{Post:} ``AITA for kicking out my 19 year old sister into the streets because she got knocked up and wouldn't abort?", \textbf{Comment:} ``YTA. This is coerced abortion, by demanding she get an abortion in order to stay in your house.", \textbf{Certainty:} 4;
+    (3 more examples) ... 
+
+    \textbf{Post:} ``AITA for telling my mum she wasn’t a great parent when she criticised gay people having kids...", Comment: ``NTA. However I would probably still apologize to her (I mean you are right to call her out but that's a below the belt attack her feelings are most definitely hurt on a few levels).", \textbf{Certainty:} 3;
+    (2 more examples)  ...
+
+        
+    \textbf{Post:} ``AITA for getting unethical revenge on a sexual harasser?", \textbf{Comment:} ``Mostly NTA. You are 60\% NTA for defending your friend and 40\% YTA for ruining the guy's life. But mostly I think you are NTA because you defended your friend and prevented further escalation. Although, you could’ve exposed him in a different way.", \textbf{Certainty:} 2;
+    (2 more examples)  ...
+        
+    \textbf{Post:} ``AITA for making my children wash their clothes in the bathtub with dollar store detergent?", \textbf{Comment:} ``50\% YTA, 50\% NTA. Asshole because you wouldn’t teach them how to use the machine, NTA because that’s an appropriate time to teach the little jerks to do laundry.", \textbf{Certainty:} 1;
+    (3 more examples)  ...
+
+
+\textbf{To be labelled:} Post: `\{post\}' Comment: `\{comment\}'
+
+For the above post and comment, provide your answer as a JSON object with the following format:
+
+\{``Reason": ``\textless str\textgreater your step-by-step reasoning for the commenter's certainty in the chosen judgement", ``Certainty": ``\textless int\textgreater"\}
+
+\end{tcolorbox}
+\vspace{-8pt}
+\caption{The annotation prompt used to score the certainty of a top-level
+verdict comment on a four-point scale. The scale targets how firmly a judgment
+is asserted, not which judgment it is: level $4$ is a single judgment stated
+with confident or emphatic language, level $3$ a single judgment carrying
+qualifications, level $2$ a leaning that still allows a competing verdict, and
+level $1$ a comment that resolves to no single judgment. Examples at each level
+are abridged here; the placeholders \{post\} and \{comment\} are filled with
+the submission text and the comment being scored.}
+\label{fig:prompt}
+\end{figure*}
