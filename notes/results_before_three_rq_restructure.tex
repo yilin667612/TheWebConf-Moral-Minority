@@ -1,0 +1,433 @@
+% Archived Results draft before the three-RQ restructuring.
+% Not included in sigconf.tex; retained for recovering superseded text and figures.
+\section{Results}
+\label{sec:results}
+
+
+\subsection{The shape of crowd verdicts}
+\label{subsec:res-distribution}
+
+Before comparing how the two sides are treated, it is worth establishing how
+often each situation arises across the $28{,}107$ AITA and $8{,}217$ AITAH
+high-volume posts. The distribution of the YA share is sharply bimodal
+(Figure~\ref{fig:ya-share}): mass piles up against unanimous exculpation, a
+smaller peak sits at unanimous inculpation, and the middle is nearly empty.
+High-agreement posts outnumber low-agreement ones by more than an order of
+magnitude---$78.2\%$ against $6.5\%$ in AITA, $81.6\%$ against $4.7\%$ in
+AITAH---so the cohort the rest of this section concentrates on is the modal
+discussion in these communities, and the low-agreement cohort is a small control
+rather than the other half of the data. The two peaks are themselves very
+unequal: the dominant verdict is NA in $75.7\%$ of AITA posts and $87.4\%$ of
+AITAH posts, with median YA shares of $8\%$ and $6\%$, so these crowds acquit
+far more often than they condemn, and the community without a formal verdict is
+the more lenient of the two. Within a post the minority is correspondingly
+small---a median of $4\%$ of verdicts in AITA and $6\%$ in AITAH, at or below
+$2\%$ in a quarter of posts, and only about a third even at the $90$th
+percentile (Table~\ref{tab:verdict-distribution}). The dissenter in a typical
+high-agreement thread is not one side of a split room but one voice among dozens.
+
+The cohorts differ not only in where they end up but in when they get there.
+Figure~\ref{fig:consensus-stabilization} tracks the fraction of posts whose
+running verdict leader matches the final winner at successive comment-arrival
+checkpoints. The early lead is much more predictive in high-agreement posts
+than in low-agreement posts. In
+high-agreement posts the verdict leading after a single comment is the eventual
+winner $86.5\%$ of the time, rising to $95.8\%$ after three, and $99.2\%$ never
+experience a lead change at all. Low-agreement posts behave in the opposite way at
+every point: the leader after one comment predicts the winner $52.1\%$ of the
+time, indistinguishable from a coin flip, and even after $201$ comments only
+$83.5\%$; just $38.0\%$ avoid a lead change entirely, and $75.8\%$ have stopped
+changing hands by the halfway point, leaving roughly a quarter still reversing
+in the second half of the discussion.
+
+This bears directly on how the majority and minority labels should be read. We
+assign them from a post's final verdict, which no commenter could have
+observed, and that would be a serious objection if the final verdict were the
+product of a long contest. In the high-agreement cohort it is not: the winning side
+leads from the outset and never loses the lead, so the label assigned after the
+fact coincides with what was on the page while people were writing. The point
+is not that early commenters are unusually informative---a lopsided post makes
+early agreement likely by construction---but that a dissenter in a high-agreement
+thread was contradicting something already plainly visible. In low-agreement posts
+no such correspondence exists, a further reason to treat that cohort as a
+control rather than as a second case of dissent.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/ya_share_distribution.png}
+  \caption{Distribution of posts by YA share $\rho(p)$ over the high-volume
+  cohort. A share of $0$ means the crowd unanimously exculpated the OP, $1$
+  that it unanimously blamed them, and $0.5$ a dead tie. Both communities are
+  sharply bimodal with an almost empty middle, and the two modes are far from
+  symmetric: the exculpating peak is much the larger, especially in AITAH.}
+  \label{fig:ya-share}
+\end{figure*}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/consensus_stabilization.png}
+  \caption{Early verdict leaders predict the final winner more reliably in
+  high-agreement posts than in low-agreement posts. Top-level verdict comments
+  (NTA/NAH versus YTA/ESH; INFO excluded) are ordered by arrival, and the running
+  YA share after each comment determines the current leader. The vertical axis
+  reports the percentage of posts whose leader at each checkpoint matches the
+  final winner: $100\%$ indicates complete correspondence at that checkpoint,
+  while the dashed $50\%$ line is a coin-flip reference. Each post contributes
+  one observation per checkpoint, giving posts equal weight regardless of
+  thread size. Odd-numbered checkpoints ($1,3,5,11,\ldots,201$) avoid running
+  ties at even comment counts and the resulting parity-driven oscillations.
+  High-agreement and low-agreement cohorts are defined by the final YA share
+  recomputed from the comments analyzed here. The sample comprises posts with
+  $\mathrm{YANA\_total}\geq200$.}
+  \label{fig:consensus-stabilization}
+\end{figure}
+
+One asymmetry bears on \S\ref{subsec:res-direction} and is easy to misread.
+Because NA-dominance is so much more common than YA-dominance, blaming dissent
+is available in roughly three quarters of AITA posts and seven eighths of AITAH
+posts, while defending dissent is confined to the remaining $24.1\%$ and
+$12.4\%$. The imbalance is in posts, not in comments. Dissent is proportionally
+far more common in YA-dominant threads than in NA-dominant ones, so the
+defending condition draws a comparable volume of comments from many fewer
+threads \textbf{[TODO: report comment counts per condition]}. What differs
+between the two conditions is therefore the kind of thread each is embedded
+in---defending dissent occurs where dissent is ordinary, blaming dissent where
+it is rare---which is precisely why each is read against the majority comments
+of its own post type rather than against each other's.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    & AITA & AITAH \\
+    \midrule
+    Posts & $28{,}107$ & $8{,}217$ \\
+    \addlinespace
+    NA-dominant ($\rho(p)<.5$) & $75.7\%$ & $87.4\%$ \\
+    YA-dominant ($\rho(p)>.5$) & $24.1\%$ & $12.4\%$ \\
+    \addlinespace
+    High-agreement ($\rho(p)\le.2$ or $\ge.8$) & $78.2\%$ & $81.6\%$ \\
+    Low-agreement ($.4\le\rho(p)\le.6$) & $6.5\%$ & $4.7\%$ \\
+    \addlinespace
+    Median YA share $\rho(p)$ & $8\%$ & $6\%$ \\
+    \addlinespace
+    Minority share, $10$th pct.\ & $0\%$ & $0\%$ \\
+    \quad $25$th & $2\%$ & $2\%$ \\
+    \quad $50$th & $4\%$ & $6\%$ \\
+    \quad $75$th & $18\%$ & $14\%$ \\
+    \quad $90$th & $34\%$ & $32\%$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Distribution of crowd verdicts over the high-volume cohort. The
+  dominance rows do not sum to $100\%$ because exact ties are dropped, and the
+  high-agreement and low-agreement rows leave out the intermediate bands. Minority
+  share is the fraction of a post's verdicts falling on the non-dominant side.}
+  \label{tab:verdict-distribution}
+\end{table}
+
+\subsection{RQ1: Minority judgments are treated differently under high-agreement}
+\textbf{[TODO]}
+\begin{itemize}
+    \item Check whether RQ1 matches these four main results. Get the code and go through the experiments and figures again.
+    \item Ziyu's results on certainty don't fit into RQ1. Do we consider the controversy as continuous measures? Ziyu's many results treat controversy as continuous. Or we can only use figre 4
+    \item  Need reformulate RQ1: Minority certainty expression and treatment under consensus
+    \item Use high-agreement/low-agreement for analytical conditions and blaming/defending for dissent direction.
+    \item Should we make the RQ1 section shorter? Combine these four results?
+    \item Result need rerun due to AITAH didn't consider YTAH and NTAH lable
+\end{itemize}
+
+% general comparison of majority/minority x high-agreement/low-agreement
+% comment score, reply prob/count, engagement
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]
+    {figures/engagement_by_consensus.png}
+
+    \includegraphics[width=\columnwidth]{figures/aitah_engagement_by_side.png}
+
+    \caption{\textbf{Minority judgments receive lower scores but greater engagement under consensus.}
+    Comparison of comment scores and reply engagement between majority- and
+    minority-side judgments across agreement levels in AITA and AITAH.
+    Both matched post copies satisfy $\mathrm{YANA\_total} \geq 200$.}
+    \label{fig:engagement-by-consensus}
+\end{figure}
+
+\textbf{Minority judgments received lower scores.} As shown in Figure~\ref{fig:engagement-by-consensus}, in AITA, the mean score was $37.95$ for majority comments and $-2.75$ for minority comments; in AITAH, the corresponding means were $14.30$ and $-0.19$. This score gap became considerably smaller in low-agreement posts.
+
+\textbf{Minority judgments attracted more direct replies.} As shown in Figure~\ref{fig:engagement-by-consensus}, in high-agreement posts, minority comments received an average of $0.53$ direct replies in AITA, compared with $0.14$ for majority comments. A similar pattern appeared in AITAH, where minority and majority comments received $0.38$ and $0.12$ replies, respectively. In low-agreement posts, however, this engagement advantage diminished: the corresponding means were $0.30$ versus $0.26$ in AITA and both were $0.21$ in AITAH. Thus, minority judgments generated greater discussion primarily when they challenged an otherwise strong group consensus.
+\begin{figure}[t]
+    \centering
+
+    \includegraphics[width=\columnwidth]
+    {figures/reply_depth_AITA.png}
+
+    \vspace{0.5em}
+
+    \includegraphics[width=\columnwidth]
+    {figures/reply_depth_AITAH.png}
+
+    \caption{\textbf{Minority judgments generate deeper reply threads.}
+    Mean reply depth and the proportion of threads reaching a depth of at least two in AITA (top) and AITAH (bottom). Results compare majority- and minority-side comments across high-agreement and low-agreement posts with $\mathrm{YANA\_total} \geq 200$. INFO comments and exact 50/50 verdict ties are excluded. The majority--minority difference is largest in high-agreement posts and narrows substantially in low-agreement posts.}
+
+    \label{fig:reply-depth-comparison}
+\end{figure}
+
+
+\textbf{Minority judgments generated deeper reply threads.}
+As shown in Figure~\ref{fig:reply-depth-comparison}, in high-agreement AITA posts, minority comments had a mean reply depth of $0.82$, compared with $0.13$ for majority comments; $15.7\%$ of minority threads reached a depth of at least two, compared with $2.5\%$ of majority threads. A similar pattern appeared in AITAH: minority and majority comments had mean reply depths of $6.50$ and $0.12$, respectively, while $12.1\%$ and $2.0\%$ reached a depth of at least two. These differences narrowed substantially in low-agreement posts. Overall, minority judgments stimulated deeper discussion mainly when they challenged an otherwise strong group consensus.
+
+\begin{figure}[t]
+    \centering
+
+    \includegraphics[width=\columnwidth]
+    {figures/comment_engagement_aita.png}
+
+    \vspace{0.5em}
+
+    \includegraphics[width=\columnwidth]
+    {figures/comment_engagement_aitah.png}
+
+    \caption{\textbf{Comment engagement is concentrated in the earliest hours after submission.}
+    Comment scores and direct replies by arrival hour for majority, minority,
+    and comments in low-agreement posts in AITA (top) and AITAH (bottom).
+    Lines show hourly means and medians, while shaded regions show the
+    interquartile and 10th--90th percentile ranges. Analyses are restricted to
+    the first 18 hours and posts with $\mathrm{YANA\_total} \geq 200$; INFO
+    comments are excluded.}
+
+    \label{fig:comment-engagement-over-time}
+\end{figure}
+
+\textbf{Early minority comments receive lower scores but more replies.} As shown in Figure~\ref{fig:comment-engagement-over-time}, in both AITA and AITAH, comments posted during the first hour received the highest scores and the greatest number of direct replies. Under strong consensus, minority comments generally received lower scores than majority comments but attracted more replies, particularly during the earliest hours. This minority engagement advantage weakened quickly as comments arrived later. The large differences between mean and median values further indicate that early engagement was highly skewed and driven partly by a small number of exceptionally visible comments.
+\textbf{[TODO: focus on how minority comment engagement over time]}
+
+
+\textbf{Minority judgments are expressed with less certainty than majority judgments.} As shown in Figure~\ref{fig:majority-minority-certainty}, minority judgments are expressed with lower certainty in both communities.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]
+    {figures/majority_minority_certainty.png}
+    \caption{\textbf{Minority judgments are expressed with less certainty
+    than majority judgments.} Distribution of post-level mean certainty for
+    majority- and minority-side comments in AITA and AITAH. Certainty is
+    measured on a four-level scale. The analysis includes posts with at least
+    three comments on each side. Differences between the majority and minority
+    groups are significant in both communities (Wilcoxon signed-rank tests,
+    $p<.001$).}
+    \label{fig:majority-minority-certainty}
+\end{figure}
+
+\subsection{RQ2: Responses to minority judgments in high-agreement discussions}
+\label{subsec:res-rq2}
+
+\textbf{[TODO: writing outline; response-label results and validation are
+pending.]}
+
+\paragraph{From reply volume to reply function.}
+\textbf{[TODO:]} briefly connect to RQ1's structural engagement comparison.
+Explain why reply counts alone do not distinguish support, challenge, and
+information seeking. Introduce the direct-response analysis of high-agreement
+posts, with majority judgments as the reference, and refer to
+\S\ref{subsec:method-rq2}.
+
+\paragraph{Response types received by minority and majority judgments.}
+\textbf{[TODO:]} report the four-category response distributions and the
+minority--majority contrasts, especially for challenge and support. Report
+sample sizes, the relevant denominator, and uncertainty. Reserve one main
+figure with separate AITA and AITAH panels; distinguish differences in reply
+composition from differences in the probability of receiving a reply.
+
+\paragraph{Consistency across communities and judgment contexts.}
+\textbf{[TODO:]} describe whether the response patterns recur in both communities
+and within NA-dominant and YA-dominant high-agreement posts, using the approved
+comparisons. Keep the detailed blaming-versus-defending interpretation in RQ3;
+do not treat a pooled pattern as evidence that every context behaves alike.
+
+\paragraph{Illustrative reply exchanges. (may be moved to Appendix)}
+\textbf{[TODO:]} select a small number of verified parent--child examples to
+illustrate support, challenge, and genuine information seeking. Explain
+ambiguous cases where useful; examples illustrate the categories rather than
+establishing their prevalence.
+
+\textbf{[TODO:]} close with a bounded answer to RQ2 based on the actual results.
+Distinguish disagreement from hostility or punishment; direct-response labels
+do not establish later conversational escalation, persuasion, or the consensus
+visible to a user at the time of replying. (may be connected to some existing social theories)
+
+
+
+\subsection{RQ3: The direction of dissent --- blaming versus defending}
+\label{subsec:res-direction}
+
+Figure~\ref{fig:dissent-direction} compares blaming and defending dissent
+(\S\ref{subsec:method}) in $1{,}500$ sampled high-agreement high-volume posts from
+each community. Each condition is shown against the majority comments of the
+same post type, which are not themselves classified by direction.
+
+\textbf{[TODO: report the number of minority and majority comments per
+condition]}
+
+\paragraph{Voting disfavors the minority in both directions.}
+Across both communities, minority comments received markedly lower scores than
+the majority comments of the same post type. In AITA, blaming minority
+comments had a mean score of $-3.2$ against $37.2$ for majority comments in
+NA-dominant posts, and defending minority comments $-2.4$ against $35.4$ in
+YA-dominant posts. AITAH shows the same ordering on a compressed scale:
+blaming minority comments averaged $-0.6$ against $14.7$, and defending
+minority comments $1.1$ against $11.2$. The one condition in which dissent
+attracts net approval---defending dissent in AITAH---still falls an order of
+magnitude below the majority it is measured against, so the gap is a matter of
+degree rather than of sign.
+
+\paragraph{Replies move in the opposite direction.}
+In AITA, $29.3\%$ of blaming and $17.2\%$ of defending minority comments drew
+more than one reply, against only $4.6\%$ and $4.1\%$ of their respective
+majority baselines. AITAH repeats the asymmetry: $22.7\%$ and $12.8\%$ for
+minority comments against $4.1\%$ for both majority baselines. The baselines
+are the informative part here. Majority comments are answered at an almost
+constant low rate---between $4.1\%$ and $4.6\%$ regardless of post type or
+community---while the minority rate varies by a factor of three across the same
+cells. Whatever governs how much reply a comment attracts operates almost
+entirely on dissent.
+
+\paragraph{Blaming draws more discussion than defending.}
+Within the minority, the blaming direction is consistently the more engaged
+one. It exceeds defending dissent by a factor of $1.70$ in AITA and $1.77$ in
+AITAH on the reply measure, and by $1.87$ and $1.83$ on reply depth, where
+$17.8\%$ of blaming against $9.5\%$ of defending comments in AITA, and
+$13.2\%$ against $7.2\%$ in AITAH, seed subtrees deeper than two levels. The
+absolute rates differ by roughly a third between the two communities, yet every
+one of these ratios falls between $1.7$ and $1.9$.
+
+Taken together, these descriptive patterns separate approval from
+conversational attention. Minority judgments were strongly disfavored in voting
+relative to majority judgments, yet were disproportionately likely to initiate
+further discussion, and the contrast is sharpest for blaming dissent. Sanction
+and attention therefore do not track a single underlying severity: the direction
+that is voted down hardest is also the direction that is answered most.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/direction.png}
+  \caption{Blaming versus defending dissent in $1{,}500$ sampled high-agreement
+  high-volume posts per community, with majority comments from the same post
+  type as baselines. Minority comments score far below the majority in every
+  condition, yet are three to five times more likely to draw more than one
+  reply; blaming dissent exceeds defending dissent on both engagement measures
+  in both communities.
+  \textbf{[TODO: report median or distribution instead of mean, add p values]}}
+  \label{fig:dissent-direction}
+\end{figure}
+
+
+
+\subsection{RQ4: AITA/AITAH timeline }
+\paragraph{Certainty change over time 18h rule.}
+Figure~\ref{fig:certainty-time-series} shows the mean certainty expressed by
+majority- and minority-side comments during the first 25 hours after
+submission. Majority-side comments express greater certainty than
+minority-side comments throughout, in both communities.
+
+AITA shows a significant increase in overall comment certainty after the 18-hour flair lock, from 3.730 to 3.742 (\(p=2.68\times10^{-8}\)). In contrast, AITAH shows no significant pre–post change (\(p=0.111\)). Minority certainty continues to increase beyond the 18-hour mark in AITA, whereas it declines in AITAH. This contrasting trajectory suggests that the verdict flair may act as an incentive for minority commenters to continue participating and express their dissent more assertively. This pattern is consistent with the possibility that the visible flair acts as a social signal that encourages minority commenters to express their disagreement with greater certainty.
+
+\textbf{[Done: relabel YA/NA in AITAH]}
+
+\textbf{[TODO: report the threshold-term statistic]}
+
+% The two communities differ in how minority certainty moves across the window. In AITA it increases steadily ($p\approx2\times10^{-9}$); in AITAH it is essentially flat ($p=.59$). The increase is a trend rather than a step: estimating a post-threshold indicator alongside the time trend leaves no discontinuity at the $18$-hour verdict flair \textbf{[TODO: report the threshold-term statistic]}. Whatever makes late dissent in AITA more assertive therefore accumulates over the course of a
+% discussion instead of switching on when the verdict is posted, which points to
+% a gradual shift in the conversational environment---and in which dissenters are
+% still speaking---rather than to an immediate effect of the announcement. The
+% absence of a jump is also what the verdict dynamics of
+% \S\ref{subsec:res-distribution} would lead one to expect: in $99.2\%$ of
+% high-agreement posts the winning verdict leads from the first comment, so by the
+% $18$-hour mark the flair states officially what the % thread has displayed for
+% hours, and there is little left for it to reveal.
+% \textbf{[TODO: relabel YA/NA in AITAH]}
+
+\paragraph{Minority verdict ratio over time.}
+Figure~\ref{fig:minority-ratio-time} shows minority participation develops differently depending on whether the minority blames or defends the OP. In both communities, blaming minorities in NA-dominant posts remain relatively stable or gradually increase over time. By contrast, defending minorities in YA-dominant posts follow different trajectories: their cumulative share rises slightly in AITA but declines sharply in AITAH, from approximately 11\% to 7\%.
+
+
+
+% Certainty / share changes over time
+% 18h rule - Formalizing consensus amplifies dissent or not?
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/time_series_certainty.png}
+    \caption{\textbf{Minority certainty continues to increase beyond the 18-hour mark in AITA,
+whereas it declines in AITAH.}
+    Mean certainty of majority- and minority-side comments during the first
+    25 hours after submission. The vertical dashed line marks AITA's
+    approximately 18-hour AutoModerator verdict-flair lock; it is shown for
+    AITAH only as a placebo cut-off, since nothing occurs there at that time.
+    Minority certainty increases across the window in AITA
+    ($p \approx 2.87 \times 10^{-8}$) but not in AITAH ($p=0.99$); neither
+    community shows a discontinuity at the threshold itself.}
+    \label{fig:certainty-time-series}
+\end{figure}
+
+
+\begin{figure}[t]
+    \centering
+\includegraphics[width=\columnwidth]
+    {figures/aita_minority_verdict_ratio.png}
+
+    \vspace{0.5em}
+
+    \includegraphics[width=\columnwidth]
+    {figures/aitah_minority_verdict_ratio.png}
+
+    \caption{\textbf{Defending and blaming minorities follow different
+    temporal patterns.} Cumulative minority-verdict share during the first
+    24 hours in AITA (top) and AITAH (bottom), restricted to posts receiving
+    at least 200 verdicts. Minority commenters are YTA/ESH in NA-dominant
+    posts and NTA/NAH in YA-dominant posts. INFO verdicts are excluded.
+    Minority participation remains comparatively stable in AITA, whereas
+    the share of defending minorities in YA-dominant AITAH posts declines
+    over time.}
+    \label{fig:minority-ratio-time}
+\end{figure}
+\subsection{RQ4: AITA/AITAH + shared post in different communities}
+community behaviour difference. e.g. minority group is punished more in AITA
+
+\label{subsec:res-duplicates}
+
+\paragraph{Minority comments receive lower scores in AITA than in AITAH}
+
+
+% Majority comments receive significantly lower median scores in AITAH than in AITA, based on 102 complete pairs.
+% Minority comments receive significantly higher—or less negative—median scores in AITAH than in AITA, based on 77 complete pairs.
+% Thus, the score separation between majority and minority comments is substantially larger in AITA.
+
+Figure~\ref{fig:score-distribution-yana-ge20} presents the post-weighted distributions of median comment scores for majority- and minority-side judgments in matched AITA and AITAH posts. In both communities, majority-side comments generally receive positive scores, whereas minority-side comments generally receive negative scores. This consistent separation indicates that judgments aligned with the prevailing verdict are rewarded, while dissenting judgments are penalised.
+
+The majority--minority score gap is more pronounced in AITA. AITA majority comments attain higher positive scores than their AITAH counterparts, while AITA minority comments receive more strongly negative scores. In AITAH, the same directional pattern remains, but both the reward for majority agreement and the penalty for minority disagreement are less extreme. Overall, the results suggest that minority judgments face a systematic score disadvantage in both communities, with stronger score polarisation in AITA.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/score_distribution_yana_ge20.png}
+    \caption{Post-weighted distributions of median majority- and minority-comment scores in matched AITA and AITAH posts with $\mathrm{YANA\_total} \geq 20$ in both copies.}
+    \label{fig:score-distribution-yana-ge20}
+\end{figure}
+\paragraph{Defending-minority judgments become more prevalent in AITA.}
+Figure~\ref{fig:minority-ratio-matched} compares the post-level minority-verdict ratio over the first 24 hours in 103 matched AITA--AITAH post pairs. In NA-dominant posts, where YA judgments constitute the minority, the two communities exhibit nearly identical and stable trajectories. The minority ratio remains approximately 9--10\% throughout the observation period, indicating little temporal change in the participation of commenters who blame an OP whom the majority absolves.
+
+A different pattern emerges in YA-dominant posts, where NA judgments constitute the minority. In AITAH, the minority ratio begins at approximately 24--25\% and declines to around 19\% during the first 10--12 hours, after which it remains relatively stable. In AITA, it begins at approximately 21--22\% and gradually increases to about 23\%. Consequently, the communities initially converge but subsequently diverge: over time, defending-minority judgments become relatively more prevalent in AITA and less prevalent in AITAH. The figure therefore suggests that temporal differences between the communities are concentrated among commenters who defend an OP condemned by the majority, rather than among those who blame an OP absolved by the majority. Because the uncertainty intervals overlap substantially, this divergence should be treated as descriptive unless confirmed by an inferential time-by-community interaction test.
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]
+    {figures/minority_verdict_ratio_aita_aitah.png}
+    \caption{Post-weighted minority-verdict ratios during the first 24 hours
+    after post creation in 107 matched AITA--AITAH post pairs. The left panel
+    presents NA-dominant posts, in which YA judgments form the minority; the
+    right panel presents YA-dominant posts, in which NA judgments form the
+    minority. Lines represent community-level mean post-level minority ratios,
+    and shaded bands represent uncertainty intervals. Only matched post pairs
+    for which both copies had at least 20 final YA/NA judgments were included.}
+    \label{fig:minority-ratio-matched}
+\end{figure}
