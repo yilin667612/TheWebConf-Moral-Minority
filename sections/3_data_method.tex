@@ -33,20 +33,37 @@ collected dataset. This describes coverage of retained archive data, not
 complete coverage of community activity. Reply depth and subtree score use a
 random sample of posts because they require recursive reply-tree traversal.
 Language analyses use separate annotated samples, not annotations of the full
-dataset. For certainty annotation, we randomly sample $1{,}400$ posts from AITA
-and $700$ from AITAH, for a total of $2{,}100$ posts. In each community,
-the sampling frame comprises posts with at least $200$ retained YA/NA verdict
-comments ($\mathrm{YANA\_total}\ge200$). The high-agreement subset used in the joint share--certainty
-trajectory analysis contains $604$ posts: $331$ NA-dominant and $71$
-YA-dominant posts in AITA, and $187$ NA-dominant and $15$ YA-dominant posts in
-AITAH. Analyses of this subset are reported separately from analyses of the
-broader certainty sample.
+dataset. To construct the certainty-annotated dataset, we first retain posts
+with at least $200$ retained YA/NA verdict comments
+($\mathrm{YANA\_total}\ge200$). We then randomly sample $3\%$ of eligible
+high-agreement posts and $15\%$ of eligible low-agreement posts, using the
+agreement categories defined below. Sampling fractions therefore differ by
+agreement level. In AITA, the eligible cohorts contain $21{,}978$
+high-agreement and $1{,}848$ low-agreement posts, from which $659$ and $277$
+posts, respectively, were sampled. In AITAH, the corresponding
+cohorts contain $6{,}709$ and $388$ posts, of which $201$ and $58$ were sampled
+for annotation. We annotate the certainty of top-level comments attached to
+these sampled posts, rather than assigning a certainty label to each post.
+Posts are the sampling unit; individual top-level comments are the annotation
+unit. The sample comprises $936$ AITA and $259$ AITAH posts ($1{,}195$
+overall), including $860$ high-agreement and $335$ low-agreement posts.
+Analyses restricted to high-agreement posts
+are reported separately from analyses including both agreement bands.
+\textbf{[TODO: report the total number of top-level comments with completed
+certainty annotations, with counts by community and agreement band; these
+comment counts are separate from the 1,195 sampled posts. Distinguish the
+number annotated from the number retained for analysis if filtering applies.
+Also report the post breakdown by dominant verdict within each community and
+agreement band. Update certainty
+figures and associated results using the completed 1,195-post dataset;
+existing figures use the earlier annotation sample.]}
 
 Direct-response annotation uses three samples of $16{,}000$ parent--reply
 pairs each, excluding OP participation. These are distinct from the
 post-based certainty sample.
 \textbf{[TODO: provide a sample-accounting table with post and comment counts,
 temporal coverage, and agreement/direction strata for each analysis. Document
+any analysis-specific filtering of the annotated dataset. Document
 the reply-pair selection procedures and overlap among the three samples and the
 number of unique pairs; confirm the reply-tree sampling design and size.
 Do not describe the three samples as 48,000 unique pairs without checking.]}
@@ -187,8 +204,10 @@ trajectories through successive arrival windows.
 
 In the joint trajectory figure, windows are 0--1, 1--3, 3--6, 6--12, 12--24,
 24--48, and 48+ hours. The figure reports $95\%$ post-bootstrap confidence
-intervals for certainty. Its $604$-post high-agreement cohort is distinct
-from the broader annotated sample used for the first-24-hour comparison.
+intervals for certainty. The current figure uses an earlier $604$-post
+high-agreement cohort and has not yet been regenerated for the revised
+sampling design. The completed dataset contains $860$ high-agreement posts;
+the contributing counts for each trajectory window remain to be reported.
 \textbf{[TODO: specify the within-window aggregation and weighting for both
 axes, bootstrap repetitions and interval construction, minimum observations,
 and handling of posts without minority comments in a window. State the
