@@ -2,6 +2,86 @@
 \newpage
 \section{Appendix}
 
+\subsection{Distribution of Crowd Verdicts}
+\label{sec:appendix-verdict-distribution}
+
+Table~\ref{tab:verdict-distribution} provides the full distributional summary
+for the high-volume cohort, including verdict dominance, agreement categories,
+and minority-share percentiles. Selected cohort statistics are reported in
+\S\ref{subsec:res-distribution}.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    & AITA & AITAH \\
+    \midrule
+    Posts & $28{,}107$ & $8{,}217$ \\
+    \addlinespace
+    NA-dominant ($\rho(p)<.5$) & $75.7\%$ & $87.4\%$ \\
+    YA-dominant ($\rho(p)>.5$) & $24.1\%$ & $12.4\%$ \\
+    \addlinespace
+    High-agreement ($\rho(p)\le.2$ or $\ge.8$) & $78.2\%$ & $81.6\%$ \\
+    Low-agreement ($.4\le\rho(p)\le.6$) & $6.5\%$ & $4.7\%$ \\
+    \addlinespace
+    Median YA share $\rho(p)$ & $8\%$ & $6\%$ \\
+    \addlinespace
+    Minority share, $10$th pct.\ & $0\%$ & $0\%$ \\
+    \quad $25$th & $2\%$ & $2\%$ \\
+    \quad $50$th & $4\%$ & $6\%$ \\
+    \quad $75$th & $18\%$ & $14\%$ \\
+    \quad $90$th & $34\%$ & $32\%$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Distribution of crowd verdicts over the high-volume cohort. The
+  dominance rows do not sum to $100\%$ because exact ties are dropped, and the
+  high-agreement and low-agreement rows leave out the intermediate bands. Minority
+  share is the fraction of a post's verdicts falling on the non-dominant side.}
+  \label{tab:verdict-distribution}
+\end{table}
+
+\textbf{[TODO: reconcile these cohort counts and percentage denominators
+with exact-tie exclusion. The existing dominance percentages sum to 99.8\%,
+not 100\%; verify all entries against the retained analytical sample.]}
+
+\subsection{Early Verdict Leaders and Final Alignment}
+\label{sec:appendix-stabilization}
+
+Early verdict leaders are more predictive of the final winner in
+high-agreement than low-agreement posts
+(Figure~\ref{fig:consensus-stabilization}). In the reported high-agreement
+series, the first comment agrees with the final winner in $86.5\%$ of posts,
+rising to $95.8\%$ after three comments. In low-agreement posts, the
+correspondence is $52.1\%$ after one comment and $83.5\%$ after $201$.
+This describes the relationship between arrival-ordered judgments and final
+alignment; it does not establish what comments a user saw or how they perceived
+the opinion climate.
+
+\textbf{[TODO: identify the community and cohort for the stabilization
+series and restore the figure legend. Recheck the earlier 99.2\% ``never
+changes lead'' claim: it cannot describe the same first-comment-to-final
+trajectory as 86.5\% first-comment correspondence without a different
+checkpoint or sample definition.]}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/consensus_stabilization.png}
+  \caption{Early verdict leaders predict the final winner more reliably in
+  high-agreement posts than in low-agreement posts. Top-level verdict comments
+  (NTA/NAH versus YTA/ESH; INFO excluded) are ordered by arrival, and the running
+  YA share after each comment determines the current leader. The vertical axis
+  reports the percentage of posts whose leader at each checkpoint matches the
+  final winner: $100\%$ indicates complete correspondence at that checkpoint,
+  while the dashed $50\%$ line is a coin-flip reference. Each post contributes
+  one observation per checkpoint, giving posts equal weight regardless of
+  thread size. Odd-numbered checkpoints ($1,3,5,11,\ldots,201$) avoid running
+  ties at even comment counts and the resulting parity-driven oscillations.
+  High-agreement and low-agreement cohorts are defined by the final YA share
+  recomputed from the comments analyzed here. The sample comprises posts with
+  $\mathrm{YANA\_total}\geq200$.}
+  \label{fig:consensus-stabilization}
+\end{figure}
+
 \subsection{Verdict Tags in AITA and AITAH}
 \label{sec:appendix-tags}
 
@@ -43,12 +123,11 @@ intimate relationships, while AITA carries relatively more everyday disputes
 over housing, money, food, transport, and family obligation (Jensen--Shannon
 distance between the topic distributions $0.187$ under BGE, $0.206$ under E5).
 
-We therefore do not treat the two communities as topically interchangeable, and
-the design does not require it. The paired analysis of
-\S\ref{subsec:res-duplicates} holds the story itself fixed, comparing how two
-crowds judge the same text, and for the unpaired analyses we treat
-\emph{agreement} across the communities, rather than their raw difference, as
-the evidential unit (\S\ref{subsec:method}).
+We therefore do not treat the two communities as topically interchangeable.
+The community extension compares reception and expression using the same
+operational definitions (\S\ref{subsec:method-community}). Cross-posted stories
+are reserved for illustrative cases (\S\ref{subsec:res-duplicates}), rather
+than a quantitative test that removes differences between communities.
 
 \begin{figure}[t]
   \centering

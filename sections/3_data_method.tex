@@ -1,240 +1,244 @@
 \section{Data and Methods}
 \label{sec:data-method}
 
-\input{components/tab_dimensions}
-
-\subsection{The r/AmItheAsshole and r/AITAH datasets}
+\subsection{Data Sources and Analytical Samples}
 \label{subsec:dataset}
 
-We study two Reddit communities devoted to moral judgment,
-\emph{r/AmItheAsshole} (AITA) and \emph{r/AITAH} (AITAH). They differ in age
-and in how they formalize collective judgment.
-AITA, created in 2013, follows a more procedural model: a bot tallies top-level
-verdict comments and assigns the post an official verdict flair approximately
-$18$ hours after submission. AITAH, created in 2021 as a more permissive
-alternative, has no corresponding deadline or official verdict flair and
-applies looser rules to admissible conflicts and post formatting. This
-difference motivates the institutional comparison described in
-\S\ref{subsec:method}. As of September 2026, AITA reports $2.8$M weekly visitors
-and approximately $130$K weekly contributions, while AITAH reports $1.5$M
-weekly visitors and $60$K weekly contributions.
+We study everyday moral judgments in r/AmItheAsshole (AITA), where an
+original poster (OP) describes an interpersonal situation and commenters
+judge the OP's conduct. We extend the analysis to r/AITAH (AITAH), which
+supports a similar narrative-and-judgment format and verdict vocabulary.
+AITA is the primary setting; AITAH provides a second community context in
+which to examine the reception and expression of blaming and defending dissent.
 
-AITAH is not the only spin-off of AITA, but it is the only usable comparison.
-The other variants fail one of three requirements. \emph{r/AITA\_Relationships}
-and \emph{r/AITARelationship} exist because relationship posts are barred from
-AITA, so each covers a restricted slice of the domain rather than the whole of
-it. \emph{r/AmITheAngel} and \emph{r/AmITheDevil} are commentary communities
-built around AITA content rather than judgment communities in their own right,
-and do not run the verdict-tag convention. The remaining variants, such as
-\emph{r/AITH}, do use the convention but are smaller by orders of magnitude in
-both visitors and contributions, leaving too few high-volume posts to estimate
-a crowd verdict. AITAH alone matches AITA in scale, in scope, and in tag
-vocabulary while differing in the institutional rule we want to vary.
+We use archived public submissions and comments covering 2018--2025.
+\textbf{[TODO: identify the archive source, provide its citation, and report
+retrieval dates and known coverage limitations.]}
+Within-community analyses use the available observations for each community.
+Direct cross-community comparisons use the common period from 17 March 2021
+to 23 December 2025. For each eligible verdict comment, we retain its post
+identifier, text, verdict group, score, timestamp, and links to its replies.
 
-\subsubsection{Verdicts and crowd judgment.}
-An original poster (OP) submits a moral dilemma from their own life, and other
-users respond in top-level comments that open with one of seven verdict tags
-shared by the two communities (Appendix~\ref{sec:appendix-tags}). Six of the
-tags assign blame, and we group them into two moral stances toward the OP: the
-\textbf{exculpating} group
-$\mathrm{NA}=\{\text{NTA},\text{YWNBTA},\text{NAH}\}$ and the
-\textbf{inculpating} group
-$\mathrm{YA}=\{\text{YTA},\text{YWBTA},\text{ESH}\}$. The hypothetical forms
-\emph{YWNBTA} and \emph{YWBTA} apply to an action the OP has not yet taken, but
-point the blame in the same direction as \emph{NTA} and \emph{YTA}. AITAH's
-H-suffixed aliases, such as \emph{NTAH} and \emph{YTAH}, are mapped to their
-unsuffixed counterparts. Only \emph{INFO} is excluded, as it requests
-additional information rather than stating a judgment.
+\paragraph{Eligibility and coverage.}
+Our judgment-level unit is a top-level verdict comment: a direct reply to a
+submission containing a retained verdict tag. The main analyses include posts
+with at least $200$ retained verdict comments and exclude exact ties between
+YA and NA, as defined below. Nested replies are analyzed as responses to
+judgments rather than included in the post's verdict distribution.
+\textbf{[TODO: specify tag extraction, including tag position, multiple or
+quoted tags, and treatment of deleted text, bots, and unavailable authors;
+report counts before and after filtering by community.]}
 
-We retain only \emph{top-level verdict comments}, defined as direct replies to
-a post that contain one of the retained judgment tags. For each post $p$,
-we define the \emph{YA share}
-\[
-\rho(p)=\frac{\text{number of retained YA verdicts on }p}
-{\text{number of retained verdicts on }p}.
-\]
-The dominant verdict is $D(p)=\mathrm{YA}$ when $\rho(p)\ge0.5$ and
-$D(p)=\mathrm{NA}$ when $\rho(p)<0.5$.
-Unless otherwise noted, analyses are restricted to \emph{high-volume} posts
-with at least $200$ retained top-level verdict comments. We relax this
-threshold for the paired duplicate-post analysis in
-\S\ref{subsec:res-duplicates}, because matched posts rarely reach it in both
-communities.
+Comment-count and score analyses use all eligible observations in the
+collected dataset. This describes coverage of retained archive data, not
+complete coverage of community activity. Reply depth and subtree score use a
+random sample of posts because they require recursive reply-tree traversal.
+Language analyses use separate annotated samples, not annotations of the full
+dataset. Specifically, certainty annotations cover $2{,}100$ posts across the
+two communities. The high-agreement subset used in the joint share--certainty
+trajectory analysis contains $604$ posts: $331$ NA-dominant and $71$
+YA-dominant posts in AITA, and $187$ NA-dominant and $15$ YA-dominant posts in
+AITAH. Analyses of this subset are reported separately from analyses of the
+broader certainty sample.
 
-\subsubsection{Collection and scale.}
-We use the complete public archive of submissions and comments from both
-communities from 2018 to 2025
-\textbf{[TODO: name the archive source and add the citation]}.
-For each eligible top-level verdict
-comment, we retain its parent post, verdict group, score, timestamp, and reply
-subtree, and attach the post-level crowd judgment defined above.
+Direct-response annotation uses three samples of $16{,}000$ parent--reply
+pairs each, excluding OP participation. These are distinct from the
+post-based certainty sample.
+\textbf{[TODO: provide a sample-accounting table with post and comment counts,
+selection procedures, temporal coverage, and agreement/direction strata for
+each analysis. Specify overlap among the three reply-pair samples and the
+number of unique pairs; confirm the reply-tree sampling design and size.
+Do not describe the three samples as 48,000 unique pairs without checking.]}
 
-\textbf{[TODO: report the numbers of posts, comments, top-level verdict
-comments, reply pairs, and users]}
-
-For the language analyses, we additionally use an annotated subset of roughly
-one thousand high-volume threads per community. Each top-level verdict comment
-in this subset carries a \emph{certainty} score on a four-point ordinal scale,
-assigned by a language model prompted with the instructions and worked examples
-reproduced in Appendix~\ref{sec:appendix-annotation}. A score of $4$ denotes a
-blunt and assertive judgment, such as ``NTA. That's on her.'' A score of $1$
-denotes a hedged or conditional judgment, such as ``YTA if you had the money,
-otherwise not.'' The scale measures how firmly a verdict is asserted, not which
-verdict it is, so certainty is comparable across the NA and YA groups. We
-assign each annotated thread to an agreement category using all retained verdict
-comments on the post, rather than only the annotated comments.
-
-\subsection*{Cross-community setup}
-
-AITA spans the full archive period, whereas AITAH appears only from 2021 onward.
-We therefore use two temporal scopes. Within-community descriptive and trend
-analyses use all available years for each community. Direct comparisons between
-AITA and AITAH use the common window from 17 March 2021 to 23 December 2025,
-when both communities are present in the archive. This aligned window reduces
-confounding from AITA's longer history and period-specific changes.
-
-\subsubsection{Post-content comparability.}
-To assess whether the communities discuss comparable situations, we encode post
-texts as $768$-dimensional vectors using
-\texttt{BAAI/bge-base-en-v1.5} \citep{bge_embedding} and
-\texttt{intfloat/e5-base-v2} \citep{wang2022text}.
-% \textbf{[TODO: cite BGE and E5, and add both to the bibliography]}.
-For each encoder, we examine a UMAP projection, train a classifier to predict
-the source community from the embedding, and report ROC-AUC
-\textbf{[TODO: specify the classifier family and its evaluation protocol ---
-train/test split, handling of class imbalance]}. We also compare
-the embedding distributions using maximum mean discrepancy and energy distance
-with permutation tests \textbf{[TODO: number of permutations]}. Finally, we fit
-a topic model and quantify differences between the estimated topic
-distributions using Jensen-Shannon distance
-\textbf{[TODO: specify the topic model and the number of topics]}. These procedures
-assess content comparability without assuming that the communities are
-topically interchangeable. Appendix~\ref{sec:appendix-content} reports the outcome.
-
-\subsubsection{Shared users.}
-Within the aligned window, we identify accounts active in both communities and,
-separately, authors who submit posts to both. We report intersection counts and
-Jaccard overlap for the full user and author sets. To assess sensitivity to
-transient accounts, we repeat the user-level calculation after restricting the
-sample to users with at least $10$ activities, at least $100$ activities, at
-least $30$ days of observed tenure, and at least one year of observed tenure.
-
-For each shared user, we compute the share of activity occurring in AITAH, the
-community in which the user is first observed, the interval between first
-appearances in the two communities, posting and commenting rates, mean comment
-score, top-level comment rate, daily activity profile, and observed tenure.
-
-\subsubsection{Comment timing.}
-The two communities also accumulate comments on a similar schedule, which
-matters for the threshold analysis in \S\ref{subsec:method}. The median post
-reaches half of its top-level comments within $7.3$ hours in AITA and $6.7$
-hours in AITAH, and $90\%$ of them within $17.7$ and $20.1$ hours. AITA's
-verdict flair therefore appears at roughly the point at which a typical post
-has already collected most of the top-level comments it will ever receive,
-which bounds how much of the data the flair can plausibly affect.
-Appendix~\ref{sec:appendix-timing} reports the full distributions.
-
-\subsubsection{Duplicate posts.}
-We identify cross-community duplicates by exact text matching rather than
-semantic similarity. We concatenate each post's title and body, apply Unicode NFKC normalization and case folding, collapse consecutive whitespace characters into a single space, and remove leading and
-trailing whitespace. Posts with empty bodies or bodies marked as [deleted] or [removed] are excluded. Cross-community duplicates are identified by matching SHA-256 hashes of the normalized text.
-
-After text normalization,
-% \textbf{[TODO: define the normalization steps]}, 
-two submissions are treated as the same story when their concatenated title and
-selftext are identical character for character. A story submitted multiple
-times in either community may therefore produce multiple cross-community pairs.
-A pair is included in the paired analysis only when the YA share can be computed
-for both submissions. This design holds the submitted text fixed when comparing
-crowd judgments across communities. As noted above, the $200$-verdict threshold
-is not applied to this analysis.
-
-
-
-\subsection{Analytical dimensions and outcome measures}
+\subsection{Operationalizing Minority Moral Dissent}
 \label{subsec:method}
 
-Table~\ref{tab:dimensions} summarizes the four analytical dimensions and the
-comment-level outcome measures.
+\paragraph{Verdict groups.}
+We group verdicts by whether they assign fault to the OP:
+$\mathrm{YA}=\{\text{YTA},\text{YWBTA},\text{ESH}\}$ and
+$\mathrm{NA}=\{\text{NTA},\text{YWNBTA},\text{NAH}\}$.
+The hypothetical forms YWBTA and YWNBTA map to the same groups as YTA and NTA.
+H-suffixed aliases in AITAH are normalized to their corresponding tags.
+INFO is excluded because it requests information rather than expressing a
+verdict. Appendix~\ref{sec:appendix-tags} lists the tags and their meanings.
 
+\paragraph{Alignment and agreement.}
+For a post $p$, let $N_{\mathrm{YA}}(p)$ and $N_{\mathrm{NA}}(p)$ count
+retained top-level verdicts in each group. We define the post's final
+\emph{YA share}, denoted $\rho(p)$, as
+\[
+\rho(p)=\frac{N_{\mathrm{YA}}(p)}{N_{\mathrm{YA}}(p)+N_{\mathrm{NA}}(p)}.
+\]
+Throughout, ``YA share'' refers to this proportion of YA judgments, and
+$\rho(p)$ denotes its final observed value for post $p$. Time-dependent
+proportions are explicitly described as running or window-specific shares;
+minority share instead counts the non-dominant verdict group.
+Posts with $\rho(p)=0.5$ are excluded. The dominant verdict is
+$D(p)=\mathrm{YA}$ when $\rho(p)>0.5$ and $D(p)=\mathrm{NA}$ otherwise.
+A comment is majority-aligned when its verdict matches $D(p)$ and
+minority-aligned otherwise. High-agreement posts satisfy $\rho(p)\le0.20$
+or $\rho(p)\ge0.80$; low-agreement posts satisfy
+$0.40\le\rho(p)\le0.60$, excluding exact ties. Intermediate bands are omitted
+from this comparison. Low-agreement posts provide a baseline comparison,
+while the primary dissent analyses focus on high-agreement posts.
 
-\subsubsection*{(1) Majority versus minority: alignment with the crowd}
-A top-level verdict comment is classified as \textbf{majority} when its verdict
-group matches $D(p)$ and as \textbf{minority} otherwise. This is the primary
-comment-level comparison.
+\paragraph{Direction of dissent.}
+Blaming dissent is a minority YA judgment in an NA-dominant post; defending
+dissent is a minority NA judgment in a YA-dominant post. Each direction is
+compared with majority comments in the corresponding post type. The
+between-direction comparison uses separate NA-dominant and YA-dominant post
+cohorts. All alignment and agreement labels use the final observed verdict
+distribution, including for annotated posts, rather than a measure of
+commenters' contemporaneous perceptions.
+Table~\ref{tab:dimensions} summarizes the definitions and measures.
 
-\subsubsection*{(2) High-agreement versus low-agreement posts}
-A post is \textbf{high-agreement} when $\rho(p)\le 0.20$ or
-$\rho(p)\ge 0.80$, so that one verdict group has at least a four-to-one
-advantage. A post is \textbf{low-agreement} when
-$0.40\le\rho(p)\le 0.60$. Posts between these intervals are excluded from this
-comparison.
+\input{components/tab_dimensions}
 
-\subsubsection*{(3) Blaming versus defending dissent}
-Minority comments are divided by the direction of disagreement.
-\textbf{Blaming} dissent is a YA judgment on an exculpating-dominant post.
-\textbf{Defending} dissent is an NA judgment on an inculpating-dominant post.
-Each type is compared with majority comments from posts with the same dominant
-verdict, thereby holding the post-level judgment context fixed.
+\subsection{Reception Measures and Response Annotation (RQ1)}
+\label{subsec:method-reception}
 
-\subsubsection*{(4) AITA versus AITAH: community comparison}
-We conduct each analysis separately in AITA and AITAH before comparing the
-resulting patterns. Direct community comparisons use the aligned temporal window
-defined above.
+\paragraph{Evaluation and conversational engagement.}
+Comment score captures the recorded net voting outcome. Direct-reply count
+measures replies to the verdict comment; reply depth measures the maximum
+number of nested reply levels beneath it. Subtree score sums scores over the
+verdict comment and its reply subtree. We calculate this aggregate separately
+from the initiating comment's own score. Analyses distinguish reply incidence from the amount
+or depth of engagement, with the relevant reply-count or depth threshold
+specified for each result. Majority--minority comparisons across agreement
+levels establish the baseline; the primary comparison concerns blaming and
+defending dissent and their respective majority baselines.
+We use the final score available for each comment in the dataset, rather than
+measuring scores at a fixed interval after comment creation. Reply measures
+use all recorded replies linked to eligible comments, without imposing an
+additional elapsed-time cutoff for these aggregate reception analyses.
+These outcomes reflect the available archive records, not necessarily the
+eventual lifetime scores or complete reply histories. Comment-level means
+and proportions are pooled over eligible comments in the relevant analytical
+sample, giving each comment equal weight rather than first averaging within
+posts. Posts with more eligible comments therefore contribute more to these
+summaries. Score and direct-reply summaries use all eligible comments in the
+collected dataset; the separately annotated response sample is described below.
 
-\paragraph{The 18-hour rule.}
-AITA's official verdict flair introduces a threshold within each post's life
-that has no counterpart in AITAH. For every top-level verdict comment, we
-compute elapsed time since submission and estimate whether the minority share
-and the certainty of minority comments change discontinuously at $18$ hours,
-fitting a time trend together with an indicator for the post-threshold period
-so that a jump at the boundary is separated from the gradual drift across the
-window \textbf{[TODO: specify the functional form of the trend, the estimation
-window, and the time binning]}. We apply the same threshold in AITAH as a placebo comparison
-for changes associated with the ordinary aging of a discussion.
-
-This analysis is observational. Thread age may coincide with audience turnover,
-unequal opportunities for vote accumulation, and selection among late
-commenters. We therefore do not interpret a threshold-associated change as the
-causal effect of the verdict flair alone.
-
-\paragraph{Outcome measures.}
-Comment score measures net approval, whereas direct replies and reply depth
-measure engagement. Thread score aggregates the scores of the verdict comment
-and its complete reply subtree. Certainty measures the assertiveness of verdict
-language in the annotated subset. Score and direct replies are computed for all
-eligible comments, and certainty is computed for the annotated subset. Because
-recursive traversal of every reply tree is computationally expensive, reply
-depth and thread score are computed on a uniform random sample of posts; the
-sample size is reported with the corresponding analyses.
-
-
-\subsection{RQ2: Identifying and classifying direct responses}
+\paragraph{Direct-response annotation.}
 \label{subsec:method-rq2}
+We classify a direct child reply's response to its immediate parent verdict
+comment, using the original post as context. The four categories are
+agreement/support, disagreement/challenge, clarification/information-seeking,
+and other. Labels concern communicative function rather than sentiment:
+a polite rebuttal can be a challenge, while qualified agreement can remain
+support. The prompt does not supply comment scores, minority/majority labels,
+or agreement-level metadata. Its category definitions and rules for mixed
+responses appear in Appendix~\ref{sec:appendix-rq2-annotation}.
 
-\textbf{[TODO: develop the RQ2-specific methods below; refer to the shared
-judgment definitions above.]}
-\begin{itemize}
-    \item \textbf{Scope and reply pairs.} Focus on high-agreement posts
-    ($\rho(p)\le 0.20$ or $\rho(p)\ge 0.80$). Define top-level parent--direct
-    child pairs and the minority/majority comparison within each post type.
-    Clarify that minority status is assigned retrospectively from the final
-    judgment distribution. Confirm the volume threshold and temporal window
-    against the shared dataset definition; report exclusions and sample counts.
-    \item \textbf{Sampling and response categories.} Describe the sampling
-    frame and design across community, dominant judgment, and parent stance.
-    Define agreement/support, disagreement/challenge,
-    clarification/information-seeking, and other. Classify the child's response
-    to its parent, using the post as context; specify text eligibility and the
-    handling of mixed replies.
-    \item \textbf{Annotation and validation.} Report the model/version,
-    annotation procedure, human-validation design, and agreement/error analysis
-    once completed. The current prompt template and placeholders for validation
-    details are in Appendix~\ref{sec:appendix-rq2-annotation}, separate from
-    certainty annotation.
-    % \item \textbf{Comparison and uncertainty.} Specify the final estimands,
-    % sampling weights where applicable, and treatment of within-post dependence.
-    % Distinguish all-parent reply incidence (including zero-reply parents) from
-    % response-type proportions among eligible observed pairs. Describe missing
-    % labels separately from the other category.
-\end{itemize}
+The annotated response analysis excludes OP participation, distinguishing
+responses by other commenters from engagement by the person being judged.
+\textbf{[TODO: specify whether the OP exclusion applies to parent authors,
+reply authors, or both, and how unavailable author identities are handled.]
+}
+We compare response categories across parent alignment, dissent direction,
+and community. Challenge proportions use labeled direct replies as the
+denominator; reply incidence uses eligible parent verdict comments, including
+those without replies. These measures are computed separately.
+\textbf{[TODO: report the sampling strata and any weights, model/version and
+decoding settings, human-validation sample and protocol, and category-level
+performance. Distinguish prompt-development cases from held-out validation,
+and missing labels from the other category.]}
+
+\subsection{Temporal Expression and Certainty (RQ2)}
+\label{subsec:method-temporal}
+
+\paragraph{Expressed linguistic certainty.}
+Annotated comments receive a four-point ordinal score using the prompt in
+Appendix~\ref{sec:appendix-annotation}. Level $4$ denotes a single judgment
+asserted confidently; level $3$, a single judgment expressed with
+qualifications or a mild tone; level $2$, a leaning toward one judgment while
+acknowledging alternatives; and level $1$, an inability to settle on a
+judgment or unresolved conflicting judgments. The same criteria apply to NA
+and YA comments. The measure concerns expressed language, not latent attitude
+certainty. Certainty analyses are restricted to the annotated sample and its
+specified subsets.
+\textbf{[TODO: report the annotator model/version, decoding settings,
+human validation, and handling of multiple verdict tags in low-certainty
+comments.]}
+
+\paragraph{Arrival windows and minority share.}
+Time is measured from submission to comment arrival. We distinguish
+window-specific minority share---the fraction of verdict comments arriving
+in a given window that express the relevant minority judgment---from
+cumulative share, which includes comments up to that time. Blaming share is
+computed within NA-dominant posts and defending share within YA-dominant
+posts, retaining the final-distribution labels throughout. Cumulative and
+window-specific shares are computed and reported separately.
+We examine share and certainty separately by direction and jointly as
+trajectories through successive arrival windows.
+
+In the joint trajectory figure, windows are 0--1, 1--3, 3--6, 6--12, 12--24,
+24--48, and 48+ hours. The figure reports $95\%$ post-bootstrap confidence
+intervals for certainty. Its $604$-post high-agreement cohort is distinct
+from the $2{,}100$-post sample used for the first-24-hour comparison.
+\textbf{[TODO: specify the within-window aggregation and weighting for both
+axes, bootstrap repetitions and interval construction, minimum observations,
+and handling of posts without minority comments in a window. State the
+contributing post and comment counts and any end-of-observation truncation.]
+}
+The temporal unit of aggregation is an arrival window within a post cohort,
+not a within-person panel. Contributing posts and commenters can differ
+between windows.
+
+\paragraph{Descriptive scope and uncertainty.}
+Means over all eligible archive observations are descriptive quantities for
+that retained dataset. They are distinguished from estimates based on
+sampled posts or annotated replies. For the reported post-bootstrap intervals,
+posts are the resampling unit, retaining within-post dependence among comments.
+\textbf{[TODO: document the uncertainty procedure for each analysis and the
+implemented effect-size or interaction comparisons. Do not imply that all
+figures use bootstrap intervals or that an annotated sample is representative
+without documenting its selection.]}
+
+\subsection{Cross-Community Extension (RQ3)}
+\label{subsec:method-community}
+
+We apply the same verdict definitions and outcome measures in each community
+and compare reception measures and temporal trajectories by dissent direction.
+Direct comparisons use the common temporal window specified above.
+Community membership is an observed grouping variable, not an experimentally
+assigned condition; no causal effect of a verdict rule is estimated.
+
+To characterize content overlap, we use post embeddings from
+\texttt{BAAI/bge-base-en-v1.5} \citep{bge_embedding} and
+\texttt{intfloat/e5-base-v2} \citep{wang2022text}, examining projections,
+community-prediction performance, distributional distances, and topic
+composition (Appendix~\ref{sec:appendix-content}). We also describe shared
+users and authors using intersection counts and Jaccard overlap, including
+activity- and tenure-restricted cohorts (Appendix~\ref{sec:appendix-overlap}).
+We also summarize the distributions of elapsed time to comment arrival
+(Appendix~\ref{sec:appendix-timing}).
+\textbf{[TODO: document embedding preprocessing, classifier evaluation,
+permutation settings, topic-model specification, and user-cohort definitions
+in the corresponding appendices.]}
+
+\paragraph{Cross-posted stories.}
+Cross-posted stories are reserved for illustrative examples rather than a
+principal quantitative test. Candidate matches are identified from identical
+title-and-body text after Unicode NFKC normalization, case folding, and
+whitespace normalization; empty, deleted, and removed bodies are excluded.
+We identify $4{,}150$ distinct stories, defined by unique normalized content,
+that appear in both AITA and AITAH. Of these, $3{,}913$ have exactly one
+submission in each community and form one-to-one pairs. The remaining $237$
+appear multiple times in at least one community, allowing multiple possible
+submission pairings for the same story.
+
+Among the cross-community submission pairs, $1{,}871$ have an observed YA
+share $\rho(p)$ in both communities. Submissions with no retained verdicts
+($\mathrm{YANA\_total}=0$) have an undefined YA share; these missing values
+are not imputed. Requiring at least $20$ retained YA/NA verdicts in each
+submission ($\mathrm{YANA\_total}\ge20$ in both communities) leaves $107$
+pairs. Here, $\mathrm{YANA\_total}=N_{\mathrm{YA}}(p)+N_{\mathrm{NA}}(p)$.
+This case-selection threshold is separate from the $200$-verdict threshold
+used in the main analyses.
+
+\textbf{[TODO: specify how the 237 multiply submitted stories enter the
+candidate pair set, and select and verify illustrative cases from the
+107 retained pairs. Report case-selection criteria and verdict counts;
+examples must not be presented as representative evidence of a community
+effect.]}
