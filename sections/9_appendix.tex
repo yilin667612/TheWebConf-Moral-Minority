@@ -164,6 +164,68 @@ report agreement against human labels on a validation sample]}
 
 \input{components/box_prompt}
 
+\subsection{Sensitivity to the Certainty Observation Window}
+\label{sec:appendix-certainty-window}
+
+The primary analysis uses all observed annotated comments in the low/high
+dataset. As a sensitivity analysis, we restrict comment arrival to $[0,18)$
+hours in both communities while retaining the final-verdict cohort labels.
+This window is motivated by AITA's 18-hour verdict reference, not selected
+to maximize separation between dissent directions. The restricted analysis
+includes $1{,}164$ contributing posts and $92{,}737$ minority comments,
+compared with $1{,}169$ posts and $104{,}135$ minority comments over the full
+observed period. Table~\ref{tab:certainty-window} reports the directional
+contrasts under both windows. The high-agreement contrasts remain positive;
+the low-agreement intervals include zero under either window.
+
+\begin{table*}[t]
+  \centering
+  \begin{tabular}{@{}llrrll@{}}
+    \toprule
+    Community & Agreement & Full-period $n$ & First-18h $n$
+      & Full-period $\Delta$ [$95\%$ CI] & First-18h $\Delta$ [$95\%$ CI] \\
+    \midrule
+    \multicolumn{6}{l}{Mean certainty difference (scale points)} \\
+    AITA & Low & 134/137 & 134/137 & $0.018\;[-0.012,0.050]$ & $0.018\;[-0.014,0.051]$ \\
+    AITA & High & 506/135 & 503/134 & $0.075\;[0.021,0.131]$ & $0.090\;[0.034,0.147]$ \\
+    AITAH & Low & 28/30 & 28/30 & $0.064\;[-0.001,0.128]$ & $0.062\;[-0.005,0.127]$ \\
+    AITAH & High & 184/15 & 183/15 & $0.121\;[0.022,0.228]$ & $0.153\;[0.056,0.254]$ \\
+    \midrule
+    \multicolumn{6}{l}{Certainty-$4$ proportion difference (percentage points)} \\
+    AITA & Low & 134/137 & 134/137 & $1.2\;[-1.6,4.1]$ & $1.3\;[-1.7,4.3]$ \\
+    AITA & High & 506/135 & 503/134 & $8.0\;[3.9,12.2]$ & $8.7\;[4.6,12.9]$ \\
+    AITAH & Low & 28/30 & 28/30 & $4.0\;[-1.2,9.0]$ & $4.0\;[-1.1,9.1]$ \\
+    AITAH & High & 184/15 & 183/15 & $12.0\;[4.8,20.0]$ & $14.2\;[7.4,21.9]$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Sensitivity of directional certainty contrasts to the observation
+  window. $\Delta$ is blaming minus defending; $n$ gives contributing posts
+  in blaming/defending order. Both windows use equal-post averages and
+  $10{,}000$ whole-post bootstrap replicates with marginal percentile
+  $95\%$ intervals. The full period has no upper elapsed-time cutoff;
+  first-18h includes arrivals in $[0,18)$ hours. AITAH high-agreement
+  defending estimates are based on only $15$ posts.}
+  \label{tab:certainty-window}
+\end{table*}
+
+To separate window sensitivity from changes in contributing posts, we also
+hold the post set fixed to first-18-hour contributors. Within high-agreement
+AITA, the full-period contrast is then $0.071$ points rather than $0.090$
+in the first 18 hours, a change of $-0.019$ ($95\%$ paired-window bootstrap
+CI $[-0.035,-0.005]$). In high-agreement AITAH, the corresponding contrasts
+are $0.119$ and $0.153$, a change of $-0.034$ ($[-0.061,-0.010]$).
+Thus, including later observations attenuates these aggregate gaps even
+when post composition is held fixed. This does not demonstrate convergence
+at 18 hours: the full-period estimate includes the early observations, and
+the comparison neither tracks individual commenters nor identifies a
+causal effect of the verdict rule.
+
+Among the valid minority comments in this low/high sample, $10.3\%$ in
+AITA and $13.4\%$ in AITAH arrive at or after 18 hours. The corresponding
+fractions at or after 24 hours are $4.3\%$ and $7.0\%$. These are pooled
+comment fractions used to describe coverage, not the equal-post weighting
+used for certainty estimates. Observed comment times alone do not establish
+equal or complete follow-up across posts.
 
 
 
