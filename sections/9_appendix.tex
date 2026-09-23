@@ -164,14 +164,89 @@ report agreement against human labels on a validation sample]}
 
 \input{components/box_prompt}
 
+\subsection{Supplementary Comparison of Expressed Certainty}
+\label{sec:appendix-certainty-comparison}
+
+This analysis compares the two directions of dissent over the full observed
+period, separately from the temporal-prevalence analysis in RQ2.
+The $1{,}195$-post low/high annotation dataset contributes $1{,}169$ posts
+and $104{,}135$ valid minority certainty observations after the exclusions
+in Section~\ref{subsec:dataset}. Within-post proportions at each certainty
+level are averaged with equal post weight
+(Figure~\ref{fig:certainty-low-high}). Mean certainty is retained as a
+complementary summary rather than the primary interpretation of the ordinal
+scale.
+
+\paragraph{Estimation and uncertainty.}
+For each community and agreement band, we calculate blaming minus defending
+differences in mean certainty and in the certainty-$4$ proportion. Percentile
+$95\%$ confidence intervals use $10{,}000$ bootstrap replicates, independently
+resampling whole posts within each directional cohort. The same post weights
+are used across measures in a replicate; contrast intervals are calculated
+from replicate-level differences. These are marginal descriptive intervals,
+without joint multiplicity adjustment or population reweighting.
+Whether separate intervals exclude zero is not a test of a
+direction-by-agreement or direction-by-community interaction.
+
+\paragraph{AITA.}
+In high-agreement posts, the certainty-$4$ proportions are $66.1\%$ for
+blaming and $58.1\%$ for defending dissent, a difference of $8.0$ percentage
+points ($95\%$ CI $[3.9,12.2]$), based on $506$ and $135$ posts.
+Under low agreement, the values are $71.7\%$ and $70.5\%$; the difference
+of $1.2$ percentage points ($[-1.6,4.1]$) remains uncertain, based on
+$134$ and $137$ posts. Mean certainty is $3.564$ versus $3.488$ under high
+agreement ($\Delta=0.075$, CI $[0.021,0.131]$), and $3.669$ versus $3.650$
+under low agreement ($\Delta=0.018$, CI $[-0.012,0.050]$).
+
+\paragraph{AITAH.}
+The certainty-$4$ proportion difference is $12.0$ percentage points
+($95\%$ CI $[4.8,20.0]$) under high agreement and $4.0$ percentage points
+($[-1.2,9.0]$) under low agreement. Mean certainty is $3.626$ versus $3.505$
+under high agreement ($\Delta=0.121$, CI $[0.022,0.228]$), and $3.673$ versus
+$3.609$ under low agreement ($\Delta=0.064$, CI $[-0.001,0.128]$).
+These comparisons use $184/15$ and $28/30$ blaming/defending posts,
+respectively. The high-agreement defending cohort is particularly small:
+an interval excluding zero does not remove the limitation of only $15$ posts.
+
+\paragraph{Annotation-version sensitivity.}
+The dataset combines \texttt{v4} and \texttt{v4.1} annotations. Restricting
+high-agreement AITA to \texttt{v4} yields a certainty-$4$ difference of
+$5.0$ percentage points ($95\%$ CI $[-0.7,10.5]$) and a mean-certainty
+difference of $0.054$ points ($[-0.018,0.123]$), based on $315/71$ posts.
+The positive point estimates remain, but their intervals include zero.
+Different posts received the two annotation versions, so version and post
+composition cannot be separated. These full-period contrasts do not
+establish increasing certainty, temporal convergence, or individual
+attitude change.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/certainty_distribution_low_high_full_period.pdf}
+  \caption{\textbf{Supplementary comparison of expressed certainty over the
+  full observed period.} (A) Certainty-$1$--$4$ distributions, calculated
+  within posts and then averaged with equal post weight. Colors indicate
+  certainty level, not dissent direction; segments of at least $7\%$ are
+  labeled. (B) Blaming minus defending differences in the mean within-post
+  certainty-$4$ proportion, in percentage points, with percentile $95\%$
+  intervals from $10{,}000$ whole-post bootstrap replicates. Low agreement
+  is $0.40\le\rho(p)\le0.60$ with exact ties excluded; high agreement is
+  $\rho(p)\le0.20$ or $\rho(p)\ge0.80$. Intermediate-agreement posts are
+  omitted. Counts give contributing posts in blaming/defending order.
+  The dagger and hollow contrast marker flag the small AITAH high-agreement
+  defending cohort ($15$ posts). These are between-cohort descriptive
+  contrasts, not temporal trajectories.}
+  \label{fig:certainty-low-high}
+\end{figure*}
+
 \subsection{Sensitivity to the Certainty Observation Window}
 \label{sec:appendix-certainty-window}
 
-The primary analysis uses all observed annotated comments in the low/high
+The supplementary certainty comparison uses all observed annotated comments in the low/high
 dataset. As a sensitivity analysis, we restrict comment arrival to $[0,18)$
 hours in both communities while retaining the final-verdict cohort labels.
-This window is motivated by AITA's 18-hour verdict reference, not selected
-to maximize separation between dissent directions. The restricted analysis
+This window is motivated by AITA's 18-hour verdict reference; the same cutoff
+in AITAH defines a comparable early period, not an equivalent institutional
+event. The restricted analysis
 includes $1{,}164$ contributing posts and $92{,}737$ minority comments,
 compared with $1{,}169$ posts and $104{,}135$ minority comments over the full
 observed period. Table~\ref{tab:certainty-window} reports the directional
@@ -209,7 +284,8 @@ the low-agreement intervals include zero under either window.
 \end{table*}
 
 To separate window sensitivity from changes in contributing posts, we also
-hold the post set fixed to first-18-hour contributors. Within high-agreement
+hold the post set fixed to first-18-hour contributors, using the same post
+weights for both windows in each bootstrap replicate. Within high-agreement
 AITA, the full-period contrast is then $0.071$ points rather than $0.090$
 in the first 18 hours, a change of $-0.019$ ($95\%$ paired-window bootstrap
 CI $[-0.035,-0.005]$). In high-agreement AITAH, the corresponding contrasts

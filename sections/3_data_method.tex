@@ -173,88 +173,54 @@ decoding settings, human-validation sample and protocol, and category-level
 performance. Distinguish prompt-development cases from held-out validation,
 and missing labels from the other category.]}
 
-\subsection{Temporal Expression and Certainty (RQ2)}
+\subsection{Minority Prevalence Over Time (RQ2)}
 \label{subsec:method-temporal}
 
-\paragraph{Expressed linguistic certainty.}
-Annotated comments receive a four-point ordinal score using the prompt in
-Appendix~\ref{sec:appendix-annotation}. Level $4$ denotes a single judgment
-asserted confidently; level $3$, a single judgment expressed with
-qualifications or a mild tone; level $2$, a leaning toward one judgment while
-acknowledging alternatives; and level $1$, an inability to settle on a
-judgment or unresolved conflicting judgments. The same criteria apply to NA
-and YA comments. The measure concerns expressed language, not latent attitude
-certainty. Certainty analyses are restricted to the annotated sample and its
-specified subsets.
-The extracted verdict label follows the first-match rule above even when
-the certainty annotation identifies unresolved or competing judgments.
-\textbf{[TODO: report the annotator model/version, decoding settings,
-and human validation.]}
+We examine the prevalence of blaming and defending dissent as discussions
+unfold, using eligible top-level verdict comments rather than restricting
+participation analyses to the certainty-annotated sample. High-agreement
+posts are the primary focus; low-agreement posts provide a comparison.
+Time is measured from submission to comment arrival.
 
-\paragraph{Directional certainty across the observed period.}
-\label{subsec:method-certainty-contrasts}
-We compare blaming and defending dissent separately in low- and
-high-agreement posts using all retained annotated comments observed after
-submission, without an upper elapsed-time cutoff. This is the full observed
-period in the archive, not necessarily a post's complete lifetime; follow-up
-coverage may differ across posts. Within each post, we calculate the mean minority certainty and
-the proportion of minority comments assigned certainty level $4$, retaining
-only YA/NA comments with valid scores in $\{1,2,3,4\}$. We then average these
-post-level quantities with equal weight per contributing post. Posts without
-a valid minority certainty observation in this period do not contribute;
-their certainty is not set to zero. The two dissent directions correspond
-to different post cohorts, not paired observations within the same post.
-
-For each community and agreement band, we report blaming minus defending
-differences in mean certainty and in the certainty-$4$ proportion. We obtain
-percentile $95\%$ confidence intervals from $10{,}000$ bootstrap replicates,
-resampling whole posts independently within each directional cohort. The
-same sampled-post weights are used across measures in a replicate, and
-intervals for differences are calculated from the replicate-level contrasts.
-These are marginal intervals for descriptive sample contrasts, without a
-joint multiplicity adjustment or population reweighting. Comparing whether
-two intervals individually exclude zero is not a test of a
-direction-by-agreement interaction. The dataset combines annotation versions
-\texttt{v4} and \texttt{v4.1}; we additionally examine version-restricted
-estimates as a sensitivity analysis.
-
-We also repeat the contrasts using comments arriving in $[0,18)$ hours after
-submission in both communities. The 18-hour reference for AITA's verdict
-process motivates this sensitivity window; the same cutoff in AITAH provides
-a comparable early-period summary, not an equivalent institutional event.
-We additionally compare the full-period and first-18-hour estimates on the
-same posts, restricted to those contributing a valid minority certainty
-observation before 18 hours. For these within-cohort window comparisons,
-each bootstrap replicate uses the same post weights for both windows.
-Final-verdict labels and agreement bands remain fixed across windows.
-This analysis assesses sensitivity to the time cutoff, not a causal effect
-of the verdict rule (Appendix~\ref{sec:appendix-certainty-window}).
-
-\paragraph{Arrival windows and minority share.}
-Time is measured from submission to comment arrival. We distinguish
-window-specific minority share---the fraction of verdict comments arriving
+\paragraph{Cumulative and window-specific minority share.}
+We distinguish window-specific minority share---the fraction of verdict comments arriving
 in a given window that express the relevant minority judgment---from
 cumulative share, which includes comments up to that time. Blaming share is
 computed within NA-dominant posts and defending share within YA-dominant
 posts, retaining the final-distribution labels throughout. Cumulative and
-window-specific shares are computed and reported separately.
-We examine share and certainty separately by direction and jointly as
-trajectories through successive arrival windows.
+window-specific shares address different aspects of participation and are
+reported separately. The displayed time range is specified for each figure.
+\textbf{[TODO: verify the cohort, time bins, comment-versus-post weighting,
+and uncertainty procedure for each share figure. Report contributing post
+and comment counts and the treatment of empty windows and truncated follow-up.]}
+Changes describe the composition of observed judgments, not a within-person
+panel: contributing posts and commenters can differ between windows.
 
-In the joint trajectory figure, windows are 0--1, 1--3, 3--6, 6--12, 12--24,
-24--48, and 48+ hours. The figure reports $95\%$ post-bootstrap confidence
-intervals for certainty. The current figure uses an earlier $604$-post
-high-agreement cohort and has not yet been regenerated for the revised
-sampling design. The contributing counts for each trajectory window must be
-reported for the high-agreement subset of the $1{,}195$-post dataset.
-\textbf{[TODO: specify the within-window aggregation and weighting for both
-axes, bootstrap repetitions and interval construction, minimum observations,
-and handling of posts without minority comments in a window. State the
-contributing post and comment counts and any end-of-observation truncation.]
-}
-The temporal unit of aggregation is an arrival window within a post cohort,
-not a within-person panel. Contributing posts and commenters can differ
-between windows.
+\subsection{Expressed Linguistic Certainty (Supplementary)}
+\label{subsec:method-certainty-contrasts}
+
+Separately from temporal participation, we characterize how confidently the
+two directions of dissent are expressed in the annotated low/high sample.
+The ordinal scale runs from unresolved judgment ($1$) to a confidently
+asserted single judgment ($4$); its prompt and definitions appear in
+Appendix~\ref{sec:appendix-annotation}. This measures expressed language,
+not latent attitude certainty. Verdict extraction still follows the
+first-match rule, even for comments annotated as unresolved.
+
+We use the full observed period without an upper elapsed-time cutoff,
+retaining YA/NA minority comments with valid certainty labels in
+$\{1,2,3,4\}$. Within each post, we calculate the proportions at each level
+and then average them with equal post weight. Posts without a valid minority
+certainty observation do not contribute and are not assigned zero.
+We summarize directional differences using the certainty-$4$ proportion,
+with $95\%$ percentile intervals from $10{,}000$ whole-post bootstrap
+replicates, independently resampling the two directional cohorts.
+Full-period distributions, mean-score contrasts, and annotation-version
+and first-18-hour sensitivity checks are reported in
+Appendices~\ref{sec:appendix-certainty-comparison}
+and~\ref{sec:appendix-certainty-window}. These are comparisons between
+post cohorts, not estimates of certainty changing over time. Archive
+follow-up may differ across posts and need not cover complete lifetimes.
 
 \paragraph{Descriptive scope and uncertainty.}
 Means over all eligible archive observations are descriptive quantities for
@@ -270,8 +236,9 @@ without documenting its selection.]}
 \label{subsec:method-community}
 
 We apply the same verdict definitions and outcome measures in each community
-and compare reception measures and temporal trajectories by dissent direction.
-Direct comparisons use the common temporal window specified above.
+and compare reception measures and the temporal prevalence of dissent.
+Direct comparisons use the common calendar period specified in
+Section~\ref{subsec:dataset}, with comment-arrival windows reported separately.
 Community membership is an observed grouping variable, not an experimentally
 assigned condition; no causal effect of a verdict rule is estimated.
 
