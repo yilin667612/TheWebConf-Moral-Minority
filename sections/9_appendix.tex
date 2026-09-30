@@ -382,3 +382,13 @@ $32.1$ days).
   them.}
   \label{fig:timing}
 \end{figure}
+
+
+\subsection{Comment Retrieval Timing}
+\label{sec:appendix-Retrieval Timing}
+
+Each comment in our dataset contains two timestamps: \texttt{created\_utc}, indicating when the comment was posted, and \texttt{retrieved\_on}, indicating when it was retrieved by the collection system. We define retrieval delay as the difference between these timestamps. This distinction matters because comment scores and reply activity can continue to accumulate after a comment is posted. Recorded reception measures may therefore reflect different observation ages.
+Our timestamp analysis identifies two collection regimes, separated by a transition in June 2023. Through May 2023, comments were generally retrieved retrospectively, with delays of tens or hundreds of days. From July 2023 onward, collection was nearly immediate: virtually all comments were retrieved within one hour, with monthly mean delays generally on the order of tens of seconds. Both AITA and AITAH exhibit this transition.
+However, our main analyses use post-level mean measures, which reduce the influence of differences in individual comment observation times. We therefore treat the recorded reception measures as observations from the available archive rather than standardized lifetime outcomes, and interpret differences in absolute scores and reply counts with caution. 
+
+
