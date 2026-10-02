@@ -14,7 +14,8 @@ comparison.
 The high-volume cohort comprises $28{,}107$ AITA and $8{,}217$ AITAH posts.
 The distribution of YA share is sharply bimodal, with a larger concentration
 near unanimous NA judgments than near unanimous YA judgments
-(Figure~\ref{fig:ya-share}). High-agreement posts account for $78.2\%$ of
+(Figure~\ref{fig:ya-share} for AITA; Appendix
+Figure~\ref{fig:aitah-ya-share} for AITAH). High-agreement posts account for $78.2\%$ of
 AITA and $81.6\%$ of AITAH posts, compared with $6.5\%$ and $4.7\%$ for
 low-agreement posts. NA is dominant in $75.7\%$ and $87.4\%$ of posts,
 respectively. High-agreement posts therefore constitute the larger
@@ -34,17 +35,20 @@ These accounts offer a possible interpretation of the prevalence of
 NA-dominant posts, without establishing either posters' motives or a
 community-wide preference against blame.
 
-\begin{figure*}[t]
+\begin{figure}[t]
   \centering
-  \includegraphics[width=\textwidth]{figures/ya_share_distribution.png}
-  \caption{Distribution of posts by final YA share $\rho(p)$ over the
-  high-volume cohort. The axis label \texttt{YA\_share} denotes $\rho(p)$,
-  displayed as a percentage. A share of $0$ means the crowd unanimously exculpated the OP, $1$
-  that it unanimously blamed them, and $0.5$ a dead tie. Both communities are
-  sharply bimodal with an almost empty middle, and the two modes are far from
-  symmetric: the exculpating peak is much the larger, especially in AITAH.}
+  \includegraphics[width=\columnwidth]{figures/reddit_ya_share_distribution.png}
+  \caption{Distribution of AITA posts by final YA share $\rho(p)$ in the
+  $200$-verdict cohort. The axis label \texttt{YA\_share} denotes $\rho(p)$,
+  displayed as a percentage. Shares of $0$ and $1$ indicate that all retained
+  verdicts exculpate or blame the OP, respectively; $0.5$ is an exact tie.
+  Shaded regions mark high-agreement posts ($\rho(p)\le0.2$ or $\ge0.8$).
+  The distribution is bimodal, with a substantially larger exculpating peak.
+  The corresponding AITAH distribution appears in
+  Appendix~\ref{sec:appendix-verdict-distribution},
+  Figure~\ref{fig:aitah-ya-share}.}
   \label{fig:ya-share}
-\end{figure*}
+\end{figure}
 
 In high-agreement posts, early verdict leaders more often match the final
 dominant judgment than in low-agreement posts
@@ -63,43 +67,35 @@ mean direct-reply counts are $0.14$ and $0.53$
 gap is smaller and the mean reply counts are closer: $0.26$ for majority
 and $0.30$ for minority comments. The AITAH comparison is reported under RQ3.
 
-\begin{figure}[t]
+\begin{figure*}[t]
     \centering
-    \includegraphics[width=\columnwidth]
-    {figures/engagement_by_consensus.png}
+    \includegraphics[width=\textwidth]
+    {figures/aita_reception_grouped_bars_full_min200.pdf}
 
-    \includegraphics[width=\columnwidth]{figures/aitah_engagement_by_side.png}
-
-    \caption{Comment scores and direct-reply counts by alignment and agreement level in AITA and AITAH. Posts satisfy $\mathrm{YANA\_total}\ge200$. This is the majority--minority baseline, not the matched-story analysis.}
+    \caption{Majority--minority reception across agreement levels in AITA:
+    mean comment score (upvotes minus downvotes), mean direct-reply count,
+    and mean maximum reply depth, from left to right. Bars compare majority
+    and minority comments within each agreement band; the panels use separate
+    linear scales. The analysis includes all $21{,}978$ high-agreement and
+    $1{,}838$ low-agreement posts with $\mathrm{YANA\_total}\ge200$, excluding
+    exact ties, comprising $13{,}038{,}967$ top-level verdict comments. Means
+    weight verdict comments equally and use the full available observation
+    period; depth zero denotes no replies. The corresponding AITAH chart is
+    provided in Appendix~\ref{sec:appendix-aitah-reception},
+    Figure~\ref{fig:aitah-engagement-full}.}
     \label{fig:engagement-by-consensus}
-\end{figure}
+\end{figure*}
 
-In the reply-tree sample, high-agreement AITA minority comments have a mean
-depth of $0.82$, compared with $0.13$ for majority comments; $15.7\%$ versus
-$2.5\%$ reach a depth of at least two
-(Figure~\ref{fig:reply-depth-comparison}). The differences narrow in
+In the full-cohort reply-tree analysis, high-agreement AITA minority comments have a mean
+depth of $0.79$, compared with $0.14$ for majority comments
+(Figure~\ref{fig:engagement-by-consensus}, right). Additionally, $15.2\%$ versus
+$2.5\%$ reach a depth of at least two. The differences narrow in
 low-agreement posts.
 
-\textbf{[TODO: verify that the reception figures incorporate AITAH's
-H-suffixed verdict aliases. Reconcile the full-data score/reply summaries
-with the sampled figures and report the sample for each comparison.]}
-
-\begin{figure}[t]
-    \centering
-
-    \includegraphics[width=\columnwidth]
-    {figures/reply_depth_AITA.png}
-
-    \vspace{0.5em}
-
-    \includegraphics[width=\columnwidth]
-    {figures/reply_depth_AITAH.png}
-
-    \caption{\textbf{Minority judgments generate deeper reply threads.}
-    Mean reply depth and the proportion of threads reaching a depth of at least two in AITA (top) and AITAH (bottom). Results compare majority- and minority-side comments across high-agreement and low-agreement posts with $\mathrm{YANA\_total} \geq 200$. INFO comments and exact 50/50 verdict ties are excluded. The majority--minority difference is largest in high-agreement posts and narrows substantially in low-agreement posts.}
-
-    \label{fig:reply-depth-comparison}
-\end{figure}
+\textbf{[TODO: verify whether stored verdict labels and cohort metadata
+incorporate AITAH's H-suffixed aliases. The full-cohort baseline retains the
+stored canonical labels and post-level verdict metadata, rather than
+re-extracting verdicts from comment text.]}
 
 \subsection{RQ1: Reception of Blaming and Defending Dissent}
 \label{subsec:res-direction}
@@ -222,11 +218,11 @@ the certainty-annotated sample for full-data participation estimates.]}
 AITAH reproduces the baseline score--reply pattern. In high-agreement posts,
 majority and minority comments have mean scores of $14.30$ and $-0.19$,
 and mean direct-reply counts of $0.12$ and $0.38$, respectively
-(Figure~\ref{fig:engagement-by-consensus}). In low-agreement posts, both
+(Appendix Figure~\ref{fig:aitah-engagement-full}). In low-agreement posts, both
 sides average $0.21$ replies. Mean reply depths in the high-agreement
-reply-tree sample are $0.12$ for majority and $0.65$ for minority comments;
-$2.0\%$ and $12.1\%$ reach depth two or more
-(Figure~\ref{fig:reply-depth-comparison}).
+full-cohort analysis are $0.12$ for majority and $0.67$ for minority comments
+(Appendix Figure~\ref{fig:aitah-engagement-full}, right); $2.1\%$ and $12.4\%$
+reach depth two or more.
 
 The directional comparison also recurs (Figure~\ref{fig:dissent-direction}).
 Blaming minority comments average $-0.6$, versus $14.7$ for their majority

@@ -10,6 +10,21 @@ for the high-volume cohort, including verdict dominance, agreement categories,
 and minority-share percentiles. Selected cohort statistics are reported in
 \S\ref{subsec:res-distribution}.
 
+Figure~\ref{fig:aitah-ya-share} shows the AITAH counterpart of the AITA
+distribution in Figure~\ref{fig:ya-share}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aitah_ya_share_distribution.png}
+  \caption{Distribution of AITAH posts by final YA share $\rho(p)$ in the
+  $200$-verdict cohort. Shaded regions mark high-agreement posts
+  ($\rho(p)\le0.2$ or $\ge0.8$); the vertical line at $0.5$ separates
+  NA-dominant from YA-dominant posts. As in AITA, the distribution is
+  concentrated near the extremes, with a substantially larger NA-dominant
+  concentration. The horizontal axis reports $\rho(p)$ as a percentage.}
+  \label{fig:aitah-ya-share}
+\end{figure}
+
 \begin{table}[t]
   \centering
   \begin{tabular}{@{}lrr@{}}
@@ -82,6 +97,31 @@ checkpoint or sample definition.]}
   $\mathrm{YANA\_total}\geq200$.}
   \label{fig:consensus-stabilization}
 \end{figure}
+
+\subsection{Score, Replies, and Reply Depth in AITAH}
+\label{sec:appendix-aitah-reception}
+
+Figure~\ref{fig:aitah-engagement-full} reports the AITAH counterpart of the
+AITA baseline figure. The analysis
+includes all eligible high- and low-agreement posts in the $200$-verdict
+cohort, excluding exact ties, without post subsampling. Estimates pool
+retained top-level verdict comments with equal comment weight and use all
+available linked replies, without an additional elapsed-time cutoff.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/aitah_reception_grouped_bars_full_min200.pdf}
+  \caption{Majority--minority reception in AITAH: mean comment score,
+  mean direct-reply count, and mean maximum reply depth, from left to right.
+  Bars show equal-comment means across all $6{,}709$ eligible high-agreement
+  and $388$ low-agreement posts with at least $200$ retained verdicts,
+  comprising $4{,}122{,}998$ top-level verdict comments. Exact ties are excluded,
+  and reception uses the full observed period. Each metric uses the same linear axis
+  range as its AITA counterpart in Figure~\ref{fig:engagement-by-consensus}.
+  Score is recorded upvotes minus downvotes; direct replies are immediate
+  children of the verdict comment, and depth zero denotes no replies.}
+  \label{fig:aitah-engagement-full}
+\end{figure*}
 
 \subsection{Verdict Tags in AITA and AITAH}
 \label{sec:appendix-tags}
@@ -317,10 +357,13 @@ The original post provides context. The template supplies no explicit
 minority/majority labels, agreement-level metadata, or comment scores;
 these analytical variables are kept separate from the annotation input.
 
-\textbf{[TODO:]} report the prompt-refinement and human--model comparison
-procedure, distinguishing agreement on prompt-development examples from
-independent held-out evaluation. Ensure that the reproduced template matches
-the prompt used for the reported annotations.
+The three high-agreement annotation samples use prompt version
+\texttt{v0.3.3}. This version distinguishes a reply's central stance from
+local refinements: a qualification preserving the parent's central position
+can remain support, whereas a substantive rebuttal of that position,
+reasoning, or recommendation can be challenge.
+\textbf{[TODO: verify the reproduced template against the exact frozen
+\texttt{v0.3.3} system and user prompts.]}
 
 Figure~\ref{fig:rq2-prompt} presents the system prompt, including the category
 definitions, boundary rules, and JSON output schema. In the user template, the Pair ID and four text
@@ -329,14 +372,33 @@ comment, and direct child reply, respectively.
 
 \input{components/box_rq2_prompt}
 
-\paragraph{Human validation and illustrative exchanges.}
-\textbf{[TODO:]} report the validation sample and annotation procedure, annotator
-agreement and adjudication where applicable, model/version and decoding
-settings, and performance by response category. State whether validation cases
-were used to refine the prompt or reserved for held-out evaluation. Add a small
-set of verified parent--child examples, including rhetorical challenges and
-genuine information requests; distinguish illustrative examples from evidence
-about response prevalence.
+\paragraph{Execution and repeatability.}
+All three samples were labeled using temperature $0$, disabled thinking, and
+ten concurrent individual requests. The first sample retained the request
+alias \texttt{deepseek-v4-flash}; the second and third requested
+\texttt{deepseek-flash}. Successful responses reported
+\texttt{deepseek-flash}, documented during execution as V4.1 Flash.
+These aliases do not fix an immutable backend version. Raw prompts,
+responses, settings, and attempt records were retained. A pre-annotation
+repeatability check submitted each of $32$ frozen examples, four per stratum,
+in three fresh requests under the same configuration. This checks categorical
+repeatability, not annotation accuracy.
+
+\paragraph{Human review and validation scope.}
+The development set contains $100$ author-verified non-OP pairs: $80$
+retained from the earlier review set and $20$ replacements for OP-involved
+pairs. Human labels were completed and revised after inspection of model
+disagreements. The recorded human--model agreement is $91/100$ across all
+four categories and $88/93$ on the subset labeled support or challenge by
+the human reviewer. Predictions outside those two categories remain
+disagreements in the subset calculation. Because the examples informed
+prompt development and label review, these figures are development-set
+agreement, not independent held-out accuracy or inter-annotator reliability.
+% Source: ying_reports/Minority_Voices_AITA_Experiments_07_report_2026-09-17.html.
+\textbf{[TODO: report human-annotator number, qualifications, and review
+procedure in full; add independent held-out and category-level evaluation
+if completed. Select verified parent--child examples separately from
+prevalence estimates and apply the paper's publication-privacy safeguards.]}
 
 
 \subsection{Cross-Community User Overlap}
@@ -389,6 +451,9 @@ $32.1$ days).
 
 Each comment in our dataset contains two timestamps: \texttt{created\_utc}, indicating when the comment was posted, and \texttt{retrieved\_on}, indicating when it was retrieved by the collection system. We define retrieval delay as the difference between these timestamps. This distinction matters because comment scores and reply activity can continue to accumulate after a comment is posted. Recorded reception measures may therefore reflect different observation ages.
 Our timestamp analysis identifies two collection regimes, separated by a transition in June 2023. Through May 2023, comments were generally retrieved retrospectively, with delays of tens or hundreds of days. From July 2023 onward, collection was nearly immediate: virtually all comments were retrieved within one hour, with monthly mean delays generally on the order of tens of seconds. Both AITA and AITAH exhibit this transition.
-However, our main analyses use post-level mean measures, which reduce the influence of differences in individual comment observation times. We therefore treat the recorded reception measures as observations from the available archive rather than standardized lifetime outcomes, and interpret differences in absolute scores and reply counts with caution. 
-
-
+The baseline score, direct-reply, and reply-depth analyses pool comments
+with equal comment weight; they do not average post-level means. This
+aggregation does not remove differences in observation age. We therefore
+treat recorded reception measures as observations from the available archive
+rather than standardized lifetime outcomes, and interpret differences in
+absolute scores and reply counts with caution.
