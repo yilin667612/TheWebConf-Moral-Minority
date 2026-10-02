@@ -208,6 +208,15 @@ parent links within each post, and maximum depth is computed beneath each
 retained verdict comment. This computation is checked against the original
 recursive database traversal on selected comment subtrees.
 
+For the arrival-hour comparison, we group parent verdict comments posted
+within $[0,18)$ hours into one-hour bins and calculate pooled means, medians,
+and empirical percentile ranges. High-agreement majority and minority
+comments are kept separate; low-agreement verdict comments are pooled as
+a reference distribution. Only parent arrival is restricted: scores and
+direct replies retain the same archive-wide observation definitions.
+Percentiles use linear interpolation between adjacent ordered observations.
+Display-axis transformations do not change the underlying estimates.
+
 \paragraph{Direct-response annotation.}
 \label{subsec:method-rq2}
 The annotation unit is a pair consisting of a top-level verdict comment and

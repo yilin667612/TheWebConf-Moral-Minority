@@ -457,3 +457,28 @@ aggregation does not remove differences in observation age. We therefore
 treat recorded reception measures as observations from the available archive
 rather than standardized lifetime outcomes, and interpret differences in
 absolute scores and reply counts with caution.
+
+\subsection{Reception by Comment Arrival Hour in AITAH}
+\label{sec:appendix-aitah-arrival}
+
+Figure~\ref{fig:aitah-arrival-reception} provides the AITAH counterpart of
+Figure~\ref{fig:comment-engagement-over-time}, using the same cohort rules,
+hourly bins, summaries, colors, and display scales.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/aitah_arrival_reception_symlog.pdf}
+  \caption{Comment scores and direct replies by arrival hour in AITAH.
+  Columns distinguish high-agreement majority and minority verdict comments
+  from the pooled low-agreement reference. Solid lines with markers denote
+  means; dashed lines denote medians. Dark and light bands show empirical
+  $25$th--$75$th and $10$th--$90$th percentile ranges, not confidence intervals.
+  Vertical axes use the same symmetric-log transformation and limits as
+  Figure~\ref{fig:comment-engagement-over-time}: linear within $\pm1$ score
+  point or $\pm0.01$ replies and logarithmic outside, with ticks in raw units.
+  Eligible parent comments arrive within $[0,18)$ hours in high- or
+  low-agreement posts with at least $200$ verdicts; exact ties are excluded.
+  Scores and direct replies use all available recorded outcomes, with no
+  corresponding cutoff on reply arrival.}
+  \label{fig:aitah-arrival-reception}
+\end{figure*}

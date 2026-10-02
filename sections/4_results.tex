@@ -67,7 +67,8 @@ mean direct-reply counts are $0.14$ and $0.53$
 gap is smaller and the mean reply counts are closer: $0.26$ for majority
 and $0.30$ for minority comments. The AITAH comparison is reported under RQ3.
 
-\begin{figure*}[t]
+% Keep the baseline and its arrival-hour breakdown together, with separate numbers.
+\begin{figure*}[tp]
     \centering
     \includegraphics[width=\textwidth]
     {figures/aita_reception_grouped_bars_full_min200.pdf}
@@ -84,6 +85,25 @@ and $0.30$ for minority comments. The AITAH comparison is reported under RQ3.
     provided in Appendix~\ref{sec:appendix-aitah-reception},
     Figure~\ref{fig:aitah-engagement-full}.}
     \label{fig:engagement-by-consensus}
+
+    \medskip
+    \includegraphics[width=\textwidth]
+    {figures/aita_arrival_reception_symlog.pdf}
+    \caption{Comment scores and direct replies by arrival hour in AITA.
+    Columns show majority and minority verdicts in high-agreement posts,
+    and all verdicts pooled in low-agreement posts. Solid lines with markers
+    show hourly means; dashed lines show medians. Dark and light bands span
+    the $25$th--$75$th and $10$th--$90$th percentiles of comments, respectively,
+    not confidence intervals. Symmetric-log vertical axes retain zero and
+    negative scores while compressing the long tail; they are linear within
+    $\pm1$ score point and $\pm0.01$ replies, and logarithmic outside these
+    ranges. Tick labels remain in original units. Parent comments arrive
+    within the first $18$ hours in the same $200$-verdict cohort as
+    Figure~\ref{fig:engagement-by-consensus}; exact ties are excluded.
+    Scores and direct replies are the final recorded outcomes, not outcomes
+    measured at arrival or restricted to the first $18$ hours. The AITAH
+    counterpart appears in Appendix Figure~\ref{fig:aitah-arrival-reception}.}
+    \label{fig:comment-engagement-over-time}
 \end{figure*}
 
 In the full-cohort reply-tree analysis, high-agreement AITA minority comments have a mean
@@ -96,6 +116,15 @@ low-agreement posts.
 incorporate AITAH's H-suffixed aliases. The full-cohort baseline retains the
 stored canonical labels and post-level verdict metadata, rather than
 re-extracting verdicts from comment text.]}
+
+\paragraph{Reception by comment arrival time.}
+Figure~\ref{fig:comment-engagement-over-time} disaggregates the baseline
+by arrival hour during the first $18$ hours. Early majority comments have
+higher recorded scores, while early minority comments receive more direct
+replies than later minority comments. These are recorded reception outcomes
+grouped by comment arrival hour, not repeated observations of a comment's
+score or replies over its lifetime. The distributional bands describe
+variation across comments rather than uncertainty in the hourly means.
 
 \subsection{RQ1: Reception of Blaming and Defending Dissent}
 \label{subsec:res-direction}
@@ -144,37 +173,6 @@ counts, and uncertainty by stratum. Report blaming--defending contrasts
 separately: the majority--minority challenge difference alone does not
 establish which direction receives the higher challenge proportion.
 Complete annotation validation before presenting these as final estimates.]}
-
-\paragraph{Reception by comment arrival time.}
-Among comments arriving during the first 18 hours, those posted in the first
-hour have the highest mean scores and direct-reply counts
-(Figure~\ref{fig:comment-engagement-over-time}). In high-agreement AITA
-posts, the minority reply advantage is most pronounced among early comments
-and becomes smaller for later arrivals. These are recorded reception outcomes
-grouped by comment arrival hour, not repeated observations of a comment's
-score or replies over its lifetime.
-
-\begin{figure}[t]
-    \centering
-
-    \includegraphics[width=\columnwidth]
-    {figures/comment_engagement_aita.png}
-
-    \vspace{0.5em}
-
-    \includegraphics[width=\columnwidth]
-    {figures/comment_engagement_aitah.png}
-
-    \caption{\textbf{Comment engagement is concentrated in the earliest hours after submission.}
-    Comment scores and direct replies by arrival hour for majority, minority,
-    and comments in low-agreement posts in AITA (top) and AITAH (bottom).
-    Lines show hourly means and medians, while shaded regions show the
-    interquartile and 10th--90th percentile ranges. Analyses are restricted to
-    the first 18 hours and posts with $\mathrm{YANA\_total} \geq 200$; INFO
-    comments are excluded.}
-
-    \label{fig:comment-engagement-over-time}
-\end{figure}
 
 \subsection{RQ2: Prevalence of Blaming and Defending Dissent Over Time}
 \label{subsec:res-temporal}
