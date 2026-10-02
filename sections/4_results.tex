@@ -68,9 +68,9 @@ gap is smaller and the mean reply counts are closer: $0.26$ for majority
 and $0.30$ for minority comments. The AITAH comparison is reported under RQ3.
 
 % Keep the baseline and its arrival-hour breakdown together, with separate numbers.
-\begin{figure*}[tp]
+\begin{figure}[tp]
     \centering
-    \includegraphics[width=\textwidth]
+    \includegraphics[width=\columnwidth]
     {figures/aita_reception_grouped_bars_full_min200.pdf}
 
     \caption{Majority--minority reception across agreement levels in AITA:
@@ -87,7 +87,7 @@ and $0.30$ for minority comments. The AITAH comparison is reported under RQ3.
     \label{fig:engagement-by-consensus}
 
     \medskip
-    \includegraphics[width=\textwidth]
+    \includegraphics[width=\columnwidth]
     {figures/aita_arrival_reception_symlog.pdf}
     \caption{Comment scores and direct replies by arrival hour in AITA.
     Columns show majority and minority verdicts in high-agreement posts,
@@ -104,7 +104,7 @@ and $0.30$ for minority comments. The AITAH comparison is reported under RQ3.
     measured at arrival or restricted to the first $18$ hours. The AITAH
     counterpart appears in Appendix Figure~\ref{fig:aitah-arrival-reception}.}
     \label{fig:comment-engagement-over-time}
-\end{figure*}
+\end{figure}
 
 In the full-cohort reply-tree analysis, high-agreement AITA minority comments have a mean
 depth of $0.79$, compared with $0.14$ for majority comments
@@ -133,28 +133,37 @@ variation across comments rather than uncertainty in the hourly means.
 Figure~\ref{fig:dissent-direction} separates blaming and defending dissent
 in high-agreement posts, each with majority comments in the same dominant-
 verdict context as a reference. In AITA, blaming minority comments have a
-mean score of $-3.2$, versus $37.2$ for majority comments in NA-dominant
-posts. Defending minority comments have a mean score of $-2.4$, versus
-$35.4$ for majority comments in YA-dominant posts. Both directions therefore
+mean score of $-2.92$, versus $37.73$ for majority comments in NA-dominant
+posts. Defending minority comments have a mean score of $-2.36$, versus
+$38.54$ for majority comments in YA-dominant posts. Both directions therefore
 reproduce the minority score disadvantage.
 
-Replies show the opposite ordering. More than one direct reply is recorded
-for $29.3\%$ of blaming minority comments and $17.2\%$ of defending minority
-comments, compared with $4.6\%$ and $4.1\%$ of their respective majority
-baselines. These percentages concern more than one reply, not receipt of
-any reply. Blaming dissent has the lower mean score and a $1.70$-fold higher
-rate of drawing more than one reply than defending dissent.
-
-The existing depth summary reports that $17.8\%$ of blaming and $9.5\%$ of
-defending minority comments seed subtrees deeper than two levels, a ratio
-of $1.87$. \textbf{[TODO: verify whether this cutoff is depth greater than
-2 or at least 2, supply the direction-specific depth figure or table, and
-report the contributing post/comment counts and uncertainty.]}
+Replies show the opposite ordering. Blaming and defending minority comments
+average $0.63$ and $0.32$ direct replies, respectively, compared with $0.14$
+for each majority baseline. Mean maximum reply depth is $0.92$ for blaming
+and $0.49$ for defending, versus $0.14$ and $0.12$ for their respective
+majority baselines. Comments without replies have depth zero. Blaming
+dissent thus receives $1.98$ times as many direct replies and has $1.86$
+times the mean maximum depth of defending dissent. These are descriptive
+comparisons between different dominant-verdict cohorts, not causal effects.
+\textbf{[TODO: report post-cluster uncertainty for directional contrasts.]}
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/direction.png}
-  \caption{Comment scores and the proportion of verdict comments receiving more than one direct reply, separately for blaming and defending dissent and their respective majority baselines. AITA is discussed in RQ1 and AITAH in RQ3. \textbf{[TODO: confirm whether the displayed score/reply values use all eligible comments or the previously reported 1,500-post sample per community; update the figure's ``Accusing'' labels to ``Blaming''.]}}
+  \includegraphics[width=\columnwidth]{figures/aita_dissent_direction.pdf}
+  \caption{Reception of blaming and defending dissent in high-agreement
+  AITA posts. Minority judgments are separated into blaming
+  (YA in NA-dominant posts, orange) and defending (NA in YA-dominant posts,
+  green); gray bars show the majority reference used in
+  Figure~\ref{fig:engagement-by-consensus}. Bars compare each direction with
+  majority comments in the same dominant-verdict context. From left to right,
+  panels show mean comment score, mean direct-reply count, and mean maximum
+  reply depth (zero for comments without replies). Estimates weight comments
+  equally over the full observed period and use all $21{,}978$ eligible
+  high-agreement AITA posts with at least $200$ retained verdict comments,
+  comprising $12{,}080{,}072$ verdict comments.
+  The AITAH counterpart appears in Appendix
+  Figure~\ref{fig:aitah-dissent-direction}.}
     \label{fig:dissent-direction}
 \end{figure}
 
@@ -222,15 +231,16 @@ full-cohort analysis are $0.12$ for majority and $0.67$ for minority comments
 (Appendix Figure~\ref{fig:aitah-engagement-full}, right); $2.1\%$ and $12.4\%$
 reach depth two or more.
 
-The directional comparison also recurs (Figure~\ref{fig:dissent-direction}).
-Blaming minority comments average $-0.6$, versus $14.7$ for their majority
-baseline; defending minority comments average $1.1$, versus $11.2$.
-The proportions receiving more than one reply are $22.7\%$ for blaming and
-$12.8\%$ for defending, against $4.1\%$ for each majority baseline.
-The blaming-to-defending reply ratio is $1.77$, compared with $1.70$ in AITA.
-The reported depth-threshold rates are $13.2\%$ and $7.2\%$ (ratio $1.83$),
-subject to the cutoff verification noted under RQ1. Thus, the directional
-ordering is shared, although the raw score gaps and reply rates differ.
+The directional comparison also recurs
+(Appendix Figure~\ref{fig:aitah-dissent-direction}).
+Blaming minority comments average $-0.42$, versus $14.88$ for their majority
+baseline; defending minority comments average $1.03$, versus $9.73$.
+Mean direct-reply counts are $0.41$ for blaming and $0.23$ for defending,
+against $0.12$ for each majority baseline. The blaming-to-defending reply
+ratio is $1.80$, compared with $1.98$ in AITA. Mean maximum reply depths are
+$0.72$ and $0.41$, respectively, versus $0.12$ for each majority baseline.
+Thus, the directional ordering is shared, although the raw score gaps and
+mean reply counts differ.
 \textbf{[TODO: report uncertainty for between-community contrasts and confirm
 that all direct comparisons use the common calendar period.]}
 

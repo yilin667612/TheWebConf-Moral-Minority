@@ -1,6 +1,17 @@
-\begin{figure*}[p]
-\begin{tcolorbox}[colback=gray!5, colframe=black!50, title=Task Prompt, 
-width=\textwidth, fontupper=\small, left=2mm, right=2mm, top=2mm, bottom=2mm]
+\begin{figure*}[t]
+\centering
+\small
+\begin{minipage}{0.97\textwidth}
+
+\colorbox{gray!15}{%
+  \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+    \textbf{Task Prompt}
+  }%
+}
+
+\vspace{0.5em}
+\hrule
+\vspace{0.6em}
 
 \textbf{Task:} In the AmITheAsshole subreddit, rate the certainty of the commenter in the chosen judgement, using a Likert scale from 1 to 4.
 
@@ -48,8 +59,10 @@ For the above post and comment, provide your answer as a JSON object with the fo
 
 \{``Reason": ``\textless str\textgreater your step-by-step reasoning for the commenter's certainty in the chosen judgement", ``Certainty": ``\textless int\textgreater"\}
 
-\end{tcolorbox}
-\vspace{-8pt}
+\vspace{0.6em}
+\hrule
+\end{minipage}
+
 \caption{The annotation prompt used to score the certainty of a top-level
 verdict comment on a four-point scale. The scale targets how firmly a judgment
 is asserted, not which judgment it is: level $4$ is a single judgment stated

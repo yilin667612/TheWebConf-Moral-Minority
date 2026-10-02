@@ -108,9 +108,9 @@ cohort, excluding exact ties, without post subsampling. Estimates pool
 retained top-level verdict comments with equal comment weight and use all
 available linked replies, without an additional elapsed-time cutoff.
 
-\begin{figure*}[t]
+\begin{figure}[t]
   \centering
-  \includegraphics[width=\textwidth]{figures/aitah_reception_grouped_bars_full_min200.pdf}
+  \includegraphics[width=\columnwidth]{figures/aitah_reception_grouped_bars_full_min200.pdf}
   \caption{Majority--minority reception in AITAH: mean comment score,
   mean direct-reply count, and mean maximum reply depth, from left to right.
   Bars show equal-comment means across all $6{,}709$ eligible high-agreement
@@ -121,7 +121,7 @@ available linked replies, without an additional elapsed-time cutoff.
   Score is recorded upvotes minus downvotes; direct replies are immediate
   children of the verdict comment, and depth zero denotes no replies.}
   \label{fig:aitah-engagement-full}
-\end{figure*}
+\end{figure}
 
 \subsection{Verdict Tags in AITA and AITAH}
 \label{sec:appendix-tags}
@@ -259,9 +259,9 @@ composition cannot be separated. These full-period contrasts do not
 establish increasing certainty, temporal convergence, or individual
 attitude change.
 
-\begin{figure*}[t]
+\begin{figure}[t]
   \centering
-  \includegraphics[width=\textwidth]{figures/certainty_distribution_low_high_full_period.pdf}
+  \includegraphics[width=\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
   \caption{\textbf{Supplementary comparison of expressed certainty over the
   full observed period.} (A) Certainty-$1$--$4$ distributions, calculated
   within posts and then averaged with equal post weight. Colors indicate
@@ -276,7 +276,7 @@ attitude change.
   defending cohort ($15$ posts). These are between-cohort descriptive
   contrasts, not temporal trajectories.}
   \label{fig:certainty-low-high}
-\end{figure*}
+\end{figure}
 
 \subsection{Sensitivity to the Certainty Observation Window}
 \label{sec:appendix-certainty-window}
@@ -465,9 +465,9 @@ Figure~\ref{fig:aitah-arrival-reception} provides the AITAH counterpart of
 Figure~\ref{fig:comment-engagement-over-time}, using the same cohort rules,
 hourly bins, summaries, colors, and display scales.
 
-\begin{figure*}[t]
+\begin{figure}[t]
   \centering
-  \includegraphics[width=\textwidth]{figures/aitah_arrival_reception_symlog.pdf}
+  \includegraphics[width=\columnwidth]{figures/aitah_arrival_reception_symlog.pdf}
   \caption{Comment scores and direct replies by arrival hour in AITAH.
   Columns distinguish high-agreement majority and minority verdict comments
   from the pooled low-agreement reference. Solid lines with markers denote
@@ -481,4 +481,26 @@ hourly bins, summaries, colors, and display scales.
   Scores and direct replies use all available recorded outcomes, with no
   corresponding cutoff on reply arrival.}
   \label{fig:aitah-arrival-reception}
-\end{figure*}
+\end{figure}
+
+\subsection{Blaming and Defending Dissent in AITAH}
+\label{sec:appendix-aitah-direction}
+
+Figure~\ref{fig:aitah-dissent-direction} shows the AITAH counterpart of
+Figure~\ref{fig:dissent-direction}, with the same colors and axis ranges.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aitah_dissent_direction.pdf}
+  \caption{Reception of blaming and defending dissent in high-agreement
+  AITAH posts. Gray bars show majority comments; orange and green bars
+  distinguish blaming and defending minority comments, respectively.
+  From left to right, panels show mean comment score, mean direct-reply
+  count, and mean maximum reply depth (zero for comments without replies).
+  Each minority direction is compared with its own majority reference in
+  the same dominant-verdict context. Estimates weight comments equally
+  over the full observed period and use all $6{,}709$ eligible high-agreement
+  AITAH posts with at least $200$ retained verdict comments, comprising
+  $3{,}912{,}346$ verdict comments.}
+  \label{fig:aitah-dissent-direction}
+\end{figure}
