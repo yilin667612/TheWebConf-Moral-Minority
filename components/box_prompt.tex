@@ -63,13 +63,9 @@ For the above post and comment, provide your answer as a JSON object with the fo
 \hrule
 \end{minipage}
 
-\caption{The annotation prompt used to score the certainty of a top-level
-verdict comment on a four-point scale. The scale targets how firmly a judgment
-is asserted, not which judgment it is: level $4$ is a single judgment stated
-with confident or emphatic language, level $3$ a single judgment carrying
-qualifications, level $2$ a leaning that still allows a competing verdict, and
-level $1$ a comment that resolves to no single judgment. Examples at each level
-are abridged here; the placeholders \{post\} and \{comment\} are filled with
-the submission text and the comment being scored.}
+\caption{Prompt for annotating expressed certainty in top-level verdict
+comments on a four-point scale. It defines certainty independently of verdict
+direction and includes abridged examples. Submission and comment text replace
+the input placeholders.}
 \label{fig:prompt}
 \end{figure*}

@@ -22,6 +22,13 @@ cohort, $80.6\%$ of posts are NA-dominant. Consequently, the more common
 setting for dissent is one in which a minority assigns blame to an OP whom
 most commenters excuse.
 
+Post frequency and discussion volume are distinct. The red line in
+Figure~\ref{fig:ya-share} shows mean retained top-level verdicts per post
+within each YA-share bin. Although NA-dominant posts are more numerous,
+the average verdict count is higher toward the YA end, particularly near
+unanimous YA judgments. The two axes therefore distinguish how often a
+judgment context occurs from how many verdict comments its posts attract.
+
 This distribution does not establish a community-wide aversion to blame.
 The stories are supplied by the people whose conduct is being judged.
 Research on authors' dual roles as characters and narrators
@@ -34,15 +41,10 @@ distributional summary.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/reddit_ya_share_distribution.pdf}
-  \caption{Distribution of AITA posts by final YA share $\rho(p)$ in the
-  $200$-verdict cohort. The axis label \texttt{YA\_share} denotes $\rho(p)$,
-  displayed as a percentage. Shares of $0$ and $1$ indicate that all retained
-  verdicts exculpate or blame the OP, respectively; $0.5$ is an exact tie.
-  Shaded regions mark high-agreement posts ($\rho(p)\le0.2$ or $\ge0.8$).
-  The distribution is bimodal, with a substantially larger exculpating peak.
-  The corresponding AITAH distribution appears in
-  Appendix~\ref{sec:appendix-verdict-distribution},
-  Figure~\ref{fig:aitah-ya-share}.}
+\caption{AITA posts by final YA share $\rho(p)$. Bars show post counts
+  (left axis); the red line shows mean top-level verdicts per post (right
+  axis). Shading marks high agreement. See Figure~\ref{fig:aitah-ya-share}
+  for AITAH.}
   \label{fig:ya-share}
 \end{figure}
 
@@ -79,35 +81,20 @@ descriptive contrasts, not estimates of an effect of agreement strength.
     \includegraphics[width=\columnwidth]
     {figures/aita_reception_grouped_bars_full_min200.pdf}
 
-    \caption{Majority--minority reception across agreement levels in AITA.
-    mean comment score (upvotes minus downvotes), mean direct-reply count, and mean maximum reply depth, from left to right. Bars compare majority
-    and minority comments within each agreement band; the panels use separate
-    linear scales. The analysis includes all $21{,}978$ high-agreement and
-    $1{,}838$ low-agreement posts with $\mathrm{YANA\_total}\ge200$, excluding
-    exact ties, comprising $13{,}038{,}967$ top-level verdict comments. Means
-    weight verdict comments equally and use the full available observation
-    period; depth zero denotes no replies. The corresponding AITAH chart is
-    provided in Appendix~\ref{sec:appendix-aitah-reception},
-    Figure~\ref{fig:aitah-engagement-full}.}
+\caption{Majority--minority reception in AITA by agreement level:
+    mean score, direct-reply count, and maximum reply depth (left to right).
+    Panels use separate linear scales. The AITAH counterpart appears in
+    Appendix Figure~\ref{fig:aitah-engagement-full}.}
     \label{fig:engagement-by-consensus}
 
     \medskip
     \includegraphics[width=\columnwidth]
     {figures/aita_arrival_reception_symlog.pdf}
-    \caption{Comment scores and direct replies by arrival hour in AITA.
-    Columns show majority and minority verdicts in high-agreement posts,
-    and all verdicts pooled in low-agreement posts. Solid lines with markers
-    show hourly means; dashed lines show medians. Dark and light bands span
-    the $25$th--$75$th and $10$th--$90$th percentiles of comments, respectively,
-    not confidence intervals. Symmetric-log vertical axes retain zero and
-    negative scores while compressing the long tail; they are linear within
-    $\pm1$ score point and $\pm0.01$ replies, and logarithmic outside these
-    ranges. Tick labels remain in original units. Parent comments arrive
-    within the first $18$ hours in the same $200$-verdict cohort as
-    Figure~\ref{fig:engagement-by-consensus}; exact ties are excluded.
-    Scores and direct replies are the final recorded outcomes, not outcomes
-    measured at arrival or restricted to the first $18$ hours. The AITAH
-    counterpart appears in Appendix Figure~\ref{fig:aitah-arrival-reception}.}
+\caption{AITA reception by comment arrival hour. Solid and dashed
+    lines show means and medians; dark/light bands show the
+    25th--75th/10th--90th percentiles, not confidence intervals.
+    Symmetric-log axes retain zero and negative scores. See
+    Figure~\ref{fig:aitah-arrival-reception} for AITAH.}
     \label{fig:comment-engagement-over-time}
 \end{figure}
 
@@ -173,19 +160,10 @@ with more replies and deeper reply trees than challenging collective blame.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aita_dissent_direction_infographics.pdf}
-  \caption{Reception of blaming and defending dissent in high-agreement
-  AITA posts. Minority judgments are separated into blaming
-  (YA in NA-dominant posts, orange) and defending (NA in YA-dominant posts,
-  green); gray bars show the majority reference used in
-  Figure~\ref{fig:engagement-by-consensus}. Bars compare each direction with
-  majority comments in the same dominant-verdict context. From left to right,
-  panels show mean comment score, mean direct-reply count, and mean maximum
-  reply depth (zero for comments without replies). Estimates weight comments
-  equally over the full observed period and use all $21{,}978$ eligible
-  high-agreement AITA posts with at least $200$ retained verdict comments,
-  comprising $12{,}080{,}072$ verdict comments.
-  The AITAH counterpart appears in Appendix
-  Figure~\ref{fig:aitah-dissent-direction}.}
+\caption{Reception of blaming (orange) and defending (green)
+  dissent in high-agreement AITA posts, with their respective majority
+  references (gray). Panels show mean score, direct-reply count, and maximum
+  reply depth. See Figure~\ref{fig:aitah-dissent-direction} for AITAH.}
     \label{fig:dissent-direction}
 \end{figure}
 
@@ -299,7 +277,11 @@ therefore coexists with different descriptive participation patterns.
     \includegraphics[width=\columnwidth]
     {figures/aitah_minority_verdict_ratio.png}
 
-    \caption{Cumulative minority-verdict shares during the first 24 hours in high-agreement AITA (top) and AITAH (bottom) posts with at least 200 verdicts. Blaming share is calculated within NA-dominant posts and defending share within YA-dominant posts. These curves include comments up to each time point, unlike window-specific minority shares.}
+\caption{Cumulative minority-verdict shares in high-agreement
+    AITA (top) and AITAH (bottom) posts during the first day.
+    Blaming dissent occurs in NA-dominant posts; defending dissent occurs
+    in YA-dominant posts. Curves accumulate comments rather than showing
+    window-specific shares.}
     \label{fig:minority-ratio-time}
 \end{figure}
 

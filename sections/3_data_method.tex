@@ -76,6 +76,12 @@ Appendix~\ref{sec:appendix-aitah-reception}.
 Directional score, direct-reply, and reply-depth comparisons use the
 high-agreement subset of this same cohort, split by dominant verdict.
 Separate legacy subtree-score outputs are not used for these comparisons.
+The reception cohort contains $21{,}978$ high-agreement and $1{,}838$
+low-agreement AITA posts, comprising $13{,}038{,}967$ retained top-level
+verdict comments. The corresponding AITAH counts are $6{,}709$ and $388$
+posts, comprising $4{,}122{,}998$ verdict comments. The high-agreement
+directional comparisons use $12{,}080{,}072$ AITA and $3{,}912{,}346$ AITAH
+verdict comments from these same cohorts.
 % Full-cohort refresh: full_reception_collect.py and plot_full_reception.py;
 % output/reception_full_min200_20261002/posts.jsonl and summary.json.
 
@@ -168,6 +174,17 @@ $0.40\le\rho(p)\le0.60$, excluding ties. Intermediate bands are omitted
 from the main low/high comparison. Low-agreement posts provide a comparison
 for our primary focus on minority judgments in high-agreement posts.
 
+The distribution plots (Figures~\ref{fig:ya-share} and
+\ref{fig:aitah-ya-share}) show the $200$-verdict cohort before exact-tie
+exclusion, using one-percentage-point bins of final YA share. The endpoint
+$\rho(p)=1$ is included in the final bin. Bars count posts; the right-axis
+line divides the sum of stored $N(p)$ values in each bin by that bin's
+post count. It therefore measures mean retained top-level verdicts per
+post, not all comments or nested replies. The horizontal axis expresses
+$\rho(p)$ as a percentage: $0$ and $100\%$ denote unanimous NA and YA,
+respectively, and $50\%$ denotes an exact tie. Shading marks the
+high-agreement bands.
+
 \paragraph{Direction of dissent.}
 Blaming dissent is a minority YA judgment in an NA-dominant post; defending
 dissent is a minority NA judgment in a YA-dominant post. Each direction is
@@ -214,6 +231,12 @@ comments are kept separate; low-agreement verdict comments are pooled as
 a reference distribution. Only parent arrival is restricted: scores and
 direct replies retain the same archive-wide observation definitions.
 Percentiles use linear interpolation between adjacent ordered observations.
+In Figures~\ref{fig:comment-engagement-over-time} and
+\ref{fig:aitah-arrival-reception}, columns show high-agreement majority,
+high-agreement minority, and pooled low-agreement verdict comments.
+Symmetric-log vertical axes are linear within $\pm1$ score point and
+$\pm0.01$ replies, and logarithmic outside those ranges; ticks remain in
+original units. The AITA and AITAH panels use matched axis ranges.
 Display-axis transformations do not change the underlying estimates.
 
 \paragraph{Direct-response annotation.}

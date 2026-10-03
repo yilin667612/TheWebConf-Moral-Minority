@@ -11,17 +11,20 @@ and minority-share percentiles. Selected cohort statistics are reported in
 \S\ref{subsec:res-distribution}.
 
 Figure~\ref{fig:aitah-ya-share} shows the AITAH counterpart of the AITA
-distribution in Figure~\ref{fig:ya-share}.
+distribution in Figure~\ref{fig:ya-share}, using all $8{,}217$ posts in the
+$200$-verdict cohort. As in AITA, NA-dominant posts are more numerous,
+whereas the average number of verdicts per post tends to be higher toward
+the YA end. The red line uses the same per-bin mean as Figure~\ref{fig:ya-share};
+binning and denominator definitions are given in Section~\ref{subsec:method}.
+The two axes describe post frequency and verdict volume, not the same quantity.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aitah_ya_share_distribution.pdf}
-  \caption{Distribution of AITAH posts by final YA share $\rho(p)$ in the
-  $200$-verdict cohort. Shaded regions mark high-agreement posts
-  ($\rho(p)\le0.2$ or $\ge0.8$); the vertical line at $0.5$ separates
-  NA-dominant from YA-dominant posts. As in AITA, the distribution is
-  concentrated near the extremes, with a substantially larger NA-dominant
-  concentration. The horizontal axis reports $\rho(p)$ as a percentage.}
+\caption{AITAH posts by final YA share $\rho(p)$. Bars show post
+  counts (left axis); the red line shows mean top-level verdicts per post
+  (right axis). Shading marks high agreement. The AITA counterpart is
+  Figure~\ref{fig:ya-share}.}
   \label{fig:aitah-ya-share}
 \end{figure}
 
@@ -72,6 +75,18 @@ This describes the relationship between arrival-ordered judgments and final
 alignment; it does not establish what comments a user saw or how they perceived
 the opinion climate.
 
+For this analysis, retained top-level NA/YA verdict comments are ordered by
+arrival, with INFO excluded. At each checkpoint, the running YA share
+determines the leading side, which is compared with the final dominant
+verdict. Each post contributes one observation per checkpoint, so larger
+threads do not receive greater weight. Odd checkpoints
+($1,3,5,11,\ldots,201$) avoid running ties and parity-driven oscillation.
+Cohorts are defined by the final share recomputed from these comments,
+with at least $200$ retained verdicts per post. Complete correspondence
+at a checkpoint is $100\%$; the $50\%$ line is a coin-flip reference,
+not an estimate of how informed participants are. A match at one checkpoint
+does not guarantee that the current leader cannot subsequently change.
+
 \textbf{[TODO: identify the community and cohort for the stabilization
 series and restore the figure legend. Recheck the earlier 99.2\% ``never
 changes lead'' claim: it cannot describe the same first-comment-to-final
@@ -81,20 +96,11 @@ checkpoint or sample definition.]}
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/consensus_stabilization.png}
-  \caption{Early verdict leaders predict the final winner more reliably in
-  high-agreement posts than in low-agreement posts. Top-level verdict comments
-  (NTA/NAH versus YTA/ESH; INFO excluded) are ordered by arrival, and the running
-  YA share after each comment determines the current leader. The vertical axis
-  reports the percentage of posts whose leader at each checkpoint matches the
-  final winner: $100\%$ indicates complete correspondence at that checkpoint,
-  while the dashed $50\%$ line is a coin-flip reference. Each post contributes
-  one observation per checkpoint, giving posts equal weight regardless of
-  thread size. Odd-numbered checkpoints ($1,3,5,11,\ldots,201$) avoid running
-  ties at even comment counts and the resulting parity-driven oscillations.
-  High-agreement and low-agreement cohorts are defined by the final YA share
-  $\rho(p)$ recomputed from the comments analyzed here; the running YA share
-  uses only comments up to each checkpoint. The sample comprises posts with
-  $\mathrm{YANA\_total}\geq200$.}
+\caption{Correspondence between the current verdict leader
+  and final dominant verdict, by comment-arrival checkpoint. Each post
+  contributes equally. The dashed line marks 50\% correspondence;
+  high-agreement posts show more reliable early correspondence than
+  low-agreement posts.}
   \label{fig:consensus-stabilization}
 \end{figure}
 
@@ -107,19 +113,19 @@ includes all eligible high- and low-agreement posts in the $200$-verdict
 cohort, excluding exact ties, without post subsampling. Estimates pool
 retained top-level verdict comments with equal comment weight and use all
 available linked replies, without an additional elapsed-time cutoff.
+The cohort comprises $6{,}709$ high-agreement and $388$ low-agreement posts,
+with $4{,}122{,}998$ retained top-level verdict comments. Score is recorded
+upvotes minus downvotes; direct replies are immediate children of a verdict
+comment, and maximum reply depth is zero when there are no replies
+(Section~\ref{subsec:method-reception}).
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aitah_reception_grouped_bars_full_min200.pdf}
-  \caption{Majority--minority reception in AITAH: mean comment score,
-  mean direct-reply count, and mean maximum reply depth, from left to right.
-  Bars show equal-comment means across all $6{,}709$ eligible high-agreement
-  and $388$ low-agreement posts with at least $200$ retained verdicts,
-  comprising $4{,}122{,}998$ top-level verdict comments. Exact ties are excluded,
-  and reception uses the full observed period. Each metric uses the same linear axis
-  range as its AITA counterpart in Figure~\ref{fig:engagement-by-consensus}.
-  Score is recorded upvotes minus downvotes; direct replies are immediate
-  children of the verdict comment, and depth zero denotes no replies.}
+\caption{Majority--minority reception in AITAH by agreement
+  level: mean score, direct-reply count, and maximum reply depth (left to
+  right). Each panel uses the same linear axis range as its AITA counterpart
+  in Figure~\ref{fig:engagement-by-consensus}.}
   \label{fig:aitah-engagement-full}
 \end{figure}
 
@@ -148,7 +154,10 @@ their unsuffixed counterparts before any analysis. \emph{NAH}, \emph{ESH}, and
 \label{sec:appendix-content}
 
 The two communities discuss substantially, but not identically, the same
-situations. A classifier recovering a post's source community from its
+situations. Figure~\ref{fig:umap} projects $768$-dimensional
+\texttt{bge-base-en-v1.5} post-text embeddings into two dimensions with UMAP,
+coloring points by source community.
+A classifier recovering a post's source community from its
 embedding alone reaches a ROC-AUC of $0.613$ under BGE and $0.568$ under E5,
 against a chance level of $0.50$, and the UMAP projection in
 Figure~\ref{fig:umap} shows why: the two communities interleave throughout the
@@ -173,13 +182,10 @@ than a quantitative test that removes differences between communities.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/embeddings.png}
-  \caption{Topical overlap between AITA and AITAH. $768$-dimensional
-  \texttt{bge-base-en-v1.5} embeddings of post texts, projected to two
-  dimensions with UMAP and colored by source community. The two communities
-  interleave rather than separate, including within the small peripheral
-  clusters, and community is only weakly recoverable from these embeddings
-  (ROC-AUC $0.613$; $0.568$ under E5, chance $=0.50$)---though distributional
-  tests still detect a reliable difference in topic composition.}
+\caption{UMAP projection of post-text embeddings, colored by
+  community. AITA and AITAH posts interleave, indicating topical overlap.
+  The projection is descriptive; classifier and distributional comparisons
+  are reported in the accompanying text.}
   \label{fig:umap}
 \end{figure}
 
@@ -198,6 +204,9 @@ qualifications, level $2$ a leaning that still admits an alternative, and level
 $1$ an unresolved or self-contradicting judgment. Worked examples are supplied
 at each level, and the annotation is returned as JSON with a free-text
 rationale alongside the score.
+The displayed examples are abridged. The placeholders \{post\} and
+\{comment\} are filled with the submission text and the top-level verdict
+comment being scored, respectively.
 
 \textbf{[TODO: name the annotator model and version, the decoding settings, and
 report agreement against human labels on a validation sample]}
@@ -228,6 +237,16 @@ from replicate-level differences. These are marginal descriptive intervals,
 without joint multiplicity adjustment or population reweighting.
 Whether separate intervals exclude zero is not a test of a
 direction-by-agreement or direction-by-community interaction.
+
+Figure~\ref{fig:certainty-low-high} uses the low/high agreement definitions
+in Section~\ref{subsec:method}, excluding intermediate bands and exact ties.
+Panel A colors encode certainty levels rather than dissent direction;
+segments of at least $7\%$ are labeled. Panel B reports differences in
+percentage points. Displayed counts list contributing posts in
+blaming/defending order. The dagger
+and hollow marker identify the $15$-post AITAH high-agreement defending
+cohort. The figure describes full-period between-cohort contrasts, not
+temporal trajectories.
 
 \paragraph{AITA.}
 In high-agreement posts, the certainty-$4$ proportions are $66.1\%$ for
@@ -263,19 +282,11 @@ attitude change.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
-  \caption{\textbf{Comparison of expressed certainty over the
-  full observed period.} (A) Certainty-$1$--$4$ distributions, calculated
-  within posts and then averaged with equal post weight. Colors indicate
-  certainty level, not dissent direction; segments of at least $7\%$ are
-  labeled. (B) Blaming minus defending differences in the mean within-post
-  certainty-$4$ proportion, in percentage points, with percentile $95\%$
-  intervals from $10{,}000$ whole-post bootstrap replicates. Low agreement
-  is $0.40\le\rho(p)\le0.60$ with exact ties excluded; high agreement is
-  $\rho(p)\le0.20$ or $\rho(p)\ge0.80$. Intermediate-agreement posts are
-  omitted. Counts give contributing posts in blaming/defending order.
-  The dagger and hollow contrast marker flag the small AITAH high-agreement
-  defending cohort ($15$ posts). These are between-cohort descriptive
-  contrasts, not temporal trajectories.}
+\caption{Expressed certainty by agreement level and dissent
+  direction. (A) Equal-post certainty distributions. (B) Blaming-minus-defending
+  differences in certainty-$4$ share with 95\% post-bootstrap intervals.
+  The dagger and hollow marker flag the small AITAH high-agreement
+  defending cohort.}
   \label{fig:certainty-low-high}
 \end{figure}
 
@@ -439,10 +450,10 @@ $32.1$ days).
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/comment_timing.png}
-  \caption{Comment timing in (a) AITA and (b) AITAH. Both communities collect
-  most top-level comments within the first day, and AITA's $18$-hour verdict
-  threshold falls near the point at which a typical post has received $90\%$ of
-  them.}
+\caption{Comment timing in (a) AITA and (b) AITAH. Most top-level
+  comments arrive within the first day, while nested replies extend further
+  into the observation period. Cohort sizes and timing summaries are reported
+  in the accompanying text.}
   \label{fig:timing}
 \end{figure}
 
@@ -465,22 +476,19 @@ absolute scores and reply counts with caution.
 Figure~\ref{fig:aitah-arrival-reception} provides the AITAH counterpart of
 Figure~\ref{fig:comment-engagement-over-time}, using the same cohort rules,
 hourly bins, summaries, colors, and display scales.
+Parent verdict comments arrive within $[0,18)$ hours in the high- and
+low-agreement $200$-verdict cohort, excluding exact ties. Scores and direct
+replies use all available recorded outcomes, without a corresponding
+cutoff on reply arrival. Section~\ref{subsec:method-reception} specifies
+the percentile ranges and symmetric-log axis thresholds.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aitah_arrival_reception_symlog.pdf}
-  \caption{Comment scores and direct replies by arrival hour in AITAH.
-  Columns distinguish high-agreement majority and minority verdict comments
-  from the pooled low-agreement reference. Solid lines with markers denote
-  means; dashed lines denote medians. Dark and light bands show empirical
-  $25$th--$75$th and $10$th--$90$th percentile ranges, not confidence intervals.
-  Vertical axes use the same symmetric-log transformation and limits as
-  Figure~\ref{fig:comment-engagement-over-time}: linear within $\pm1$ score
-  point or $\pm0.01$ replies and logarithmic outside, with ticks in raw units.
-  Eligible parent comments arrive within $[0,18)$ hours in high- or
-  low-agreement posts with at least $200$ verdicts; exact ties are excluded.
-  Scores and direct replies use all available recorded outcomes, with no
-  corresponding cutoff on reply arrival.}
+\caption{AITAH reception by comment arrival hour, using the
+  layout and symmetric-log scales of Figure~\ref{fig:comment-engagement-over-time}.
+  Solid/dashed lines show means/medians; dark/light bands show the
+  25th--75th/10th--90th percentiles, not confidence intervals.}
   \label{fig:aitah-arrival-reception}
 \end{figure}
 
@@ -489,19 +497,19 @@ hourly bins, summaries, colors, and display scales.
 
 Figure~\ref{fig:aitah-dissent-direction} shows the AITAH counterpart of
 Figure~\ref{fig:dissent-direction}, with the same colors and axis ranges.
+The analysis includes $6{,}709$ high-agreement posts and $3{,}912{,}346$
+retained verdict comments. Means weight comments equally over the full
+observed period; maximum reply depth is zero for comments without replies.
+Each minority direction is compared with majority comments from its own
+dominant-verdict context, using the definitions in
+Section~\ref{subsec:method-reception}.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aitah_dissent_direction.pdf}
-  \caption{Reception of blaming and defending dissent in high-agreement
-  AITAH posts. Gray bars show majority comments; orange and green bars
-  distinguish blaming and defending minority comments, respectively.
-  From left to right, panels show mean comment score, mean direct-reply
-  count, and mean maximum reply depth (zero for comments without replies).
-  Each minority direction is compared with its own majority reference in
-  the same dominant-verdict context. Estimates weight comments equally
-  over the full observed period and use all $6{,}709$ eligible high-agreement
-  AITAH posts with at least $200$ retained verdict comments, comprising
-  $3{,}912{,}346$ verdict comments.}
+\caption{Reception of blaming (orange) and defending (green)
+  dissent in high-agreement AITAH posts, with their respective majority
+  references (gray). Panels show mean score, direct-reply count, and maximum
+  reply depth, using the AITA scales from Figure~\ref{fig:dissent-direction}.}
   \label{fig:aitah-dissent-direction}
 \end{figure}
