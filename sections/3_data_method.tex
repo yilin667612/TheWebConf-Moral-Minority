@@ -73,12 +73,11 @@ reception measures are recomputed from the available comment records.
 The combined AITA score--reply--depth figure appears in the main text;
 the corresponding AITAH figure appears in
 Appendix~\ref{sec:appendix-aitah-reception}.
-Subtree-score and directional reception analyses have separate sampled
-outputs and must not be assumed to use this same post set.
+Directional score, direct-reply, and reply-depth comparisons use the
+high-agreement subset of this same cohort, split by dominant verdict.
+Separate legacy subtree-score outputs are not used for these comparisons.
 % Full-cohort refresh: full_reception_collect.py and plot_full_reception.py;
 % output/reception_full_min200_20261002/posts.jsonl and summary.json.
-\textbf{[TODO: verify the separate subtree-score and directional reception
-samples against the displayed figures.]}
 
 Direct-response annotation uses three samples of $16{,}000$ parent--reply
 pairs each, stratified by community, high-agreement tail, and parent
@@ -279,7 +278,7 @@ examples appear in Appendix~\ref{sec:appendix-annotation}. Verdict labels
 still follow the first-match rule, including when the certainty annotation
 identifies an unresolved judgment.
 
-The primary supplementary comparison uses the full observed period without
+The certainty comparison for RQ2 uses the full observed period without
 an upper elapsed-time cutoff, retaining minority comments with valid labels
 in $\{1,2,3,4\}$. We calculate the proportions at each certainty level within
 each post, then average these proportions with equal post weight. A post
@@ -359,7 +358,7 @@ saw earlier judgments or responses.
 \label{subsec:method-community}
 
 We apply the same verdict definitions and measures in AITAH to compare
-minority reception, dissent direction, and supplementary expression measures.
+minority reception, dissent direction, and expressed certainty.
 Content and user-overlap comparisons use the aligned calendar period
 specified in Section~\ref{subsec:dataset}; reception comparisons retain their
 analysis-specific sampling frames and observation windows.

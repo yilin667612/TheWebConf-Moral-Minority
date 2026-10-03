@@ -204,11 +204,12 @@ report agreement against human labels on a validation sample]}
 
 \input{components/box_prompt}
 
-\subsection{Supplementary Comparison of Expressed Certainty}
+\subsection{Comparison of Expressed Certainty}
 \label{sec:appendix-certainty-comparison}
 
 This analysis compares the two directions of dissent over the full observed
-period, separately from the temporal-prevalence analysis in RQ2.
+period, separately from the supplementary cumulative-participation analysis
+in Section~\ref{subsec:res-temporal}.
 The $1{,}195$-post low/high annotation dataset contributes $1{,}169$ posts
 and $104{,}135$ valid minority certainty observations after the exclusions
 in Section~\ref{subsec:dataset}. Within-post proportions at each certainty
@@ -262,7 +263,7 @@ attitude change.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
-  \caption{\textbf{Supplementary comparison of expressed certainty over the
+  \caption{\textbf{Comparison of expressed certainty over the
   full observed period.} (A) Certainty-$1$--$4$ distributions, calculated
   within posts and then averaged with equal post weight. Colors indicate
   certainty level, not dissent direction; segments of at least $7\%$ are
@@ -281,7 +282,7 @@ attitude change.
 \subsection{Sensitivity to the Certainty Observation Window}
 \label{sec:appendix-certainty-window}
 
-The supplementary certainty comparison uses all observed annotated comments in the low/high
+The certainty comparison uses all observed annotated comments in the low/high
 dataset. As a sensitivity analysis, we restrict comment arrival to $[0,18)$
 hours in both communities while retaining the final-verdict cohort labels.
 This window is motivated by AITA's 18-hour verdict reference; the same cutoff
@@ -346,7 +347,7 @@ equal or complete follow-up across posts.
 
 
 
-\subsection{RQ2 Response Annotation}
+\subsection{Direct-Response Annotation}
 \label{sec:appendix-rq2-annotation}
 
 This section documents the current prompt template for the direct-response

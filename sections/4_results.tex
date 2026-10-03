@@ -1,39 +1,35 @@
 \section{Results}
 \label{sec:results}
 
-We first describe the distribution of crowd judgments and revisit the
-majority--minority reception pattern as a baseline. We then examine the
-reception of blaming and defending dissent in AITA (RQ1), their prevalence
-over time (RQ2), and the extension to AITAH (RQ3). Figures that contain both
-communities are discussed first for AITA and revisited in the community
-comparison.
+We first establish the setting in which minority judgments occur, then
+examine their reception across agreement levels (RQ1), distinguish blaming
+from defending dissent (RQ2), and assess which patterns recur in AITAH
+(RQ3). AITA is the primary setting throughout. The directional comparison
+includes both reception and expressed certainty. Cumulative participation
+is examined separately; neither linguistic certainty nor participation
+is treated as a measure of individual attitude change.
 
-\subsection{Descriptive Context: Agreement and Verdict Stability}
+\subsection{Context: Agreement and the Direction of Minority Judgments}
 \label{subsec:res-distribution}
 
-The high-volume cohort comprises $28{,}107$ AITA and $8{,}217$ AITAH posts.
-The distribution of YA share is sharply bimodal, with a larger concentration
-near unanimous NA judgments than near unanimous YA judgments
-(Figure~\ref{fig:ya-share} for AITA; Appendix
-Figure~\ref{fig:aitah-ya-share} for AITAH). High-agreement posts account for $78.2\%$ of
-AITA and $81.6\%$ of AITAH posts, compared with $6.5\%$ and $4.7\%$ for
-low-agreement posts. NA is dominant in $75.7\%$ and $87.4\%$ of posts,
-respectively. High-agreement posts therefore constitute the larger
-analytical condition, while NA-dominant and YA-dominant contexts differ
-substantially in frequency. Detailed verdict and minority-share distributions
-are reported in Appendix~\ref{sec:appendix-verdict-distribution}
-(Table~\ref{tab:verdict-distribution}).
+High agreement is common in the AITA cohort, rather than an exceptional
+condition. Of the $28{,}107$ posts with at least $200$ retained verdicts,
+$21{,}978$ ($78.2\%$) fall in the high-agreement bands and $1{,}838$
+($6.5\%$) in the low-agreement band after exact-tie exclusion.
+Figure~\ref{fig:ya-share} shows a bimodal distribution of final YA share,
+with the larger concentration near the NA end. Within the high-agreement
+cohort, $80.6\%$ of posts are NA-dominant. Consequently, the more common
+setting for dissent is one in which a minority assigns blame to an OP whom
+most commenters excuse.
 
-This imbalance should be considered in the context of first-person accounts
-supplied by the person whose conduct is being evaluated. Giorgi et al.\
-distinguish the author's roles as character and narrator, relating narrative
-features to the community's moral judgment \cite{giorgi2023author}.
-Haworth et al.\ likewise observe a predominance of NTA posts and discuss
-biases in retelling personal events and validation-seeking as possible
-context for this pattern \cite{haworth2021reasonability}.
-These accounts offer a possible interpretation of the prevalence of
-NA-dominant posts, without establishing either posters' motives or a
-community-wide preference against blame.
+This distribution does not establish a community-wide aversion to blame.
+The stories are supplied by the people whose conduct is being judged.
+Research on authors' dual roles as characters and narrators
+\cite{giorgi2023author}, and on selective retelling and possible
+validation-seeking \cite{haworth2021reasonability}, provides context for
+the imbalance without identifying the motives of individual posters.
+Appendix Table~\ref{tab:verdict-distribution} reports the broader
+distributional summary.
 
 \begin{figure}[t]
   \centering
@@ -50,24 +46,34 @@ community-wide preference against blame.
   \label{fig:ya-share}
 \end{figure}
 
-In high-agreement posts, early verdict leaders more often match the final
-dominant judgment than in low-agreement posts
-(Appendix~\ref{sec:appendix-stabilization},
-Figure~\ref{fig:consensus-stabilization}). This correspondence does not
-establish the opinion climate perceived by individual commenters.
+Early verdict leaders also correspond more closely to the final dominant
+side in high-agreement than low-agreement posts
+(Appendix Figure~\ref{fig:consensus-stabilization}). This provides descriptive
+context for the final-alignment classification; it does not establish
+which comments later participants saw or how they perceived the prevailing
+opinion.
 
-\subsection{Baseline: Majority--Minority Reception Across Agreement Levels}
+\subsection{Minority Reception Across Agreement Levels}
 \label{subsec:res-baseline}
 
-We revisit the score--reply pattern as a baseline rather than a separate
-research question. In high-agreement AITA posts, majority and minority
-comments have mean scores of $37.95$ and $-2.75$, respectively, while their
-mean direct-reply counts are $0.14$ and $0.53$
-(Figure~\ref{fig:engagement-by-consensus}). In low-agreement posts, the score
-gap is smaller and the mean reply counts are closer: $0.26$ for majority
-and $0.30$ for minority comments. The AITAH comparison is reported under RQ3.
+\paragraph{Lower scores coexist with greater reply engagement.}
+In high-agreement AITA posts, majority comments average $37.95$ score
+points, whereas minority comments average $-2.75$
+(Figure~\ref{fig:engagement-by-consensus}). The ordering reverses for
+conversational engagement: minority comments receive $0.53$ direct replies
+on average, compared with $0.14$ for majority comments, and their mean
+maximum reply depth is $0.79$ rather than $0.14$. Thus, low evaluation
+does not imply an absence of responses.
 
-% Keep the baseline and its arrival-hour breakdown together, with separate numbers.
+The differences are smaller in low-agreement posts. Majority and minority
+scores average $33.65$ and $26.87$; direct-reply counts average $0.26$ and
+$0.30$; and maximum reply depths average $0.30$ and $0.35$, respectively.
+The mean score gap is therefore $40.70$ points under high agreement but
+$6.78$ under low agreement. These archive-level comparisons establish the
+reception baseline for the directional analysis, rather than treating the
+coexistence of low scores and more replies as a new phenomenon. They are
+descriptive contrasts, not estimates of an effect of agreement strength.
+
 \begin{figure}[tp]
     \centering
     \includegraphics[width=\columnwidth]
@@ -105,47 +111,64 @@ and $0.30$ for minority comments. The AITAH comparison is reported under RQ3.
     \label{fig:comment-engagement-over-time}
 \end{figure}
 
-In the full-cohort reply-tree analysis, high-agreement AITA minority comments have a mean
-depth of $0.79$, compared with $0.14$ for majority comments
-(Figure~\ref{fig:engagement-by-consensus}, right). Additionally, $15.2\%$ versus
-$2.5\%$ reach a depth of at least two. The differences narrow in
-low-agreement posts.
+\paragraph{Arrival timing qualifies the aggregate averages.}
+Figure~\ref{fig:comment-engagement-over-time} groups comments by their
+arrival hour during the first $18$ hours. Early high-agreement majority
+comments have higher recorded scores, while early minority comments
+receive more direct replies than later minority comments. The separation
+between means, medians, and percentile bands also shows why a mean alone
+does not describe the reception of a typical comment. These are final
+recorded outcomes grouped by arrival, not trajectories of scores or replies
+measured repeatedly over a comment's lifetime. Arrival timing and exposure
+therefore remain relevant when interpreting the aggregate contrasts.
 
-\textbf{[TODO: verify whether stored verdict labels and cohort metadata
-incorporate AITAH's H-suffixed aliases. The full-cohort baseline retains the
-stored canonical labels and post-level verdict metadata, rather than
-re-extracting verdicts from comment text.]}
+\paragraph{Attention is not equivalent to support.}
+\label{subsec:res-rq2}
+The direct-response annotations indicate a higher challenge proportion for
+minority than majority parent comments in each analyzed high-agreement
+community-by-verdict-tail stratum. OP-authored pairs are excluded, so this
+pattern concerns responses from other commenters rather than only the
+person being judged. Together with the structural results, it suggests
+that minority judgments attract both attention and contestation.
 
-\paragraph{Reception by comment arrival time.}
-Figure~\ref{fig:comment-engagement-over-time} disaggregates the baseline
-by arrival hour during the first $18$ hours. Early majority comments have
-higher recorded scores, while early minority comments receive more direct
-replies than later minority comments. These are recorded reception outcomes
-grouped by comment arrival hour, not repeated observations of a comment's
-score or replies over its lifetime. The distributional bands describe
-variation across comments rather than uncertainty in the hourly means.
+This comparison concerns the composition of sampled direct replies,
+conditional on a reply being present and eligible for annotation. It does
+not estimate the probability that a minority comment receives a challenge.
+Moreover, the response samples cover high-agreement posts only and use a
+broader sampling frame than the $200$-verdict reception cohort; they do not
+establish a high--low agreement difference in challenge rates.
+\textbf{[TODO: add verified support, challenge, information-seeking, and
+other proportions with contributing counts and a response-type figure.
+Report post/parent-clustered uncertainty and independent annotation
+validation before finalizing inferential claims.]}
 
-\subsection{RQ1: Reception of Blaming and Defending Dissent}
+Taken together, these results address \textbf{RQ1}: minority judgments
+combine lower evaluation with greater reply engagement, with larger
+majority--minority gaps under high agreement. The annotated high-agreement
+replies further indicate that attention to minority judgments includes
+more contestation, not simply support.
+
+\subsection{Blaming Versus Defending Dissent}
 \label{subsec:res-direction}
 
-\paragraph{Lower scores and more replies in both directions.}
-Figure~\ref{fig:dissent-direction} separates blaming and defending dissent
-in high-agreement posts, each with majority comments in the same dominant-
-verdict context as a reference. In AITA, blaming minority comments have a
-mean score of $-2.92$, versus $37.73$ for majority comments in NA-dominant
-posts. Defending minority comments have a mean score of $-2.36$, versus
-$38.54$ for majority comments in YA-dominant posts. Both directions therefore
-reproduce the minority score disadvantage.
+\paragraph{Both directions are negatively evaluated, but engagement differs.}
+Separating high-agreement minority comments by dissent direction reveals
+an asymmetry that the pooled minority category conceals
+(Figure~\ref{fig:dissent-direction}). Blaming comments in NA-dominant posts
+average $-2.92$ score points, compared with $37.73$ for their majority
+reference. Defending comments in YA-dominant posts average $-2.36$,
+compared with $38.54$ for their majority reference. Both minority directions
+therefore receive negative mean scores, with only a modest difference
+between their means.
 
-Replies show the opposite ordering. Blaming and defending minority comments
-average $0.63$ and $0.32$ direct replies, respectively, compared with $0.14$
-for each majority baseline. Mean maximum reply depth is $0.92$ for blaming
-and $0.49$ for defending, versus $0.14$ and $0.12$ for their respective
-majority baselines. Comments without replies have depth zero. Blaming
-dissent thus receives $1.98$ times as many direct replies and has $1.86$
-times the mean maximum depth of defending dissent. These are descriptive
-comparisons between different dominant-verdict cohorts, not causal effects.
-\textbf{[TODO: report post-cluster uncertainty for directional contrasts.]}
+The clearer directional difference is in conversational engagement.
+Blaming comments average $0.63$ direct replies, compared with $0.32$ for
+defending comments---a $1.98$-fold difference calculated from unrounded
+means. Their mean maximum reply depths are $0.92$ and $0.49$, respectively,
+a $1.86$-fold difference. In contrast, the corresponding majority baselines
+are similar: $0.14$ direct replies in both post types, and depths of $0.14$
+and $0.12$. Challenging collective defense of the OP is thus associated
+with more replies and deeper reply trees than challenging collective blame.
 
 \begin{figure}[t]
   \centering
@@ -166,36 +189,105 @@ comparisons between different dominant-verdict cohorts, not causal effects.
     \label{fig:dissent-direction}
 \end{figure}
 
-\paragraph{From reply volume to response type.}
-\label{subsec:res-rq2}
-The direct-response annotations, excluding OP participation, indicate higher
-challenge proportions for minority than majority parent comments across the
-analyzed community and agreement-tail strata. This comparison concerns the
-composition of labeled replies rather than the probability of receiving a
-reply. It therefore adds information about the responses accompanying the
-minority reply advantage, without treating every reply as a challenge.
+These comparisons use different story cohorts, not alternative judgments
+randomly assigned to the same story. They do not establish why blaming
+dissent attracts more engagement, nor whether its additional replies are
+supportive or challenging. In particular, the majority--minority challenge
+comparison above cannot substitute for a direct blaming--defending
+response-type comparison.
+\textbf{[TODO: report post-cluster uncertainty for directional reception
+contrasts and verified blaming--defending response-category estimates.]}
 
-\textbf{[TODO: insert the response-type distribution figure and report
-support, challenge, information-seeking, and other proportions, unique pair
-counts, and uncertainty by stratum. Report blaming--defending contrasts
-separately: the majority--minority challenge difference alone does not
-establish which direction receives the higher challenge proportion.
-Complete annotation validation before presenting these as final estimates.]}
+\paragraph{Expressed certainty differs by dissent direction.}
+\label{subsec:res-certainty-contrasts}
+The directional comparison also examines how firmly blaming and defending
+judgments are expressed. In high-agreement AITA posts, the mean within-post
+proportion of minority comments assigned certainty level $4$ is $66.1\%$
+for blaming and $58.1\%$ for defending: a difference of $8.0$ percentage
+points ($95\%$ whole-post bootstrap CI $[3.9,12.2]$).
+Under low agreement, the contrast is smaller and uncertain
+($1.2$ percentage points; CI $[-1.6,4.1]$).
+These estimates weight posts equally, unlike the pooled-comment reception
+means, and use the full observed annotation period.
 
-\subsection{RQ2: Prevalence of Blaming and Defending Dissent Over Time}
+The contrast requires qualification: restricting high-agreement AITA to
+annotation version \texttt{v4} yields a positive estimate whose interval
+includes zero. Version and post composition cannot be separated in that
+comparison. The result characterizes expressed language, not private
+confidence or certainty increasing over time; nor do the separate
+intervals establish an agreement-by-direction interaction.
+Full distributions and sensitivity checks appear in
+Appendix~\ref{sec:appendix-certainty-comparison}.
+\textbf{[TODO: complete certainty annotation validation.]}
+
+Together, these findings address \textbf{RQ2} through both reception and
+expression: blaming dissent attracts more replies and deeper reply trees
+than defending dissent, while the annotated high-agreement AITA sample
+also shows a higher proportion of firmly asserted judgments. The certainty
+contrast remains subject to the annotation-version and validation
+qualifications above.
+
+\subsection{Reception Patterns Across Communities}
+\label{subsec:res-community}
+
+\paragraph{The agreement-level pattern recurs.}
+AITAH also combines lower minority scores with greater engagement under
+high agreement (Appendix Figure~\ref{fig:aitah-engagement-full}).
+Majority and minority mean scores are $14.30$ and $-0.19$, respectively;
+direct-reply counts are $0.12$ and $0.38$; and maximum reply depths are
+$0.12$ and $0.67$. Under low agreement, the reply-count difference nearly
+disappears: both means round to $0.21$, with depths of $0.32$ and $0.34$.
+As in AITA, the high-agreement minority therefore occupies a distinctive
+combination of lower evaluation and greater conversational engagement.
+
+\paragraph{Directional ordering is shared, not its magnitude.}
+Blaming dissent in AITAH receives a lower mean score than defending dissent
+($-0.42$ versus $1.03$), more direct replies ($0.41$ versus $0.23$), and
+greater maximum reply depth ($0.72$ versus $0.41$)
+(Appendix Figure~\ref{fig:aitah-dissent-direction}).
+The blaming-to-defending reply ratio is $1.80$, compared with $1.98$ in
+AITA. AITAH's defending comments retain a positive mean score, whereas
+both directions have negative means in AITA. These results show a shared
+directional ordering alongside differences in recorded magnitudes.
+
+Raw cross-community differences do not, by themselves, establish greater
+tolerance, stronger normative pressure, or an effect of AITA's verdict
+rule. The comparisons retain their analysis-specific observation frames
+and may differ in audience, story composition, and exposure.
+The AITAH certainty estimates are also limited by only $15$
+high-agreement defending posts
+(Appendix Figure~\ref{fig:certainty-low-high}).
+\textbf{[TODO: report uncertainty for cross-community contrasts and verify
+the common-period comparison before attributing differences to community
+context. Confirm whether stored canonical verdict metadata incorporate
+AITAH's H-suffixed aliases.]}
+
+For \textbf{RQ3}, the recurring finding is the ordering of reception:
+minority judgments attract lower scores and more reply engagement under
+high agreement, and blaming dissent attracts more engagement than defending
+dissent. The magnitudes vary between communities; the shared ordering does
+not imply equivalent reception environments or identify their causes.
+
+\paragraph{Illustrative cross-posted stories.}
+\label{subsec:res-duplicates}
+\textbf{[TODO: add verified qualitative cases from the updated 107-pair
+export. Include a case illustrating a shared reception pattern as well as
+explicitly selected contrasts; explain selection and apply the quotation
+and privacy safeguards described in Section~\ref{subsec:method-community}.
+Do not present these cases as a representative or causal community test.]}
+
+\subsection{Supplementary Analysis: Cumulative Minority Participation}
 \label{subsec:res-temporal}
 
-This analysis concerns how prevalent each direction of dissent is among
-observed verdict comments, separately from how confidently those judgments
-are expressed. The participation data are not restricted to the
-certainty-annotated sample.
-
-\paragraph{Cumulative minority share.}
-The existing cumulative-share figure shows an early decline followed by a
-recovery in AITA for both dissent directions. After the initial hours,
-defending share rises gradually, while blaming share levels off
-(Figure~\ref{fig:minority-ratio-time}). These cumulative curves are distinct
-from the window-specific measure defined in Section~\ref{subsec:method-temporal}.
+Reception and participation describe different aspects of dissent.
+Figure~\ref{fig:minority-ratio-time} supplements the reception analyses with
+cumulative minority shares in high-agreement posts during the first $24$
+hours. In AITA, both directions initially decline. Blaming share then
+recovers modestly and levels off, while defending share rises more
+gradually, ending close to its initial level. In AITAH, blaming share
+increases modestly, whereas defending share declines sharply in the early
+hours and subsequently changes little. The directional reception ordering
+therefore coexists with different descriptive participation patterns.
 
 \begin{figure}[t]
     \centering
@@ -211,67 +303,15 @@ from the window-specific measure defined in Section~\ref{subsec:method-temporal}
     \label{fig:minority-ratio-time}
 \end{figure}
 
-\textbf{[TODO: verify the share figure's aggregation and contributing counts;
-add window-specific estimates and the low-agreement comparison with
-uncertainty. The existing figure covers only the first 24 hours and does
-not establish the full observed trajectory. Do not substitute results from
-the certainty-annotated sample for full-data participation estimates.]}
-
-\subsection{RQ3: Extension to AITAH}
-\label{subsec:res-community}
-
-\paragraph{Shared reception ordering, different magnitudes.}
-AITAH reproduces the baseline score--reply pattern. In high-agreement posts,
-majority and minority comments have mean scores of $14.30$ and $-0.19$,
-and mean direct-reply counts of $0.12$ and $0.38$, respectively
-(Appendix Figure~\ref{fig:aitah-engagement-full}). In low-agreement posts, both
-sides average $0.21$ replies. Mean reply depths in the high-agreement
-full-cohort analysis are $0.12$ for majority and $0.67$ for minority comments
-(Appendix Figure~\ref{fig:aitah-engagement-full}, right); $2.1\%$ and $12.4\%$
-reach depth two or more.
-
-The directional comparison also recurs
-(Appendix Figure~\ref{fig:aitah-dissent-direction}).
-Blaming minority comments average $-0.42$, versus $14.88$ for their majority
-baseline; defending minority comments average $1.03$, versus $9.73$.
-Mean direct-reply counts are $0.41$ for blaming and $0.23$ for defending,
-against $0.12$ for each majority baseline. The blaming-to-defending reply
-ratio is $1.80$, compared with $1.98$ in AITA. Mean maximum reply depths are
-$0.72$ and $0.41$, respectively, versus $0.12$ for each majority baseline.
-Thus, the directional ordering is shared, although the raw score gaps and
-mean reply counts differ.
-\textbf{[TODO: report uncertainty for between-community contrasts and confirm
-that all direct comparisons use the common calendar period.]}
-
-\paragraph{Different patterns of minority participation.}
-The existing full-data cumulative curves show declining defending share in
-AITAH, from approximately $11\%$ to $7\%$
-(Figure~\ref{fig:minority-ratio-time}).
-\textbf{[TODO: update the directional window-specific share figures,
-with contributing counts, low-agreement comparisons, and intervals. Do not attribute
-community differences to the 18-hour rule.]}
-
-\paragraph{Illustrative cross-posted stories.}
-\label{subsec:res-duplicates}
-\textbf{[TODO: add a small number of verified examples showing how the same
-story is received in the two communities. Explain case selection and show
-relevant judgments or exchanges. These examples illustrate the comparison;
-they are not a matched-sample test of institutional effects. The earlier
-quantitative duplicate-post draft is retained in the non-compiled notes file,
-not used as a principal result.]}
-
-\subsection{Supplementary Analysis: Expressed Certainty}
-\label{subsec:res-certainty-contrasts}
-
-Separately from temporal prevalence, the annotated sample characterizes
-how confidently blaming and defending dissent are expressed over the full
-observed period. In high-agreement AITA posts, the mean within-post
-certainty-$4$ proportion is $66.1\%$ for blaming and $58.1\%$ for defending,
-a difference of $8.0$ percentage points ($95\%$ post-bootstrap CI
-$[3.9,12.2]$); the low-agreement contrast remains uncertain.
-These are descriptive differences between post cohorts, not evidence of
-certainty increasing over time. Full distributions and additional contrasts
-appear in Appendix~\ref{sec:appendix-certainty-comparison}
-(Figure~\ref{fig:certainty-low-high}), alongside annotation-version caution
-and the small AITAH high-agreement defending cohort ($15$ posts).
-\textbf{[TODO: complete annotation validation before finalizing these results.]}
+These curves pool verdict comments up to each checkpoint; they are neither
+hour-specific shares nor averages giving each post equal weight.
+Cumulative aggregation retains earlier observations and can make later
+changes appear small. Accordingly, the curves do not establish stable
+window-specific participation, a regime change, or withdrawal by
+particular individuals. They also cover only the first day, not the full
+observed discussion period, and should not be conflated with the
+annotation-sample comment-sequence analyses in
+Section~\ref{subsec:method-temporal}.
+\textbf{[TODO: verify contributing post counts and positive cumulative
+denominators; add window-specific low/high estimates with uncertainty
+before drawing stronger participation or temporal claims.]}
