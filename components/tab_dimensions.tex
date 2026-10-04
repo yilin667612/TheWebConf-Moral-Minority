@@ -1,7 +1,7 @@
 \begin{table*}[t]
   \centering
   \small
-  \begin{tabular}{@{}p{0.16\textwidth}p{0.16\textwidth}p{0.62\textwidth}@{}}
+  \begin{tabular}{@{}p{0.15\textwidth}p{0.15\textwidth}p{0.64\textwidth}@{}}
     \toprule
     Variable & Levels / range & Definition \\
     \midrule
@@ -11,7 +11,7 @@
     Alignment & majority / minority & Whether a verdict comment matches the post's final observed dominant verdict $D(p)$. \\
     Agreement & {high / low} & High: $\rho(p)\le0.2$ or $\ge0.8$; low: $0.4\le\rho(p)\le0.6$. Exact ties ($\rho(p)=0.5$) are excluded. \\
     Dissent direction & blaming / defending & Minority YA in NA-dominant posts / minority NA in YA-dominant posts. \\
-    Community & AITA / AITAH & Source subreddit. \\
+    Community & AITA / AITAH & Source subreddit:  r/AmItheAsshole or r/AITAH. \\
     \midrule
     \rowcolor{gray!15}
     \multicolumn{3}{@{}l}{\emph{Measures}} \\
@@ -20,8 +20,8 @@
     Direct-reply count & integer $\ge0$ & Number of recorded direct replies to the verdict comment. \\
     Reply depth & integer $\ge0$ & Maximum recorded reply depth below the verdict comment; $0$ for no replies. \\
     Subtree score & integer & Sum of recorded scores of the verdict comment and all replies in its observed subtree. \\
-    Direct-response type & four categories & Parent--reply annotation: support, challenge, information-seeking, or other. The child is classified relative to its immediate parent. \\
-    Expressed certainty & ordinal, $1$--$4$ & Annotated certainty of a verdict comment, from unresolved judgment ($1$) to a confidently asserted judgment ($4$); measured only in the certainty-annotated sample and its specified subsets. \\
+    Direct-response type & four categories & Parent--reply annotation: support, challenge, information, or other. \\
+    Expressed certainty & ordinal, $1$--$4$ & Annotated certainty of a verdict comment, from unresolved ($1$) to a confidently asserted ($4$). \\
     \bottomrule
   \end{tabular}
   \caption{Analytical dimensions and measures. $\rho(p)$ denotes the final
