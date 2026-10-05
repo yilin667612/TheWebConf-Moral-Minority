@@ -6,7 +6,7 @@ examine their reception across agreement levels (RQ1), distinguish blaming
 from defending dissent (RQ2), and assess which patterns recur in AITAH
 (RQ3). AITA is the primary setting throughout. The directional comparison
 includes both reception and expressed certainty. Cumulative participation
-is examined separately; neither linguistic certainty nor participation
+is reported in Appendix~\ref{sec:appendix-cumulative-participation}; neither linguistic certainty nor participation
 is treated as a measure of individual attitude change.
 
 \subsection{Context: Agreement and the Direction of Minority Judgments}
@@ -188,11 +188,36 @@ Under low agreement, the contrast is smaller and uncertain
 These estimates weight posts equally, unlike the pooled-comment reception
 means, and use the full observed annotation period.
 
+Figure~\ref{fig:certainty-progress} provides a complementary view of mean
+certainty across relative comment position in the first $24$ hours.
+In high-agreement AITA posts (top left), blaming dissent has higher
+estimated mean certainty than defending dissent at every displayed stage.
+Under low agreement (top right), the curves are much closer and their
+pointwise intervals overlap throughout. This is a descriptive ordering of
+stage means, not evidence that every blaming comment is more certain or
+that every stage-specific difference is statistically distinguishable.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/certainty_progress_high_low_first_24h.pdf}
+  \caption{Mean certainty across first-day comment progress, by community
+  (rows) and agreement (columns). Orange: blaming; green: defending.
+  Bands show pointwise $95\%$ post-bootstrap CIs; $n$ lists posts in
+  blaming/defending order.}
+  \label{fig:certainty-progress}
+  \Description{Four line charts compare blaming and defending dissent.
+  AITA is in the top row and AITAH in the bottom row; high agreement is
+  on the left and low agreement on the right. In high-agreement AITA,
+  the blaming curve is above the defending curve throughout. The AITA
+  low-agreement curves lie close together. AITAH high-agreement curves
+  cross and have wide uncertainty bands, especially for defending dissent.}
+\end{figure}
+
 The contrast requires qualification: restricting high-agreement AITA to
 annotation version \texttt{v4} yields a positive estimate whose interval
 includes zero. Version and post composition cannot be separated in that
-comparison. The result characterizes expressed language, not private
-confidence or certainty increasing over time; nor do the separate
+comparison. Both summaries characterize expressed language, not private
+confidence or increasing certainty within individuals; nor do the separate
 intervals establish an agreement-by-direction interaction.
 Full distributions and sensitivity checks appear in
 Appendix~\ref{sec:appendix-certainty-comparison}.
@@ -205,7 +230,7 @@ also shows a higher proportion of firmly asserted judgments. The certainty
 contrast remains subject to the annotation-version and validation
 qualifications above.
 
-\subsection{Reception Patterns Across Communities}
+\subsection{Reception and Expression Across Communities}
 \label{subsec:res-community}
 
 \paragraph{The agreement-level pattern recurs.}
@@ -232,9 +257,20 @@ Raw cross-community differences do not, by themselves, establish greater
 tolerance, stronger normative pressure, or an effect of AITA's verdict
 rule. The comparisons retain their analysis-specific observation frames
 and may differ in audience, story composition, and exposure.
-The AITAH certainty estimates are also limited by only $15$
-high-agreement defending posts
-(Appendix Figure~\ref{fig:certainty-low-high}).
+
+\paragraph{Certainty profiles do not transfer uniformly.}
+Figure~\ref{fig:certainty-progress} also compares the two communities on
+the same axes. Unlike the consistently ordered high-agreement AITA curves,
+the corresponding AITAH curves cross and fluctuate. The AITAH defending
+curve is based on only $9$ posts meeting the all-stage inclusion rule,
+with wide pointwise intervals; it does not establish an absence or reversal
+of a directional certainty difference. Under low agreement, blaming means
+are generally above defending means in AITAH, but the intervals overlap
+and the ordering is not universal. These stage profiles use a different
+inclusion rule from the full-period distribution analysis, which retains
+$15$ high-agreement AITAH defending posts
+(Appendix Figure~\ref{fig:certainty-low-high}). A visual contrast between
+communities is not a formal test of a community-by-direction interaction.
 \textbf{[TODO: report uncertainty for cross-community contrasts and verify
 the common-period comparison before attributing differences to community
 context. Confirm whether stored canonical verdict metadata incorporate
@@ -243,8 +279,12 @@ AITAH's H-suffixed aliases.]}
 For \textbf{RQ3}, the recurring finding is the ordering of reception:
 minority judgments attract lower scores and more reply engagement under
 high agreement, and blaming dissent attracts more engagement than defending
-dissent. The magnitudes vary between communities; the shared ordering does
-not imply equivalent reception environments or identify their causes.
+dissent. The magnitudes vary between communities, while the certainty
+profiles show that the AITA high-agreement ordering cannot be assumed to
+hold equally clearly in AITAH. The shared reception ordering does not
+imply equivalent expression or reception environments, or identify their
+causes. Supplementary cumulative-participation patterns appear in
+Appendix~\ref{sec:appendix-cumulative-participation}.
 
 \paragraph{Illustrative cross-posted stories.}
 \label{subsec:res-duplicates}
@@ -253,47 +293,3 @@ export. Include a case illustrating a shared reception pattern as well as
 explicitly selected contrasts; explain selection and apply the quotation
 and privacy safeguards described in Section~\ref{subsec:method-community}.
 Do not present these cases as a representative or causal community test.]}
-
-\subsection{Supplementary Analysis: Cumulative Minority Participation}
-\label{subsec:res-temporal}
-
-Reception and participation describe different aspects of dissent.
-Figure~\ref{fig:minority-ratio-time} supplements the reception analyses with
-cumulative minority shares in high-agreement posts during the first $24$
-hours. In AITA, both directions initially decline. Blaming share then
-recovers modestly and levels off, while defending share rises more
-gradually, ending close to its initial level. In AITAH, blaming share
-increases modestly, whereas defending share declines sharply in the early
-hours and subsequently changes little. The directional reception ordering
-therefore coexists with different descriptive participation patterns.
-
-\begin{figure}[t]
-    \centering
-\includegraphics[width=\columnwidth]
-    {figures/aita_minority_verdict_ratio.png}
-
-    \vspace{0.5em}
-
-    \includegraphics[width=\columnwidth]
-    {figures/aitah_minority_verdict_ratio.png}
-
-\caption{Cumulative minority-verdict shares in high-agreement
-    AITA (top) and AITAH (bottom) posts during the first day.
-    Blaming dissent occurs in NA-dominant posts; defending dissent occurs
-    in YA-dominant posts. Curves accumulate comments rather than showing
-    window-specific shares.}
-    \label{fig:minority-ratio-time}
-\end{figure}
-
-These curves pool verdict comments up to each checkpoint; they are neither
-hour-specific shares nor averages giving each post equal weight.
-Cumulative aggregation retains earlier observations and can make later
-changes appear small. Accordingly, the curves do not establish stable
-window-specific participation, a regime change, or withdrawal by
-particular individuals. They also cover only the first day, not the full
-observed discussion period, and should not be conflated with the
-annotation-sample comment-sequence analyses in
-Section~\ref{subsec:method-temporal}.
-\textbf{[TODO: verify contributing post counts and positive cumulative
-denominators; add window-specific low/high estimates with uncertainty
-before drawing stronger participation or temporal claims.]}

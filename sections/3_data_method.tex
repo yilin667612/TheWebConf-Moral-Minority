@@ -301,7 +301,7 @@ examples appear in Appendix~\ref{sec:appendix-annotation}. Verdict labels
 still follow the first-match rule, including when the certainty annotation
 identifies an unresolved judgment.
 
-The certainty comparison for RQ2 uses the full observed period without
+The aggregate certainty comparison for RQ2 uses the full observed period without
 an upper elapsed-time cutoff, retaining minority comments with valid labels
 in $\{1,2,3,4\}$. We calculate the proportions at each certainty level within
 each post, then average these proportions with equal post weight. A post
@@ -319,8 +319,38 @@ differences. Full distributions, annotation-version checks, and first-$18$-hour
 sensitivity comparisons appear in
 Appendices~\ref{sec:appendix-certainty-comparison}
 and~\ref{sec:appendix-certainty-window}. These are between-cohort comparisons,
-not estimates of within-person change. The temporal summaries below are a
-separate analysis; archive follow-up may differ across posts.
+not estimates of within-person change. Archive follow-up may differ across posts.
+
+\paragraph{Certainty across relative comment position.}
+Figure~\ref{fig:certainty-progress} complements the full-period comparison
+with first-day profiles for RQ2 and RQ3. For each post, eligible verdict
+comments arriving within the first $24$ hours are ordered by creation time,
+with comment ID breaking timestamp ties, and divided into ten approximately
+equal-count stages. For zero-based rank $r$ among $m$ eligible comments,
+stage membership is $\lfloor 10r/m\rfloor$. The horizontal axis is relative
+position in the observed first-day sequence, not clock time or the fraction
+of the complete discussion lifetime.
+
+Within each post and stage, we average the annotated certainty of minority
+comments, then average these post-level means with equal post weight.
+Each curve retains a fixed cohort with scored minority comments in every
+stage, restricting interpretation to discussions with minority expression
+throughout. Pointwise $95\%$ intervals use $2{,}000$ whole-post bootstrap
+replicates (seed $20260927$); they are not simultaneous bands or tests of
+stage-specific directional differences or temporal trends.
+In blaming/defending order, the contributing post counts are $143/55$
+(high) and $134/142$ (low) in AITA, and $53/9$ (high) and $32/32$ (low)
+in AITAH. These are post counts, not numbers of annotated comments.
+\textbf{[TODO: reconcile the cached stage-analysis sample with the final
+annotation dataset and exact-tie exclusion rule. The source generator
+assigns $\rho(p)=0.5$ to the YA side without an explicit tie filter;
+verify and, if needed, regenerate the low-agreement curves. Report the
+actual contributing annotated minority-comment counts by curve.]}
+
+These profiles describe the language of observed comments, not
+longitudinal changes in the same individuals. They do not observe people
+who considered commenting but remained silent, or establish that commenters
+saw earlier judgments or responses.
 \textbf{[TODO: complete the certainty model/version, decoding, and human
 validation documentation in Appendix~\ref{sec:appendix-annotation}.]}
 
@@ -350,27 +380,14 @@ substitutes zero for an undefined share. Document archive follow-up and any
 additional window-specific figures separately.]}
 
 \paragraph{Relative comment position.}
-The supplementary comment-sequence plots use the annotated sample. For each
-post, verdict comments arriving within the first $24$ hours are ordered by
-arrival and divided into ten approximately equal-count stages. The horizontal
-axis represents position within that post's observed first-day sequence,
-not clock time or the fraction of its complete discussion lifetime. Within
-each stage, minority share is the number of minority verdicts divided by all
-retained verdicts in that stage. Post-level shares are then averaged with
-equal post weight.
-
-Stage-specific certainty is the mean score of annotated minority comments
-within a post and stage, followed by an equal-post average. Certainty curves
-use a fixed cohort with valid minority certainty observations in every stage;
-share curves do not impose this requirement. This keeps the contributing
-post set constant along each certainty curve but restricts its scope to
-discussions with minority expression throughout. Share and certainty curves
-therefore need not describe the same posts. Bands are pointwise $95\%$
-whole-post bootstrap intervals, not tests of a temporal trend.
-\textbf{[TODO: report stage-analysis post/comment counts, annotation-file
-version, stage-boundary and timestamp-tie rules, and bootstrap settings.
-Separate low/high samples from any all-agreement display that also includes
-intermediate-agreement posts.]}
+Window-specific participation can also be summarized by relative comment
+position using the stage construction in
+Section~\ref{subsec:method-certainty-contrasts}. Within a stage, minority
+share divides minority verdicts by all retained verdicts in that stage;
+post-level shares are then averaged with equal post weight. Unlike certainty
+profiles, these shares need not require scored dissent in every stage and
+therefore need not describe the same posts. Figure~\ref{fig:minority-ratio-time}
+instead uses the cumulative, elapsed-time construction above.
 
 These summaries describe the composition and language of observed comments,
 not longitudinal changes in the same individuals. They do not observe people

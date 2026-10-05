@@ -217,7 +217,7 @@ report agreement against human labels on a validation sample]}
 
 This analysis compares the two directions of dissent over the full observed
 period, separately from the supplementary cumulative-participation analysis
-in Section~\ref{subsec:res-temporal}.
+in Appendix~\ref{sec:appendix-cumulative-participation}.
 The $1{,}195$-post low/high annotation dataset contributes $1{,}169$ posts
 and $104{,}135$ valid minority certainty observations after the exclusions
 in Section~\ref{subsec:dataset}. Within-post proportions at each certainty
@@ -512,3 +512,44 @@ Section~\ref{subsec:method-reception}.
   reply depth, using the AITA scales from Figure~\ref{fig:dissent-direction}.}
   \label{fig:aitah-dissent-direction}
 \end{figure}
+
+\section{Supplementary Analysis: Cumulative Minority Participation}
+\label{sec:appendix-cumulative-participation}
+
+Reception and participation describe different aspects of dissent.
+Figure~\ref{fig:minority-ratio-time} supplements the reception analyses with
+cumulative minority shares in high-agreement posts during the first $24$
+hours. In AITA, both directions initially decline. Blaming share then
+recovers modestly and levels off, while defending share rises more
+gradually, ending close to its initial level. In AITAH, blaming share
+increases modestly, whereas defending share declines sharply in the early
+hours and subsequently changes little. The directional reception ordering
+therefore coexists with different descriptive participation patterns.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aita_minority_verdict_ratio.png}
+  \vspace{0.5em}
+  \includegraphics[width=\columnwidth]{figures/aitah_minority_verdict_ratio.png}
+  \caption{Cumulative minority-verdict shares during the first day in
+  high-agreement AITA (top) and AITAH (bottom) posts. Curves pool verdict
+  comments up to each checkpoint, rather than showing window-specific
+  shares or equal-post averages.}
+  \label{fig:minority-ratio-time}
+  \Description{Two charts show cumulative minority participation during
+  the first day. In AITA both directions initially decline; blaming then
+  recovers modestly and defending ends near its initial share. In AITAH,
+  blaming rises modestly and defending falls sharply early before leveling.}
+\end{figure}
+
+These curves pool verdict comments up to each checkpoint; they are neither
+hour-specific shares nor averages giving each post equal weight.
+Cumulative aggregation retains earlier observations and can make later
+changes appear small. Accordingly, the curves do not establish stable
+window-specific participation, a regime change, or withdrawal by
+particular individuals. They also cover only the first day, not the full
+observed discussion period, and should not be conflated with the
+annotation-sample certainty profiles in Figure~\ref{fig:certainty-progress}.
+\textbf{[TODO: verify contributing post counts and positive cumulative
+denominators; add window-specific low/high estimates with uncertainty
+before drawing stronger participation or temporal claims.]}
