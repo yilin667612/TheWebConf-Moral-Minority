@@ -239,6 +239,29 @@ $\pm0.01$ replies, and logarithmic outside those ranges; ticks remain in
 original units. The AITA and AITAH panels use matched axis ranges.
 Display-axis transformations do not change the underlying estimates.
 
+\paragraph{OP participation.}
+\label{subsec:method-op-participation}
+We separately describe OP participation using every eligible post in the
+$200$-verdict cohort with an available submission author and a non-tied
+final verdict distribution; no post subsampling is applied. This leaves
+$26{,}997$ AITA and $8{,}211$ AITAH posts. A comment is attributed to the
+OP when its recorded author matches the submission author. We exclude
+submissions whose author is missing, \texttt{[deleted]}, or
+\texttt{[removed]}, and omit AutoModerator comments. Participation counts
+any recorded OP comment, whether top-level or nested and whether or not it
+contains a verdict, over the full observed thread.
+
+In bins of width $0.05$ in final YA share $\rho(p)$, OP presence is the
+proportion of eligible posts with at least one matched comment. Shaded bands
+are pointwise $95\%$ Wilson score intervals for this post-level proportion,
+not bootstrap intervals. Conditional on OP presence, we measure elapsed
+time from submission to the earliest recorded OP comment and summarize it
+as under $1$ hour, $1$--$6$ hours, $6$--$24$ hours, or at least $24$ hours;
+each post contributes once. The timing panel therefore has a different
+denominator from the presence panel. These archive-based measures cannot
+recover participation obscured by deleted author identities or missing
+comments. Appendix~\ref{sec:appendix-op-participation} reports both figures.
+
 \paragraph{Direct-response annotation.}
 \label{subsec:method-rq2}
 The annotation unit is a pair consisting of a top-level verdict comment and

@@ -553,3 +553,58 @@ annotation-sample certainty profiles in Figure~\ref{fig:certainty-progress}.
 \textbf{[TODO: verify contributing post counts and positive cumulative
 denominators; add window-specific low/high estimates with uncertainty
 before drawing stronger participation or temporal claims.]}
+
+\section{Original-Poster Participation}
+\label{sec:appendix-op-participation}
+
+Figures~\ref{fig:aita-op-participation} and~\ref{fig:aitah-op-participation}
+retain the presence and first-comment timing panels of the OP participation
+analysis. They cover all eligible posts with at least $200$ retained verdicts,
+available OP identities, and a non-tied final split, not a random post sample.
+The source aggregation was completed for all $26{,}997$ AITA and $8{,}211$
+AITAH post IDs. Definitions and exclusions appear in
+Section~\ref{subsec:method-op-participation}.
+
+OP comments are observed in $21{,}871$ AITA posts ($81.0\%$) and $6{,}323$
+AITAH posts ($77.0\%$). Of these participating posts, $17{,}424$ in AITA
+($79.7\%$) and $4{,}747$ in AITAH ($75.1\%$) have their first recorded
+OP comment within one hour. The remaining timing shares are $14.4\%$,
+$5.1\%$, and $0.9\%$ for AITA and $17.7\%$, $5.9\%$, and $1.3\%$ for
+AITAH in the $1$--$6$, $6$--$24$, and at-least-$24$-hour intervals.
+
+OP presence is lower at the strongly YA end in both communities, although
+the intermediate bins fluctuate, especially in AITAH. Between the lowest
+and highest YA-share bins, presence is $81.3\%$ versus $68.3\%$ in AITA
+and $74.8\%$ versus $63.4\%$ in AITAH. These are associations with the final
+observed verdict split, not evidence that receiving blame causes OPs to
+withdraw. OP comments may precede and potentially contribute to the
+judgment process. Missing author identities and unobserved comments also
+limit the scope of these descriptions.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aita_op_participation_presence_timing_min200.pdf}
+  \caption{OP participation in AITA across final YA share. Left: posts with
+  at least one OP comment, with $95\%$ Wilson intervals. Right: timing of
+  the first recorded OP comment, conditional on participation. All eligible
+  $200$-verdict posts are included without subsampling.}
+  \label{fig:aita-op-participation}
+  \Description{Two panels show OP participation in AITA. The presence curve
+  is generally above 80 percent on the NA-dominant side and reaches about
+  68 percent in the highest YA-share bin. The stacked timing chart shows
+  that first recorded OP comments usually arrive within one hour.}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aitah_op_participation_presence_timing_min200.pdf}
+  \caption{OP participation in AITAH, using the same definitions and axes
+  as Figure~\ref{fig:aita-op-participation}. Left: OP presence with $95\%$
+  Wilson intervals. Right: first-comment timing among participating OPs.
+  All eligible $200$-verdict posts are included without subsampling.}
+  \label{fig:aitah-op-participation}
+  \Description{Two panels show OP participation in AITAH. Presence varies
+  across final YA shares and falls to about 63 percent in the highest bin.
+  The timing composition fluctuates more than in AITA, but first recorded
+  OP comments still predominantly arrive within one hour.}
+\end{figure}
