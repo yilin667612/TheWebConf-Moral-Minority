@@ -356,19 +356,32 @@ of the complete discussion lifetime.
 
 Within each post and stage, we average the annotated certainty of minority
 comments, then average these post-level means with equal post weight.
-Each curve retains a fixed cohort with scored minority comments in every
-stage, restricting interpretation to discussions with minority expression
-throughout. Pointwise $95\%$ intervals use $2{,}000$ whole-post bootstrap
-replicates (seed $20260927$); they are not simultaneous bands or tests of
-stage-specific directional differences or temporal trends.
-In blaming/defending order, the contributing post counts are $143/55$
-(high) and $134/142$ (low) in AITA, and $53/9$ (high) and $32/32$ (low)
-in AITAH. These are post counts, not numbers of annotated comments.
-\textbf{[TODO: reconcile the cached stage-analysis sample with the final
-annotation dataset and exact-tie exclusion rule. The source generator
-assigns $\rho(p)=0.5$ to the YA side without an explicit tie filter;
-verify and, if needed, regenerate the low-agreement curves. Report the
-actual contributing annotated minority-comment counts by curve.]}
+The sampling frame is the same $1{,}195$ annotated posts described above,
+using stored final verdict shares and agreement assignments rather than
+recomputing them from annotated comments. Five exact-tie AITA low-agreement
+posts are excluded from directional comparisons. For the primary stage
+analysis, we retain only posts with at least one minority comment with a
+valid certainty label in each of the ten stages. Each curve therefore
+compares the same post set throughout. Missing minority certainty is
+undefined, not zero; posts missing any stage are excluded from that curve.
+
+The resulting fixed cohorts contain $584$ posts and $92{,}716$ scored
+minority comments. In blaming/defending order, post counts are $143/55$
+(high) and $134/137$ (low) in AITA, and $49/8$ (high) and $28/30$ (low)
+in AITAH. Figure~\ref{fig:certainty-progress} reports comment counts,
+not post counts, in the same order. Pointwise $95\%$ intervals use
+$2{,}000$ whole-post bootstrap replicates (seed $20260927$), resampling
+within each fixed community--band--direction cohort and retaining each
+post's complete stage sequence. These are not simultaneous bands or tests
+of stage-specific directional differences or temporal trends.
+
+The inclusion rule holds post composition constant but restricts the
+estimand to discussions with scored minority expression throughout; it
+can favor larger threads or those with more frequent minority comments.
+It does not represent all annotated posts or discussions in which minority
+expression disappears. For sensitivity comparison, we also retain
+stage-specific available-post estimates without the all-stage requirement;
+their contributing post sets can vary across stages.
 
 These profiles describe the language of observed comments, not
 longitudinal changes in the same individuals. They do not observe people
@@ -407,9 +420,10 @@ Window-specific participation can also be summarized by relative comment
 position using the stage construction in
 Section~\ref{subsec:method-certainty-contrasts}. Within a stage, minority
 share divides minority verdicts by all retained verdicts in that stage;
-post-level shares are then averaged with equal post weight. Unlike certainty
-profiles, these shares need not require scored dissent in every stage and
-therefore need not describe the same posts. Figure~\ref{fig:minority-ratio-time}
+post-level shares are then averaged with equal post weight. Unlike certainty,
+minority share is zero when a stage has verdict comments but no minority
+comments; certainty is undefined in that case. The two measures therefore
+need not describe the same contributing posts. Figure~\ref{fig:minority-ratio-time}
 instead uses the cumulative, elapsed-time construction above.
 
 These summaries describe the composition and language of observed comments,
