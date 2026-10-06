@@ -109,20 +109,23 @@ checkpoint or sample definition.]}
 Figure~\ref{fig:aitah-engagement-full} reports the AITAH counterpart of the
 AITA baseline figure. The analysis
 includes all eligible high- and low-agreement posts in the $200$-verdict
-cohort, excluding exact ties, without post subsampling. Estimates pool
-retained top-level verdict comments with equal comment weight and use all
+cohort, excluding exact ties, without post subsampling. Estimates average
+within-post means with equal weight per contributing post and use all
 available linked replies, without an additional elapsed-time cutoff.
 The cohort comprises $6{,}709$ high-agreement and $388$ low-agreement posts,
 with $4{,}122{,}998$ retained top-level verdict comments. Score is recorded
 upvotes minus downvotes; direct replies are immediate children of a verdict
 comment, and maximum reply depth is zero when there are no replies
 (Section~\ref{subsec:method-reception}).
+The high-agreement majority and minority summaries include $6{,}709$ and
+$6{,}598$ contributing posts, respectively; both low-agreement summaries
+include $388$. Absent minority cells are excluded, not assigned zero.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aitah_reception_grouped_bars_full_min200.pdf}
 \caption{Majority--minority reception in AITAH by agreement
-  level: mean score, direct-reply count, and maximum reply depth (left to
+  level: equal-post means of score, direct-reply count, and maximum reply depth (left to
   right). Each panel uses the same linear axis range as its AITA counterpart
   in Figure~\ref{fig:engagement-by-consensus}.}
   \label{fig:aitah-engagement-full}
@@ -462,8 +465,8 @@ $32.1$ days).
 
 Each comment in our dataset contains two timestamps: \texttt{created\_utc}, indicating when the comment was posted, and \texttt{retrieved\_on}, indicating when it was retrieved by the collection system. We define retrieval delay as the difference between these timestamps. This distinction matters because comment scores and reply activity can continue to accumulate after a comment is posted. Recorded reception measures may therefore reflect different observation ages.
 Our timestamp analysis identifies two collection regimes, separated by a transition in June 2023. Through May 2023, comments were generally retrieved retrospectively, with delays of tens or hundreds of days. From July 2023 onward, collection was nearly immediate: virtually all comments were retrieved within one hour, with monthly mean delays generally on the order of tens of seconds. Both AITA and AITAH exhibit this transition.
-The baseline score, direct-reply, and reply-depth analyses pool comments
-with equal comment weight; they do not average post-level means. This
+The baseline score, direct-reply, and reply-depth analyses average
+within-post means with equal weight per contributing post. This
 aggregation does not remove differences in observation age. We therefore
 treat recorded reception measures as observations from the available archive
 rather than standardized lifetime outcomes, and interpret differences in
@@ -486,7 +489,7 @@ the percentile ranges and symmetric-log axis thresholds.
   \includegraphics[width=\columnwidth]{figures/aitah_arrival_reception_symlog.pdf}
 \caption{AITAH reception by comment arrival hour, using the
   layout and symmetric-log scales of Figure~\ref{fig:comment-engagement-over-time}.
-  Solid/dashed lines show means/medians; dark/light bands show the
+  Lines show means/medians of post-level means; dark/light bands show their
   25th--75th/10th--90th percentiles, not confidence intervals.}
   \label{fig:aitah-arrival-reception}
 \end{figure}
@@ -497,18 +500,20 @@ the percentile ranges and symmetric-log axis thresholds.
 Figure~\ref{fig:aitah-dissent-direction} shows the AITAH counterpart of
 Figure~\ref{fig:dissent-direction}, with the same colors and axis ranges.
 The analysis includes $6{,}709$ high-agreement posts and $3{,}912{,}346$
-retained verdict comments. Means weight comments equally over the full
+retained verdict comments. Means weight contributing posts equally over the full
 observed period; maximum reply depth is zero for comments without replies.
 Each minority direction is compared with majority comments from its own
 dominant-verdict context, using the definitions in
 Section~\ref{subsec:method-reception}.
+The blaming and defending minority summaries include $6{,}105$ and $493$
+posts, respectively; their majority references include $6{,}211$ and $498$.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aitah_dissent_direction.pdf}
 \caption{Reception of blaming (orange) and defending (green)
   dissent in high-agreement AITAH posts, with their respective majority
-  references (gray). Panels show mean score, direct-reply count, and maximum
+  references (gray). Panels show equal-post means of score, direct-reply count, and maximum
   reply depth, using the AITA scales from Figure~\ref{fig:dissent-direction}.}
   \label{fig:aitah-dissent-direction}
 \end{figure}

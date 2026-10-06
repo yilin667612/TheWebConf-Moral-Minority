@@ -59,19 +59,23 @@ opinion.
 \label{subsec:res-baseline}
 
 \paragraph{Lower scores coexist with greater reply engagement.}
-In high-agreement AITA posts, majority comments average $37.95$ score
-points, whereas minority comments average $-2.75$
+In high-agreement AITA posts, equal-post mean scores are $39.55$ for
+majority comments and $-10.25$ for minority comments
 (Figure~\ref{fig:engagement-by-consensus}). The ordering reverses for
-conversational engagement: minority comments receive $0.53$ direct replies
-on average, compared with $0.14$ for majority comments, and their mean
-maximum reply depth is $0.79$ rather than $0.14$. Thus, low evaluation
+conversational engagement: the mean within-post direct-reply count is $0.73$
+for minority comments, compared with $0.15$ for majority comments, and mean
+maximum reply depth is $1.03$ rather than $0.17$. Thus, low evaluation
 does not imply an absence of responses.
 
 The differences are smaller in low-agreement posts. Majority and minority
-scores average $33.65$ and $26.87$; direct-reply counts average $0.26$ and
-$0.30$; and maximum reply depths average $0.30$ and $0.35$, respectively.
-The mean score gap is therefore $40.70$ points under high agreement but
-$6.78$ under low agreement. These archive-level comparisons establish the
+scores average $35.89$ and $27.60$; direct-reply counts average $0.28$ and
+$0.32$; and maximum reply depths average $0.36$ and $0.41$, respectively.
+The mean score gap is therefore $49.80$ points under high agreement but
+$8.29$ under low agreement. High-agreement summaries include $21{,}978$
+posts for majority comments and $21{,}217$ for minority comments; both
+low-agreement summaries include $1{,}838$ posts. Posts without minority
+comments do not contribute a minority reception value.
+These archive-level comparisons establish the
 reception baseline for the directional analysis, rather than treating the
 coexistence of low scores and more replies as a new phenomenon. They are
 descriptive contrasts, not estimates of an effect of agreement strength.
@@ -82,17 +86,17 @@ descriptive contrasts, not estimates of an effect of agreement strength.
     {figures/aita_reception_grouped_bars_full_min200.pdf}
 
 \caption{Majority--minority reception in AITA by agreement level:
-    mean score, direct-reply count, and maximum reply depth (left to right).
-    Panels use separate linear scales. The AITAH counterpart appears in
+    equal-post means of score, direct-reply count, and maximum reply depth
+    (left to right). Panels use separate linear scales. The AITAH counterpart appears in
     Appendix Figure~\ref{fig:aitah-engagement-full}.}
     \label{fig:engagement-by-consensus}
 
     \medskip
     \includegraphics[width=\columnwidth]
     {figures/aita_arrival_reception_symlog.pdf}
-\caption{AITA reception by comment arrival hour. Solid and dashed
-    lines show means and medians; dark/light bands show the
-    25th--75th/10th--90th percentiles, not confidence intervals.
+\caption{AITA reception by comment arrival hour, with equal post weight.
+    Lines show means/medians of post-level means; dark/light bands show
+    their 25th--75th/10th--90th percentiles, not confidence intervals.
     Symmetric-log axes retain zero and negative scores. See
     Figure~\ref{fig:aitah-arrival-reception} for AITAH.}
     \label{fig:comment-engagement-over-time}
@@ -103,8 +107,8 @@ Figure~\ref{fig:comment-engagement-over-time} groups comments by their
 arrival hour during the first $18$ hours. Early high-agreement majority
 comments have higher recorded scores, while early minority comments
 receive more direct replies than later minority comments. The separation
-between means, medians, and percentile bands also shows why a mean alone
-does not describe the reception of a typical comment. These are final
+between means, medians, and percentile bands also shows heterogeneity in
+average reception across contributing posts. These are final
 recorded outcomes grouped by arrival, not trajectories of scores or replies
 measured repeatedly over a comment's lifetime. Arrival timing and exposure
 therefore remain relevant when interpreting the aggregate contrasts.
@@ -152,21 +156,23 @@ more contestation, not simply support.
 
 \paragraph{Both directions are negatively evaluated, but engagement differs.}
 Separating high-agreement minority comments by dissent direction reveals
-an asymmetry that the pooled minority category conceals
+an asymmetry that the undifferentiated minority category conceals
 (Figure~\ref{fig:dissent-direction}). Blaming comments in NA-dominant posts
-average $-2.92$ score points, compared with $37.73$ for their majority
-reference. Defending comments in YA-dominant posts average $-2.36$,
-compared with $38.54$ for their majority reference. Both minority directions
-therefore receive negative mean scores, with only a modest difference
-between their means.
+have an equal-post mean score of $-10.65$, compared with $39.16$ for their
+majority reference. Defending comments in YA-dominant posts average $-8.62$,
+compared with $41.17$ for their majority reference. Both minority directions
+therefore receive negative mean scores, with a lower mean for blaming dissent.
+The minority estimates draw on $17{,}015$ NA-dominant and $4{,}202$
+YA-dominant posts; their majority references include $17{,}707$ and
+$4{,}271$ posts, respectively.
 
 The clearer directional difference is in conversational engagement.
-Blaming comments average $0.63$ direct replies, compared with $0.32$ for
-defending comments---a $1.98$-fold difference calculated from unrounded
-means. Their mean maximum reply depths are $0.92$ and $0.49$, respectively,
-a $1.86$-fold difference. In contrast, the corresponding majority baselines
-are similar: $0.14$ direct replies in both post types, and depths of $0.14$
-and $0.12$. Challenging collective defense of the OP is thus associated
+Blaming comments average $0.80$ direct replies, compared with $0.44$ for
+defending comments---a $1.83$-fold difference calculated from unrounded
+equal-post means. Their mean maximum reply depths are $1.12$ and $0.70$,
+respectively, a $1.60$-fold difference. In contrast, the corresponding
+majority baselines are similar: $0.15$ and $0.16$ direct replies, and depths
+of $0.17$ in both post types. Challenging collective defense of the OP is thus associated
 with more replies and deeper reply trees than challenging collective blame.
 
 \begin{figure}[t]
@@ -174,7 +180,7 @@ with more replies and deeper reply trees than challenging collective blame.
   \includegraphics[width=\columnwidth]{figures/aita_dissent_direction_infographics.pdf}
 \caption{Reception of blaming (orange) and defending (green)
   dissent in high-agreement AITA posts, with their respective majority
-  references (gray). Panels show mean score, direct-reply count, and maximum
+  references (gray). Panels show equal-post means of score, direct-reply count, and maximum
   reply depth. See Figure~\ref{fig:aitah-dissent-direction} for AITAH.}
     \label{fig:dissent-direction}
 \end{figure}
@@ -197,8 +203,8 @@ for blaming and $58.1\%$ for defending: a difference of $8.0$ percentage
 points ($95\%$ whole-post bootstrap CI $[3.9,12.2]$).
 Under low agreement, the contrast is smaller and uncertain
 ($1.2$ percentage points; CI $[-1.6,4.1]$).
-These estimates weight posts equally, unlike the pooled-comment reception
-means, and use the full observed annotation period.
+These estimates weight posts equally, as do the reception means, and use
+the full observed annotation period.
 
 Figure~\ref{fig:certainty-progress} provides a complementary view of mean
 certainty across relative comment position in the first $24$ hours.
@@ -249,21 +255,21 @@ qualifications above.
 \paragraph{The agreement-level pattern recurs.}
 AITAH also combines lower minority scores with greater engagement under
 high agreement (Appendix Figure~\ref{fig:aitah-engagement-full}).
-Majority and minority mean scores are $14.30$ and $-0.19$, respectively;
-direct-reply counts are $0.12$ and $0.38$; and maximum reply depths are
-$0.12$ and $0.67$. Under low agreement, the reply-count difference nearly
-disappears: both means round to $0.21$, with depths of $0.32$ and $0.34$.
+Majority and minority equal-post mean scores are $16.14$ and $-1.89$,
+respectively; direct-reply counts are $0.14$ and $0.48$; and maximum reply
+depths are $0.15$ and $0.79$. Under low agreement, the reply-count difference
+remains small ($0.233$ versus $0.237$), with depths of $0.37$ and $0.39$.
 As in AITA, the high-agreement minority therefore occupies a distinctive
 combination of lower evaluation and greater conversational engagement.
 
 \paragraph{Directional ordering is shared, not its magnitude.}
 Blaming dissent in AITAH receives a lower mean score than defending dissent
-($-0.42$ versus $1.03$), more direct replies ($0.41$ versus $0.23$), and
-greater maximum reply depth ($0.72$ versus $0.41$)
+($-2.02$ versus $-0.25$), more direct replies ($0.50$ versus $0.28$), and
+greater maximum reply depth ($0.81$ versus $0.51$)
 (Appendix Figure~\ref{fig:aitah-dissent-direction}).
-The blaming-to-defending reply ratio is $1.80$, compared with $1.98$ in
-AITA. AITAH's defending comments retain a positive mean score, whereas
-both directions have negative means in AITA. These results show a shared
+The blaming-to-defending reply ratio is $1.77$, compared with $1.83$ in
+AITA. Both minority directions have negative equal-post mean scores in
+both communities. These results show a shared
 directional ordering alongside differences in recorded magnitudes.
 
 Raw cross-community differences do not, by themselves, establish greater

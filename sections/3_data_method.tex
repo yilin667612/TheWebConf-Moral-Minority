@@ -211,29 +211,40 @@ specified with each analysis.
 
 We compare majority and minority reception across agreement levels (RQ1),
 then compare blaming and defending dissent in high-agreement posts, each
-with its corresponding majority baseline (RQ2). Means and proportions pool
-eligible comments with equal comment weight; larger posts consequently
-contribute more observations. Scores are the last values recorded in the
+with its corresponding majority baseline (RQ2). We first calculate each
+measure within a post and alignment group, then average these post-level
+means or proportions with equal weight per contributing post. Thus, larger
+posts do not receive greater weight in the reception estimates. A post
+without comments on a given side is excluded from that side's summary,
+not assigned zero. Majority and minority summaries can consequently have
+different contributing post sets; their differences are not paired contrasts.
+Scores are the last values recorded in the
 dataset, not scores measured at a common age after posting. Aggregate reply
 measures use all recorded linked replies without an additional elapsed-time
 cutoff. Neither measure is assumed to capture complete lifetime reception.
-Missing or nonnumeric scores are excluded from score means rather than
-imputed as zero; these comments remain eligible for structural reply measures.
+Missing or nonnumeric scores are excluded from within-post score means rather
+than imputed as zero; a post-side cell without valid scores is excluded only
+from the score summary. These comments remain eligible for structural reply measures.
 For the full-cohort baseline, reply trees are reconstructed from the recorded
 parent links within each post, and maximum depth is computed beneath each
 retained verdict comment. This computation is checked against the original
 recursive database traversal on selected comment subtrees.
 
 For the arrival-hour comparison, we group parent verdict comments posted
-within $[0,18)$ hours into one-hour bins and calculate pooled means, medians,
-and empirical percentile ranges. High-agreement majority and minority
-comments are kept separate; low-agreement verdict comments are pooled as
-a reference distribution. Only parent arrival is restricted: scores and
+within $[0,18)$ hours into one-hour bins. Within each post and bin, we
+calculate mean score and mean direct-reply count, then summarize these
+post-level means with equal post weight. High-agreement majority and minority
+comments are kept separate; low-agreement verdict comments are combined
+within each post before averaging across posts. Empty post-side-hour cells
+are excluded rather than assigned zero, so contributing post sets can vary
+across hours. Only parent arrival is restricted: scores and
 direct replies retain the same archive-wide observation definitions.
-Percentiles use linear interpolation between adjacent ordered observations.
+Medians and percentile ranges describe the distribution of post-level means,
+not individual comments or confidence intervals. Percentiles use linear
+interpolation between adjacent ordered post means.
 In Figures~\ref{fig:comment-engagement-over-time} and
 \ref{fig:aitah-arrival-reception}, columns show high-agreement majority,
-high-agreement minority, and pooled low-agreement verdict comments.
+high-agreement minority, and low-agreement verdict comments of both sides.
 Symmetric-log vertical axes are linear within $\pm1$ score point and
 $\pm0.01$ replies, and logarithmic outside those ranges; ticks remain in
 original units. The AITA and AITAH panels use matched axis ranges.
@@ -329,8 +340,8 @@ an upper elapsed-time cutoff, retaining minority comments with valid labels
 in $\{1,2,3,4\}$. We calculate the proportions at each certainty level within
 each post, then average these proportions with equal post weight. A post
 without a valid minority certainty observation is excluded, not assigned zero.
-Unlike pooled reception measures, these estimates give larger and smaller
-contributing posts equal weight.
+As with reception, these estimates give larger and smaller contributing
+posts equal weight.
 
 We summarize blaming-minus-defending differences in the proportion assigned
 level $4$, with mean certainty as a complementary summary. Within each
