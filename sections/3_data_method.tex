@@ -113,6 +113,16 @@ annotation file are excluded from the low/high comparisons. The differing
 sampling fractions are not used to construct a population-wide certainty
 estimate.
 
+The relative-position analysis in Figure~\ref{fig:certainty-progress} instead
+uses the broader annotation archive, including intermediate-agreement posts:
+$2{,}289$ posts ($1{,}666$ AITA; $623$ AITAH) with $1{,}240{,}620$ comment
+records. This adds $1{,}094$ intermediate-agreement posts to the low/high
+frame. We combine agreement levels with equal post weight within each
+community and dissent direction, without sampling-fraction reweighting;
+the combined estimates describe the annotated sample, not community-wide
+certainty. The fixed-post eligibility rule for these profiles is specified
+in Section~\ref{subsec:method-certainty-contrasts}.
+
 The current $1{,}195$-post analysis export contains $666{,}739$ distinct
 comment records: $510{,}383$ from AITA and $156{,}356$ from AITAH. Of these,
 $666{,}663$ have a valid certainty label; $76$ have missing labels and are
@@ -367,32 +377,44 @@ of the complete discussion lifetime.
 
 Within each post and stage, we average the annotated certainty of minority
 comments, then average these post-level means with equal post weight.
-The sampling frame is the same $1{,}195$ annotated posts described above,
-using stored final verdict shares and agreement assignments rather than
-recomputing them from annotated comments. Five exact-tie AITA low-agreement
+The sampling frame comprises all $2{,}289$ annotated posts, combining high,
+intermediate, and low agreement. We use stored final verdict shares rather
+than recomputing alignment from annotated comments. Five exact-tie AITA
 posts are excluded from directional comparisons. For the primary stage
 analysis, we retain only posts with at least one minority comment with a
 valid certainty label in each of the ten stages. Each curve therefore
 compares the same post set throughout. Missing minority certainty is
 undefined, not zero; posts missing any stage are excluded from that curve.
 
-The resulting fixed cohorts contain $584$ posts and $92{,}716$ scored
-minority comments. In blaming/defending order, post counts are $143/55$
-(high) and $134/137$ (low) in AITA, and $49/8$ (high) and $28/30$ (low)
-in AITAH. Figure~\ref{fig:certainty-progress} reports comment counts,
-not post counts, in the same order. Pointwise $95\%$ intervals use
-$2{,}000$ whole-post bootstrap replicates (seed $20260927$), resampling
-within each fixed community--band--direction cohort and retaining each
-post's complete stage sequence. These are not simultaneous bands or tests
-of stage-specific directional differences or temporal trends.
+The resulting fixed cohorts contain $1{,}669$ posts and $251{,}184$ scored
+minority comments. In blaming/defending order, post counts are $701/491$
+in AITA and $322/155$ in AITAH. Figure~\ref{fig:certainty-progress} reports
+comment counts, not post counts, in the same order. Pointwise $95\%$
+intervals use $2{,}000$ whole-post bootstrap replicates (seed $20261007$),
+resampling within each fixed community--direction cohort and retaining each
+post's complete stage sequence. The profile bands are not simultaneous
+bands or tests of stage-specific directional differences.
+
+Using exactly the same post-stage means, we separately fit a linear
+post fixed-effects model within each community and dissent direction:
+$\overline{C}_{p,s}=\alpha_p+\beta(s/9)+\epsilon_{p,s}$, where $s=0,\ldots,9$.
+Each post-stage has equal weight. The coefficient $\beta$ is the fitted
+change from the first to the last stage (the $5\%$ to $95\%$ sequence
+midpoints), not a per-hour change. Regression intervals use $20{,}000$
+whole-post percentile bootstrap replicates. We also calculate post-cluster
+standard errors, two-sided $t$ tests with $G-1$ degrees of freedom for $G$
+posts, and Holm-adjusted $p$ values across the four slopes. The displayed
+$95\%$ intervals are unadjusted for multiplicity. These exploratory linear
+trends do not imply monotonic growth, causal influence, or individual-level
+change, and separate slope tests do not test differences between groups.
 
 The inclusion rule holds post composition constant but restricts the
 estimand to discussions with scored minority expression throughout; it
 can favor larger threads or those with more frequent minority comments.
 It does not represent all annotated posts or discussions in which minority
-expression disappears. For sensitivity comparison, we also retain
-stage-specific available-post estimates without the all-stage requirement;
-their contributing post sets can vary across stages.
+expression disappears. Available-post profiles from the earlier low/high
+analysis remain a separate sensitivity comparison; their contributing post
+sets can vary across stages and are not the sample shown in Figure~\ref{fig:certainty-progress}.
 
 These profiles describe the language of observed comments, not
 longitudinal changes in the same individuals. They do not observe people

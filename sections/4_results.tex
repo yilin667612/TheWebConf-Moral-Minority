@@ -207,29 +207,31 @@ These estimates weight posts equally, as do the reception means, and use
 the full observed annotation period.
 
 Figure~\ref{fig:certainty-progress} provides a complementary view of mean
-certainty across relative comment position in the first $24$ hours.
-In high-agreement AITA posts (top left), blaming dissent has higher
-estimated mean certainty than defending dissent at every displayed stage.
-Under low agreement (top right), the curves are much closer and their
-pointwise intervals overlap throughout. This is a descriptive ordering of
-stage means, not evidence that every blaming comment is more certain or
-that every stage-specific difference is statistically distinguishable.
+certainty across relative comment position in the first $24$ hours,
+combining all agreement levels in the broader annotation archive. In the
+fixed AITA cohorts, both directions show positive post fixed-effects
+trends: the fitted first-to-last-stage change is $0.039$ for blaming
+($95\%$ post-bootstrap CI $[0.021,0.056]$) and $0.059$ for defending
+($[0.038,0.080]$). Both survive Holm correction across the four
+community--direction slopes. The profiles are not monotonic, and the
+larger defending point estimate is not itself evidence of a difference
+between directional trends. These pooled-agreement trajectories do not
+replace the separate high/low full-period contrasts above.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/certainty_progress_high_low_first_24h.pdf}
-  \caption{Mean certainty across first-day comment progress, by community
-  (rows) and agreement (columns). Orange: blaming; green: defending.
-  Each curve uses a fixed post cohort with scored dissent in all ten stages.
-  Bands: pointwise $95\%$ post-bootstrap CIs; $n$: scored minority comments
-  in blaming/defending order.}
+  \includegraphics[width=\columnwidth]{figures/certainty_progress_all_agreement_post_fe.pdf}
+  \caption{All-agreement certainty profiles (left) and post fixed-effects
+  trends (right). Rows: AITA/AITAH; orange/green: blaming/defending.
+  Fixed post cohorts; bands/whiskers: $95\%$ post-bootstrap CIs.
+  $n$: scored minority comments in blaming/defending order.}
   \label{fig:certainty-progress}
-  \Description{Four line charts compare blaming and defending dissent.
-  AITA is in the top row and AITAH in the bottom row; high agreement is
-  on the left and low agreement on the right. In high-agreement AITA,
-  the blaming curve is above the defending curve throughout. The AITA
-  low-agreement curves lie close together. AITAH high-agreement curves
-  cross and have wide uncertainty bands, especially for defending dissent.}
+  \Description{AITA and AITAH appear in the top and bottom rows.
+  Left panels show mean minority certainty across ten first-day comment
+  stages, pooling agreement levels. Right panels show fitted first-to-last
+  changes from post fixed-effects regressions on the same observations.
+  AITA blaming and defending and AITAH blaming have positive estimates
+  with intervals above zero; the AITAH defending interval includes zero.}
 \end{figure}
 
 The contrast requires qualification: restricting high-agreement AITA to
@@ -340,17 +342,17 @@ and may differ in audience, story composition, and exposure.
 
 \paragraph{Certainty profiles do not transfer uniformly.}
 Figure~\ref{fig:certainty-progress} also compares the two communities on
-the same axes. Unlike the consistently ordered high-agreement AITA curves,
-the corresponding AITAH curves cross and fluctuate. The AITAH defending
-curve draws on only $8$ posts in the fixed cohort, with wide pointwise
-intervals; it does not establish an absence or reversal
-of a directional certainty difference. Under low agreement, blaming means
-are generally above defending means in AITAH, but the intervals overlap
-and the ordering is not universal. The full-period distribution analysis
-retains $15$ high-agreement AITAH defending posts
-(Appendix Figure~\ref{fig:certainty-low-high}); only $8$ meet the
-first-day all-stage requirement. A visual contrast between
-communities is not a formal test of a community-by-direction interaction.
+the same axes, now pooling agreement levels. AITAH blaming has a positive
+fitted change of $0.036$ ($95\%$ post-bootstrap CI $[0.007,0.065]$;
+Holm-adjusted $p=0.031$), whereas defending has an uncertain estimate of
+$-0.015$ ($[-0.050,0.020]$; adjusted $p=0.413$). Thus, the combined
+annotation sample does not support an increasing linear trend for every
+community--direction group. The AITAH defending profile now includes
+$155$ fixed-cohort posts across agreement levels; the separate full-period
+high-agreement comparison still contains only $15$ defending posts
+(Appendix Figure~\ref{fig:certainty-low-high}). Significance in one group
+and non-significance in another is not a test of a community difference
+or community-by-direction interaction.
 \textbf{[TODO: report uncertainty for cross-community contrasts and verify
 the common-period comparison before attributing differences to community
 context. Confirm whether stored canonical verdict metadata incorporate
@@ -360,8 +362,8 @@ For \textbf{RQ3}, the recurring finding is the ordering of reception:
 minority judgments attract lower scores and more reply engagement under
 high agreement, and blaming dissent attracts more engagement than defending
 dissent. The magnitudes vary between communities, while the certainty
-profiles show that the AITA high-agreement ordering cannot be assumed to
-hold equally clearly in AITAH. The shared reception ordering does not
+profiles and exploratory slopes do not show the same pattern for every
+community--direction group. The shared reception ordering does not
 imply equivalent expression or reception environments, or identify their
 causes. Supplementary cumulative-participation patterns appear in
 Appendix~\ref{sec:appendix-cumulative-participation}.
