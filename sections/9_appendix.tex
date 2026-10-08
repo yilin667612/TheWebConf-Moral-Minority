@@ -69,10 +69,14 @@ after cohort-metadata checks. Source hashes are retained with the scripts.
 The following figures apply the AITA definitions and post-equal aggregation
 to AITAH. Directional comparisons retain separate majority baselines for
 NA- and YA-dominant posts. Absent minority cells are excluded, not zero.
-Arrival-hour plots show means, medians, and linearly interpolated percentiles
-of post-level means. Symmetric-log axes are linear within $\pm1$ score point
-and $\pm0.01$ replies, with original-unit ticks and matched community ranges.
-Only parent arrival is restricted; replies use all recorded outcomes.
+
+Arrival-hour plots follow Section~\ref{subsec:method-reception}, showing
+means, medians, and linearly interpolated percentiles of post-level means.
+High-agreement summaries separate majority and minority comments;
+low-agreement summaries combine both sides. Percentile bands describe
+post-mean distributions, not confidence intervals.
+Symmetric-log axes are linear within $\pm1$ score point and $\pm0.01$
+replies, with original-unit ticks and matched community ranges.
 
 \begin{figure}[t]
   \centering
@@ -114,6 +118,11 @@ such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
 
 \section{Community Comparability}
 \label{sec:appendix-content}
+
+We characterize post content with embeddings from
+\texttt{BAAI/bge-base-en-v1.5} \citep{bge_embedding} and
+\texttt{intfloat/e5-base-v2} \citep{wang2022text}, and audiences with
+user intersections and Jaccard overlap in the aligned calendar window.
 
 Post-text embeddings overlap in UMAP (Figure~\ref{fig:umap}), but source
 classification exceeds chance (ROC-AUC: BGE $0.613$, E5 $0.568$).
@@ -279,8 +288,10 @@ development-set figures, not held-out accuracy or inter-annotator reliability.
 \label{sec:appendix-certainty-progress}
 
 Profiles use the fixed-stage eligibility rule in
-Section~\ref{subsec:method-temporal}, retaining each post's complete
-sequence during resampling. Pointwise intervals use $2{,}000$ post-bootstrap
+Section~\ref{subsec:method-temporal}. A comment at zero-based rank $r$
+among $m$ retained first-day verdicts is assigned to stage
+$\lfloor10r/m\rfloor$. Resampling retains each post's complete sequence.
+Pointwise intervals use $2{,}000$ post-bootstrap
 replicates for all agreement levels (seed $20261007$) and $4{,}000$ for the
 high-agreement AITA overview (seed $20261008$). The latter includes separate
 majority/blaming/defending cohorts, not a common matched set. Its display
