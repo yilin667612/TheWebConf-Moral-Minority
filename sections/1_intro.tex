@@ -7,19 +7,19 @@ Prior work shows that negatively rated Reddit comments can attract more replies 
 
 We study r/AmItheAsshole (AITA), where an original poster (OP) describes an everyday interpersonal conflict and commenters judge the OP's conduct using verdicts such as YTA (``You're the Asshole'') and NTA (``Not the Asshole''). These explicit judgments make it possible to distinguish numerical alignment from evaluation and engagement. Related work examines comment valuation as consensus develops in AITA \cite{mellody2025consensus}. We combine scores and reply structure with direct-response annotations to distinguish support from challenge, excluding OP participation from the annotated response comparison.
 
-Using each post's final observed verdict distribution, we compare high-agreement discussions, where at least $80\%$ of retained judgments favor one side, with low-agreement discussions, where neither side exceeds $60\%$, excluding ties. These groups summarize the agreement gradient while keeping subsequent comparisons across dissent directions and communities interpretable.
+Using each post's final observed verdict distribution, we compare high-agreement discussions, where at least $80\%$ of retained judgments favor one side, with low-agreement discussions, where neither side exceeds $60\%$, excluding ties. These groups summarize the agreement gradient (Appendix Figure~\ref{fig:aita-agreement-gradient}) while keeping subsequent comparisons across dissent directions and communities interpretable.
 
 \begin{description}[leftmargin=0pt]
     \item[\textbf{RQ1: Minority reception.}] How does the evaluation and conversational reception of minority judgments differ between high- and low-agreement discussions?
 \end{description}
 
-Minority judgments can also challenge different moral positions. We distinguish \emph{blaming dissent}, which assigns fault to an OP whom the majority defends, from \emph{defending dissent}, which challenges the majority's blame. Both oppose the crowd, but one calls for condemnation while the other resists it. Theories of socially regulated blame suggest that public criticism itself invites scrutiny and demands for justification \cite{malle2022socially}. This motivates examining whether the two directions differ in reception and in how firmly judgments are expressed, rather than treating minority voices as interchangeable.
+Minority judgments can also challenge different moral positions. We distinguish \emph{blaming dissent}, which assigns fault to an OP whom the majority defends, from \emph{defending dissent}, which challenges the majority's blame. Both oppose the crowd, but one calls for condemnation while the other resists it. Theories of socially regulated blame suggest that public criticism itself invites scrutiny and demands for justification \cite{malle2022socially}. This motivates examining whether the two directions differ in reception and in how firmly judgments are expressed, rather than treating minority voices as interchangeable. Certainty annotations characterize expressed language, not private confidence or within-person attitude change.
 
 \begin{description}[leftmargin=0pt]
     \item[\textbf{RQ2: Direction of dissent.}] Within high-agreement posts, how do blaming and defending dissent differ in expressed certainty, evaluation, and conversational responses?
 \end{description}
 
-Certainty annotations characterize expressed language, not private confidence or within-person attitude change. We then extend the analysis to r/AITAH (AITAH) to examine which patterns recur beyond AITA. Cross-posted stories additionally let us compare how minority judgments are received around the same narrative in the two communities, without assuming identical audiences or exposure.
+To examine whether patterns of minority reception and expression recur across community contexts, we extend the analysis to r/AITAH (AITAH). Stories posted in both communities additionally let us compare how minority judgments are received around the same narrative, while recognizing that audiences and exposure may differ.
 
 \begin{description}[leftmargin=0pt]
     \item[\textbf{RQ3: Community context.}] Which patterns in minority reception and expressed certainty recur in AITAH, and how does minority reception differ between communities for stories posted in both?

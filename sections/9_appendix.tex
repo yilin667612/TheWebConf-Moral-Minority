@@ -61,6 +61,43 @@ The two axes describe post frequency and verdict volume, not the same quantity.
 with exact-tie exclusion. The existing dominance percentages sum to 99.8\%,
 not 100\%; verify all entries against the retained analytical sample.]}
 
+\section{Reception Across the Verdict Distribution in AITA}
+\label{sec:appendix-aita-agreement-gradient}
+
+Figure~\ref{fig:aita-agreement-gradient} extends the high/low comparison
+across final YA share $\rho(p)$ in bins of width $0.05$. It includes
+$28{,}097$ AITA posts with at least $200$ retained verdicts, after excluding
+$10$ exact ties. For each side and metric, we compute a within-post mean
+and then average equally across contributing posts in the bin. Posts
+without minority comments have no minority value; missing scores are
+excluded rather than replaced with zero. Replies and depth use the full
+observed archive, with zero for comments without replies. Pointwise
+$95\%$ percentile intervals use $2{,}000$ post-bootstrap replicates.
+
+The horizontal axis represents verdict direction as well as agreement:
+agreement strengthens toward either endpoint, away from $\rho(p)=0.5$.
+Majority--minority gaps are generally larger toward the endpoints, but
+the trajectories are asymmetric and some near-balanced bins reverse the
+ordering, rather than following one uniformly monotonic relationship.
+The curves describe associations, not a causal effect or a formal test
+of monotonicity. Intermediate-agreement summaries were retrieved on
+October~8, 2026; high/low summaries reuse the October~2 cache after
+checking that cohort verdict metadata match.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aita_reception_by_ya_share_post_equal.pdf}
+  \caption{AITA reception across final YA share: post-equal mean score,
+  direct-reply count, and maximum reply depth. Blue/red: majority/minority;
+  bands: pointwise $95\%$ post-bootstrap CIs. Dark/light gray shading marks
+  high/low agreement.}
+  \label{fig:aita-agreement-gradient}
+  \Description{Three panels compare majority and minority reception across
+  twenty bins of final YA share in AITA. Each panel shows equal-post means
+  and pointwise bootstrap intervals. The two tails mark high agreement,
+  while the central shaded region marks low agreement.}
+\end{figure}
+
 \section{Early Verdict Leaders and Final Alignment}
 \label{sec:appendix-stabilization}
 
