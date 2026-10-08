@@ -245,66 +245,6 @@ Full distributions and sensitivity checks appear in
 Appendix~\ref{sec:appendix-certainty-comparison}.
 \textbf{[TODO: complete certainty annotation validation.]}
 
-\paragraph{Share differs by dissent direction.}
-\label{subsec:res-share-contrasts}
-
-We next examine whether the prevalence of dissent develops differently for
-blaming and defending judgments. Each full observed thread is divided into ten
-equal-count stages according to relative comment position. Within each post and
-stage, dissent share is calculated as the number of dissenting verdict comments
-divided by all eligible verdict comments. These post-level shares are then
-averaged with equal weight per post, consistent with the reception and
-certainty analyses.
-
-Across high-agreement AITA posts, the full-thread mean within-post dissent
-share is $4.7\%$ for blaming and $6.3\%$ for defending. The
-defending-minus-blaming difference is $1.6$ percentage points
-($95\%$ whole-post bootstrap CI $[1.4,1.8]$). Under low agreement, the
-corresponding overall shares are both approximately $44.9\%$; the difference
-is $-0.04$ percentage points (CI $[-0.31,0.22]$). Thus, dissent direction is
-associated with overall prevalence under high agreement, whereas the
-full-thread averages are nearly identical under low agreement.
-
-The aggregate low-agreement similarity, however, conceals opposing
-within-thread trajectories (Figure~\ref{fig:share-progress}). In
-high-agreement posts, blaming dissent changes by only $-0.4$ percentage points
-from the first to the last stage, whereas defending dissent increases by
-$1.3$ points. The defending-minus-blaming difference-in-change is
-$1.8$ percentage points (CI $[1.5,2.0]$).
-
-The divergence is considerably larger under low agreement. Blaming dissent
-decreases by $6.5$ percentage points from the first to the last stage, while
-defending dissent increases by $6.8$ points. The resulting
-defending-minus-blaming difference-in-change is $13.3$ percentage points
-(CI $[11.5,15.1]$). Blaming and defending posts can therefore have nearly
-identical full-thread average dissent shares while differing substantially in
-where dissent appears within the comment sequence.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]
-  {figures/full_population_high_low_direction_share_aita.png}
-\caption{Mean within-post dissent share across full-thread comment progress
-in AITA, by agreement level (columns). Orange: blaming; green: defending.
-Each curve uses a fixed post cohort contributing verdict comments in all ten
-stages. Bands: pointwise $95\%$ post-bootstrap CIs; $n$: contributing posts
-in blaming/defending order.}
-  \label{fig:share-progress}
-  \Description{Two line charts compare blaming and defending dissent across
-  relative comment position in AITA. Under high agreement, defending dissent
-  increases while blaming dissent remains approximately stable. Under low
-  agreement, blaming dissent decreases and defending dissent increases, with
-  the curves crossing near the middle of the discussion.}
-\end{figure}
-
-These comparisons involve different post cohorts: blaming dissent is observed
-in NA-dominant posts, whereas defending dissent is observed in YA-dominant
-posts. They are therefore not alternative judgments randomly assigned within
-the same discussion. Moreover, agreement and direction are defined using the
-full observed verdict distribution, including comments in the stages being
-described. The trajectories characterize changes in the composition of
-observed comments, not changes in the judgments of individual commenters, and
-do not identify a causal effect of discussion progress.
 
 Together, these findings address \textbf{RQ2} through both reception and
 expression: blaming dissent attracts more replies and deeper reply trees
@@ -369,46 +309,6 @@ imply equivalent expression or reception environments, or identify their
 causes. Supplementary cumulative-participation patterns appear in
 Appendix~\ref{sec:appendix-cumulative-participation}.
 
-\paragraph{Dissent shares do not change uniformly.}
-Figures~\ref{fig:share-progress} and~\ref{fig:aitah-share-progress} compare
-equal-post dissent shares across relative comment position. In
-high-agreement AITA posts, blaming dissent changes little while defending
-dissent increases. AITAH shows the opposite ordering: blaming dissent
-increases, whereas defending dissent decreases. The
-defending-minus-blaming difference-in-change is $1.8$ percentage points in
-AITA and $-2.6$ points in AITAH. Their cross-community contrast is $4.3$
-points ($95\%$ whole-post bootstrap CI $[3.5,5.3]$).
-
-The reversal is larger under low agreement. Blaming dissent decreases by
-$6.5$ points and defending dissent increases by $6.8$ points in AITA; in
-AITAH, blaming dissent increases by $8.0$ points and defending dissent
-decreases by $6.2$ points. The corresponding cross-community
-difference-in-change is $27.5$ points (CI $[23.1,31.9]$). Thus, similar
-full-thread average dissent shares can conceal different distributions of
-blaming and defending judgments across the comment sequence.
-
-These comparisons describe different post cohorts and observation frames.
-Agreement and direction are defined from the final observed verdict
-distribution, and the community contrast does not isolate an effect of
-AITA's verdict rule, moderation, audience composition, or discussion
-exposure.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]
-  {figures/full_population_high_low_direction_share_aitah.png}
-  \caption{Mean within-post dissent share across full-thread comment progress
-  in AITAH, by agreement level (columns). Orange: blaming; green: defending.
-  Each curve uses a fixed post cohort contributing verdict comments in all
-  ten stages. Bands: pointwise $95\%$ post-bootstrap CIs; $n$: contributing
-  posts in blaming/defending order.}
-  \label{fig:aitah-share-progress}
-  \Description{Two line charts compare blaming and defending dissent across
-  relative comment position in AITAH. Under high agreement, blaming dissent
-  increases while defending dissent decreases overall. Under low agreement,
-  blaming dissent rises and defending dissent falls, reversing the
-  corresponding AITA patterns.}
-\end{figure}
 
 \paragraph{Illustrative cross-posted stories.}
 \label{subsec:res-duplicates}
