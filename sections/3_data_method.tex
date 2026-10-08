@@ -113,7 +113,7 @@ annotation file are excluded from the low/high comparisons. The differing
 sampling fractions are not used to construct a population-wide certainty
 estimate.
 
-The relative-position analysis in Figure~\ref{fig:certainty-progress} instead
+The relative-position analysis in Appendix Figure~\ref{fig:certainty-progress} instead
 uses the broader annotation archive, including intermediate-agreement posts:
 $2{,}289$ posts ($1{,}666$ AITA; $623$ AITAH) with $1{,}240{,}620$ comment
 records. This adds $1{,}094$ intermediate-agreement posts to the low/high
@@ -221,7 +221,10 @@ specified with each analysis.
 
 We compare majority and minority reception across agreement levels (RQ1),
 then compare blaming and defending dissent in high-agreement posts, each
-with its corresponding majority baseline (RQ2). We first calculate each
+with its corresponding majority baseline (RQ2). The combined overview in
+Figure~\ref{fig:dissent-direction} merges the two majority cohorts with
+equal weight per contributing post; context-specific majority baselines
+are retained in the text. We first calculate each
 measure within a post and alignment group, then average these post-level
 means or proportions with equal weight per contributing post. Thus, larger
 posts do not receive greater weight in the reception estimates. A post
@@ -366,7 +369,7 @@ and~\ref{sec:appendix-certainty-window}. These are between-cohort comparisons,
 not estimates of within-person change. Archive follow-up may differ across posts.
 
 \paragraph{Certainty across relative comment position.}
-Figure~\ref{fig:certainty-progress} complements the full-period comparison
+Appendix Figure~\ref{fig:certainty-progress} complements the full-period comparison
 with first-day profiles for RQ2 and RQ3. For each post, eligible verdict
 comments arriving within the first $24$ hours are ordered by creation time,
 with comment ID breaking timestamp ties, and divided into ten approximately
@@ -386,16 +389,29 @@ valid certainty label in each of the ten stages. Each curve therefore
 compares the same post set throughout. Missing minority certainty is
 undefined, not zero; posts missing any stage are excluded from that curve.
 
-The resulting fixed cohorts contain $1{,}669$ posts and $251{,}184$ scored
+The resulting all-agreement fixed cohorts contain $1{,}669$ posts and $251{,}184$ scored
 minority comments. In blaming/defending order, post counts are $701/491$
-in AITA and $322/155$ in AITAH. Figure~\ref{fig:certainty-progress} reports
+in AITA and $322/155$ in AITAH. Appendix Figure~\ref{fig:certainty-progress} reports
 comment counts, not post counts, in the same order. Pointwise $95\%$
 intervals use $2{,}000$ whole-post bootstrap replicates (seed $20261007$),
 resampling within each fixed community--direction cohort and retaining each
 post's complete stage sequence. The profile bands are not simultaneous
 bands or tests of stage-specific directional differences.
 
-Using exactly the same post-stage means, we separately fit a linear
+The high-agreement AITA overview in Figure~\ref{fig:dissent-direction}
+applies the same ten-stage construction separately to majority, blaming,
+and defending comments within the $659$ annotated high-agreement posts.
+For each curve, a post must have at least one valid certainty observation
+for the plotted group in every stage. Majority comments combine both
+dominant-verdict contexts. The resulting curves have separate fixed post
+sets, not a common matched cohort. We average within-post stage means
+equally and obtain pointwise $95\%$ percentile intervals from $4{,}000$
+whole-post bootstrap replicates (seed $20261008$). The restricted display
+range of $3.2$--$3.9$ retains the profile means and bands; certainty remains
+measured on the original $1$--$4$ scale. These profiles are distinct from
+the all-agreement regression analysis below.
+
+Using the all-agreement minority post-stage means, we separately fit a linear
 post fixed-effects model within each community and dissent direction:
 $\overline{C}_{p,s}=\alpha_p+\beta(s/9)+\epsilon_{p,s}$, where $s=0,\ldots,9$.
 Each post-stage has equal weight. The coefficient $\beta$ is the fitted

@@ -497,8 +497,10 @@ the percentile ranges and symmetric-log axis thresholds.
 \section{Blaming and Defending Dissent in AITAH}
 \label{sec:appendix-aitah-direction}
 
-Figure~\ref{fig:aitah-dissent-direction} shows the AITAH counterpart of
-Figure~\ref{fig:dissent-direction}, with the same colors and axis ranges.
+Figure~\ref{fig:aitah-dissent-direction} reports the AITAH reception
+measures corresponding to the top three rows of
+Figure~\ref{fig:dissent-direction}. Unlike the combined AITA overview,
+it shows aggregate means and separate context-specific majority references.
 The analysis includes $6{,}709$ high-agreement posts and $3{,}912{,}346$
 retained verdict comments. Means weight contributing posts equally over the full
 observed period; maximum reply depth is zero for comments without replies.
@@ -514,8 +516,36 @@ posts, respectively; their majority references include $6{,}211$ and $498$.
 \caption{Reception of blaming (orange) and defending (green)
   dissent in high-agreement AITAH posts, with their respective majority
   references (gray). Panels show equal-post means of score, direct-reply count, and maximum
-  reply depth, using the AITA scales from Figure~\ref{fig:dissent-direction}.}
+  reply depth. The corresponding AITA post-level distributions appear
+  in Figure~\ref{fig:dissent-direction}.}
   \label{fig:aitah-dissent-direction}
+\end{figure}
+
+\section{All-Agreement Certainty Profiles and Linear Trends}
+\label{sec:appendix-certainty-progress}
+
+Figure~\ref{fig:certainty-progress} retains the all-agreement AITA/AITAH
+profiles and post fixed-effects analysis reported in
+Section~\ref{subsec:res-certainty-contrasts}. These use the broader annotation
+archive, including intermediate agreement, rather than the high-agreement
+AITA cohorts in Figure~\ref{fig:dissent-direction}. Stage construction,
+fixed-cohort eligibility, and regression inference are specified in
+Section~\ref{subsec:method-certainty-contrasts}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/certainty_progress_all_agreement_post_fe.pdf}
+  \caption{All-agreement certainty profiles (left) and post fixed-effects
+  trends (right) for AITA/AITAH. Orange/green: blaming/defending;
+  bands/whiskers: $95\%$ post-bootstrap CIs. Stars mark Holm-adjusted
+  slope significance; $n$ counts scored minority comments.}
+  \label{fig:certainty-progress}
+  \Description{AITA and AITAH appear in the top and bottom rows.
+  Left panels show mean minority certainty across ten first-day comment
+  stages, pooling agreement levels. Right panels show fitted first-to-last
+  changes from post fixed-effects regressions on the same observations.
+  AITA blaming and defending and AITAH blaming have positive estimates
+  with intervals above zero; the AITAH defending interval includes zero.}
 \end{figure}
 
 \section{Supplementary Analysis: Cumulative Minority Participation}
