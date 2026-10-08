@@ -1,544 +1,185 @@
 \section{Data and Methods}
 \label{sec:data-method}
 
-\subsection{Data Sources and Analytical Samples}
+\subsection{Data and Samples}
 \label{subsec:dataset}
 
-We study public moral discussions in r/AmItheAsshole (AITA), where an
-original poster (OP) describes an interpersonal conflict and commenters
-judge the OP's conduct. AITA is our primary setting. We use r/AITAH (AITAH),
-which has a similar narrative-and-judgment format, as a cross-community
-comparison.
+We analyze public AITA and AITAH archives linking submissions, comments,
+verdict labels, scores, timestamps, and parent relationships. Documented
+coverage runs from June 2013 for AITA and March 2021 for AITAH through
+December 2025. Table~\ref{tab:analytical-samples} reports archive sizes,
+analysis-specific samples, and annotation exclusions.
 
-\paragraph{Post and reply structure.}
-Each discussion begins with a submission, or \emph{post}, whose title and
-body present the OP's account. Comments attached directly to this post are
-\emph{top-level comments}; these may state a verdict on the OP's conduct
-and explain the reasoning behind it. Participants can also reply to an
-existing comment, and those replies can receive further replies, forming
-nested conversation branches. A \emph{direct reply} in our analysis is an
-immediate child of a top-level verdict comment, whereas its \emph{reply
-subtree} includes all subsequent descendants. The OP can participate in
-these exchanges alongside other commenters. We distinguish judgments about
-the original situation from responses to those judgments: retained
-top-level verdict comments define the post's judgment distribution, while
-their replies provide the material for analyzing conversational reception.
-Direct-response annotation considers only immediate parent--reply pairs;
-reply-tree measures additionally capture deeper exchanges.
+A \emph{top-level comment} responds to the original post; its immediate
+children are \emph{direct replies}, and all descendants form its reply
+subtree. Only top-level verdict comments define the judgment distribution;
+nested replies measure responses to those judgments. The OP may participate
+at either level.
 
-\paragraph{Archive coverage.}
-The processed source archives contain $871{,}754$ submissions and
-$112{,}328{,}464$ comments from AITA, and $568{,}356$ submissions and
-$36{,}123{,}353$ comments from AITAH. Their documented coverage begins in
-June 2013 and March 2021, respectively, and extends through December 2025.
-The main high-volume post cohort described below spans 2018--2025.
-The records link submissions, comment text, extracted verdicts, scores,
-timestamps, and parent--reply relationships. Content and user-overlap
-comparisons use the aligned period from 17 March 2021 to 23 December 2025;
-other analyses use their specified samples rather than assuming a shared
-calendar filter.
-% Source: minority-voices-aita/README.md and SCHEMA.md; cohort_posts.json.
-\textbf{[TODO: cite the exact Reddit Academic Torrents dump release identified
-by the dataset documentation; report acquisition/retrieval dates and known
-coverage gaps. Confirm calendar filters for each reception comparison.]}
+The main reception cohort contains all eligible posts with at least $200$
+retained verdicts, without post subsampling. Empty or removed submission
+bodies are excluded during source processing. AutoModerator has no verdict
+label and does not enter verdict counts. Structural measures use stored
+labels and linked replies without requiring usable reply text or an author
+filter; annotation imposes additional text and identity requirements.
+These samples describe retained archive records, not a census of activity.
 
-\paragraph{Eligibility.}
-We retain top-level comments containing a recognized verdict. The main
-analytical cohort requires at least $200$ retained verdict comments per
-post, yielding $28{,}107$ AITA and $8{,}217$ AITAH posts before agreement-band
-and exact-tie exclusions. We retain judgments that assign or
-reject fault on the OP's part, using the groups defined in
-Section~\ref{subsec:method}, and exclude posts with an exact tie between
-them from alignment-based comparisons. Nested replies are analyzed as
-responses to judgments; they do not enter the post's verdict distribution.
-The source processing excludes submissions with empty or removed bodies.
-AutoModerator comments remain in the archive but receive no verdict label,
-so they do not enter verdict counts. Structural reception queries select on
-stored verdict labels without an additional author-identity filter and count
-linked replies irrespective of whether their text is usable for annotation.
-The direct-response sample instead requires usable post, parent, and reply
-text and verifiable author identities, as specified below.
-\textbf{[TODO: document any bot filtering beyond AutoModerator and verify
-whether previously labeled comments with subsequently deleted text remain
-in the structural analysis.]}
+Certainty annotation samples $3\%$ of high-agreement and $15\%$ of
+low-agreement posts from this cohort. Posts are sampled, but their top-level
+comments are annotated individually. We retain the existing export's
+membership and supplement earlier annotations without replacement within
+community and agreement band. The all-agreement stage analysis additionally
+uses intermediate-agreement posts from the broader annotation archive.
+Neither analysis reweights observations to estimate community-wide certainty.
+Direct-response annotation instead uses three seeded, stratified pair
+samples from a broader high-agreement frame; these are not assumed to meet
+the reception cohort's $200$-verdict threshold.
 
-\paragraph{Analysis-specific samples.}
-The baseline score, direct-reply, and reply-depth comparisons use all
-eligible high- and low-agreement posts in the $200$-verdict cohort, after
-exact-tie exclusions; no post subsampling is applied. All retained top-level
-verdict comments in those posts enter the comparisons. These are complete
-analyses of the eligible archive records, not a census of community activity.
-Eligibility and alignment use the stored post-level verdict metadata;
-reception measures are recomputed from the available comment records.
-The combined AITA score--reply--depth figure appears in the main text;
-the corresponding AITAH figure appears in
-Appendix~\ref{sec:appendix-aitah-reception}.
-Directional score, direct-reply, and reply-depth comparisons use the
-high-agreement subset of this same cohort, split by dominant verdict.
-Separate legacy subtree-score outputs are not used for these comparisons.
-The reception cohort contains $21{,}978$ high-agreement and $1{,}838$
-low-agreement AITA posts, comprising $13{,}038{,}967$ retained top-level
-verdict comments. The corresponding AITAH counts are $6{,}709$ and $388$
-posts, comprising $4{,}122{,}998$ verdict comments. The high-agreement
-directional comparisons use $12{,}080{,}072$ AITA and $3{,}912{,}346$ AITAH
-verdict comments from these same cohorts.
-% Full-cohort refresh: full_reception_collect.py and plot_full_reception.py;
-% output/reception_full_min200_20261002/posts.jsonl and summary.json.
-
-Direct-response annotation uses three samples of $16{,}000$ parent--reply
-pairs each, stratified by community, high-agreement tail, and parent
-alignment: eight strata with $2{,}000$ pairs per stratum per sample. The
-author-filtered samples contain $48{,}000$ sample memberships but
-$46{,}706$ unique pairs across $28{,}582$ distinct posts. These are pair-based
-samples from a broader eligible response frame, not subsets assumed to
-satisfy the main $200$-verdict post threshold. They cover high-agreement
-posts only; they do not provide low-agreement response estimates.
-% Author-filtered counts supersede the pre-filter sample in the Sept. 10 report.
-% Source: ying_reports/Minority_Voices_AITA_Experiments_07_report_2026-09-17.html.
-\textbf{[TODO: confirm the response frame's minimum-verdict requirement from
-its frozen sampling manifest. If the separate 24,000-pair October sample is
-included, document it separately: its range, $0.2<\rho(p)<0.8$ excluding
-ties, is broader than the low-agreement band defined here.]}
-
-For certainty annotation, we sample $3\%$ of eligible high-agreement posts
-(AITA: $659$; AITAH: $202$) and $15\%$ of low-agreement posts
-(AITA: $276$; AITAH: $58$), totaling $1{,}195$ posts from the
-$200$-verdict cohort. We retain the existing analysis export's post membership
-and agreement-band assignments throughout the reported comparisons.
-To supplement earlier annotations, additional posts are drawn without replacement within community
-and agreement band from posts not already annotated, using sampling seed $0$.
-Posts are the sampling unit, but the annotations score their top-level
-comments individually. Intermediate-agreement posts in the broader
-annotation file are excluded from the low/high comparisons. The differing
-sampling fractions are not used to construct a population-wide certainty
-estimate.
-
-The relative-position analysis in Appendix Figure~\ref{fig:certainty-progress} instead
-uses the broader annotation archive, including intermediate-agreement posts:
-$2{,}289$ posts ($1{,}666$ AITA; $623$ AITAH) with $1{,}240{,}620$ comment
-records. This adds $1{,}094$ intermediate-agreement posts to the low/high
-frame. We combine agreement levels with equal post weight within each
-community and dissent direction, without sampling-fraction reweighting;
-the combined estimates describe the annotated sample, not community-wide
-certainty. The fixed-post eligibility rule for these profiles is specified
-in Section~\ref{subsec:method-certainty-contrasts}.
-
-The current $1{,}195$-post analysis export contains $666{,}739$ distinct
-comment records: $510{,}383$ from AITA and $156{,}356$ from AITAH. Of these,
-$666{,}663$ have a valid certainty label; $76$ have missing labels and are
-excluded from certainty estimates. Removing INFO leaves $665{,}107$ valid
-YA/NA certainty annotations before alignment-based filtering.
-The $1{,}195$ posts include five exact-tie AITA posts under the stored
-final-verdict metadata, which are excluded from directional comparisons.
-Requiring at least one minority comment with a valid certainty label leaves
-$1{,}169$ contributing posts and $104{,}135$ minority comments for the
-full-observed-period certainty comparison. These are retained analysis
-counts, not the total number of annotated comments. The annotation file
-combines locally recorded versions \texttt{v4} and \texttt{v4.1}; those
-version tags alone do not identify an immutable model backend.
-% Counts independently checked from the source CSV and the full_period_18h
-% post_metadata.csv. Source SHA-256 begins fe799febc3a9a728.
-\textbf{[TODO: document the selection procedure for the earlier annotations
-that the supplementary sampling incorporated.]}
-
-\subsection{Operationalizing Minority Moral Dissent}
+\subsection{Verdict Alignment}
 \label{subsec:method}
 
-\paragraph{Verdict extraction and grouping.}
-We assign each comment the first recognized verdict expression in its text.
-Short codes are matched case-sensitively with word boundaries, preventing
-lowercase words such as \texttt{nah} and substrings such as \texttt{ESH}
-in \texttt{FRESH} from being treated as verdicts. Full phrases, such as
-\emph{not the asshole} and \emph{you're the asshole}, are matched
-case-insensitively. When a comment contains multiple recognized expressions,
-the first in textual order determines its verdict label.
-
-Hypothetical forms are normalized as YWBTA to YTA and YWNBTA to NTA;
-H-suffixed aliases in AITAH are mapped to their corresponding tags. We
-then group labels by whether they assign fault to the OP:
-$\mathrm{YA}=\{\text{YTA},\text{ESH}\}$ and
-$\mathrm{NA}=\{\text{NTA},\text{NAH}\}$.
-INFO and comments without a recognized verdict are excluded from verdict
-counts. Appendix~\ref{sec:appendix-tags} lists the tags, aliases, and their
-meanings.
-
-\paragraph{Alignment and agreement.}
-For a post $p$, let $N_{\mathrm{YA}}(p)$ and $N_{\mathrm{NA}}(p)$ count
-retained top-level verdicts in each group. The retained verdict count is
-$N(p)=N_{\mathrm{YA}}(p)+N_{\mathrm{NA}}(p)$, stored as
-\texttt{YANA\_total}. We define the final observed \emph{YA share} as
+A comment receives the first recognized verdict in textual order. Short
+codes use case-sensitive word boundaries; full phrases are matched
+case-insensitively. We normalize hypothetical forms and H-suffixed aliases,
+then group canonical tags as $\mathrm{YA}=\{\mathrm{YTA},\mathrm{ESH}\}$
+and $\mathrm{NA}=\{\mathrm{NTA},\mathrm{NAH}\}$, excluding INFO and
+unrecognized comments (Appendix~\ref{sec:appendix-tags}).
+For retained top-level counts, define
 \[
-\rho(p)=\frac{N_{\mathrm{YA}}(p)}{N(p)}.
+N(p)=N_{\mathrm{YA}}(p)+N_{\mathrm{NA}}(p),\qquad
+\rho(p)=N_{\mathrm{YA}}(p)/N(p).
 \]
-Here, \emph{final} refers to the available archive, not an official
-community-assigned verdict or a complete lifetime record. Throughout,
-$\rho(p)$ denotes this final observed share; running or window-specific
-proportions are identified separately.
+The dominant verdict $D(p)$ is YA for $\rho(p)>0.5$ and NA for
+$\rho(p)<0.5$; exact ties are excluded. Majority comments match $D(p)$;
+minority comments oppose it. High agreement means $\rho(p)\le.2$ or
+$\rho(p)\ge.8$; low agreement means $.4\le\rho(p)\le.6$, excluding ties.
+Intermediate bands enter the continuous and all-agreement analyses only.
 
-The dominant verdict is $D(p)=\mathrm{YA}$ when $\rho(p)>0.5$ and
-$D(p)=\mathrm{NA}$ when $\rho(p)<0.5$; exact ties are excluded. A verdict
-comment is majority-aligned when it matches $D(p)$ and minority-aligned
-otherwise. High-agreement posts satisfy $\rho(p)\le0.20$ or
-$\rho(p)\ge0.80$; low-agreement posts satisfy
-$0.40\le\rho(p)\le0.60$, excluding ties. Intermediate bands are omitted
-from the main low/high comparison. Low-agreement posts provide a comparison
-for our primary focus on minority judgments in high-agreement posts.
-
-The distribution plots (Figures~\ref{fig:ya-share} and
-\ref{fig:aitah-ya-share}) show the $200$-verdict cohort before exact-tie
-exclusion, using one-percentage-point bins of final YA share. The endpoint
-$\rho(p)=1$ is included in the final bin. Bars count posts; the right-axis
-line divides the sum of stored $N(p)$ values in each bin by that bin's
-post count. It therefore measures mean retained top-level verdicts per
-post, not all comments or nested replies. The horizontal axis expresses
-$\rho(p)$ as a percentage: $0$ and $100\%$ denote unanimous NA and YA,
-respectively, and $50\%$ denotes an exact tie. Shading marks the
-high-agreement bands.
-
-\paragraph{Direction of dissent.}
-Blaming dissent is a minority YA judgment in an NA-dominant post; defending
-dissent is a minority NA judgment in a YA-dominant post. Each direction is
-compared with majority comments in the corresponding post type. Comparing
-the two directions therefore involves different post cohorts, not two
-randomly assigned responses to the same story. Alignment and agreement
-labels remain fixed to the final observed distribution, including in temporal
-analyses; they do not measure what commenters perceived when posting.
-Table~\ref{tab:dimensions} summarizes the analytical dimensions and measures.
+Blaming dissent is minority YA in NA-dominant posts; defending dissent is
+minority NA in YA-dominant posts. The two directions therefore involve
+different story cohorts. Alignment uses stored final observed verdict
+metadata throughout, including temporal analyses, not an official verdict
+or the opinion distribution perceived by commenters.
+Table~\ref{tab:dimensions} summarizes the dimensions and measures.
 
 \input{components/tab_dimensions}
 
-\subsection{Reception and Direct Responses}
+\subsection{Reception and Responses}
 \label{subsec:method-reception}
 
-\paragraph{Evaluation and conversational engagement.}
-Comment score is the recorded net vote count: upvotes minus downvotes.
-Direct-reply count measures immediate responses to a verdict comment.
-Reply depth is the maximum number of reply levels beneath that comment,
-with zero indicating no replies. Subtree score sums the scores of the
-initiating comment and all observed replies in its subtree. Reply incidence
-and thresholded engagement measures use the count or depth threshold
-specified with each analysis.
+Score is the last recorded net vote count (upvotes minus downvotes), not
+a score measured at a common comment age. Direct-reply count measures
+immediate children; maximum reply depth counts levels below the verdict
+comment, with zero for no replies. Reply trees use recorded parent links
+and all observed replies, without an elapsed-time cutoff.
 
-We compare majority and minority reception across agreement levels (RQ1),
-then compare blaming and defending dissent in high-agreement posts, each
-with its corresponding majority baseline (RQ2). The combined overview in
-Figure~\ref{fig:dissent-direction} merges the two majority cohorts with
-equal weight per contributing post; context-specific majority baselines
-are retained in the text. We first calculate each
-measure within a post and alignment group, then average these post-level
-means or proportions with equal weight per contributing post. Thus, larger
-posts do not receive greater weight in the reception estimates. A post
-without comments on a given side is excluded from that side's summary,
-not assigned zero. Majority and minority summaries can consequently have
-different contributing post sets; their differences are not paired contrasts.
-Scores are the last values recorded in the
-dataset, not scores measured at a common age after posting. Aggregate reply
-measures use all recorded linked replies without an additional elapsed-time
-cutoff. Neither measure is assumed to capture complete lifetime reception.
-Missing or nonnumeric scores are excluded from within-post score means rather
-than imputed as zero; a post-side cell without valid scores is excluded only
-from the score summary. These comments remain eligible for structural reply measures.
-For the full-cohort baseline, reply trees are reconstructed from the recorded
-parent links within each post, and maximum depth is computed beneath each
-retained verdict comment. This computation is checked against the original
-recursive database traversal on selected comment subtrees.
+We average comments within each post and alignment group, then average
+post-level means with equal post weight. Absent sides are undefined, not
+zero; missing scores are excluded only from score means. Contributing post
+sets may consequently differ, so majority--minority differences are not
+paired contrasts. Directional comparisons use each post type's majority
+baseline; Figure~\ref{fig:dissent-direction} combines both majority cohorts.
+Recorded outcomes need not represent complete lifetime reception
+(Appendix~\ref{sec:appendix-Retrieval Timing}).
 
-For the arrival-hour comparison, we group parent verdict comments posted
-within $[0,18)$ hours into one-hour bins. Within each post and bin, we
-calculate mean score and mean direct-reply count, then summarize these
-post-level means with equal post weight. High-agreement majority and minority
-comments are kept separate; low-agreement verdict comments are combined
-within each post before averaging across posts. Empty post-side-hour cells
-are excluded rather than assigned zero, so contributing post sets can vary
-across hours. Only parent arrival is restricted: scores and
-direct replies retain the same archive-wide observation definitions.
-Medians and percentile ranges describe the distribution of post-level means,
-not individual comments or confidence intervals. Percentiles use linear
-interpolation between adjacent ordered post means.
-In Figures~\ref{fig:comment-engagement-over-time} and
-\ref{fig:aitah-arrival-reception}, columns show high-agreement majority,
-high-agreement minority, and low-agreement verdict comments of both sides.
-Symmetric-log vertical axes are linear within $\pm1$ score point and
-$\pm0.01$ replies, and logarithmic outside those ranges; ticks remain in
-original units. The AITA and AITAH panels use matched axis ranges.
-Display-axis transformations do not change the underlying estimates.
+Arrival-hour comparisons group parent comments within $[0,18)$ hours into
+hourly bins, retaining archive-wide scores and replies. Post-level means
+are summarized separately for high-agreement majority and minority comments,
+and jointly for both sides under low agreement. Empty cells are excluded.
+Displayed percentile bands describe post-mean distributions, not confidence
+intervals; display settings appear in Appendix~\ref{sec:appendix-aitah-arrival}.
+
+\paragraph{Direct responses.}
+\label{subsec:method-rq2}
+Each annotation pairs a top-level verdict comment with one immediate reply.
+With the original post as context, the reply is labeled support, challenge,
+information-seeking, or other relative to its parent, not the OP or crowd.
+The prompt supplies no scores or alignment metadata. We exclude OP-authored
+parents or replies, same-author exchanges, and unverifiable identities.
+
+Sampling is without replacement within each community--agreement-tail--
+alignment stratum, but samples may overlap and have no post/parent caps.
+Response proportions therefore weight pairs, unlike post-equal reception
+means, and condition on receiving a reply. A challenge proportion is not
+the probability that a comment receives a challenge, nor a measure of
+personal attack. DeepSeek annotations underwent development-set review,
+not independent held-out validation. Prompt, execution settings, and review
+limits appear in Appendix~\ref{sec:appendix-rq2-annotation}.
 
 \paragraph{OP participation.}
 \label{subsec:method-op-participation}
-We separately describe OP participation using every eligible post in the
-$200$-verdict cohort with an available submission author and a non-tied
-final verdict distribution; no post subsampling is applied. This leaves
-$26{,}997$ AITA and $8{,}211$ AITAH posts. A comment is attributed to the
-OP when its recorded author matches the submission author. We exclude
-submissions whose author is missing, \texttt{[deleted]}, or
-\texttt{[removed]}, and omit AutoModerator comments. Participation counts
-any recorded OP comment, whether top-level or nested and whether or not it
-contains a verdict, over the full observed thread.
+Separately, we match comment and submission authors to measure any recorded
+OP participation and first-comment timing, excluding unavailable identities
+and AutoModerator. These summaries use the full eligible $200$-verdict
+cohort, not the response-annotation sample
+(Appendix~\ref{sec:appendix-op-participation}).
 
-In bins of width $0.05$ in final YA share $\rho(p)$, OP presence is the
-proportion of eligible posts with at least one matched comment. Shaded bands
-are pointwise $95\%$ Wilson score intervals for this post-level proportion,
-not bootstrap intervals. Conditional on OP presence, we measure elapsed
-time from submission to the earliest recorded OP comment and summarize it
-as under $1$ hour, $1$--$6$ hours, $6$--$24$ hours, or at least $24$ hours;
-each post contributes once. The timing panel therefore has a different
-denominator from the presence panel. These archive-based measures cannot
-recover participation obscured by deleted author identities or missing
-comments. Appendix~\ref{sec:appendix-op-participation} reports both figures.
-
-\paragraph{Direct-response annotation.}
-\label{subsec:method-rq2}
-The annotation unit is a pair consisting of a top-level verdict comment and
-one reply directly attached to it. The original submission provides context,
-but the reply is classified relative to its parent comment, not relative to
-the OP or the crowd's verdict. Categories are support, challenge,
-information-seeking, and other. They describe communicative function rather
-than sentiment: a polite rebuttal can be a challenge, while qualified
-agreement can remain support. The prompt supplies no comment scores,
-alignment labels, or agreement-level metadata. Category definitions and
-mixed-response rules appear in Appendix~\ref{sec:appendix-rq2-annotation}.
-
-The annotated analysis excludes OP participation to distinguish responses
-by other commenters from engagement by the person being judged.
-Pairs are excluded if either the parent or child was written by the OP,
-if parent and child have the same author, or if authorship cannot be verified,
-including missing or deleted identities. Author-ineligible draws are replaced
-within their strata using a deterministic random candidate order.
-
-Sampling is without replacement within each sample, using seeds
-$2026090901$, $2026090902$, and $2026090903$, without post/parent caps or
-forced disjointness across samples. Shared pairs are annotated separately
-in each sample. Within-stratum proportions are unweighted; equal-stratum
-summaries are not population-weighted prevalence estimates. Because sampling
-is over pairs, posts and parents with more eligible replies can contribute
-more observations. Overlapping samples do not constitute independent
-discussion populations.
-We compare response-category proportions across parent alignment, agreement
-level, dissent direction, and community. Their denominator is labeled direct
-replies, whereas reply incidence uses eligible parent comments, including
-those receiving no replies. Thus, the proportion of replies that challenge a
-judgment is distinct from the probability that a judgment receives a reply
-or a challenge. This annotation does not, by itself, identify personal attacks.
-Annotation uses prompt version \texttt{v0.3.3}, temperature $0$, and disabled
-thinking, with individual requests processed at concurrency $10$. Successful
-responses report the model alias \texttt{deepseek-flash}; the execution record
-identifies the service as DeepSeek V4.1 Flash, but the alias is not an
-immutable backend identifier. Each pair receives one of the four categories
-and a rationale; all three completed samples have a final category for every
-pair, so missing outputs are not absorbed into \emph{other}. Prompt development
-and human review used $100$ author-verified pairs whose labels were revised
-after inspecting disagreements. This is development-set review, not
-independent held-out validation. Further execution and review details appear
-in Appendix~\ref{sec:appendix-rq2-annotation}.
-\textbf{[TODO: report independent held-out validation and category-level
-performance if completed; no such evaluation is established by the current
-development-set agreement. Specify post/parent-clustered uncertainty before
-adding inferential claims.]}
-
-\subsection{Expressed Linguistic Certainty}
+\subsection{Expressed Certainty}
 \label{subsec:method-certainty-contrasts}
 
-We characterize how firmly minority judgments are expressed using a
-four-level annotation scale: unresolved or conflicting judgments ($1$), a
-leaning that allows an alternative ($2$), a qualified single judgment ($3$),
-and a confidently asserted single judgment ($4$). The same criteria apply
-to blaming and defending comments. This measures expressed linguistic
-certainty, not private confidence or attitude strength. The prompt and
-examples appear in Appendix~\ref{sec:appendix-annotation}. Verdict labels
-still follow the first-match rule, including when the certainty annotation
-identifies an unresolved judgment.
+Certainty labels range from unresolved/conflicting judgments ($1$), through
+a leaning allowing alternatives ($2$) and a qualified judgment ($3$), to a
+confidently asserted judgment ($4$). They measure expressed language, not
+private confidence; the same criteria apply to both dissent directions.
+Verdict alignment still follows the first-match rule. Annotation details
+appear in Appendix~\ref{sec:appendix-annotation}.
 
-The aggregate certainty comparison for RQ2 uses the full observed period without
-an upper elapsed-time cutoff, retaining minority comments with valid labels
-in $\{1,2,3,4\}$. We calculate the proportions at each certainty level within
-each post, then average these proportions with equal post weight. A post
-without a valid minority certainty observation is excluded, not assigned zero.
-As with reception, these estimates give larger and smaller contributing
-posts equal weight.
-
-We summarize blaming-minus-defending differences in the proportion assigned
-level $4$, with mean certainty as a complementary summary. Within each
-community and agreement band, $95\%$ percentile intervals use $10{,}000$
-bootstrap replicates that independently resample whole posts from each
-directional cohort, using random seed $20260922$. Retaining each post's comments together preserves
-within-post dependence; contrast intervals are calculated from replicate-level
-differences. Full distributions, annotation-version checks, and first-$18$-hour
-sensitivity comparisons appear in
+The primary comparison uses all observed minority comments with valid
+labels, without an arrival-time cutoff. We average within-post certainty
+distributions equally across posts, excluding posts without valid minority
+observations. Blaming-minus-defending contrasts emphasize the proportion
+at level $4$, with mean certainty as a complementary summary. Percentile
+$95\%$ intervals independently resample whole posts within each directional
+cohort, retaining their comments together. Full distributions, version
+checks, and first-$18$-hour sensitivity analyses appear in
 Appendices~\ref{sec:appendix-certainty-comparison}
-and~\ref{sec:appendix-certainty-window}. These are between-cohort comparisons,
-not estimates of within-person change. Archive follow-up may differ across posts.
+and~\ref{sec:appendix-certainty-window}.
 
-\paragraph{Certainty across relative comment position.}
-Appendix Figure~\ref{fig:certainty-progress} complements the full-period comparison
-with first-day profiles for RQ2 and RQ3. For each post, eligible verdict
-comments arriving within the first $24$ hours are ordered by creation time,
-with comment ID breaking timestamp ties, and divided into ten approximately
-equal-count stages. For zero-based rank $r$ among $m$ eligible comments,
-stage membership is $\lfloor 10r/m\rfloor$. The horizontal axis is relative
-position in the observed first-day sequence, not clock time or the fraction
-of the complete discussion lifetime.
-
-Within each post and stage, we average the annotated certainty of minority
-comments, then average these post-level means with equal post weight.
-The sampling frame comprises all $2{,}289$ annotated posts, combining high,
-intermediate, and low agreement. We use stored final verdict shares rather
-than recomputing alignment from annotated comments. Five exact-tie AITA
-posts are excluded from directional comparisons. For the primary stage
-analysis, we retain only posts with at least one minority comment with a
-valid certainty label in each of the ten stages. Each curve therefore
-compares the same post set throughout. Missing minority certainty is
-undefined, not zero; posts missing any stage are excluded from that curve.
-
-The resulting all-agreement fixed cohorts contain $1{,}669$ posts and $251{,}184$ scored
-minority comments. In blaming/defending order, post counts are $701/491$
-in AITA and $322/155$ in AITAH. Appendix Figure~\ref{fig:certainty-progress} reports
-comment counts, not post counts, in the same order. Pointwise $95\%$
-intervals use $2{,}000$ whole-post bootstrap replicates (seed $20261007$),
-resampling within each fixed community--direction cohort and retaining each
-post's complete stage sequence. The profile bands are not simultaneous
-bands or tests of stage-specific directional differences.
-
-The high-agreement AITA overview in Figure~\ref{fig:dissent-direction}
-applies the same ten-stage construction separately to majority, blaming,
-and defending comments within the $659$ annotated high-agreement posts.
-For each curve, a post must have at least one valid certainty observation
-for the plotted group in every stage. Majority comments combine both
-dominant-verdict contexts. The resulting curves have separate fixed post
-sets, not a common matched cohort. We average within-post stage means
-equally and obtain pointwise $95\%$ percentile intervals from $4{,}000$
-whole-post bootstrap replicates (seed $20261008$). The restricted display
-range of $3.2$--$3.9$ retains the profile means and bands; certainty remains
-measured on the original $1$--$4$ scale. These profiles are distinct from
-the all-agreement regression analysis below.
-
-Using the all-agreement minority post-stage means, we separately fit a linear
-post fixed-effects model within each community and dissent direction:
-$\overline{C}_{p,s}=\alpha_p+\beta(s/9)+\epsilon_{p,s}$, where $s=0,\ldots,9$.
-Each post-stage has equal weight. The coefficient $\beta$ is the fitted
-change from the first to the last stage (the $5\%$ to $95\%$ sequence
-midpoints), not a per-hour change. Regression intervals use $20{,}000$
-whole-post percentile bootstrap replicates. We also calculate post-cluster
-standard errors, two-sided $t$ tests with $G-1$ degrees of freedom for $G$
-posts, and Holm-adjusted $p$ values across the four slopes. The displayed
-$95\%$ intervals are unadjusted for multiplicity. These exploratory linear
-trends do not imply monotonic growth, causal influence, or individual-level
-change, and separate slope tests do not test differences between groups.
-
-The inclusion rule holds post composition constant but restricts the
-estimand to discussions with scored minority expression throughout; it
-can favor larger threads or those with more frequent minority comments.
-It does not represent all annotated posts or discussions in which minority
-expression disappears. Available-post profiles from the earlier low/high
-analysis remain a separate sensitivity comparison; their contributing post
-sets can vary across stages and are not the sample shown in Figure~\ref{fig:certainty-progress}.
-
-These profiles describe the language of observed comments, not
-longitudinal changes in the same individuals. They do not observe people
-who considered commenting but remained silent, or establish that commenters
-saw earlier judgments or responses.
-\textbf{[TODO: complete the certainty model/version, decoding, and human
-validation documentation in Appendix~\ref{sec:appendix-annotation}.]}
-
-\subsection{Participation Across Discussion Stages}
+\subsection{Discussion Progress}
 \label{subsec:method-temporal}
 
-We distinguish elapsed time from progress through a comment sequence.
-Elapsed time is measured from submission to comment arrival. Window-specific
-minority share counts minority verdicts among verdicts arriving in a given
-window; cumulative share includes all verdicts observed up to that time.
-Blaming share is measured within NA-dominant posts and defending share within
-YA-dominant posts. Both retain the final-distribution alignment labels.
-The broad participation analysis uses eligible verdict comments rather than
-requiring certainty annotations. For Figure~\ref{fig:minority-ratio-time},
-high-agreement posts satisfy $N(p)\ge200$. Comments are assigned to hourly
-bins $[h,h+1)$ for $h=0,\ldots,23$, using nonnegative elapsed times below
-$24$ hours and excluding unavailable comment timestamps. At each hour end,
-we divide cumulative minority-comment counts by cumulative retained verdict
-counts pooled across the cohort. Larger posts therefore contribute more
-comments; this is not a mean of within-post proportions. An empty hourly
-bin adds no counts, leaving a previously defined cumulative share unchanged.
-These curves are descriptive and have no uncertainty bands.
-% Source: verdict_ratio_over_time.py; matches the cumulative figure's labels.
-\textbf{[TODO: recover contributing post counts and verify positive cumulative
-denominators at all displayed checkpoints; the plotting script otherwise
-substitutes zero for an undefined share. Document archive follow-up and any
-additional window-specific figures separately.]}
+For first-day certainty profiles, we order retained verdict comments by
+creation time, break ties by comment ID, and divide each post's first
+$24$ hours into ten equal-count stages: zero-based rank $r$ among $m$
+comments maps to $\lfloor10r/m\rfloor$. We average within-post stage means
+equally across posts. Each curve retains a fixed set of posts with valid
+certainty for its plotted group in every stage. This prevents changing
+post composition but selects discussions with persistent observed
+expression; it does not track individuals. The high-agreement AITA overview
+and all-agreement community comparison use separate cohorts. Bootstrap
+settings and post fixed-effects regressions are specified in
+Appendix~\ref{sec:appendix-certainty-progress}.
 
-\paragraph{Relative comment position.}
-Window-specific participation can also be summarized by relative comment
-position using the stage construction in
-Section~\ref{subsec:method-certainty-contrasts}. Within a stage, minority
-share divides minority verdicts by all retained verdicts in that stage;
-post-level shares are then averaged with equal post weight. Unlike certainty,
-minority share is zero when a stage has verdict comments but no minority
-comments; certainty is undefined in that case. The two measures therefore
-need not describe the same contributing posts. Figure~\ref{fig:minority-ratio-time}
-instead uses the cumulative, elapsed-time construction above.
+Participation is distinct from certainty: a stage with verdicts but no
+minority has zero minority share and undefined minority certainty.
+The supplementary elapsed-time curves instead pool cumulative verdict
+counts across posts, giving larger threads greater weight
+(Appendix~\ref{sec:appendix-cumulative-participation}).
 
-These summaries describe the composition and language of observed comments,
-not longitudinal changes in the same individuals. They do not observe people
-who considered commenting but remained silent, or establish that commenters
-saw earlier judgments or responses.
-
-\subsection{Cross-Community Comparison and Shared Stories}
+\subsection{Community Comparison}
 \label{subsec:method-community}
 
-We apply the same verdict definitions and measures in AITAH to compare
-minority reception, dissent direction, and expressed certainty.
-Content and user-overlap comparisons use the aligned calendar period
-specified in Section~\ref{subsec:dataset}; reception comparisons retain their
-analysis-specific sampling frames and observation windows.
-Community membership is an observed grouping variable, not an experimentally
-assigned condition. The comparison does not isolate the effects of community
-rules, participant composition, or topic selection.
-
-To characterize content overlap, we use post embeddings from
+We apply identical measures in AITAH. Content and user-overlap comparisons
+use the aligned period 17 March 2021--23 December 2025; reception analyses
+retain their specified frames. Post embeddings from
 \texttt{BAAI/bge-base-en-v1.5} \citep{bge_embedding} and
-\texttt{intfloat/e5-base-v2} \citep{wang2022text}, examining projections,
-community-prediction performance, distributional distances, and topic
-composition (Appendix~\ref{sec:appendix-content}). We describe shared users
-and authors using intersection counts and Jaccard overlap, including activity-
-and tenure-restricted cohorts (Appendix~\ref{sec:appendix-overlap}), and
-summarize comment-arrival timing (Appendix~\ref{sec:appendix-timing}).
-\textbf{[TODO: document embedding preprocessing, classifier evaluation,
-permutation settings, topic-model specification, and user-cohort definitions
-in the corresponding appendices.]}
+\texttt{intfloat/e5-base-v2} \citep{wang2022text} characterize content overlap;
+user intersections, Jaccard overlap, and arrival timing characterize
+audiences and activity (Appendices~\ref{sec:appendix-content},
+\ref{sec:appendix-overlap}, and~\ref{sec:appendix-timing}).
 
-\paragraph{Cross-posted stories.}
-We use cross-posted stories for contextual case studies rather than a
-principal quantitative test of community differences. Candidate matches
-require identical title-and-body text after Unicode NFKC normalization,
-case folding, and whitespace normalization; empty, deleted, and removed
-bodies are excluded. We identify $4{,}150$ distinct stories, defined by
-unique normalized content, that appear in both communities. Of these,
-$3{,}913$ have exactly one submission in each community, forming one-to-one
-pairs. The remaining $237$ appear multiple times in at least one community
-and allow multiple submission pairings.
+Cross-posted stories match title-and-body text after Unicode NFKC
+normalization, case folding, and whitespace normalization; empty, deleted,
+or removed bodies are excluded. Pairs require observed verdict shares in
+both communities, without imputation. Contextual case selection additionally
+requires at least $20$ retained verdicts per submission. Pair counts appear
+in Table~\ref{tab:analytical-samples}. We compare verdict distributions and
+parent--reply exchanges without treating shared text as control for audiences,
+posting times, or exposure. The community comparison is observational,
+not an estimate of the effects of community rules.
 
-Among the cross-community submission pairs, $1{,}871$ have an observed YA
-share $\rho(p)$ in both communities. Submissions with no retained verdicts
-have an undefined share; these values are not imputed. Requiring at least
-$20$ retained verdicts in each submission leaves $107$ pairs in the updated
-export. This case-selection threshold is separate from the $200$-verdict
-threshold used in the main analyses. Within selected pairs, we examine
-verdict distributions and individual parent--reply exchanges, keeping
-aggregate verdict counts distinct from the scores of particular comments.
-Matching story text does not match audiences, posting times, or exposure
-to replies.
-\textbf{[TODO: specify how the 237 multiply submitted stories enter the
-candidate pair set. Document case-selection criteria and verify examples
-against the updated 107-pair export. Distinguish cases illustrating shared
-patterns from deliberately selected contrasts; neither establishes a
-representative community effect.]}
-
-\paragraph{Reporting scope and research ethics.}
-Archive-wide summaries describe retained records, while annotation-based
-estimates describe their specified samples. Bootstrap intervals do not account
-for missing archive records or annotation error, and separate intervals for
-two groups do not substitute for a direct interaction test.
-\textbf{[TODO: document uncertainty procedures for reception comparisons and
-any interaction tests. Report institutional ethics-review status, data-access
-and retention conditions, and safeguards for qualitative examples. Before
-publication, assess whether titles, verbatim quotations, or distinctive story
-details permit identification; document any faithful paraphrasing and avoid
-claiming that removing usernames alone provides anonymity.]}
+Archive gaps and annotation error are not captured by bootstrap intervals;
+separate group intervals do not test interactions. Public narratives may
+remain identifiable after usernames are removed.
+\textbf{[TODO: finalize source provenance, annotation validation, and ethics
+documentation; outstanding details remain in the appendix source comments.]}

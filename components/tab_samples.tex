@@ -1,0 +1,71 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+\begin{tabular}{@{}p{0.44\linewidth}rr@{}}
+\toprule
+Sample / unit & AITA & AITAH \\
+\midrule
+Archive submissions & 871,754 & 568,356 \\
+Archive comments & 112,328,464 & 36,123,353 \\
+$200$-verdict posts, before ties & 28,107 & 8,217 \\
+High-agreement posts & 21,978 & 6,709 \\
+Low-agreement posts & 1,838 & 388 \\
+High/low verdict comments & 13,038,967 & 4,122,998 \\
+High-agreement verdicts & 12,080,072 & 3,912,346 \\
+High-agreement minority posts & 21,217 & 6,598 \\
+Blaming / defending posts & 17,015 / 4,202 & 6,105 / 493 \\
+Their majority baselines & 17,707 / 4,271 & 6,211 / 498 \\
+Eligible OP-analysis posts & 26,997 & 8,211 \\
+Posts with OP comments & 21,871 & 6,323 \\
+First OP comment under 1h & 17,424 & 4,747 \\
+\midrule
+Certainty: high posts ($3\%$) & 659 & 202 \\
+Certainty: low posts ($15\%$) & 276 & 58 \\
+Low/high comment records & 510,383 & 156,356 \\
+All-agreement annotated posts & 1,666 & 623 \\
+All-agreement fixed posts, B/D & 701 / 491 & 322 / 155 \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\centering
+\begin{tabular}{@{}p{0.48\linewidth}r@{}}
+\toprule
+Pooled sample / filter & Count \\
+\midrule
+Low/high annotated posts & 1,195 \\
+Valid certainty labels / missing & 666,663 / 76 \\
+Valid YA/NA certainty labels & 665,107 \\
+Exact-tie annotated posts (AITA) & 5 \\
+Full-period minority: posts / comments & 1,169 / 104,135 \\
+First-18h minority: posts / comments & 1,164 / 92,737 \\
+All-agreement comment records & 1,240,620 \\
+All-agreement fixed: posts / comments & 1,669 / 251,184 \\
+AITA high, v4-only posts, B/D & 315 / 71 \\
+AITA high fixed posts, M/B/D & 659 / 143 / 55 \\
+AITA high fixed comments, M/B/D & 329,025 / 8,618 / 4,084 \\
+AITA gradient posts / verdicts & 28,097 / 15,223,917 \\
+\midrule
+Direct-response samples & $3\times16{,}000$ pairs \\
+Pairs per stratum per sample & 2,000 \\
+Unique pairs / posts & 46,706 / 28,582 \\
+\midrule
+Shared normalized stories & 4,150 \\
+One-to-one / multiply posted stories & 3,913 / 237 \\
+Pairs with observed shares & 1,871 \\
+Pairs with $\ge20$ verdicts per post & 107 \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\caption{Analytical samples and exclusions. Reception counts exclude exact
+ties unless noted. Certainty filtering excludes missing labels and INFO;
+fixed profiles additionally require scored expression in every stage.
+M/B/D denote majority/blaming/defending; profile comment counts are scored
+comments. Response samples overlap and use a separate, broader frame.
+Directional certainty counts by agreement appear in
+Table~\ref{tab:certainty-window}.}
+\label{tab:analytical-samples}
+\end{table*}
