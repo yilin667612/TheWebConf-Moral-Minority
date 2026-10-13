@@ -1,4 +1,4 @@
-\newpage
+\onecolumn
 
 \section{Supplementary Material}
 \label{sec:supp}
@@ -8,8 +8,8 @@
 \label{sec:appendix-content}
 
 We characterize post content with embeddings from
-\texttt{BAAI/bge-base-en-v1.5} \citep{bge_embedding} and
-\texttt{intfloat/e5-base-v2} \citep{wang2022text}, and audiences with
+\texttt{BAAI/\allowbreak bge-\allowbreak base-\allowbreak en-v1.5} \citep{bge_embedding} and
+\texttt{intfloat/\allowbreak e5-\allowbreak base-v2} \citep{wang2022text}, and audiences with
 user intersections and Jaccard overlap in the aligned calendar window.
 
 Post-text embeddings overlap in UMAP (Figure~\ref{fig:umap}), but source
@@ -88,3 +88,24 @@ development-set figures, not held-out accuracy or inter-annotator reliability.
 % establish independent category-level validation and post/parent-clustered
 % uncertainty. If used, document the separate October 24,000-pair sample:
 % .2<rho<.8 is broader than the defined low-agreement band.
+
+\subsection{Analytical Samples}
+\label{sec:supp-samples}
+\label{sec:appendix-samples}
+
+Table~\ref{tab:analytical-samples} distinguishes archive coverage, reception
+cohorts, and annotation samples. The $200$-verdict cohort spans 2018--2025;
+the broader archive starts earlier. Stored verdict metadata determine
+eligibility and alignment, while available comments determine reception.
+The low/high certainty export retains its original membership and band
+assignments; supplementary draws use seed $0$. Versions \texttt{v4} and
+\texttt{v4.1} do not identify immutable model backends. Fixed-stage cohorts
+are subsets of their annotation frames, not additional samples.
+
+\input{components/tab_samples}
+
+% TODO (source provenance): identify the exact Academic Torrents release,
+% retrieval dates, archive gaps, and calendar filters for each analysis.
+% Verify bot filtering beyond AutoModerator and the treatment of previously
+% labeled comments whose text was later deleted. Recover earlier annotation
+% selection procedures. These unresolved items are not resolved by compression.

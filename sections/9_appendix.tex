@@ -1,25 +1,14 @@
 \appendix
 \newpage
 
-\section{Analytical Samples}
-\label{sec:appendix-samples}
+\section{Analytical Dimensions and Measures}
+\label{sec:appendix-dimensions}
 
-Table~\ref{tab:analytical-samples} distinguishes archive coverage, reception
-cohorts, and annotation samples. The $200$-verdict cohort spans 2018--2025;
-the broader archive starts earlier. Stored verdict metadata determine
-eligibility and alignment, while available comments determine reception.
-The low/high certainty export retains its original membership and band
-assignments; supplementary draws use seed $0$. Versions \texttt{v4} and
-\texttt{v4.1} do not identify immutable model backends. Fixed-stage cohorts
-are subsets of their annotation frames, not additional samples.
+Table~\ref{tab:dimensions} summarizes the dimensions and measures defined
+in Section~\ref{sec:data-method}. Detailed sample accounting appears in
+Supplementary Table~\ref{tab:analytical-samples}.
 
-\input{components/tab_samples}
-
-% TODO (source provenance): identify the exact Academic Torrents release,
-% retrieval dates, archive gaps, and calendar filters for each analysis.
-% Verify bot filtering beyond AutoModerator and the treatment of previously
-% labeled comments whose text was later deleted. Recover earlier annotation
-% selection procedures. These unresolved items are not resolved by compression.
+\input{components/tab_dimensions}
 
 \section{Verdict Distributions}
 \label{sec:appendix-verdict-distribution}
@@ -178,35 +167,10 @@ is flagged even when its contrast interval excludes zero.
 Restricting high-agreement AITA to \texttt{v4} gives a certainty-$4$
 difference of $5.0$ percentage points (CI $[-0.7,10.5]$) and a mean difference
 of $0.054$ ($[-0.018,0.123]$). Version and post composition are confounded.
-Table~\ref{tab:certainty-window} compares full-period estimates with arrivals
+Sensitivity analyses compare full-period estimates with arrivals
 in $[0,18)$ hours, using fixed final-verdict labels. The same cutoff in AITAH
 defines a comparison window, not a verdict-disclosure event.
 
-\begin{table*}[t]
-  \centering
-  \begin{tabular}{@{}llrrll@{}}
-    \toprule
-    Community & Agreement & Full $n$ & First-18h $n$
-      & Full $\Delta$ [$95\%$ CI] & First-18h $\Delta$ [$95\%$ CI] \\
-    \midrule
-    \multicolumn{6}{l}{Mean certainty difference (scale points)} \\
-    AITA & Low & 134/137 & 134/137 & $0.018\;[-0.012,0.050]$ & $0.018\;[-0.014,0.051]$ \\
-    AITA & High & 506/135 & 503/134 & $0.075\;[0.021,0.131]$ & $0.090\;[0.034,0.147]$ \\
-    AITAH & Low & 28/30 & 28/30 & $0.064\;[-0.001,0.128]$ & $0.062\;[-0.005,0.127]$ \\
-    AITAH & High & 184/15 & 183/15 & $0.121\;[0.022,0.228]$ & $0.153\;[0.056,0.254]$ \\
-    \midrule
-    \multicolumn{6}{l}{Certainty-$4$ difference (percentage points); same post counts} \\
-    AITA & Low & & & $1.2\;[-1.6,4.1]$ & $1.3\;[-1.7,4.3]$ \\
-    AITA & High & & & $8.0\;[3.9,12.2]$ & $8.7\;[4.6,12.9]$ \\
-    AITAH & Low & & & $4.0\;[-1.2,9.0]$ & $4.0\;[-1.1,9.1]$ \\
-    AITAH & High & & & $12.0\;[4.8,20.0]$ & $14.2\;[7.4,21.9]$ \\
-    \bottomrule
-  \end{tabular}
-  \caption{Observation-window sensitivity. $\Delta$: blaming minus defending;
-  $n$: contributing posts in blaming/defending order. Both windows use
-  post-equal estimates and $10{,}000$ post-bootstrap replicates.}
-  \label{tab:certainty-window}
-\end{table*}
 
 Holding the post set fixed to first-18h contributors, adding later comments
 reduces the high-agreement mean-certainty gap by $0.019$ points in AITA
@@ -263,17 +227,6 @@ counts pooled across the cohort, using final alignment. Empty hours add
 no counts. These are not post-equal or window-specific shares and have no
 uncertainty bands; cumulative aggregation can obscure later variation.
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/aita_minority_verdict_ratio.png}
-  \vspace{0.5em}
-  \includegraphics[width=\columnwidth]{figures/aitah_minority_verdict_ratio.png}
-  \caption{First-day cumulative minority shares in high-agreement AITA
-  (top) and AITAH (bottom), pooling verdict comments rather than posts.}
-  \label{fig:minority-ratio-time}
-  \Description{Cumulative minority participation differs by direction and
-  community. These curves are distinct from window-specific participation.}
-\end{figure}
 
 Both AITA directions initially decline; blaming recovers modestly and
 defending ends near its initial share. AITAH blaming rises modestly while
