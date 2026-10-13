@@ -1,3 +1,90 @@
 \newpage
 
-\section{Supplementary}
+\section{Supplementary Material}
+\label{sec:supp}
+
+\subsection{Community Content and Audience Overlap}
+\label{sec:supp-community}
+\label{sec:appendix-content}
+
+We characterize post content with embeddings from
+\texttt{BAAI/bge-base-en-v1.5} \citep{bge_embedding} and
+\texttt{intfloat/e5-base-v2} \citep{wang2022text}, and audiences with
+user intersections and Jaccard overlap in the aligned calendar window.
+
+Post-text embeddings overlap in UMAP (Figure~\ref{fig:umap}), but source
+classification exceeds chance (ROC-AUC: BGE $0.613$, E5 $0.568$).
+MMD and energy-distance tests reject equal distributions under both encoders
+(permutation $p=.005$). Topic distributions also differ (Jensen--Shannon
+distance: $0.187$/$0.206$): AITAH emphasizes intimate relationships, whereas
+AITA includes more everyday disputes over resources and obligations.
+Shared stories therefore provide contextual comparisons, not equivalent
+audiences or a natural experiment.
+% TODO: document embedding preprocessing, classifier evaluation, permutation
+% settings, topic-model specification, and treatment of multiply posted stories.
+% Verify the 107-pair case selection and examples; do not generalize deliberately
+% selected contrasts as representative community differences.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/embeddings.png}
+  \caption{UMAP projection of BGE post-text embeddings by community.
+  Interleaving indicates overlap, not identical topic distributions.}
+  \label{fig:umap}
+\end{figure}
+
+\paragraph{User overlap.}
+\label{sec:appendix-overlap}
+Table~\ref{tab:shared-users} reports intersections and Jaccard overlap
+within the aligned calendar window. Audience overlap remains around a fifth
+under activity and tenure restrictions; overlap among post authors is lower.
+
+\input{components/tab_shared_users}
+
+\subsection{Certainty Annotation}
+\label{sec:supp-certainty-annotation}
+\label{sec:appendix-annotation}
+
+Figure~\ref{fig:prompt} supplies the post and verdict comment, returning
+a certainty score and rationale. Its scale concerns hedging, not verdict
+direction; displayed examples are abridged. Independent human validation
+and immutable model/version documentation remain unresolved.
+% TODO: report certainty model/backend, decoding settings, and held-out human
+% validation. Locally recorded v4/v4.1 labels do not identify an immutable model.
+
+\input{components/box_prompt}
+
+\subsection{Direct-Response Annotation}
+\label{sec:supp-response-annotation}
+\label{sec:appendix-rq2-annotation}
+
+The eight strata cross community, high-agreement tail, and parent alignment.
+Seeds are $2026090901$--$2026090903$; author-ineligible draws are replaced
+in deterministic candidate order. Samples may share pairs, annotated
+separately each time; equal-stratum proportions are not population prevalence.
+The response frame's minimum-verdict requirement remains to be verified.
+
+Prompt \texttt{v0.3.3} classifies the reply's central stance: qualifications
+preserving the parent's position may remain support, while substantive
+rebuttals are challenge (Figure~\ref{fig:rq2-prompt}). Post, parent, and reply
+text are required; missing model outputs are not assigned to \emph{other}.
+All completed samples have labels for every pair.
+
+\input{components/box_rq2_prompt}
+
+Execution used temperature $0$, disabled thinking, and concurrency $10$.
+The first request alias was \texttt{deepseek-v4-flash}, later
+\texttt{deepseek-flash}; successful responses reported the latter, documented
+as V4.1 Flash but not an immutable backend. Prompts, responses, and attempt
+records were retained. Three fresh requests on each of $32$ frozen examples
+checked repeatability, not accuracy.
+
+Human review covered $100$ author-verified pairs ($80$ retained and $20$
+replacements), with labels revised after examining model disagreements.
+Agreement was $91/100$ overall and $88/93$ among human support/challenge
+labels; other model predictions remain disagreements. These are
+development-set figures, not held-out accuracy or inter-annotator reliability.
+% TODO: verify the frozen v0.3.3 template; document human reviewers and protocol;
+% establish independent category-level validation and post/parent-clustered
+% uncertainty. If used, document the separate October 24,000-pair sample:
+% .2<rho<.8 is broader than the defined low-agreement band.

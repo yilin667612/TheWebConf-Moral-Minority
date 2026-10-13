@@ -32,6 +32,16 @@ is higher toward the YA end.
 
 \begin{figure}[t]
   \centering
+  \includegraphics[width=\columnwidth]{figures/reddit_ya_share_distribution.pdf}
+\caption{AITA posts by final YA share $\rho(p)$. Bars show post counts
+  (left axis); the red line shows mean top-level verdicts per post (right
+  axis). Shading marks high agreement. See Figure~\ref{fig:aitah-ya-share}
+  for AITAH.}
+  \label{fig:ya-share}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
   \includegraphics[width=\columnwidth]{figures/aitah_ya_share_distribution.pdf}
   \caption{AITAH final YA share: post counts (bars, left axis) and mean
   top-level verdicts per post (line, right axis). Shading marks high agreement.
@@ -84,7 +94,7 @@ replies, with original-unit ticks and matched community ranges.
   \includegraphics[width=\columnwidth]{figures/aitah_reception_grouped_bars_full_min200.pdf}
   \caption{Post-equal majority--minority reception in AITAH: score,
   direct-reply count, and maximum reply depth. Scales match
-  Figure~\ref{fig:engagement-by-consensus}.}
+  Figure~\ref{fig:reception-overview}A.}
   \label{fig:aitah-engagement-full}
 \end{figure}
 
@@ -94,7 +104,7 @@ replies, with original-unit ticks and matched community ranges.
   \caption{AITAH reception by parent arrival hour over the first $24$ hours.
   Lines show means/medians
   of post means; dark/light bands show 25th--75th/10th--90th percentiles,
-  not CIs. Layout and scales match Figure~\ref{fig:comment-engagement-over-time}.}
+  not CIs. Layout and scales match Figure~\ref{fig:reception-overview}B.}
   \label{fig:aitah-arrival-reception}
 \end{figure}
 
@@ -118,42 +128,8 @@ such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
 
 \input{components/tab_tags}
 
-\section{Community Comparability}
-\label{sec:appendix-content}
-
-We characterize post content with embeddings from
-\texttt{BAAI/bge-base-en-v1.5} \citep{bge_embedding} and
-\texttt{intfloat/e5-base-v2} \citep{wang2022text}, and audiences with
-user intersections and Jaccard overlap in the aligned calendar window.
-
-Post-text embeddings overlap in UMAP (Figure~\ref{fig:umap}), but source
-classification exceeds chance (ROC-AUC: BGE $0.613$, E5 $0.568$).
-MMD and energy-distance tests reject equal distributions under both encoders
-(permutation $p=.005$). Topic distributions also differ (Jensen--Shannon
-distance: $0.187$/$0.206$): AITAH emphasizes intimate relationships, whereas
-AITA includes more everyday disputes over resources and obligations.
-Shared stories therefore provide contextual comparisons, not equivalent
-audiences or a natural experiment.
-% TODO: document embedding preprocessing, classifier evaluation, permutation
-% settings, topic-model specification, and treatment of multiply posted stories.
-% Verify the 107-pair case selection and examples; do not generalize deliberately
-% selected contrasts as representative community differences.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/embeddings.png}
-  \caption{UMAP projection of BGE post-text embeddings by community.
-  Interleaving indicates overlap, not identical topic distributions.}
-  \label{fig:umap}
-\end{figure}
-
-\paragraph{User overlap.}
-\label{sec:appendix-overlap}
-Table~\ref{tab:shared-users} reports intersections and Jaccard overlap
-within the aligned calendar window. Audience overlap remains around a fifth
-under activity and tenure restrictions; overlap among post authors is lower.
-
-\input{components/tab_shared_users}
+\section{Community Timing}
+\label{sec:appendix-community-timing}
 
 \paragraph{Comment timing.}
 \label{sec:appendix-timing}
@@ -178,18 +154,6 @@ Both archives shift around June 2023 from retrospective retrieval, often
 after tens or hundreds of days, to near-immediate retrieval from July.
 Post-equal weighting does not standardize observation age; absolute reception
 values should not be interpreted as common-age or lifetime outcomes.
-
-\section{Certainty Annotation}
-\label{sec:appendix-annotation}
-
-Figure~\ref{fig:prompt} supplies the post and verdict comment, returning
-a certainty score and rationale. Its scale concerns hedging, not verdict
-direction; displayed examples are abridged. Independent human validation
-and immutable model/version documentation remain unresolved.
-% TODO: report certainty model/backend, decoding settings, and held-out human
-% validation. Locally recorded v4/v4.1 labels do not identify an immutable model.
-
-\input{components/box_prompt}
 
 \section{Certainty Contrasts and Sensitivity}
 \label{sec:appendix-certainty-comparison}
@@ -251,40 +215,6 @@ reduces the high-agreement mean-certainty gap by $0.019$ points in AITA
 causal effect of verdict disclosure. Pooled minority-comment fractions
 arriving after 18h are $10.3\%$/$13.4\%$ in AITA/AITAH; after 24h they are
 $4.3\%$/$7.0\%$.
-
-\section{Direct-Response Annotation}
-\label{sec:appendix-rq2-annotation}
-
-The eight strata cross community, high-agreement tail, and parent alignment.
-Seeds are $2026090901$--$2026090903$; author-ineligible draws are replaced
-in deterministic candidate order. Samples may share pairs, annotated
-separately each time; equal-stratum proportions are not population prevalence.
-The response frame's minimum-verdict requirement remains to be verified.
-
-Prompt \texttt{v0.3.3} classifies the reply's central stance: qualifications
-preserving the parent's position may remain support, while substantive
-rebuttals are challenge (Figure~\ref{fig:rq2-prompt}). Post, parent, and reply
-text are required; missing model outputs are not assigned to \emph{other}.
-All completed samples have labels for every pair.
-
-\input{components/box_rq2_prompt}
-
-Execution used temperature $0$, disabled thinking, and concurrency $10$.
-The first request alias was \texttt{deepseek-v4-flash}, later
-\texttt{deepseek-flash}; successful responses reported the latter, documented
-as V4.1 Flash but not an immutable backend. Prompts, responses, and attempt
-records were retained. Three fresh requests on each of $32$ frozen examples
-checked repeatability, not accuracy.
-
-Human review covered $100$ author-verified pairs ($80$ retained and $20$
-replacements), with labels revised after examining model disagreements.
-Agreement was $91/100$ overall and $88/93$ among human support/challenge
-labels; other model predictions remain disagreements. These are
-development-set figures, not held-out accuracy or inter-annotator reliability.
-% TODO: verify the frozen v0.3.3 template; document human reviewers and protocol;
-% establish independent category-level validation and post/parent-clustered
-% uncertainty. If used, document the separate October 24,000-pair sample:
-% .2<rho<.8 is broader than the defined low-agreement band.
 
 \section{Certainty Profiles and Trends}
 \label{sec:appendix-certainty-progress}

@@ -15,7 +15,9 @@ at least $200$ retained top-level verdicts, without post subsampling.
 Source processing excludes empty or removed submission bodies;
 AutoModerator has no verdict label and does not enter verdict counts.
 These records represent retained archive activity, not a community census.
-Appendix Table~\ref{tab:analytical-samples} reports sample sizes and exclusions.
+The reception frame contains $28{,}107$ AITA and $8{,}217$ AITAH posts
+before exact-tie exclusion; Appendix Table~\ref{tab:analytical-samples}
+provides the full sample accounting.
 
 A \emph{top-level comment} responds to the original post. Its immediate
 children are \emph{direct replies}; all descendants form its reply subtree.
@@ -23,6 +25,9 @@ We use top-level verdicts to define the judgment distribution and nested
 replies to measure responses to those judgments. Structural measures use
 stored labels and linked replies without requiring usable reply text or
 verifiable authors; annotation applies additional eligibility criteria.
+Figure~\ref{fig:study-overview} illustrates this structure.
+
+\input{components/fig_structure_overview}
 
 \paragraph{Verdict alignment.}
 We assign the first recognized verdict in textual order, matching short
@@ -30,8 +35,11 @@ codes case-sensitively at word boundaries and full phrases case-insensitively.
 After normalizing hypothetical forms and H-suffixed aliases, we group
 $\mathrm{YA}=\{\mathrm{YTA},\mathrm{ESH}\}$ and
 $\mathrm{NA}=\{\mathrm{NTA},\mathrm{NAH}\}$, excluding INFO and
-unrecognized comments. Tag meanings and normalization details appear in
-Appendix~\ref{sec:appendix-tags}. For post $p$, define
+unrecognized comments. ESH (``Everyone Sucks Here'') assigns blame to both
+parties; NAH (``No Assholes Here'') assigns it to neither; INFO requests
+more information. Hypothetical YWBTA/YWNBTA map to YTA/NTA, and
+H-suffixed variants map to their base tags. Appendix~\ref{sec:appendix-tags}
+lists all forms. For post $p$, define
 \[
 N(p)=N_{\mathrm{YA}}(p)+N_{\mathrm{NA}}(p),\qquad
 \rho(p)=N_{\mathrm{YA}}(p)/N(p).
@@ -55,7 +63,9 @@ Table~\ref{tab:dimensions} summarizes the dimensions and measures.
 \paragraph{Reception.}
 We measure comment score (last recorded upvotes minus downvotes),
 direct-reply count (immediate children), and maximum reply depth (levels
-below the verdict comment, with zero for no replies). We first average
+below the verdict comment, with zero for no replies). Subtree score sums
+the recorded scores of the parent comment and all its descendants.
+We first average
 comments within each post and alignment group, then average these post-level
 means with equal weight. Absent sides are undefined, not zero; missing
 scores affect only score means. Group means may consequently involve
@@ -81,27 +91,44 @@ not the OP or crowd. The prompt includes neither scores nor alignment
 metadata. We exclude OP-authored parents or replies, same-author exchanges,
 unverifiable identities, and pairs lacking usable post, parent, or reply text.
 
-We draw three seeded samples, stratified by community, high-agreement tail,
-and parent alignment, from a broader response frame not assumed to satisfy
+We draw three seeded samples of $16{,}000$ pairs each, with $2{,}000$ per
+community-by-high-agreement-tail-by-parent-alignment stratum, from a
+broader response frame not assumed to satisfy
 the $200$-verdict threshold. Sampling is without replacement within strata,
 but samples can overlap and have no post/parent caps. Response proportions
 therefore weight pairs and condition on receiving an eligible reply,
 unlike post-equal reception means. Challenge denotes disagreement, not
 necessarily personal attack. Model annotations underwent development-set
-review, not independent held-out validation; prompts, execution settings,
-and review details appear in Appendix~\ref{sec:appendix-rq2-annotation}.
+review, not independent held-out validation. Support endorses the parent's
+core position, challenge disputes it, information-seeking requests
+clarification, and other covers remaining functions. Qualified agreement
+can remain support; rhetorical rebuttals count as challenge. Full prompts
+and execution records are documented in Supplementary
+Section~\ref{sec:supp-response-annotation}.
+
+\paragraph{Perspectives in replies.}
+We separately annotate top-level comment--direct reply pairs for whether
+the reply introduces a consideration absent from its parent and for the
+type of perspective introduced. The original post supplies context.
+Novelty is relative to the parent, not necessarily to the entire discussion,
+and is independent of support/challenge. Comparisons group parents by
+majority/minority alignment and their blaming/defending stance toward the OP.
 
 \paragraph{Expressed certainty.}
 We sample $3\%$ of high-agreement and $15\%$ of low-agreement posts from
 the $200$-verdict cohort and annotate their top-level comments individually.
+The low/high sample contains $1{,}195$ posts and $665{,}107$ valid
+YA/NA certainty records across the two communities.
 The analysis retains the existing export's membership; supplementary draws
 exclude previously annotated posts within each community and agreement band.
 Certainty ranges from unresolved/conflicting judgments ($1$), through
 a leaning allowing alternatives ($2$) and a qualified judgment ($3$), to a
 confidently asserted judgment ($4$). The same criteria apply across verdicts
 and measure expressed language, not private confidence. Verdict alignment
-continues to follow the first-match rule. Annotation documentation and
-validation limitations appear in Appendix~\ref{sec:appendix-annotation}.
+continues to follow the first-match rule. Independent held-out human
+validation and immutable model-version documentation remain unresolved;
+the prompt is provided in Supplementary
+Section~\ref{sec:supp-certainty-annotation}.
 
 Directional contrasts use all observed minority comments with valid labels,
 without an arrival-time cutoff. We average within-post certainty
@@ -109,7 +136,7 @@ distributions equally across posts, excluding posts without valid minority
 observations. We compare the proportion at level $4$ and mean certainty.
 Within each community and agreement band, $95\%$ percentile intervals for
 blaming-minus-defending differences independently resample whole posts
-within each direction, preserving within-post dependence. The differing
+within each direction ($10{,}000$ replicates), preserving within-post dependence. The differing
 sampling fractions are not used to estimate community-wide certainty.
 
 \paragraph{Discussion progress.}
@@ -122,8 +149,27 @@ observed expression. A stage without scored minority comments has undefined
 minority certainty, not zero. These profiles describe successive comments,
 not within-person change. The broader all-agreement analysis additionally
 includes intermediate-agreement annotated posts without population
-reweighting. Detailed stage construction, bootstrap settings, and regression
-specifications appear in Appendix~\ref{sec:appendix-certainty-progress}.
+reweighting. Pointwise intervals resample whole posts ($4{,}000$ replicates
+for high-agreement AITA; $2{,}000$ for all-agreement profiles).
+For all-agreement trends, we regress post--stage mean certainty on
+normalized stage $s/9$ ($s=0,\ldots,9$), with post fixed effects and equal
+post--stage weights. The slope is the fitted first-to-last-stage change.
+Intervals use $20{,}000$ whole-post resamples; tests use post-cluster
+standard errors and Holm correction across four community--direction
+slopes. Appendix~\ref{sec:appendix-certainty-progress} gives implementation details.
+
+\subsection{Between-Subjects Survey Experiment}
+\label{subsec:method-survey}
+
+Each participant sees one condition: a post with its two highest-scoring
+majority comment threads (A), or the same post with its highest-scoring
+majority and minority threads (B). The highest-scoring majority thread is
+shared across conditions. We measure readers' judgments, agreement with
+each top-level comment, perceived influence, and consideration of new
+perspectives. A comparative item asks which contribution mattered more
+to their final judgment. Because participants read replies as well as
+top-level comments, the contrast concerns thread exposure rather than
+the isolated effect of a minority label or a single comment.
 
 \subsection{Community Comparison}
 \label{subsec:method-community}
@@ -131,8 +177,9 @@ specifications appear in Appendix~\ref{sec:appendix-certainty-progress}.
 We apply the same definitions and measures in AITAH to assess which AITA
 patterns recur. Supporting content and audience comparisons use the aligned
 period 17 March 2021--23 December 2025; reception analyses retain their
-specified frames. Their methods are detailed in
-Appendix~\ref{sec:appendix-content}.
+specified frames. These supporting analyses compare post-text embeddings
+and shared-user sets, rather than assuming equivalent content or audiences;
+Supplementary Section~\ref{sec:supp-community} provides the diagnostics.
 
 Cross-posted stories are identified by identical title-and-body text after
 Unicode NFKC normalization, case folding, and whitespace normalization,
