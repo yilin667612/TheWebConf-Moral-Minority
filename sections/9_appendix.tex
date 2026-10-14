@@ -5,49 +5,23 @@
 \label{sec:appendix-dimensions}
 
 Table~\ref{tab:dimensions} summarizes the dimensions and measures defined
-in Section~\ref{sec:data-method}. Detailed sample accounting appears in
-Supplementary Table~\ref{tab:analytical-samples}.
+in Section~\ref{sec:data-method}. Reception, certainty, and reply-pair
+analyses use distinct samples; fixed-stage cohorts are subsets of the
+annotation samples, not additional draws. Detailed counts and exclusions
+appear in Supplementary Table~\ref{tab:analytical-samples}.
 
 \input{components/tab_dimensions}
 
-\section{Verdict Distributions}
-\label{sec:appendix-verdict-distribution}
+\section{Verdict Tags}
+\label{sec:appendix-tags}
 
-In the AITA cohort, $80.6\%$ of high-agreement posts are NA-dominant.
-Post frequency and discussion volume are distinct: NA-dominant posts
-are more numerous, whereas the average retained verdict count per post
-is higher toward the YA end, particularly near unanimous YA judgments.
-This distribution does not establish a community-wide aversion to blame.
-The stories are supplied by the people whose conduct is being judged.
-Research on authors' dual roles as characters and narrators
-\cite{giorgi2023author}, and on selective retelling and possible
-validation-seeking \cite{haworth2021reasonability}, provides context for
-the imbalance without identifying the motives of individual posters.
+We normalize YWBTA to YTA, YWNBTA to NTA, and the H-suffixed aliases in
+Table~\ref{tab:tags} to their unsuffixed forms. NAH, ESH, and INFO have no
+additional H-suffixed variant. Short codes require case-sensitive word
+boundaries, preventing matches to lowercase \texttt{nah} or substrings
+such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
 
-Figures~\ref{fig:ya-share} and~\ref{fig:aitah-ya-share} use one-percentage-point
-bins of stored final YA share, including exact ties and the endpoint $1$.
-Bars count posts; the line divides stored verdict totals by posts per bin.
-Both communities concentrate near the NA end, while verdict volume per post
-is higher toward the YA end.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/reddit_ya_share_distribution.pdf}
-\caption{AITA posts by final YA share $\rho(p)$. Bars show post counts
-  (left axis); the red line shows mean top-level verdicts per post (right
-  axis). Shading marks high agreement. See Figure~\ref{fig:aitah-ya-share}
-  for AITAH.}
-  \label{fig:ya-share}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_ya_share_distribution.pdf}
-  \caption{AITAH final YA share: post counts (bars, left axis) and mean
-  top-level verdicts per post (line, right axis). Shading marks high agreement.
-  See Figure~\ref{fig:ya-share} for AITA.}
-  \label{fig:aitah-ya-share}
-\end{figure}
+\input{components/tab_tags}
 
 \section{Reception Across Agreement}
 \label{sec:appendix-aita-agreement-gradient}
@@ -117,122 +91,16 @@ an individual comment's score or replies.
 %   comparing high-agreement majority and minority with low-agreement comments.}
 % \end{figure}
 
-\section{Reception in AITAH}
-\label{sec:appendix-aitah-reception}
-\label{subsec:res-community}
+\section{Annotation Documentation}
+\label{sec:appendix-annotation-details}
 
-The following figures apply the AITA definitions and post-equal aggregation
-to AITAH. Figure~\ref{fig:aitah-reception-overview} combines the agreement
-and directional comparisons, using a common high-agreement majority
-baseline across NA- and YA-dominant posts. Blaming and defending partition
-the high-agreement minority; absent minority cells are excluded, not zero.
-Boxes show interquartile ranges of post-level means, with median lines
-and whiskers extending to observed values within $1.5$ interquartile ranges.
-Outlier points are hidden but retained in the means. Axis ranges are
-adjusted to AITAH and differ from Figure~\ref{fig:reception-overview}.
-
-\paragraph{The agreement-level pattern recurs.}
-AITAH also combines lower minority scores with greater engagement under
-high agreement (Appendix Figure~\ref{fig:aitah-reception-overview}).
-Majority and minority equal-post mean scores are $16.14$ and $-1.89$,
-respectively; direct-reply counts are $0.14$ and $0.48$; and maximum reply
-depths are $0.15$ and $0.79$. Under low agreement, the reply-count difference
-remains small ($0.233$ versus $0.237$), with depths of $0.37$ and $0.39$.
-As in AITA, the high-agreement minority therefore occupies a distinctive
-combination of lower evaluation and greater conversational engagement.
-
-\paragraph{Directional ordering is shared, not its magnitude.}
-Blaming dissent in AITAH receives a lower mean score than defending dissent
-($-2.02$ versus $-0.25$), more direct replies ($0.50$ versus $0.28$), and
-greater maximum reply depth ($0.81$ versus $0.51$)
-(Appendix Figure~\ref{fig:aitah-reception-overview}).
-The blaming-to-defending reply ratio is $1.77$, compared with $1.83$ in
-AITA. Both minority directions have negative equal-post mean scores in
-both communities. These results show a shared
-directional ordering alongside differences in recorded magnitudes.
-
-Raw cross-community differences do not, by themselves, establish greater
-tolerance, stronger normative pressure, or an effect of AITA's verdict
-rule. The comparisons retain their analysis-specific observation frames
-and may differ in audience, story composition, and exposure.
-
-\textbf{[TODO: report uncertainty for cross-community contrasts and verify
-the common-period comparison before attributing differences to community
-context. Confirm whether stored canonical verdict metadata incorporate
-AITAH's H-suffixed aliases.]}
-
-Supplementary cumulative-participation patterns appear in
-Appendix~\ref{sec:appendix-cumulative-participation}.
-
-Arrival-hour plots cover the first $24$ hours as specified in
-Appendix~\ref{sec:appendix-aita-arrival}, showing
-means, medians, and linearly interpolated percentiles of post-level means.
-High-agreement summaries separate majority and minority comments;
-low-agreement summaries combine both sides. Percentile bands describe
-post-mean distributions, not confidence intervals.
-Symmetric-log axes are linear within $\pm1$ score point and $\pm0.01$
-replies, with original-unit ticks and matched community ranges.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_reception_agreement_direction_boxes_vertical.pdf}
-  \caption{AITAH reception by agreement and dissent direction, matching
-  Figure~\ref{fig:reception-overview}. Boxes show post-level distributions;
-  diamonds and numbers mark means. Shaded boxes split high-agreement
-  minority comments into blaming and defending.}
-  \label{fig:aitah-reception-overview}
-  \Description{Three box-plot panels show score, direct-reply count, and
-  maximum reply depth for low- and high-agreement majority and minority
-  comments, with the high-agreement minority split into blaming and defending.}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_arrival_reception_symlog.pdf}
-  \caption{AITAH reception by parent arrival hour over the first $24$ hours.
-  Lines show means/medians
-  of post means; dark/light bands show 25th--75th/10th--90th percentiles,
-  not CIs. Layout and scales match Figure~\ref{fig:comment-engagement-over-time}.}
-  \label{fig:aitah-arrival-reception}
-\end{figure}
-
-\section{Verdict Tags}
-\label{sec:appendix-tags}
-
-We normalize YWBTA to YTA, YWNBTA to NTA, and the H-suffixed aliases in
-Table~\ref{tab:tags} to their unsuffixed forms. NAH, ESH, and INFO have no
-additional H-suffixed variant. Short codes require case-sensitive word
-boundaries, preventing matches to lowercase \texttt{nah} or substrings
-such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
-
-\input{components/tab_tags}
-
-\section{Community Timing}
-\label{sec:appendix-community-timing}
-
-\paragraph{Comment timing.}
-\label{sec:appendix-timing}
-In the $200$-verdict cohort, median times to $50\%$/$90\%$ of observed
-top-level comments are $7.3$/$17.7$ hours in AITA and $6.7$/$20.1$ in AITAH.
-Median last-comment times are $52.5$ versus $158.0$ days, but the difference
-largely disappears for top-level comments ($32.1$ versus $31.3$ days).
-These are archive-relative timings, not complete lifetime follow-up.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/comment_timing.png}
-  \caption{Comment timing in AITA and AITAH. Top-level comments mostly
-  arrive within the first day; nested replies extend further.}
-  \label{fig:timing}
-\end{figure}
-
-\paragraph{Retrieval timing.}
-\label{sec:appendix-retrieval-timing}
-Retrieval delay is \texttt{retrieved\_on} minus \texttt{created\_utc}.
-Both archives shift around June 2023 from retrospective retrieval, often
-after tens or hundreds of days, to near-immediate retrieval from July.
-Post-equal weighting does not standardize observation age; absolute reception
-values should not be interpreted as common-age or lifetime outcomes.
+Direct-response labels describe a reply's stance toward its parent;
+certainty labels describe expressed language on the four-point scale.
+Development-set review does not establish independent held-out accuracy,
+and independent validation remains unresolved. Full prompts and execution
+records appear in Supplementary Sections~\ref{sec:supp-response-annotation}
+and~\ref{sec:supp-certainty-annotation}. Perspective-annotation documentation
+will be added here with its sampling and validation procedures.
 
 \section{Certainty Contrasts and Sensitivity}
 \label{sec:appendix-certainty-comparison}
@@ -354,24 +222,150 @@ potentially changing compositions.
   have positive intervals; AITAH defending includes zero.}
 \end{figure}
 
-\section{Cumulative Minority Participation}
-\label{sec:appendix-cumulative-participation}
+\section{Verdict Distributions}
+\label{sec:appendix-verdict-distribution}
 
-High-agreement $200$-verdict posts contribute retained top-level judgments
-with valid nonnegative elapsed times below $24$ hours. At each hourly
-checkpoint, cumulative minority counts are divided by cumulative verdict
-counts pooled across the cohort, using final alignment. Empty hours add
-no counts. These are not post-equal or window-specific shares and have no
-uncertainty bands; cumulative aggregation can obscure later variation.
+In the AITA cohort, $80.6\%$ of high-agreement posts are NA-dominant.
+Post frequency and discussion volume are distinct: NA-dominant posts
+are more numerous, whereas the average retained verdict count per post
+is higher toward the YA end, particularly near unanimous YA judgments.
+This distribution does not establish a community-wide aversion to blame.
+The stories are supplied by the people whose conduct is being judged.
+Research on authors' dual roles as characters and narrators
+\cite{giorgi2023author}, and on selective retelling and possible
+validation-seeking \cite{haworth2021reasonability}, provides context for
+the imbalance without identifying the motives of individual posters.
 
+Figures~\ref{fig:ya-share} and~\ref{fig:aitah-ya-share} use one-percentage-point
+bins of stored final YA share, including exact ties and the endpoint $1$.
+Bars count posts; the line divides stored verdict totals by posts per bin.
+Both communities concentrate near the NA end, while verdict volume per post
+is higher toward the YA end.
 
-Both AITA directions initially decline; blaming recovers modestly and
-defending ends near its initial share. AITAH blaming rises modestly while
-defending declines early. These trajectories do not establish withdrawal
-by individuals, a regime change, or complete discussion follow-up.
-% TODO: recover contributing post counts and verify positive denominators;
-% legacy plotting substitutes zero when undefined. Verify any window-specific
-% low/high claims separately rather than inferring them from cumulative curves.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/reddit_ya_share_distribution.pdf}
+\caption{AITA posts by final YA share $\rho(p)$. Bars show post counts
+  (left axis); the red line shows mean top-level verdicts per post (right
+  axis). Shading marks high agreement. See Figure~\ref{fig:aitah-ya-share}
+  for AITAH.}
+  \label{fig:ya-share}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aitah_ya_share_distribution.pdf}
+  \caption{AITAH final YA share: post counts (bars, left axis) and mean
+  top-level verdicts per post (line, right axis). Shading marks high agreement.
+  See Figure~\ref{fig:ya-share} for AITA.}
+  \label{fig:aitah-ya-share}
+\end{figure}
+
+\section{Reception in AITAH}
+\label{sec:appendix-aitah-reception}
+\label{subsec:res-community}
+
+The following figures apply the AITA definitions and post-equal aggregation
+to AITAH. Figure~\ref{fig:aitah-reception-overview} combines the agreement
+and directional comparisons, using a common high-agreement majority
+baseline across NA- and YA-dominant posts. Blaming and defending partition
+the high-agreement minority; absent minority cells are excluded, not zero.
+Boxes show interquartile ranges of post-level means, with median lines
+and whiskers extending to observed values within $1.5$ interquartile ranges.
+Outlier points are hidden but retained in the means. Axis ranges are
+adjusted to AITAH and differ from Figure~\ref{fig:reception-overview}.
+
+\paragraph{The agreement-level pattern recurs.}
+AITAH also combines lower minority scores with greater engagement under
+high agreement (Appendix Figure~\ref{fig:aitah-reception-overview}).
+Majority and minority equal-post mean scores are $16.14$ and $-1.89$,
+respectively; direct-reply counts are $0.14$ and $0.48$; and maximum reply
+depths are $0.15$ and $0.79$. Under low agreement, the reply-count difference
+remains small ($0.233$ versus $0.237$), with depths of $0.37$ and $0.39$.
+As in AITA, the high-agreement minority therefore occupies a distinctive
+combination of lower evaluation and greater conversational engagement.
+
+\paragraph{Directional ordering is shared, not its magnitude.}
+Blaming dissent in AITAH receives a lower mean score than defending dissent
+($-2.02$ versus $-0.25$), more direct replies ($0.50$ versus $0.28$), and
+greater maximum reply depth ($0.81$ versus $0.51$)
+(Appendix Figure~\ref{fig:aitah-reception-overview}).
+The blaming-to-defending reply ratio is $1.77$, compared with $1.83$ in
+AITA. Both minority directions have negative equal-post mean scores in
+both communities. These results show a shared
+directional ordering alongside differences in recorded magnitudes.
+
+Raw cross-community differences do not, by themselves, establish greater
+tolerance, stronger normative pressure, or an effect of AITA's verdict
+rule. The comparisons retain their analysis-specific observation frames
+and may differ in audience, story composition, and exposure.
+
+\textbf{[TODO: report uncertainty for cross-community contrasts and verify
+the common-period comparison before attributing differences to community
+context. Confirm whether stored canonical verdict metadata incorporate
+AITAH's H-suffixed aliases.]}
+
+Supplementary cumulative-participation patterns appear in
+Appendix~\ref{sec:appendix-cumulative-participation}.
+
+Arrival-hour plots cover the first $24$ hours as specified in
+Appendix~\ref{sec:appendix-aita-arrival}, showing
+means, medians, and linearly interpolated percentiles of post-level means.
+High-agreement summaries separate majority and minority comments;
+low-agreement summaries combine both sides. Percentile bands describe
+post-mean distributions, not confidence intervals.
+Symmetric-log axes are linear within $\pm1$ score point and $\pm0.01$
+replies, with original-unit ticks and matched community ranges.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aitah_reception_agreement_direction_boxes_vertical.pdf}
+  \caption{AITAH reception by agreement and dissent direction, matching
+  Figure~\ref{fig:reception-overview}. Boxes show post-level distributions;
+  diamonds and numbers mark means. Shaded boxes split high-agreement
+  minority comments into blaming and defending.}
+  \label{fig:aitah-reception-overview}
+  \Description{Three box-plot panels show score, direct-reply count, and
+  maximum reply depth for low- and high-agreement majority and minority
+  comments, with the high-agreement minority split into blaming and defending.}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aitah_arrival_reception_symlog.pdf}
+  \caption{AITAH reception by parent arrival hour over the first $24$ hours.
+  Lines show means/medians
+  of post means; dark/light bands show 25th--75th/10th--90th percentiles,
+  not CIs. Aggregation follows Appendix~\ref{sec:appendix-aita-arrival}.}
+  \label{fig:aitah-arrival-reception}
+\end{figure}
+
+\section{Community Timing}
+\label{sec:appendix-community-timing}
+
+\paragraph{Comment timing.}
+\label{sec:appendix-timing}
+In the $200$-verdict cohort, median times to $50\%$/$90\%$ of observed
+top-level comments are $7.3$/$17.7$ hours in AITA and $6.7$/$20.1$ in AITAH.
+Median last-comment times are $52.5$ versus $158.0$ days, but the difference
+largely disappears for top-level comments ($32.1$ versus $31.3$ days).
+These are archive-relative timings, not complete lifetime follow-up.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/comment_timing.png}
+  \caption{Comment timing in AITA and AITAH. Top-level comments mostly
+  arrive within the first day; nested replies extend further.}
+  \label{fig:timing}
+\end{figure}
+
+\paragraph{Retrieval timing.}
+\label{sec:appendix-retrieval-timing}
+Retrieval delay is \texttt{retrieved\_on} minus \texttt{created\_utc}.
+Both archives shift around June 2023 from retrospective retrieval, often
+after tens or hundreds of days, to near-immediate retrieval from July.
+Post-equal weighting does not standardize observation age; absolute reception
+values should not be interpreted as common-age or lifetime outcomes.
 
 \section{OP Participation}
 \label{sec:appendix-op-participation}
@@ -465,7 +459,7 @@ extend the high-agreement reception findings to a matched-story comparison.
 \textbf{[TODO: add verified qualitative cases from the updated 107-pair
 export. Include a case illustrating a shared reception pattern as well as
 explicitly selected contrasts; explain selection and apply the quotation
-and privacy safeguards described in Section~\ref{subsec:method-community}.
+and privacy safeguards described in Appendix~\ref{sec:appendix-community-comparison}.
 Do not present these cases as a representative or causal community test.]}
 
 % TODO (reporting): document reception uncertainty and any interaction tests;
@@ -473,3 +467,21 @@ Do not present these cases as a representative or causal community test.]}
 % examples. Assess identifiability from titles, verbatim quotes, and distinctive
 % details; do not equate removing usernames with anonymity. No ethical approval
 % or independent annotation validation is claimed by these unresolved notes.
+\section{Cumulative Minority Participation}
+\label{sec:appendix-cumulative-participation}
+
+High-agreement $200$-verdict posts contribute retained top-level judgments
+with valid nonnegative elapsed times below $24$ hours. At each hourly
+checkpoint, cumulative minority counts are divided by cumulative verdict
+counts pooled across the cohort, using final alignment. Empty hours add
+no counts. These are not post-equal or window-specific shares and have no
+uncertainty bands; cumulative aggregation can obscure later variation.
+
+
+Both AITA directions initially decline; blaming recovers modestly and
+defending ends near its initial share. AITAH blaming rises modestly while
+defending declines early. These trajectories do not establish withdrawal
+by individuals, a regime change, or complete discussion follow-up.
+% TODO: recover contributing post counts and verify positive denominators;
+% legacy plotting substitutes zero when undefined. Verify any window-specific
+% low/high claims separately rather than inferring them from cumulative curves.
