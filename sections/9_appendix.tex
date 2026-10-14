@@ -13,6 +13,17 @@ Supplementary Table~\ref{tab:analytical-samples}.
 \section{Verdict Distributions}
 \label{sec:appendix-verdict-distribution}
 
+In the AITA cohort, $80.6\%$ of high-agreement posts are NA-dominant.
+Post frequency and discussion volume are distinct: NA-dominant posts
+are more numerous, whereas the average retained verdict count per post
+is higher toward the YA end, particularly near unanimous YA judgments.
+This distribution does not establish a community-wide aversion to blame.
+The stories are supplied by the people whose conduct is being judged.
+Research on authors' dual roles as characters and narrators
+\cite{giorgi2023author}, and on selective retelling and possible
+validation-seeking \cite{haworth2021reasonability}, provides context for
+the imbalance without identifying the motives of individual posters.
+
 Figures~\ref{fig:ya-share} and~\ref{fig:aitah-ya-share} use one-percentage-point
 bins of stored final YA share, including exact ties and the endpoint $1$.
 Bars count posts; the line divides stored verdict totals by posts per bin.
@@ -42,6 +53,11 @@ is higher toward the YA end.
 \label{sec:appendix-aita-agreement-gradient}
 
 \paragraph{Additional reception summaries.}
+
+In high-agreement AITA posts, majority comments average $39.16$ score points
+in NA-dominant posts and $41.17$ in YA-dominant posts. The main figure pools
+these majority contexts, whereas blaming and defending separate the
+minority judgments by context. Contributing post sets need not coincide.
 Subtree score sums the recorded scores of the parent verdict comment and
 all its descendants. For supplementary group-mean summaries, marginal
 $95\%$ confidence intervals resample whole posts within each group
@@ -73,6 +89,13 @@ after cohort-metadata checks. Source hashes are retained with the scripts.
 
 \section{Reception by Comment Arrival}
 \label{sec:appendix-aita-arrival}
+
+Early high-agreement majority comments have higher recorded scores, while
+early minority comments receive more direct replies than later minority
+comments. The separation between means, medians, and percentile bands shows
+heterogeneity across contributing posts. Dark/light bands span the
+25th--75th/10th--90th percentiles of post-level means, not confidence
+intervals; symmetric-log axes retain zero and negative outcomes.
 
 To examine reception by arrival timing, we group top-level verdict comments
 into hourly bins within $[0,24)$ hours and compute post-equal summaries,
@@ -180,6 +203,14 @@ values should not be interpreted as common-age or lifetime outcomes.
 \section{Certainty Contrasts and Sensitivity}
 \label{sec:appendix-certainty-comparison}
 
+In high-agreement AITA posts, the mean within-post proportion of minority
+comments at certainty level $4$ is $66.1\%$ for blaming and $58.1\%$ for
+defending: a difference of $8.0$ percentage points ($95\%$ whole-post
+bootstrap CI $[3.9,12.2]$). Under low agreement, the contrast is smaller
+and uncertain ($1.2$ percentage points; CI $[-1.6,4.1]$). These estimates
+weight posts equally and use the full observed annotation period; they
+do not measure differences in first-day rates of change.
+
 Directional contrasts use all observed minority comments with valid labels,
 without an arrival-time cutoff. We average within-post certainty
 distributions equally across posts, excluding posts without valid minority
@@ -223,6 +254,16 @@ $4.3\%$/$7.0\%$.
 
 \section{Certainty Profiles and Trends}
 \label{sec:appendix-certainty-progress}
+
+Across all agreement levels in the broader AITA annotation archive, both
+fixed directional cohorts show positive post fixed-effects trends. The
+fitted first-to-last-stage change is $0.039$ for blaming ($95\%$
+post-bootstrap CI $[0.021,0.056]$) and $0.059$ for defending
+($[0.038,0.080]$). Both survive Holm correction across the four
+community--direction slopes. The profiles are not monotonic, and the larger
+defending point estimate does not itself establish a directional difference
+in trends. These pooled-agreement estimates do not replace the high-agreement
+profiles or separate high/low full-period contrasts.
 
 The broader all-agreement analysis includes intermediate-agreement
 annotated posts without population reweighting. As for the high-agreement
@@ -286,6 +327,7 @@ by individuals, a regime change, or complete discussion follow-up.
 
 \section{OP Participation}
 \label{sec:appendix-op-participation}
+\label{subsec:res-op-participation}
 
 Author matching includes top-level and nested comments regardless of verdict,
 excluding missing/deleted/removed OP identities and AutoModerator. Within
