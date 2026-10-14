@@ -42,7 +42,7 @@ the imbalance without identifying the motives of individual posters.
 \paragraph{Lower scores coexist with greater reply engagement.}
 In high-agreement AITA posts, equal-post mean scores are $39.55$ for
 majority comments and $-10.25$ for minority comments
-(Figure~\ref{fig:reception-overview}A). The ordering reverses for
+(Figure~\ref{fig:reception-overview}). The ordering reverses for
 conversational engagement: the mean within-post direct-reply count is $0.73$
 for minority comments, compared with $0.15$ for majority comments, and mean
 maximum reply depth is $1.03$ rather than $0.17$. Thus, low evaluation
@@ -64,7 +64,7 @@ post-equal means across the full verdict distribution, including
 intermediate-agreement posts.
 
 \paragraph{Arrival timing qualifies the aggregate averages.}
-Figure~\ref{fig:reception-overview}B groups comments by their
+Appendix Figure~\ref{fig:comment-engagement-over-time} groups comments by their
 arrival hour during the first $24$ hours. Early high-agreement majority
 comments have higher recorded scores, while early minority comments
 receive more direct replies than later minority comments. The separation
@@ -104,7 +104,7 @@ Moreover, the response samples cover high-agreement posts only and use a
 broader sampling frame than the $200$-verdict reception cohort; they do not
 establish a high--low agreement difference in challenge rates.
 \textbf{[TODO: verify the rounded seed-1 support/challenge proportions in
-Figure~\ref{fig:dissent-direction} against raw labels and report all four
+Figure~\ref{fig:certainty-responses}B against raw labels and report all four
 categories with contributing counts.
 Report post/parent-clustered uncertainty and independent annotation
 validation before finalizing inferential claims.]}
@@ -121,7 +121,7 @@ more contestation, not simply support.
 \paragraph{Both directions are negatively evaluated, but engagement differs.}
 Separating high-agreement minority comments by dissent direction reveals
 an asymmetry that the undifferentiated minority category conceals
-(Figure~\ref{fig:reception-overview}C). Blaming comments in NA-dominant posts
+(Figure~\ref{fig:reception-overview}). Blaming comments in NA-dominant posts
 have an equal-post mean score of $-10.65$; defending comments in YA-dominant
 posts average $-8.62$. The figure combines majority comments across both
 dominant-verdict contexts, giving an equal-post mean of $39.55$.
@@ -141,16 +141,16 @@ of $0.17$ in both post types. Challenging collective defense of the OP is thus a
 with more replies and deeper reply trees than challenging collective blame.
 
 
-In panel C, the top three rows show distributions of within-post means, not individual
-comment outcomes. Boxes span the interquartile range, center lines mark
-medians, and whiskers extend to the most extreme observations within
-$1.5$ interquartile ranges of the box. White diamonds and their labels
-show means over all contributing posts. Outlier points are omitted and
-the linear display ranges are restricted to $[-80,125]$ for score,
-$[0,2.5]$ for direct replies, and $[0,3.5]$ for depth; these display choices
-do not remove posts from the summaries.
+Each box in Figure~\ref{fig:reception-overview} summarizes the distribution
+of within-post means: boxes span the interquartile range, center lines
+mark medians, and whiskers extend to observed values within $1.5$ times
+the interquartile range. Outlier points are hidden but retained in the
+means, marked by diamonds. The shaded blaming and defending boxes split
+the high-agreement minority rather than introducing new agreement levels.
 
-Panel C's bottom row reproduces rounded descriptive proportions from the first
+\input{components/fig_certainty_responses}
+
+Figure~\ref{fig:certainty-responses}B reproduces rounded descriptive proportions from the first
 direct-response annotation sample. Among replies to blaming minority
 comments, $16.1\%$ support and $77.3\%$ challenge the parent judgment;
 the corresponding defending proportions are $18.6\%$ and $73.7\%$.
@@ -160,7 +160,7 @@ gives approximately $68.7\%$ support and $21.8\%$ challenge. These are
 pair-weighted proportions, not post-equal estimates, and retain all four
 response categories in the denominator. The response sample excludes OP
 participation and has a broader frame than the $200$-verdict reception
-cohort; the rows are not measurements on one matched sample.
+cohort; the panels are not measurements on one matched sample.
 
 These comparisons use different story cohorts, not alternative judgments
 randomly assigned to the same story. They do not establish why blaming
@@ -177,14 +177,15 @@ labels and estimate post/parent-clustered response uncertainty.]}
 The directional comparison also examines how firmly blaming and defending
 judgments are expressed. In high-agreement AITA posts, the mean within-post
 proportion of minority comments assigned certainty level $4$ is $66.1\%$
-for blaming and $58.1\%$ for defending: a difference of $8.0$ percentage
+for blaming and $58.1\%$ for defending (Appendix Figure~\ref{fig:certainty-low-high}):
+a difference of $8.0$ percentage
 points ($95\%$ whole-post bootstrap CI $[3.9,12.2]$).
 Under low agreement, the contrast is smaller and uncertain
 ($1.2$ percentage points; CI $[-1.6,4.1]$).
 These estimates weight posts equally, as do the reception means, and use
 the full observed annotation period.
 
-The fourth row of Figure~\ref{fig:reception-overview}C shows first-day
+Figure~\ref{fig:certainty-responses}A shows first-day
 mean certainty for high-agreement AITA. Its horizontal axis is relative
 position in each post's first-$24$-hour verdict-comment sequence, divided
 into ten approximately equal-count stages, rather than elapsed time.

@@ -60,6 +60,27 @@ after cohort-metadata checks. Source hashes are retained with the scripts.
   final YA-share bins. Gaps are generally larger toward the endpoints.}
 \end{figure}
 
+\section{Reception by Comment Arrival}
+\label{sec:appendix-aita-arrival}
+
+Figure~\ref{fig:comment-engagement-over-time} groups AITA parent comments
+by arrival hour in $[0,24)$. High-agreement majority and minority comments
+are summarized separately; low-agreement comments combine both sides.
+Lines and percentile bands describe contributing post-level means, with
+empty post--hour cells excluded. Scores and replies are archive-wide
+outcomes, not measurements taken at each arrival hour.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/alternatives/aita_arrival_reception_symlog.pdf}
+  \caption{AITA reception by first-day parent arrival hour. Lines show
+  means/medians of post means; dark/light bands show 25th--75th/10th--90th
+  percentiles, not CIs. Symmetric-log axes retain zero and negative scores.}
+  \label{fig:comment-engagement-over-time}
+  \Description{Score and direct-reply reception by comment arrival hour,
+  comparing high-agreement majority and minority with low-agreement comments.}
+\end{figure}
+
 \section{Reception in AITAH}
 \label{sec:appendix-aitah-reception}
 \label{sec:appendix-aitah-arrival}
@@ -82,8 +103,8 @@ replies, with original-unit ticks and matched community ranges.
   \centering
   \includegraphics[width=\columnwidth]{figures/aitah_reception_grouped_bars_full_min200.pdf}
   \caption{Post-equal majority--minority reception in AITAH: score,
-  direct-reply count, and maximum reply depth. Scales match
-  Figure~\ref{fig:reception-overview}A.}
+  direct-reply count, and maximum reply depth, using the same measures as
+  Figure~\ref{fig:reception-overview}.}
   \label{fig:aitah-engagement-full}
 \end{figure}
 
@@ -93,7 +114,7 @@ replies, with original-unit ticks and matched community ranges.
   \caption{AITAH reception by parent arrival hour over the first $24$ hours.
   Lines show means/medians
   of post means; dark/light bands show 25th--75th/10th--90th percentiles,
-  not CIs. Layout and scales match Figure~\ref{fig:reception-overview}B.}
+  not CIs. Layout and scales match Figure~\ref{fig:comment-engagement-over-time}.}
   \label{fig:aitah-arrival-reception}
 \end{figure}
 
@@ -189,7 +210,8 @@ among $m$ retained first-day verdicts is assigned to stage
 $\lfloor10r/m\rfloor$. Resampling retains each post's complete sequence.
 Pointwise intervals use $2{,}000$ post-bootstrap
 replicates for all agreement levels (seed $20261007$) and $4{,}000$ for the
-high-agreement AITA overview (seed $20261008$). The latter includes separate
+high-agreement AITA profile in Figure~\ref{fig:certainty-responses}A
+(seed $20261008$). The latter includes separate
 majority/blaming/defending cohorts, not a common matched set. Its display
 range is $3.2$--$3.9$ on the original $1$--$4$ scale.
 

@@ -1,21 +1,16 @@
-% Temporary assembly of the three existing charts; replace the image
-% blocks with the redrawn combined figure while retaining the labels.
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/fig2.pdf}
-  \medskip
-  \includegraphics[width=\columnwidth]{figures/aita_arrival_reception_symlog.pdf}
-  \medskip
-  \includegraphics[width=\columnwidth]{figures/aita_high_agreement_overview_box.pdf}
-  \caption{AITA reception and expression: (A) majority--minority means
-  by agreement; (B) reception by first-day arrival hour; (C) directional
-  reception distributions, certainty profiles, and direct responses.
-  Panels retain their distinct samples and aggregation schemes.}
+  % Trim only the empty lower canvas; preserve the uploaded PDF unchanged.
+  \includegraphics[width=\columnwidth,trim=0 322bp 0 0,clip]{figures/fig2.pdf}
+  \caption{AITA reception by agreement and dissent direction. Boxes show
+  distributions of post-level means; diamonds and numbers mark means.
+  Gray shading separates blaming and defending subsets of the
+  high-agreement minority.}
   \label{fig:reception-overview}
   \label{fig:engagement-by-consensus}
-  \label{fig:comment-engagement-over-time}
   \label{fig:dissent-direction}
-  \Description{Three existing charts assembled provisionally into one
-  figure: reception across high and low agreement, first-day arrival
-  timing, and the high-agreement majority/blaming/defending comparison.}
+  \Description{Three box-plot panels show score, direct-reply count, and
+  maximum reply depth. Each compares low- and high-agreement majority and
+  minority comments, with high-agreement minority further divided into
+  blaming and defending.}
 \end{figure}
