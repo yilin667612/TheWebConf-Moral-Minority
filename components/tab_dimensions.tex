@@ -19,11 +19,9 @@
     Comment score & integer & Last available net score (upvotes minus downvotes) of the verdict comment in the dataset. \\
     Direct-reply count & integer $\ge0$ & Number of recorded direct replies to the verdict comment. \\
     Reply depth & integer $\ge0$ & Maximum recorded reply depth below the verdict comment; $0$ for no replies. \\
-    Subtree score & integer & Sum of recorded scores of the verdict comment and all replies in its observed subtree. \\
     Direct-response type & four categories & Parent--reply annotation: support, challenge, information, or other. \\
-    Perspective contribution & presence / type & Whether a direct reply introduces a consideration absent from its parent, and its category; independent of response type. \\
+    Perspective & presence / type & Presence and type of a new consideration introduced by a direct reply relative to its parent. \\
     Expressed certainty & ordinal, $1$--$4$ & Annotated certainty of a verdict comment, from unresolved ($1$) to a confidently asserted ($4$). \\
-    Reader responses & survey items & Judgment, comment agreement, perceived influence, and consideration of new perspectives following thread exposure. \\
     \bottomrule
   \end{tabular}
   \caption{Analytical dimensions and measures. $\rho(p)$ denotes the final
