@@ -56,22 +56,21 @@ Appendix Table~\ref{tab:dimensions} summarizes the dimensions and measures.
 \paragraph{Reception.}
 We measure comment score (last recorded upvotes minus downvotes),
 direct-reply count (immediate children), and maximum reply depth (levels
-below the verdict comment, with zero for no replies). Subtree score sums
-the recorded scores of the parent comment and all its descendants.
+below the verdict comment, with zero for no replies).
 We first average
 comments within each post and alignment group, then average these post-level
 means with equal weight. Absent sides are undefined, not zero; missing
 scores affect only score means. Group means may consequently involve
 different contributing post sets and are not necessarily paired contrasts.
-Marginal $95\%$ confidence intervals resample whole posts within each
-group ($4{,}000$ percentile-bootstrap replicates); these are not tests of
-between-group contrasts.
-
-To examine reception by arrival timing, we group top-level verdict comments
-into hourly bins within $[0,24)$ hours and compute post-equal summaries,
-excluding empty post--hour cells. All reception measures use available
-archive-wide outcomes rather than a common follow-up duration; grouping by
-arrival does not track changes in an individual comment's score or replies.
+Figure~\ref{fig:reception-overview} displays the distributions of these
+post-level means, with diamonds marking equal-post means. Boxes span the
+interquartile range, center lines mark medians, and whiskers extend to
+observed values within $1.5$ interquartile ranges; hidden outliers remain
+in the means. Scores and reply measures use available archive-wide
+outcomes rather than a common follow-up duration. Supplementary reception
+measures and arrival-hour analyses are described in
+Appendices~\ref{sec:appendix-aita-agreement-gradient}
+and~\ref{sec:appendix-aita-arrival}.
 
 \subsection{Reply-Pair and Certainty Annotation}
 \label{subsec:method-annotation}
@@ -124,33 +123,26 @@ validation and immutable model-version documentation remain unresolved;
 the prompt is provided in Supplementary
 Section~\ref{sec:supp-certainty-annotation}.
 
-Directional contrasts use all observed minority comments with valid labels,
-without an arrival-time cutoff. We average within-post certainty
-distributions equally across posts, excluding posts without valid minority
-observations. We compare the proportion at level $4$ and mean certainty.
-Within each community and agreement band, $95\%$ percentile intervals for
-blaming-minus-defending differences independently resample whole posts
-within each direction ($10{,}000$ replicates), preserving within-post dependence. The differing
-sampling fractions are not used to estimate community-wide certainty.
+Full-period directional contrasts compare post-equal certainty distributions,
+including the proportion at level $4$, without an arrival-time cutoff.
+Their estimation and sensitivity analyses appear in
+Appendix~\ref{sec:appendix-certainty-comparison}. The differing sampling
+fractions are not used to estimate community-wide certainty.
 
-\paragraph{Discussion progress.}
-We order each post's retained first-$24$-hour verdict comments by creation
-time, breaking ties by comment ID, and divide them into ten equal-count
-stages. Stage means receive equal post weight. Each alignment or direction
-uses a fixed set of posts with scored comments in every stage, preventing
-changes in post composition but selecting discussions with persistent
-observed expression. A stage without scored minority comments has undefined
-minority certainty, not zero. These profiles describe successive comments,
-not within-person change. The broader all-agreement analysis additionally
-includes intermediate-agreement annotated posts without population
-reweighting. Pointwise intervals resample whole posts ($4{,}000$ replicates
-for high-agreement AITA; $2{,}000$ for all-agreement profiles).
-For all-agreement trends, we regress post--stage mean certainty on
-normalized stage $s/9$ ($s=0,\ldots,9$), with post fixed effects and equal
-post--stage weights. The slope is the fitted first-to-last-stage change.
-Intervals use $20{,}000$ whole-post resamples; tests use post-cluster
-standard errors and Holm correction across four community--direction
-slopes. Appendix~\ref{sec:appendix-certainty-progress} gives implementation details.
+\paragraph{Certainty across discussion stages.}
+For Figure~\ref{fig:certainty-responses}(a), we order each high-agreement
+AITA post's retained first-$24$-hour verdict comments by creation time,
+breaking ties by comment ID, and divide them into ten approximately
+equal-count stages. The horizontal axis represents comment order, not
+elapsed hours. We average certainty within each post and judgment group
+(majority, blaming minority, or defending minority), then weight posts
+equally. Each curve uses a separate fixed set of posts with valid certainty
+observations for that group in every stage. A stage without such observations
+is undefined, not zero. Pointwise $95\%$ intervals resample whole posts
+($4{,}000$ replicates). These profiles describe successive comments, not
+within-person change, and select discussions with persistent observed
+expression. Exact stage assignment and supplementary all-agreement trend
+analyses appear in Appendix~\ref{sec:appendix-certainty-progress}.
 
 \subsection{Between-Subjects Survey Experiment}
 \label{subsec:method-survey}
@@ -170,21 +162,12 @@ Create a simple workflow diagram of the survey process and add it to the Appendi
 \subsection{Community Comparison}
 \label{subsec:method-community}
 
-We apply the same definitions and measures in AITAH to assess which AITA
-patterns recur. Supporting content and audience comparisons use the aligned
-period 17 March 2021--23 December 2025; reception analyses retain their
-specified frames. These supporting analyses compare post-text embeddings
-and shared-user sets, rather than assuming equivalent content or audiences;
-Supplementary Section~\ref{sec:supp-community} provides the diagnostics.
-
-Cross-posted stories are identified by identical title-and-body text after
-Unicode NFKC normalization, case folding, and whitespace normalization,
-excluding empty, deleted, or removed bodies. We require observed verdict
-shares in both communities, without imputation; contextual case selection
-additionally requires at least $20$ retained verdicts per submission.
-Shared text permits comparison around the same narrative but does not
-control audiences, posting times, or exposure. Community differences are
-therefore observational, not estimates of rule effects.
+We apply the same definitions and measures in AITAH as a supplementary
+check on the AITA findings. Reception analyses retain their specified
+observation frames. Procedures for content and audience comparisons and
+matching cross-posted stories appear in
+Appendix~\ref{sec:appendix-community-comparison}. Community differences
+remain observational, not estimates of rule effects.
 
 Bootstrap intervals do not capture archive gaps or annotation error;
 separate group intervals do not test interactions. Public narratives may
