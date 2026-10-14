@@ -22,7 +22,6 @@ We use top-level verdicts to define the judgment distribution and nested
 replies to measure responses to those judgments. Structural measures use
 stored labels and linked replies without requiring usable reply text or
 verifiable authors; annotation applies additional eligibility criteria.
-Figure~\ref{fig:study-overview} illustrates this structure.
 
 \paragraph{Verdict alignment.}
 We assign the first recognized verdict in textual order, matching short
@@ -62,11 +61,7 @@ comments within each post and alignment group, then average these post-level
 means with equal weight. Absent sides are undefined, not zero; missing
 scores affect only score means. Group means may consequently involve
 different contributing post sets and are not necessarily paired contrasts.
-Figure~\ref{fig:reception-overview} displays the distributions of these
-post-level means, with diamonds marking equal-post means. Boxes span the
-interquartile range, center lines mark medians, and whiskers extend to
-observed values within $1.5$ interquartile ranges; hidden outliers remain
-in the means. Scores and reply measures use available archive-wide
+Scores and reply measures use available archive-wide
 outcomes rather than a common follow-up duration. Supplementary reception
 measures and arrival-hour analyses are described in
 Appendices~\ref{sec:appendix-aita-agreement-gradient}
@@ -130,13 +125,13 @@ Appendix~\ref{sec:appendix-certainty-comparison}. The differing sampling
 fractions are not used to estimate community-wide certainty.
 
 \paragraph{Certainty across discussion stages.}
-For Figure~\ref{fig:certainty-responses}(a), we order each high-agreement
+We order each high-agreement
 AITA post's retained first-$24$-hour verdict comments by creation time,
 breaking ties by comment ID, and divide them into ten approximately
-equal-count stages. The horizontal axis represents comment order, not
-elapsed hours. We average certainty within each post and judgment group
+equal-count stages. Stages represent relative position in the comment
+sequence rather than elapsed hours. We average certainty within each post and judgment group
 (majority, blaming minority, or defending minority), then weight posts
-equally. Each curve uses a separate fixed set of posts with valid certainty
+equally. Each judgment group uses a separate fixed set of posts with valid certainty
 observations for that group in every stage. A stage without such observations
 is undefined, not zero. Pointwise $95\%$ intervals resample whole posts
 ($4{,}000$ replicates). These profiles describe successive comments, not
