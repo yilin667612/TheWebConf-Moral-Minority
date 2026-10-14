@@ -85,8 +85,14 @@ outcomes, not measurements taken at each arrival hour.
 \label{sec:appendix-aitah-reception}
 
 The following figures apply the AITA definitions and post-equal aggregation
-to AITAH. Directional comparisons retain separate majority baselines for
-NA- and YA-dominant posts. Absent minority cells are excluded, not zero.
+to AITAH. Figure~\ref{fig:aitah-reception-overview} combines the agreement
+and directional comparisons, using a common high-agreement majority
+baseline across NA- and YA-dominant posts. Blaming and defending partition
+the high-agreement minority; absent minority cells are excluded, not zero.
+Boxes show interquartile ranges of post-level means, with median lines
+and whiskers extending to observed values within $1.5$ interquartile ranges.
+Outlier points are hidden but retained in the means. Axis ranges are
+adjusted to AITAH and differ from Figure~\ref{fig:reception-overview}.
 
 Arrival-hour plots cover the first $24$ hours as specified in
 Section~\ref{subsec:dataset}, showing
@@ -99,11 +105,15 @@ replies, with original-unit ticks and matched community ranges.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_reception_grouped_bars_full_min200.pdf}
-  \caption{Post-equal majority--minority reception in AITAH: score,
-  direct-reply count, and maximum reply depth, using the same measures as
-  Figure~\ref{fig:reception-overview}.}
-  \label{fig:aitah-engagement-full}
+  \includegraphics[width=\columnwidth]{figures/aitah_reception_agreement_direction_boxes_vertical.pdf}
+  \caption{AITAH reception by agreement and dissent direction, matching
+  Figure~\ref{fig:reception-overview}. Boxes show post-level distributions;
+  diamonds and numbers mark means. Shaded boxes split high-agreement
+  minority comments into blaming and defending.}
+  \label{fig:aitah-reception-overview}
+  \Description{Three box-plot panels show score, direct-reply count, and
+  maximum reply depth for low- and high-agreement majority and minority
+  comments, with the high-agreement minority split into blaming and defending.}
 \end{figure}
 
 \begin{figure}[t]
@@ -114,15 +124,6 @@ replies, with original-unit ticks and matched community ranges.
   of post means; dark/light bands show 25th--75th/10th--90th percentiles,
   not CIs. Layout and scales match Figure~\ref{fig:comment-engagement-over-time}.}
   \label{fig:aitah-arrival-reception}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_dissent_direction.pdf}
-  \caption{High-agreement AITAH reception of blaming (orange) and defending
-  (green) dissent, with context-specific majority baselines (gray).
-  Panels show post-equal score, direct-reply count, and maximum reply depth.}
-  \label{fig:aitah-dissent-direction}
 \end{figure}
 
 \section{Verdict Tags}
