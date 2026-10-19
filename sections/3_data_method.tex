@@ -81,9 +81,11 @@ unverifiable identities, and pairs lacking usable post, parent, or reply text.
 We draw three seeded samples of $16{,}000$ pairs each. Each sample contains
 $2{,}000$ pairs from each of eight strata defined by community (AITA or
 AITAH), the dominant verdict in high-agreement posts (NA or YA), and the
-parent comment's alignment with that verdict (majority or minority).
-Pairs come from a broader response frame not assumed to satisfy the
-$200$-verdict threshold. Sampling is without replacement within strata,
+parent comment's alignment with that verdict (majority or minority),
+yielding $8{,}000$ pairs per community per seed. AITA is the primary setting,
+with AITAH providing an additional community comparison. These samples
+come from a broader response frame not assumed to satisfy
+the $200$-verdict threshold. Sampling is without replacement within strata,
 but samples can overlap and have no post/parent caps. Response proportions
 therefore weight pairs and condition on receiving an eligible reply,
 unlike post-equal reception means. Challenge denotes disagreement, not
@@ -96,13 +98,35 @@ documentation and validation status are summarized in
 Appendix~\ref{sec:appendix-annotation-details}.
 
 \paragraph{Perspectives in replies.}
-We separately annotate pairs of top-level comments and their direct replies
-to identify whether the reply introduces a consideration absent from its
-parent and, if so, the type of perspective introduced. The original post supplies context.
-Novelty is relative to the parent, not necessarily to the entire discussion,
-and is independent of support/challenge. Comparisons group parents by
-majority/minority alignment and their blaming/defending stance toward the OP.
-\textbf{[TODO - @Ying] Describe the sampling methodology and the perspective annotation process in detail. Add documentation to Appendix~\ref{sec:appendix-annotation-details}. Check with Yilin and incorporate any references that informed the initial prompt design.}
+To examine the semantic properties of replies in greater depth, we conduct
+an in-depth perspective analysis of 100 AITA posts: 50 with final
+$\rho(p)<.2$ and 50 with $\rho(p)>.8$. We analyze all 7,023 eligible
+public direct-reply pairs in these posts under the author and text filters
+above, reusing their existing support/challenge annotations. We ask
+whether a reply introduces an argumentative perspective not identified in
+its parent, separately from whether it supports or challenges that parent.
+
+Annotation has two stages. First, the LLM annotator receives the post and
+40 sampled eligible top-level comments to derive a post-specific taxonomy
+of argumentative lenses. The prompt requests four to eight distinct
+perspectives grounded in those comments, rather than verdict labels.
+Second, the model evaluates each distinct parent or child comment
+separately against that post's fixed taxonomy, assigning a binary score
+and explanation to every category. Each request contains the post,
+taxonomy, and target comment, but no paired-comment context or saved
+support/challenge label. Comments may match multiple categories or none.
+Both stages use temperature zero with thinking disabled.
+
+A reply adds a perspective if it receives a category not assigned to its
+parent; otherwise, a mapped reply adds no identified perspective. Replies
+with no assigned categories are unmapped. This measures addition relative
+to the parent's labels, not novelty across the discussion, and categories
+are specific to each post. Within each post and majority/minority parent
+group, challenge and added-perspective shares include all eligible replies in the denominator,
+including unmapped replies; groups without replies are omitted.
+% TODO (@Ying, with Yilin): document the old20/new80 discovery-frame
+% difference, frozen prompts and recovery provenance in the annotation
+% appendix; confirm citations underlying the collaborator-supplied prompts.
 
 \paragraph{Expressed certainty.}
 We sample $3\%$ of high-agreement and $15\%$ of low-agreement posts from
@@ -143,6 +167,9 @@ analyses appear in Appendix~\ref{sec:appendix-certainty-progress}.
 
 \subsection{Between-Subjects Survey Experiment}
 \label{subsec:method-survey}
+We designed a user study to investigate how minority views affects individuals’ moral judgments, reasoning, and consideration of alternative perspectives.
+
+
 
 % Each participant sees one condition: a post with its two highest-scoring
 % majority comment threads (A), or the same post with its highest-scoring
@@ -155,6 +182,22 @@ analyses appear in Appendix~\ref{sec:appendix-certainty-progress}.
 % the isolated effect of a minority label or a single comment.
 \textbf{[TODO - @Yilin] Detail the survey objective, control vs. treatment groups, and the underlying design rationale.
 Create a simple workflow diagram of the survey process and add it to the Appendix.}
+
+\paragraph{Design}
+We conducted a between-subjects design crossing four moral-dilemma scenarios with two comment-display conditions.
+Participants were randomly assigned to one of two comment-display conditions:
+(1) a majority--majority condition, in which participants saw the two highest-scoring comments supporting the same side, or
+(2) a majority--minority condition, in which participants saw the highest-scoring comment supporting each side.
+
+\paragraph{Measures}
+
+The primary outcome was participants’ moral judgment of the original poster, measured on an eight-point scale from 1 (Definitely YA) to 8 (Definitely NA). Participants also provided an open-ended explanation of at least two sentences. For each featured comment, participants rated perceived influence (1–5), agreement (1–5), and perspective elicitation (1–5). They also indicated whether Comment 1, Comment 2, both equally, or neither contributed more to their judgment. Discussion-level perspective broadening was measured using three seven-point items assessing whether the discussion encouraged consideration of both sides, introduced new considerations, and prompted engagement with reasons supporting an alternative judgment. Finally, participants indicated their preferred comment-display format: two highly upvoted comments supporting the same judgment, two highly upvoted comments representing opposing judgments, or neither.
+
+\paragraph{Scenarios}
+We selected four posts from the AITA community that showed high levels of agreement among commenters: two with a majority \textit{YA} judgment and two with a majority \textit{NA} judgment. The four posts covered distinct topics: financial responsibility between friends, family and parenting responsibilities, punctuality and obligations in friendships, and professional conduct in the workplace.
+
+\paragraph{Procedure}
+Participants were randomly assigned to one of four scenarios and one of two comment-display conditions. The procedure consisted of three phases. First, participants read an AITA post and its discussion thread. Second, they reported their moral judgment and briefly explained their reasoning. Finally, they completed self-report measures of comment influence, agreement, reflection, perspective broadening, and comment-display preference.
 
 % \subsection{Community Comparison}
 % \label{subsec:method-community}
