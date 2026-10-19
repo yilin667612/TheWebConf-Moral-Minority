@@ -78,10 +78,12 @@ not the OP or crowd. The prompt includes neither scores nor alignment
 metadata. We exclude OP-authored parents or replies, same-author exchanges,
 unverifiable identities, and pairs lacking usable post, parent, or reply text.
 
-We draw three seeded samples of $16{,}000$ pairs each, with $2{,}000$ per
-community-by-high-agreement-tail-by-parent-alignment stratum, from a
-broader response frame not assumed to satisfy
-the $200$-verdict threshold. Sampling is without replacement within strata,
+We draw three seeded samples of $16{,}000$ pairs each. Each sample contains
+$2{,}000$ pairs from each of eight strata defined by community (AITA or
+AITAH), the dominant verdict in high-agreement posts (NA or YA), and the
+parent comment's alignment with that verdict (majority or minority).
+Pairs come from a broader response frame not assumed to satisfy the
+$200$-verdict threshold. Sampling is without replacement within strata,
 but samples can overlap and have no post/parent caps. Response proportions
 therefore weight pairs and condition on receiving an eligible reply,
 unlike post-equal reception means. Challenge denotes disagreement, not
@@ -94,9 +96,9 @@ documentation and validation status are summarized in
 Appendix~\ref{sec:appendix-annotation-details}.
 
 \paragraph{Perspectives in replies.}
-We separately annotate top-level comment--direct reply pairs for whether
-the reply introduces a consideration absent from its parent and for the
-type of perspective introduced. The original post supplies context.
+We separately annotate pairs of top-level comments and their direct replies
+to identify whether the reply introduces a consideration absent from its
+parent and, if so, the type of perspective introduced. The original post supplies context.
 Novelty is relative to the parent, not necessarily to the entire discussion,
 and is independent of support/challenge. Comparisons group parents by
 majority/minority alignment and their blaming/defending stance toward the OP.

@@ -116,13 +116,14 @@ Directional contrasts use all observed minority comments with valid labels,
 without an arrival-time cutoff. We average within-post certainty
 distributions equally across posts, excluding posts without valid minority
 observations, and compare the proportion at level $4$ and mean certainty.
-Within each community and agreement band, the $95\%$ percentile intervals
-for blaming-minus-defending differences independently resample whole posts
-within each direction, preserving within-post dependence. The differing
+Within each community and agreement band, we construct $95\%$ percentile
+intervals for differences between blaming and defending by independently
+resampling whole posts within each direction, preserving within-post dependence. The differing
 sampling fractions are not used to estimate community-wide certainty.
 
 Figure~\ref{fig:certainty-low-high} reports post-equal full-period
-distributions. Blaming-minus-defending contrasts use $10{,}000$ independent
+distributions. Contrasts subtract defending estimates from blaming estimates
+and use $10{,}000$ independent
 whole-post resamples within directional cohorts (seed $20260922$), with
 replicate-level differences and marginal percentile intervals. These are
 not interaction tests. The small high-agreement AITAH defending cohort
@@ -131,8 +132,8 @@ is flagged even when its contrast interval excludes zero.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
-  \caption{Post-equal certainty distributions (left) and blaming-minus-defending
-  certainty-$4$ differences with $95\%$ bootstrap CIs (right). Hollow markers
+  \caption{Post-equal certainty distributions (left) and differences in
+  certainty-$4$ proportions (blaming minus defending) with $95\%$ bootstrap CIs (right). Hollow markers
   flag the small AITAH high-agreement defending cohort;
   $n$ denotes posts (blaming/defending).}
   \label{fig:certainty-low-high}
@@ -159,10 +160,11 @@ $4.3\%$/$7.0\%$.
 
 Across all agreement levels in the broader AITA annotation archive, both
 fixed directional cohorts show positive post fixed-effects trends. The
-fitted first-to-last-stage change is $0.039$ for blaming ($95\%$
+fitted change from the first to the last stage is $0.039$ for blaming ($95\%$
 post-bootstrap CI $[0.021,0.056]$) and $0.059$ for defending
-($[0.038,0.080]$). Both survive Holm correction across the four
-community--direction slopes. The profiles are not monotonic, and the larger
+($[0.038,0.080]$). Both survive Holm correction across slopes estimated
+for the four combinations of community and dissent direction.
+The profiles are not monotonic, and the larger
 defending point estimate does not itself establish a directional difference
 in trends. These pooled-agreement estimates do not replace the high-agreement
 profiles or separate high/low full-period contrasts.
@@ -174,16 +176,16 @@ fitted change of $0.036$ ($95\%$ post-bootstrap CI $[0.007,0.065]$;
 Holm-adjusted $p=0.031$), whereas defending has an uncertain estimate of
 $-0.015$ ($[-0.050,0.020]$; adjusted $p=0.413$). Thus, the combined
 annotation sample does not support an increasing linear trend for every
-community--direction group. The AITAH defending profile now includes
+combination of community and dissent direction. The AITAH defending profile now includes
 $155$ fixed-cohort posts across agreement levels; the separate full-period
 high-agreement comparison still contains only $15$ defending posts
 (Appendix Figure~\ref{fig:certainty-low-high}). Significance in one group
 and non-significance in another is not a test of a community difference
-or community-by-direction interaction.
+or an interaction between community and dissent direction.
 
 The broader all-agreement analysis includes intermediate-agreement
 annotated posts without population reweighting. As for the high-agreement
-profile, each community--direction curve retains a fixed set of posts with
+profile, each curve for a given community and dissent direction retains a fixed set of posts with
 scored comments in every first-day stage. Stage means receive equal post
 weight, and a stage without scored minority comments is undefined, not zero.
 
@@ -198,10 +200,12 @@ high-agreement AITA profile in Figure~\ref{fig:certainty-responses}A
 majority/blaming/defending cohorts, not a common matched set. Its display
 range is $3.2$--$3.9$ on the original $1$--$4$ scale.
 
-Within each all-agreement community--direction cohort, we fit
+Pooling agreement levels, we fit the following model separately for each
+community and dissent direction:
 $\overline C_{p,s}=\alpha_p+\beta(s/9)+\epsilon_{p,s}$ for $s=0,\ldots,9$,
-weighting post-stages equally. Thus $\beta$ is the fitted first-to-last-stage
-change, not an hourly slope. Intervals use $20{,}000$ whole-post percentile
+giving each post's stage mean equal weight. Thus $\beta$ is the fitted
+change from the first to the last stage, not an hourly slope.
+Intervals use $20{,}000$ whole-post percentile
 resamples; two-sided tests use post-cluster standard errors and $G-1$
 degrees of freedom. Holm correction covers four slopes; displayed intervals
 are unadjusted. Separate slopes do not test between-group differences or
@@ -218,7 +222,7 @@ potentially changing compositions.
   significance; $n$ counts scored minority comments.}
   \label{fig:certainty-progress}
   \Description{Mean minority certainty across first-day comment stages and
-  fitted first-to-last changes. AITA blaming and defending and AITAH blaming
+  fitted changes from the first to the last stage. AITA blaming and defending and AITAH blaming
   have positive intervals; AITAH defending includes zero.}
 \end{figure}
 
@@ -283,7 +287,8 @@ Blaming dissent in AITAH receives a lower mean score than defending dissent
 ($-2.02$ versus $-0.25$), more direct replies ($0.50$ versus $0.28$), and
 greater maximum reply depth ($0.81$ versus $0.51$)
 (Appendix Figure~\ref{fig:aitah-reception-overview}).
-The blaming-to-defending reply ratio is $1.77$, compared with $1.83$ in
+The ratio of mean direct replies for blaming versus defending dissent is
+$1.77$, compared with $1.83$ in
 AITA. Both minority directions have negative equal-post mean scores in
 both communities. These results show a shared
 directional ordering alongside differences in recorded magnitudes.
@@ -346,10 +351,14 @@ These are archive-relative timings, not complete lifetime follow-up.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/comment_timing.png}
-  \caption{Comment timing in AITA and AITAH. Top-level comments mostly
-  arrive within the first day; nested replies extend further.}
+  \includegraphics[width=\columnwidth]{figures/comment_timing.pdf}
+  \caption{Comment timing in AITA (top) and AITAH (bottom): distributions
+  of arrival milestones (left) and cumulative proportions of posts reaching
+  $90\%$ or their last observed comment (right). Time axes are nonlinear.}
   \label{fig:timing}
+  \Description{Box plots and cumulative distributions compare arrival
+  milestones for all comments and top-level comments. Most top-level
+  comments arrive early, while the last observed comments can arrive much later.}
 \end{figure}
 
 \paragraph{Retrieval timing.}
@@ -377,22 +386,13 @@ blame-induced withdrawal: OP participation can precede the final verdict.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/aita_op_participation_presence_timing_min200.pdf}
-  \caption{AITA OP presence with $95\%$ Wilson intervals (left) and
-  first-comment timing conditional on participation (right).}
-  \label{fig:aita-op-participation}
-  \Description{OP presence by final YA share and the timing of the first
-  recorded OP comment among participating posts in AITA.}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_op_participation_presence_timing_min200.pdf}
-  \caption{AITAH OP presence and first-comment timing, using the same
-  definitions and axes as Figure~\ref{fig:aita-op-participation}.}
-  \label{fig:aitah-op-participation}
-  \Description{OP presence and first-comment timing in AITAH. First recorded
-  OP comments predominantly arrive within one hour.}
+  \includegraphics[width=\columnwidth]{figures/op_participation_aita_aitah.pdf}
+  \caption{OP participation in AITA (top) and AITAH (bottom): presence
+  with $95\%$ Wilson intervals (left) and first-comment timing conditional
+  on participation (right), by final YA share.}
+  \label{fig:op-participation}
+  \Description{OP presence and first-comment timing by final YA share,
+  with AITA above AITAH. Most participating OPs first comment within one hour.}
 \end{figure}
 
 \section{Supplementary Community Comparison Methods}
@@ -407,7 +407,8 @@ and shared-user sets, rather than assuming equivalent content or audiences;
 Supplementary Section~\ref{sec:supp-community} provides the diagnostics.
 
 \paragraph{Matching cross-posted stories.}
-Cross-posted stories are identified by identical title-and-body text after
+Cross-posted stories are identified by matching the combined text of their
+titles and bodies after
 Unicode NFKC normalization, case folding, and whitespace normalization,
 excluding empty, deleted, or removed bodies. We require observed verdict
 shares in both communities, without imputation; contextual case selection
@@ -424,7 +425,7 @@ may remain identifiable after usernames are removed.
 The exploratory perspective export contains four paired stories, each
 posted in AITA and AITAH. Each post has an independently learned taxonomy,
 derived from up to $40$ top-level comments, and multi-label annotations
-of eligible top-level parent--direct reply pairs. These are model-generated
+of eligible pairs of top-level comments and their direct replies. These are model-generated
 labels without independent human validation. Category names and category
 frequencies are therefore not treated as directly comparable across
 communities. Parent and child distributions describe separate sets of
