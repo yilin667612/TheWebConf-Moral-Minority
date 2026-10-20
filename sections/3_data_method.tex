@@ -1,171 +1,129 @@
 \section{Data and Methods}
 \label{sec:data-method}
 
+We analyze public archives from r/AmItheAsshole (AITA) and r/AITAH (AITAH),
+including posts, comments, replies, judgment labels, scores, timestamps, and reply structure.
+We examine how minority judgments are expressed and received, and whether
+replies introduce additional perspectives.
 
 \input{components/fig_structure_overview}
-
 
 \subsection{Data and Measures}
 \label{subsec:dataset}
 
-We analyze public AITA and AITAH archives containing submissions, comments,
-verdict labels, scores, timestamps, and parent relationships. Documented
-coverage extends from June 2013 for AITA and March 2021 for AITAH through
-December 2025. The main reception cohort includes all eligible posts with
-at least $200$ retained top-level verdicts, without post subsampling.
-Source processing excludes empty or removed submission bodies;
-AutoModerator has no verdict label and does not enter verdict counts.
-These records represent retained archive activity, not a community census.
-The reception frame contains $28{,}107$ AITA and $8{,}217$ AITAH posts
-before exact-tie exclusion; Appendix~\ref{sec:appendix-dimensions}
-provides further sample-accounting information.
+A \emph{post} presents an interpersonal conflict described by its original
+poster (OP). Throughout this paper, a \emph{comment} means a top-level
+response to the post and a \emph{reply} means a direct response to a
+comment. A \emph{reply thread} comprises these replies and any further
+nested responses beneath the comment.
+The archives cover posts published from June 2013 to December 2025 in AITA and from March 2021 to December 2025 in AITAH. The posts with empty or removed bodies are excluded.
+We retain only comments with a recognized judgment label (YTA, NTA, ESH, NAH) and exclude comments with unrecognized labels, INFO, or AutoModerator messages.
+We also exclude posts with fewer than 200 retained judgments to ensure sufficient data for analysis.
+After the filters, the AITA dataset contains 28,107 posts and 8,217 posts in AITAH.
 
-A \emph{top-level comment} responds to the original post. Its immediate
-children are \emph{direct replies}; all descendants form its reply subtree.
-We use top-level verdicts to define the judgment distribution and nested
-replies to measure responses to those judgments. Structural measures use
-stored labels and linked replies without requiring usable reply text or
-verifiable authors; annotation applies additional eligibility criteria.
+\paragraph{Judgments and analytical sample.}
+A \emph{judgment} is a comment's expressed assessment of the OP's conduct.
+We group judgments that assign fault to the OP as \emph{YA}: YTA
+(``You're the Asshole'') and ESH (``Everyone Sucks Here,'' blaming both
+parties). Judgments that do not assign fault to the OP form \emph{NA}:
+NTA (``Not the Asshole'') and NAH (``No Assholes Here,'' blaming neither
+party). We use the first recognized judgment in each comment, matching
+short codes as case-sensitive whole words and full phrases regardless of
+case. Hypothetical forms and equivalent variants map to the same categories;
+Appendix~\ref{sec:appendix-tags} lists these forms. INFO (requests for
+information), unrecognized comments, and AutoModerator messages do not
+enter judgment counts.
 
-\paragraph{Verdict alignment.}
-We assign the first recognized verdict in textual order, matching short
-codes case-sensitively at word boundaries and full phrases case-insensitively.
-After normalizing hypothetical forms and H-suffixed aliases, we group
-$\mathrm{YA}=\{\mathrm{YTA},\mathrm{ESH}\}$ and
-$\mathrm{NA}=\{\mathrm{NTA},\mathrm{NAH}\}$, excluding INFO and
-unrecognized comments. ESH (``Everyone Sucks Here'') assigns blame to both
-parties; NAH (``No Assholes Here'') assigns it to neither; INFO requests
-more information. Hypothetical YWBTA/YWNBTA map to YTA/NTA, and
-H-suffixed variants map to their base tags. Appendix~\ref{sec:appendix-tags}
-lists all forms. For post $p$, define
-\[
-N(p)=N_{\mathrm{YA}}(p)+N_{\mathrm{NA}}(p),\qquad
-\rho(p)=N_{\mathrm{YA}}(p)/N(p).
-\]
-The dominant verdict $D(p)$ is YA when $\rho(p)>.5$ and NA when
-$\rho(p)<.5$; exact ties are excluded from alignment-based analyses.
-Majority comments match $D(p)$; minority comments oppose it.
-High agreement denotes $\rho(p)\le.2$ or $\rho(p)\ge.8$; low agreement
-denotes $.4\le\rho(p)\le.6$, excluding ties. Intermediate bands enter
-only continuous and all-agreement analyses.
 
-Blaming dissent is minority YA in NA-dominant posts; defending dissent is
-minority NA in YA-dominant posts. Directional comparisons thus involve
-different story cohorts. Alignment remains fixed to stored final observed
-verdict metadata, including in temporal analyses; it does not measure the
-opinion distribution perceived by commenters or an official community verdict.
-Appendix Table~\ref{tab:dimensions} summarizes the dimensions and measures.
+\paragraph{Majority, minority, and agreement.}
+The \emph{dominant judgment} is the more frequent category, YA or NA,
+among a post's retained judgments. \emph{Majority comments} express that
+judgment; \emph{minority comments} express the opposite judgment.
+We exclude posts with equal numbers of YA and NA judgments from comparisons
+requiring this distinction. \emph{High agreement} means that at least
+80\% of judgments favor one side. \emph{Low agreement} means that each
+side accounts for 40--60\%, excluding exact ties. Intermediate levels
+enter only analyses spanning the agreement range.
 
-\paragraph{Reception.}
-We measure comment score (last recorded upvotes minus downvotes),
-direct-reply count (immediate children), and maximum reply depth (levels
-below the verdict comment, with zero for no replies).
-We first average
-comments within each post and alignment group, then average these post-level
-means with equal weight. Absent sides are undefined, not zero; missing
-scores affect only score means. Group means may consequently involve
-different contributing post sets and are not necessarily paired contrasts.
-Scores and reply measures use available archive-wide
-outcomes rather than a common follow-up duration. Additional reception
-measures and arrival-hour analyses are described in
-Appendices~\ref{sec:appendix-aita-agreement-gradient}
+\emph{Blaming dissent} assigns fault to an OP whom the majority defends;
+\emph{defending dissent} defends an OP whom the majority blames. Comparing
+these directions therefore involves different sets of posts. These
+classifications use the final observed judgment distribution and remain
+fixed throughout temporal analyses. They do not represent the opinion
+distribution visible to a commenter or an official community judgment.
+
+\paragraph{Reception measures.}
+\emph{Comment score} is the last recorded number of upvotes minus downvotes.
+\emph{Reply count} is the number of replies to a comment.
+\emph{Maximum reply depth} is the greatest number of response levels
+beneath a comment: zero for no replies, one for replies without further
+responses, and higher values for more deeply nested reply threads.
+These measures use stored judgment labels and response links; unlike
+annotation, they do not require usable reply text or verifiable authors.
+
+For each measure, we first average comments within each post and judgment
+group, then average across posts with equal weight. Missing groups are
+excluded rather than assigned zero, and missing scores affect only score
+averages. Groups can therefore include different sets of posts and are
+not necessarily paired comparisons. Scores and reply measures use all
+available archive observations, not a uniform follow-up period.
+Appendix Table~\ref{tab:dimensions} summarizes the dimensions and measures;
+additional reception measures and comparisons by comment arrival hour
+appear in Appendices~\ref{sec:appendix-aita-agreement-gradient}
 and~\ref{sec:appendix-aita-arrival}.
 
-\subsection{Reply-Pair and Certainty Annotation}
+\subsection{Reply Annotation}
 \label{subsec:method-annotation}
 
-\paragraph{Direct responses.}
-The annotation unit is a top-level verdict comment paired with one immediate
-reply. Given the original post as context, DeepSeek labels the reply as
-support, challenge, information-seeking, or other relative to its parent,
-not the OP or crowd. The prompt includes neither scores nor alignment
-metadata. We exclude OP-authored parents or replies, same-author exchanges,
-unverifiable identities, and pairs lacking usable post, parent, or reply text.
-
-We draw three seeded samples of $16{,}000$ pairs each. Each sample contains
-$2{,}000$ pairs from each of eight strata defined by community (AITA or
-AITAH), the dominant verdict in high-agreement posts (NA or YA), and the
-parent comment's alignment with that verdict (majority or minority),
-yielding $8{,}000$ pairs per community per seed. AITA is the primary setting,
-with AITAH providing an additional community comparison. These samples
-come from a broader response frame not assumed to satisfy
-the $200$-verdict threshold. Sampling is without replacement within strata,
-but samples can overlap and have no post/parent caps. Response proportions
-therefore weight pairs and condition on receiving an eligible reply,
-unlike post-equal reception means. Challenge denotes disagreement, not
-necessarily personal attack. Model annotations underwent development-set
-review, not independent held-out validation. Support endorses the parent's
-core position, challenge disputes it, information-seeking requests
-clarification, and other covers remaining functions. Qualified agreement
-can remain support; rhetorical rebuttals count as challenge. Annotation
-documentation and validation status are summarized in
-Appendix~\ref{sec:appendix-annotation-details}.
+\paragraph{Support and challenge.}
+We use three annotated samples of 16,000 comment--reply pairs from
+high-agreement AITA and AITAH posts, drawn separately from the reception
+sample and excluding OP participation. Given the post as context, DeepSeek
+labels each reply's stance toward its comment: \emph{support} endorses
+the comment's position, \emph{challenge} disputes it,
+\emph{information-seeking} requests clarification, and \emph{other}
+covers remaining functions. Challenge denotes disagreement, not necessarily
+personal attack. Proportions weight pairs equally and describe comments
+receiving eligible replies, rather than all comments. Labels underwent
+development-set review, not independent held-out validation.
 
 \paragraph{Perspectives in replies.}
-To examine the semantic properties of replies in greater depth, we conduct
-an in-depth perspective analysis of 100 AITA posts: 50 with final
-$\rho(p)<.2$ and 50 with $\rho(p)>.8$. We analyze all 7,023 eligible
-public direct-reply pairs in these posts under the author and text filters
-above, reusing their existing support/challenge annotations. We ask
-whether a reply introduces an argumentative perspective not identified in
-its parent, separately from whether it supports or challenges that parent.
+We analyze 7,023 eligible comment--reply pairs from 100 high-agreement
+AITA posts, reusing their support/challenge labels. A \emph{perspective}
+is an argumentative consideration represented by a category in a taxonomy
+derived separately for each post. An LLM constructs this taxonomy and
+labels each comment and reply independently; each text may receive
+multiple categories or none. A reply adds a perspective when it receives
+a category absent from its comment. This measures addition relative to
+that comment, not novelty across the discussion, independently of
+support/challenge. Within each post and majority/minority group,
+proportions include all eligible replies, including those assigned no
+category; groups without replies are omitted. Sampling, eligibility,
+and annotation procedures appear in
+Appendix~\ref{sec:appendix-annotation-details}.
 
-Annotation has two stages. First, the LLM annotator receives the post and
-40 sampled eligible top-level comments to derive a post-specific taxonomy
-of argumentative lenses. The prompt requests four to eight distinct
-perspectives grounded in those comments, rather than verdict labels.
-Second, the model evaluates each distinct parent or child comment
-separately against that post's fixed taxonomy, assigning a binary score
-and explanation to every category. Each request contains the post,
-taxonomy, and target comment, but no paired-comment context or saved
-support/challenge label. Comments may match multiple categories or none.
-Both stages use temperature zero with thinking disabled.
+\subsection{Expressed Certainty}
+\label{subsec:method-certainty}
 
-A reply adds a perspective if it receives a category not assigned to its
-parent; otherwise, a mapped reply adds no identified perspective. Replies
-with no assigned categories are unmapped. This measures addition relative
-to the parent's labels, not novelty across the discussion, and categories
-are specific to each post. Within each post and majority/minority parent
-group, challenge and added-perspective shares include all eligible replies in the denominator,
-including unmapped replies; groups without replies are omitted.
-% TODO (@Ying, with Yilin): document the old20/new80 discovery-frame
-% difference, frozen prompts and recovery provenance in the annotation
-% appendix; confirm citations underlying the collaborator-supplied prompts.
+We use comment-level certainty annotations from sampled high- and
+low-agreement posts in the 200-judgment cohort. The scale captures
+expressed language, not private confidence: very uncertain (1), somewhat
+uncertain (2), somewhat certain (3), and very certain (4). The same
+criteria apply across judgments. Sampling and outstanding validation
+requirements are documented in Appendix~\ref{sec:appendix-annotation-details}.
 
-\paragraph{Expressed certainty.}
-We sample $3\%$ of high-agreement and $15\%$ of low-agreement posts from
-the $200$-verdict cohort and annotate their top-level comments individually.
-The low/high sample contains $1{,}195$ posts and $665{,}107$ valid
-YA/NA certainty records across the two communities.
-\textbf{[TODO - @Yilin] Fix the numbers above}
-The analysis retains the existing export's membership; additional draws
-exclude previously annotated posts within each community and agreement band.
-Certainty ranges from very uncertain ($1$), somewhat uncertain ($2$) and a somewhat certain ($3$), to a
-very certain judgment ($4$). The same criteria apply across verdicts
-and measure expressed language, not private confidence. Verdict alignment
-continues to follow the first-match rule. Independent held-out human
-validation and immutable model-version documentation remain unresolved;
-Appendix~\ref{sec:appendix-annotation-details} summarizes the documentation
-and validation status.
-
-Full-period directional contrasts compare post-equal certainty distributions,
-including the proportion at level $4$, without an arrival-time cutoff.
-Their estimation and sensitivity analyses appear in
-Appendix~\ref{sec:appendix-certainty-comparison}. The differing sampling
-fractions are not used to estimate community-wide certainty.
+We compare certainty distributions and the proportion at level 4 between
+blaming and defending dissent over the full observed period, weighting
+posts equally. These estimates describe the annotated sample, not
+community-wide certainty. Estimation and sensitivity procedures appear
+in Appendix~\ref{sec:appendix-certainty-comparison}.
 
 \paragraph{Certainty across discussion stages.}
-We order each high-agreement
-AITA post's retained first-$24$-hour verdict comments by creation time,
-breaking ties by comment ID, and divide them into ten approximately
-equal-count stages. Stages represent relative position in the comment
-sequence rather than elapsed hours. We average certainty within each post and judgment group
-(majority, blaming minority, or defending minority), then weight posts
-equally. Each judgment group uses a separate fixed set of posts with valid certainty
-observations for that group in every stage. A stage without such observations
-is undefined, not zero. Pointwise $95\%$ intervals resample whole posts
-($4{,}000$ replicates). These profiles describe successive comments, not
-within-person change, and select discussions with persistent observed
-expression. Exact stage assignment and additional all-agreement trend
-analyses appear in Appendix~\ref{sec:appendix-certainty-progress}.
-
+For high-agreement AITA posts, we divide the first 24 hours of judgment
+comments into ten chronological stages containing approximately equal
+numbers of comments. We compare majority, blaming minority, and defending
+minority comments using equal post weights. Each group retains a fixed
+set of posts with scored comments in every stage. The curves therefore
+describe successive comments in these selected discussions, not changes
+within individuals. Stage construction and uncertainty estimation appear
+in Appendix~\ref{sec:appendix-certainty-progress}.

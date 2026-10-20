@@ -90,16 +90,56 @@ an individual comment's score or replies.
 %   comparing high-agreement majority and minority with low-agreement comments.}
 % \end{figure}
 
-\section{Annotation Documentation}
+\section{Annotation Samples and Procedures}
 \label{sec:appendix-annotation-details}
 
-Direct-response labels describe a reply's stance toward its parent;
-certainty labels describe expressed language on the four-point scale.
-Development-set review does not establish independent held-out accuracy,
-and independent validation remains unresolved. Full prompts and execution
-records appear in Supplementary Sections~\ref{sec:supp-response-annotation}
-and~\ref{sec:supp-certainty-annotation}. Perspective-annotation documentation
-will be added here with its sampling and validation procedures.
+\paragraph{Reply sampling and eligibility.}
+We draw three seeded samples of 16,000 comment--reply pairs each, with
+2,000 pairs from each of eight strata defined by community (AITA or AITAH),
+dominant judgment in high-agreement posts (NA or YA), and comment alignment
+(majority or minority). Each sample therefore contains 8,000 pairs per
+community. Sampling is without replacement within strata, but the three
+samples can overlap. There is no cap on pairs from any post or comment.
+% These samples come from a broader response frame not assumed to satisfy
+% the 200-judgment threshold.
+We exclude pairs involving the OP, exchanges by the same author,
+unverifiable identities, and pairs without usable post, comment, or reply
+text. The annotation prompt includes neither scores nor alignment metadata.
+Qualified agreement can remain support; rhetorical rebuttals count as
+challenge. Development-set review does not establish independent held-out
+accuracy. Full prompts and execution records appear in Supplementary
+Section~\ref{sec:supp-response-annotation}.
+
+\paragraph{Perspective sampling and annotation.}
+The 100 AITA posts comprise 50 with more than 80\% NA judgments and 50
+with more than 80\% YA judgments. We retain all 7,023 eligible public
+comment--reply pairs under the author and text filters above and reuse
+their existing support/challenge labels. For each post, the model receives
+the post and 40 sampled eligible comments to construct four to eight
+perspective categories grounded in those comments rather than judgment
+labels. It then evaluates each distinct comment or reply separately
+against that fixed taxonomy, assigning a binary label and explanation
+to every category. Requests contain the post, taxonomy, and target text,
+but not the paired text or its support/challenge label. Both stages use
+temperature zero with thinking disabled. Categories are specific to each
+post; a reply with no assigned category is unmapped rather than excluded
+from the denominator.
+% TODO (@Ying, with Yilin): document the old20/new80 discovery-frame
+% difference, frozen prompts and recovery provenance; confirm citations
+% underlying the collaborator-supplied prompts.
+
+\paragraph{Certainty sampling and annotation.}
+We sample 3\% of eligible high-agreement posts and 15\% of low-agreement
+posts from the 200-judgment cohort, annotating their comments individually.
+The existing low/high export contains 1,195 posts and 665,107 valid YA/NA
+certainty records across the two communities.
+\textbf{[TODO - @Yilin] Fix the numbers above}
+The analysis retains the export's membership; additional draws exclude
+previously annotated posts within each community and agreement band.
+Judgment alignment follows the first recognized judgment in the comment.
+Independent held-out human validation and immutable model-version
+documentation remain unresolved. Full prompts and execution records
+appear in Supplementary Section~\ref{sec:supp-certainty-annotation}.
 
 \section{Certainty Contrasts and Sensitivity}
 \label{sec:appendix-certainty-comparison}
@@ -190,7 +230,9 @@ scored comments in every first-day stage. Stage means receive equal post
 weight, and a stage without scored minority comments is undefined, not zero.
 
 Profiles use the fixed-stage eligibility rule in
-Section~\ref{subsec:method-annotation}. A comment at zero-based rank $r$
+Section~\ref{subsec:method-certainty}. We order retained judgment comments
+posted within the first 24 hours by creation time, breaking ties by comment
+ID. A comment at zero-based rank $r$
 among $m$ retained first-day verdicts is assigned to stage
 $\lfloor10r/m\rfloor$. Resampling retains each post's complete sequence.
 Pointwise intervals use $2{,}000$ post-bootstrap
