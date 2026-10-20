@@ -188,33 +188,37 @@ and assigned to ten stages by $\lfloor10r/m\rfloor$, where $r$ is zero-based
 rank and $m$ is the first-day count. Each group retains posts with scored
 comments in every stage and weights posts equally; cohorts need not match
 across groups. Pointwise intervals resample complete post sequences
-($2{,}000$ replicates for all-agreement profiles; $4{,}000$ for high-agreement
-AITA). This selection favors discussions with persistent scored expression.
+($2{,}000$ replicates). This selection favors discussions with persistent
+scored expression.
 
-The all-agreement analysis includes intermediate posts without population
-reweighting. Separately for each community and dissent direction, we fit
+The analysis is restricted to high-agreement posts. Separately for
+majority, blaming minority, and defending minority
+comments in each community, we fit
 $\overline C_{p,s}=\alpha_p+\beta(s/9)+\epsilon_{p,s}$,
 $s=0,\ldots,9$, with equal post weights. Here $\beta$ is the fitted
 first-to-last-stage change. Intervals use $20{,}000$ whole-post percentile
 resamples; two-sided tests use post-cluster standard errors and $G-1$
-degrees of freedom ($G$ posts), with Holm correction across four slopes.
+degrees of freedom ($G$ posts), with Holm correction across six slopes.
 Displayed intervals are unadjusted.
-Figure~\ref{fig:certainty-progress} shows positive trends for both AITA
-directions and AITAH blaming, but not a clear AITAH defending trend.
+Figure~\ref{fig:aita-certainty-progress} shows significant positive trends
+for AITA majority and blaming comments; defending does not survive Holm
+correction. No AITAH slope survives correction (Figure~\ref{fig:certainty-progress}).
+The AITAH defending cohort contains only eight posts and requires caution.
 Separate slopes establish neither between-group differences nor monotonic
 or within-person change.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/certainty_progress_all_agreement_post_fe.pdf}
-  \caption{All-agreement certainty profiles (left) and post fixed-effects
-  trends (right) in AITA/AITAH. Orange/green: blaming/defending;
-  bands/whiskers: $95\%$ post-bootstrap CIs. Stars mark Holm-adjusted
-  significance; $n$ counts scored minority comments.}
+  \includegraphics[width=\columnwidth]{figures/aitah_certainty_progress_post_fe.pdf}
+  \caption{AITAH certainty profiles (left) and post fixed-effects
+  trends (right), in high-agreement posts. Blue/orange/green: majority/blaming/defending;
+  bands/whiskers: $95\%$ post-bootstrap CIs. Stars: Holm-adjusted
+  $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$ (none here);
+  $n$ counts scored comments in legend order.}
   \label{fig:certainty-progress}
-  \Description{Mean minority certainty across first-day comment stages and
-  fitted changes from the first to the last stage. AITA blaming and defending and AITAH blaming
-  have positive intervals; AITAH defending includes zero.}
+  \Description{Mean certainty across first-day comment stages and fitted
+  changes from the first to the last stage in high-agreement AITAH posts.
+  No slope is significant after Holm correction; defending uses eight posts.}
 \end{figure}
 
 \section{Verdict Distributions}

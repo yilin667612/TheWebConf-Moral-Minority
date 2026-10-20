@@ -50,7 +50,7 @@ so arrival timing and exposure remain relevant to these aggregate outcomes
 Among annotated replies in high-agreement AITA posts, challenges account
 for approximately $21.8\%$ of replies to majority judgments, compared
 with $73.7$--$77.3\%$ across the two minority directions
-(Figure~\ref{fig:certainty-responses}(b)). Support, by contrast, is the
+(Figure~\ref{fig:reply-responses}). Support, by contrast, is the
 most common response to majority judgments. This pattern concerns responses
 from other commenters: OP-authored pairs are excluded. OP participation
 is common ($81.0\%$ of eligible AITA posts), reinforcing the importance of
@@ -91,7 +91,7 @@ contributing post sets, rather than judgments randomly assigned to the
 same story. They do not establish why blaming dissent receives more engagement.
 
 \paragraph{Challenges predominate in replies to both minority directions.}
-Figure~\ref{fig:certainty-responses}(b) shows a shared contrast with majority
+Figure~\ref{fig:reply-responses} shows a shared contrast with majority
 judgments. Approximately $68.7\%$ of majority-parent replies support the
 parent, while $21.8\%$ challenge it. For blaming minority parents,
 $16.1\%$ support and $77.3\%$ challenge; for defending minority parents,
@@ -121,23 +121,24 @@ labels and estimate post/parent-clustered response uncertainty.]}
 
 \paragraph{Both minority directions end with higher expressed certainty.}
 \label{subsec:res-certainty-contrasts}
-Figure~\ref{fig:certainty-responses}(a) shows mean certainty across ten
+Figure~\ref{fig:aita-certainty-progress} shows mean certainty across ten
 approximately equal-count stages of each post's first-day verdict-comment
-sequence. Majority certainty remains comparatively high and stable.
+sequence in high-agreement posts.
+Majority certainty remains comparatively high, with a small positive trend.
 Both blaming and defending minority comments have higher mean certainty
 at the final stage than at the initial stage, with fluctuations between
 stages. Neither minority profile increases monotonically.
 
-Blaming has a higher mean than defending at each plotted stage, but this
-ordering does not establish different rates of increase. The profiles
-use separate fixed cohorts of $659$ majority, $143$ blaming, and $55$
-defending posts; their pointwise intervals do not test differences between
-the groups or their changes. Both directions therefore show an
-increase in mean expressed certainty from the initial to the final stage, without establishing
-distinct trajectories. These are successive comments from potentially
-different participants, not evidence of increased certainty within individuals.
+Post fixed-effects models estimate positive fitted first-to-last-stage
+changes for majority ($0.014$), blaming ($0.100$), and defending ($0.119$)
+comments. Majority and blaming trends remain significant after Holm
+correction ($p<.001$); defending does not ($p=.066$). Each profile uses a separate fixed
+post cohort with scored comments of that group in every stage. These tests
+do not establish differences between group slopes or monotonic increases.
+Successive comments may come from different participants, so the trends
+do not establish increased certainty within individuals.
 
-Full-period distributions, sensitivity checks, and all-agreement trends
+Full-period distributions, sensitivity checks, and corresponding AITAH trends
 appear in Appendix~\ref{sec:appendix-certainty}. The full-period directional
 contrast is sensitive to annotation version and should not be interpreted
 as evidence of different first-day trajectories.
@@ -155,17 +156,16 @@ establishing different rates of increase between them.
 For \textbf{RQ3}, we compare the prevalence and types of new perspectives
 in direct replies across parent alignment and blaming--defending stance.
 Perspective novelty and support/challenge are separate annotation axes;
-Figure~\ref{fig:perspectives} reserves space for the annotated results.
+The perspective results will be combined with the reply-orientation
+summary in Figure~\ref{fig:reply-responses}.
 
 \begin{figure}[t]
   \centering
-  \fbox{\parbox[c][3.2cm][c]{0.92\columnwidth}{\centering
-    \textbf{Perspective annotation results}\\[0.6em]
-    Majority/minority $\times$ blaming/defending\\
-    New-perspective prevalence and category breakdown\\[0.6em]
-    \emph{Figure placeholder}}}
-  \caption{Placeholder for direct-reply perspective annotations, grouped by
-  parent alignment and moral stance. Support/challenge is an independent axis.}
-  \label{fig:perspectives}
-  \Description{Placeholder for perspective-annotation results; no data are plotted.}
+  \includegraphics[width=\columnwidth]{figures/aita_response_proportions.pdf}
+  \caption{Reply orientations in high-agreement AITA posts, grouped by
+  parent judgment. Proportions are pair-weighted; other includes
+  information-seeking and other responses.}
+  \label{fig:reply-responses}
+  \Description{Stacked reply proportions show support, challenge, and other
+  responses to majority, blaming minority, and defending minority comments.}
 \end{figure}
