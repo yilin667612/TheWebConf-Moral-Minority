@@ -5,22 +5,19 @@ We conducted a between-subjects survey experiment to examine how readers respond
 \subsection{Survey Design}
 \label{subsec:survey-design}
 
-\paragraph{Design, scenarios, and stimuli}
-Figure~\ref{fig:survey-procedure} (Appendix~\ref{app:survey}) illustrates the experimental design and procedure. Participants were randomly assigned to one of four moral-dilemma scenarios (two with a majority \textit{YA} judgment and two with a majority \textit{NA} judgment) and one of two comment-display conditions. All four scenarios were drawn from high-agreement AITA posts and covered financial responsibility between friends, family and parenting responsibilities, punctuality and obligations in friendships, and professional conduct in the workplace.
+\paragraph{Design and stimuli}
+Figure~\ref{fig:survey-procedure} (Appendix~\ref{app:survey}) illustrates the design and procedure. Participants were randomly assigned to one of four high-agreement AITA posts (two with a majority \textit{YA} judgment and two with a majority \textit{NA} judgment) and one of two comment-display conditions. The posts concerned financial obligations between friends, parenting, punctuality, and workplace conduct.
 
-For each post, we selected the two highest-scoring majority comments and the highest-scoring minority comment. In the \textit{Majority--Majority} condition (MM), participants saw the two majority comments. This condition was designed to reflect the two comments readers typically encounter first on high-agreement Reddit posts. In the \textit{Majority--Minority} condition (Mm), participants instead saw the highest-scoring majority comment and the minority comment. Comment~1 was the same majority comment in both conditions, while Comment~2 was either the second majority comment or the minority comment. The comparison thus held the post and Comment~1 constant while replacing the thread rooted at Comment~2. It assessed the combined presentation of the selected thread's arguments, replies, and observed score, rather than the effect of minority alignment independently of these features.
+In the \textit{Majority--Majority} condition (MM), participants saw the two highest-scoring majority comments, reflecting the comments typically encountered first on high-agreement Reddit posts. In the \textit{Majority--Minority} condition (Mm), the highest-scoring minority comment replaced the second majority comment. Within each scenario, the post and Comment~1 were held constant; only Comment~2 and its reply thread varied. The manipulation therefore combined thread content, replies, and observed scores.
 
-Posts and comments were presented in a Reddit-style interface using their original wording, with observed scores and explicit \textit{YA} or \textit{NA} judgments displayed. Replies were preserved in their original nested structure up to four levels deep, collapsed by default, and expandable via \textit{View replies}. Usernames were replaced with generic labels. Comments were not explicitly labelled as majority or minority, and numerical majority percentages were not shown. Thus, the manipulation captured exposure to naturally occurring majority- or minority-aligned discussion threads rather than explicit alignment labels.
+The Reddit-style interface retained the original wording, scores, and \textit{YA}/\textit{NA} judgments. Replies were nested up to four levels, initially collapsed, and expandable via \textit{View replies}. Usernames were replaced with generic labels; majority/minority labels and agreement percentages were omitted.
 
 \paragraph{Participants and procedure}
 \textbf{TODO: Report recruitment, eligibility, and exclusion criteria.}
-The current sample comprises 80 participants, with 40 in each comment-display condition.
-
-The procedure consisted of three phases. First, participants read an AITA post and its discussion thread. Second, they reported their moral judgment and briefly explained their reasoning. Finally, they completed self-report measures of comment influence, agreement, reflection, perspective broadening, and comment-display preference.
+The sample comprises 80 participants (40 per condition). Participants read their assigned post and threads, reported a moral judgment with an explanation of at least two sentences, and completed the self-report measures below.
 
 \paragraph{Measures}
-
-The primary outcome was participants' moral judgment of the original poster, measured on an eight-point scale from 1 (Definitely YA) to 8 (Definitely NA). Judgment certainty was measured on a four-point scale (1--4). Participants also provided an open-ended explanation of at least two sentences. For each featured comment, participants rated perceived influence, agreement, and perspective consideration, each on a five-point scale (1--5). They also indicated whether Comment~1, Comment~2, both equally, or neither contributed more to their judgment. Discussion-level perspective broadening was measured using three seven-point items assessing whether the discussion encouraged consideration of both sides, introduced new considerations, and prompted engagement with reasons supporting an alternative judgment. Finally, participants indicated their preferred comment-display format: two highly upvoted comments supporting the same judgment, two highly upvoted comments representing opposing judgments, or neither.
+Moral judgment, the primary outcome, used an eight-point scale from 1 (Definitely YA) to 8 (Definitely NA); judgment certainty used a four-point scale (1--4). Per-comment influence, agreement, and perspective consideration used five-point scales (1--5). Participants also identified which comment contributed more to their judgment (Comment~1, Comment~2, both equally, or neither). Three seven-point items assessed discussion-level perspective broadening: considering both sides, encountering new considerations, and engaging with reasons supporting an alternative judgment. Display preference contrasted two highly upvoted comments supporting the same judgment with two representing opposing judgments, plus a neither option.
 \textbf{TODO: Share the exact survey text in supp}
 
 % TODO: Document the exact judgment-certainty item or derivation and its anchors.
@@ -32,10 +29,8 @@ The primary outcome was participants' moral judgment of the original poster, mea
 \subsection{Survey Results}
 \label{subsec:survey-results}
 
-Figure~\ref{fig:survey-results} summarizes mean survey responses for the 80-participant sample; Table~\ref{tab:survey-results} reports the corresponding differences and statistical comparisons. The reported comparisons use two-sided Welch's independent-samples $t$-tests, with differences calculated as Mm minus MM. Both displays summarize each condition across the four scenarios.
-% TODO: Reconcile these summaries with the underlying participant-level data.
-% The earlier prose described a 38-participant sample; the current table reports
-% 40 participants per condition and is the basis for the revised prose.
+Figure~\ref{fig:survey-results} summarizes mean responses for the 80 participants across the four scenarios. Condition comparisons use two-sided Welch's independent-samples $t$-tests; reported differences are calculated as Mm minus MM.
+% TODO: Verify sample counts and figure summaries against participant-level data.
 % TODO: Report test statistics, degrees of freedom, confidence intervals, and
 % effect sizes; document multiplicity handling and assess scenario differences.
 % TODO: Confirm the analysis plan and whether each comparison was prespecified.
@@ -64,37 +59,5 @@ Agreement with Comment~2 was lower in Mm than in MM ($M=2.78$ versus $M=4.03$; $
 
 \paragraph{Judgment certainty}
 The reported judgment-certainty measure was lower in Mm than in MM ($M=2.68$ versus $M=3.15$; reported $\Delta=-0.48$, $p=.037$).
-% TODO: Confirm that differences in the table use unrounded means.
+% TODO: Confirm that reported differences use unrounded means.
 Taken together, the current summaries suggest that discussions including a minority thread can broaden reported consideration of alternative perspectives without securing greater agreement with that thread. Because the manipulation replaced an entire thread, the comparison does not identify which arguments, replies, or score cues account for the observed differences. Interpretation also remains preliminary pending fuller reporting of uncertainty, multiple comparisons, and variation across scenarios.
-
-\begin{table}[t]
-  \centering
-  \small
-  \caption{Survey means for the majority--majority (MM; $n=40$) and
-  majority--minority (Mm; $n=40$) conditions. Differences are calculated
-  as Mm minus MM. Two-sided $p$-values are based on Welch's independent-samples
-  $t$-tests.}
-  \label{tab:survey-results}
-  \begin{tabular}{@{}lrrrr@{}}
-    \toprule
-    Measure & MM & Mm & $\Delta$ & $p$ \\
-    \midrule
-    Judgment certainty
-      & 3.15 & 2.68 & $-0.48$ & .037 \\
-    Comment~1 influence
-      & 2.28 & 2.83 & $+0.55$ & .056 \\
-    Comment~2 influence
-      & 2.20 & 1.95 & $-0.25$ & .313 \\
-    Agreement with Comment~1
-      & 3.95 & 3.90 & $-0.05$ & .852 \\
-    Agreement with Comment~2
-      & 4.03 & 2.78 & $-1.25$ & $<.001$ \\
-    Perspective consideration: Comment~1
-      & 1.98 & 2.50 & $+0.52$ & .051 \\
-    Perspective consideration: Comment~2
-      & 2.00 & 2.48 & $+0.48$ & .072 \\
-    Overall perspective broadening
-      & 4.08 & 4.89 & $+0.81$ & .012 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
