@@ -13,25 +13,23 @@ community comparison.
 \label{subsec:res-baseline}
 \label{subsec:res-distribution}
 
-High agreement is common in the AITA cohort: of $28{,}107$ posts with at
-least $200$ retained verdicts, $21{,}978$ ($78.2\%$) meet the high-agreement
-threshold and $1{,}838$ ($6.5\%$) meet the low-agreement threshold, excluding
-exact ties. Among high-agreement posts, $80.6\%$ have a defending majority.
-Appendix~\ref{sec:appendix-verdict-distribution} gives the full distribution.
+The discussion environment is predominantly high-agreement: such posts
+account for $78.2\%$ of the analyzed AITA posts, and $80.6\%$ of these have a
+majority that defends the OP. AITAH exhibits a similar concentration
+(Appendix~\ref{sec:appendix-verdict-distribution}). We examine how minority
+judgments are received in these discussions, using low-agreement posts
+as a comparison.
 
 \paragraph{Lower scores coexist with greater reply engagement.}
-In high-agreement posts, majority comments have an equal-post mean score
-of $39.55$, compared with $-10.25$ for minority comments
-(Figure~\ref{fig:reception-overview}). The ordering reverses for reply
-engagement: minority comments average $0.73$ direct replies and a maximum
-reply depth of $1.03$, compared with $0.15$ and $0.17$ for majority comments.
-Low evaluation thus coexists with more replies and deeper discussions.
-
-Under low agreement, majority--minority differences are smaller. Scores
-average $35.89$ versus $27.60$, direct-reply counts $0.28$ versus $0.32$,
-and maximum reply depths $0.36$ versus $0.41$. The mean score gap is
-$49.80$ points under high agreement and $8.29$ under low agreement, while
-the differences in reply count and depth are also larger under high agreement.
+In high-agreement posts, minority comments receive lower scores but more
+replies and deeper reply threads than majority comments
+(Figure~\ref{fig:reception-overview}). These differences are smaller under
+low agreement: the majority--minority mean score gap is approximately
+$50$ points under high agreement versus $8$ under low agreement, and
+the gaps in reply count and depth also narrow. Thus, stronger agreement
+coincides with a wider separation between evaluation and reply engagement.
+Figure~\ref{fig:aita-agreement-gradient} in the Appendix shows reception
+across the full agreement range, complementing the high--low comparison.
 AITAH shows the same high-agreement pattern of lower minority scores,
 more replies, and deeper reply trees, with smaller reply-engagement gaps
 under low agreement (Appendix~\ref{sec:appendix-aitah-reception}).
@@ -68,7 +66,7 @@ contexts: $0.15$ and $0.16$ replies, with depths of $0.17$ in both.
 The same directional ordering appears in AITAH: blaming dissent receives
 lower scores, more replies, and deeper reply trees than defending dissent
 (Appendix~\ref{sec:appendix-aitah-reception}).
-These comparisons involve different story cohorts and potentially different
+These comparisons involve different sets of stories and potentially different
 contributing post sets, rather than judgments randomly assigned to the
 same story. They do not establish why blaming dissent receives more engagement.
 
@@ -82,11 +80,13 @@ Both blaming and defending minority comments have higher mean certainty
 at the final stage than at the initial stage, with fluctuations between
 stages. Neither minority profile increases monotonically.
 
-Post fixed-effects models estimate positive fitted first-to-last-stage
-changes for majority ($0.014$), blaming ($0.100$), and defending ($0.119$)
-comments. Majority and blaming trends remain significant after Holm
+Using post fixed-effects regression across all ten stages, the estimated
+change from the first to the last stage is $0.014$ for majority, $0.100$
+for blaming, and $0.119$ for defending comments. These estimates summarize
+linear trends rather than the observed difference between the two endpoints.
+Majority and blaming trends remain significant after Holm
 correction ($p<.001$); defending does not ($p=.066$). Each profile uses a separate fixed
-post cohort with scored comments of that group in every stage. These tests
+set of posts with scored comments of that group in every stage. These tests
 do not establish differences between group slopes or monotonic increases.
 Successive comments may come from different participants, so the trends
 do not establish increased certainty within individuals.
@@ -109,7 +109,7 @@ is common ($81.0\%$ of eligible AITA posts), reinforcing the importance of
 this distinction (Appendix~\ref{sec:appendix-op-participation}).
 Response proportions describe sampled eligible replies, not the probability
 that a comment receives a challenge. The annotation frame is broader than
-the $200$-verdict reception cohort and covers high-agreement posts only;
+the posts meeting the 200-judgment reception threshold and covers high-agreement posts only;
 these results therefore do not establish a high--low difference in challenge
 rates.
 
@@ -135,9 +135,9 @@ majority combines two equally sized strata ($4{,}000$ pairs). Proportions
 weight pairs, retain all four response categories in the denominator,
 and describe the first annotation sample. Information-seeking and other
 responses constitute the remaining shares. Because this sample differs
-from the reception cohort, the response proportions cannot identify the
+from the posts used in the reception analysis, the response proportions cannot identify the
 composition of the additional replies associated with blaming dissent
-in the full cohort.
+in the full reception dataset.
 \textbf{[TODO: report post-cluster uncertainty for directional reception
 contrasts; verify the plotted rounded response proportions against raw
 labels and estimate post/parent-clustered response uncertainty.]}

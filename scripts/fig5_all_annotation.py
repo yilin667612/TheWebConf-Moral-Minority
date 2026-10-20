@@ -203,8 +203,8 @@ def plot(a):
             ax.grid(axis='y' if ax is left else 'x',color='#E2E7EA',lw=.7)
             ax.set_axisbelow(True)
         right.spines['left'].set_visible(False)
-    axes[-1,0].set_xlabel('Comment-sequence position\n(first 24 h)' if compact else 'Comment-sequence position (first 24 h)',fontsize=9,labelpad=5)
-    axes[-1,1].set_xlabel('Fitted first-to-last-stage\nchange' if compact else 'Fitted first-to-last-stage change',fontsize=9,labelpad=5)
+    axes[-1,0].set_xlabel('Comment-sequence position (first 24 h)',fontsize=9,labelpad=5)
+    axes[-1,1].set_xlabel('Estimated linear change',fontsize=9,labelpad=5)
     fig.legend(handles=[Line2D([],[],color=colors[d],marker=markers[d],lw=1.8,label={'Majority':'Majority','Blame':'Blaming','Defend':'Defending'}[d]) for d in colors],
         loc='upper center',bbox_to_anchor=(.52,.99),ncol=3,frameon=False,fontsize=10)
     a.pdf.parent.mkdir(parents=True,exist_ok=True)
