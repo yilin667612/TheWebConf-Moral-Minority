@@ -14,12 +14,15 @@ Participants were randomly assigned to one of two comment-display conditions:
 \paragraph{Scenarios and stimuli}
 We selected four posts from the AITA community that showed high levels of agreement among commenters: two with a majority \textit{YA} judgment and two with a majority \textit{NA} judgment. The four posts covered distinct topics: financial responsibility between friends, family and parenting responsibilities, punctuality and obligations in friendships, and professional conduct in the workplace.
 
+For each post, we selected three top-level verdict comments: two aligned with the community majority and one expressing the opposing judgment. Participants were randomly assigned to one of two conditions. In the \textit{Two-Majority} condition, both featured comments expressed the majority judgment. In the \textit{Majority + Minority} condition, Comment~1 remained the same majority comment, while Comment~2 was replaced by the minority comment. This design isolated the effect of the second featured thread while holding the post and first comment constant.
+
+Posts and comments were presented in a Reddit-style interface using their original wording, with observed scores and explicit \textit{YA} or \textit{NA} verdicts displayed. Replies were preserved in their original nested structure up to four levels deep, collapsed by default, and expandable via \textit{View replies}. Usernames were replaced with generic labels. Comments were not explicitly labelled as majority or minority, and numerical majority percentages were not shown. Thus, the manipulation captured exposure to naturally occurring majority- or minority-aligned discussion threads rather than explicit alignment labels.
 % TODO: Describe thread selection and the presentation of replies, scores,
 % and alignment information.
 
 \paragraph{Participants and procedure}
 % TODO: Report recruitment, eligibility, and exclusion criteria.
-We have recruited 38 participants to date: 18 in the majority--majority condition and 20 in the majority--minority condition.
+We have recruited 80 participants to date: 40 in the majority--majority condition and 40 in the majority--minority condition.
 
 Participants were randomly assigned to one of four scenarios and one of two comment-display conditions. The procedure consisted of three phases. First, participants read an AITA post and its discussion thread. Second, they reported their moral judgment and briefly explained their reasoning. Finally, they completed self-report measures of comment influence, agreement, reflection, perspective broadening, and comment-display preference.
 
@@ -53,20 +56,31 @@ Judgment certainty was significantly lower in the majority--minority condition (
 \begin{table}[t]
   \centering
   \small
-  \caption{Preliminary survey means for the majority--majority (MM; $n=18$) and majority--minority (Mm; $n=20$) conditions. Differences are Mm minus MM. Statistical significance is described in the text; test details remain to be added.}
+  \caption{Survey means for the two-majority (MM; $n=40$) and
+  majority--minority (Mm; $n=40$) conditions. Differences are calculated
+  as Mm minus MM. Two-sided $p$-values are based on Welch's independent-samples
+  $t$-tests.}
   \label{tab:survey-results}
-  \begin{tabular}{@{}lrrr@{}}
+  \begin{tabular}{@{}lrrrr@{}}
     \toprule
-    Measure & MM & Mm & $\Delta$ \\
+    Measure & MM & Mm & $\Delta$ & $p$ \\
     \midrule
-    Judgment certainty & 3.61 & 2.50 & $-1.11$ \\
-    Comment 1 influence & 2.56 & 2.90 & $+0.34$ \\
-    Comment 2 influence & 2.28 & 2.20 & $-0.08$ \\
-    Comment 1 agreement & 4.28 & 4.00 & $-0.28$ \\
-    Comment 2 agreement & 4.22 & 2.75 & $-1.47$ \\
-    Comment 1 perspective consideration & 2.06 & 2.25 & $+0.19$ \\
-    Comment 2 perspective consideration & 2.11 & 2.75 & $+0.64$ \\
-    Overall perspective broadening & 4.43 & 4.55 & $+0.12$ \\
+    Judgment certainty
+      & 3.15 & 2.68 & $-0.48$ & .037 \\
+    Comment 1 influence
+      & 2.28 & 2.83 & $+0.55$ & .056 \\
+    Comment 2 influence
+      & 2.20 & 1.95 & $-0.25$ & .313 \\
+    Agreement with Comment 1
+      & 3.95 & 3.90 & $-0.05$ & .852 \\
+    Agreement with Comment 2
+      & 4.03 & 2.78 & $-1.25$ & $<.001$ \\
+    Perspective consideration: Comment 1
+      & 1.98 & 2.50 & $+0.52$ & .051 \\
+    Perspective consideration: Comment 2
+      & 2.00 & 2.48 & $+0.48$ & .072 \\
+    Overall perspective broadening
+      & 4.08 & 4.89 & $+0.81$ & .012 \\
     \bottomrule
   \end{tabular}
 \end{table}
