@@ -16,12 +16,10 @@ poster (OP). Throughout this paper, a \emph{comment} means a top-level
 response to the post and a \emph{reply} means a direct response to a
 comment. A \emph{reply thread} comprises these replies and any further
 nested responses beneath the comment.
-The archives cover posts published from June 2013 to December 2025 in AITA and from March 2021 to December 2025 in AITAH. The posts with empty or removed bodies are excluded.
-We retain only comments with a recognized judgment label (YTA, NTA, ESH, NAH) and exclude comments with unrecognized labels, INFO, or AutoModerator messages.
-We also exclude posts with fewer than 200 retained judgments to ensure sufficient data for analysis.
-After the filters, the AITA dataset contains 28,107 posts and 8,217 posts in AITAH.
+The archives cover posts published from June 2013 to December 2025 in AITA and from March 2021 to December 2025 in AITAH.
+The posts with empty or removed bodies are excluded.
 
-\paragraph{Judgments and analytical sample.}
+\paragraph{Judgments.}
 A \emph{judgment} is a comment's expressed assessment of the OP's conduct.
 We group judgments that assign fault to the OP as \emph{YA}: YTA
 (``You're the Asshole'') and ESH (``Everyone Sucks Here,'' blaming both
@@ -30,10 +28,13 @@ NTA (``Not the Asshole'') and NAH (``No Assholes Here,'' blaming neither
 party). We use the first recognized judgment in each comment, matching
 short codes as case-sensitive whole words and full phrases regardless of
 case. Hypothetical forms and equivalent variants map to the same categories;
-Appendix~\ref{sec:appendix-tags} lists these forms. INFO (requests for
-information), unrecognized comments, and AutoModerator messages do not
-enter judgment counts.
+Appendix~\ref{sec:appendix-tags} lists these forms.
 
+Judgment counts include only comments assigned to these four categories;
+INFO (requests for information), unrecognized comments, and AutoModerator
+messages are excluded. For the reception analysis, we retain posts with
+at least 200 such judgments. After these filters, the sample contains
+28,107 AITA posts and 8,217 AITAH posts.
 
 \paragraph{Majority, minority, and agreement.}
 The \emph{dominant judgment} is the more frequent category, YA or NA,
@@ -42,7 +43,7 @@ judgment; \emph{minority comments} express the opposite judgment.
 We exclude posts with equal numbers of YA and NA judgments from comparisons
 requiring this distinction. \emph{High agreement} means that at least
 80\% of judgments favor one side. \emph{Low agreement} means that each
-side accounts for 40--60\%, excluding exact ties. Intermediate levels
+side accounts for 40--60\%. Intermediate levels
 enter only analyses spanning the agreement range.
 
 \emph{Blaming dissent} assigns fault to an OP whom the majority defends;
