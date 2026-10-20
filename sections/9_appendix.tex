@@ -141,33 +141,26 @@ Independent held-out human validation and immutable model-version
 documentation remain unresolved. Full prompts and execution records
 appear in Supplementary Section~\ref{sec:supp-certainty-annotation}.
 
-\section{Certainty Contrasts and Sensitivity}
-\label{sec:appendix-certainty-comparison}
+\section{Certainty Analyses}
+\label{sec:appendix-certainty}
 
-In high-agreement AITA posts, the mean within-post proportion of minority
-comments at certainty level $4$ is $66.1\%$ for blaming and $58.1\%$ for
-defending: a difference of $8.0$ percentage points ($95\%$ whole-post
-bootstrap CI $[3.9,12.2]$). Under low agreement, the contrast is smaller
-and uncertain ($1.2$ percentage points; CI $[-1.6,4.1]$). These estimates
-weight posts equally and use the full observed annotation period; they
-do not measure differences in first-day rates of change.
+\paragraph{Directional contrasts and sensitivity.}
+Figure~\ref{fig:certainty-low-high} compares full-period certainty
+distributions with equal post weights, excluding posts without scored
+minority comments. Blaming-minus-defending contrasts use $10{,}000$
+independent whole-post resamples within each community, agreement band,
+and direction to obtain $95\%$ percentile intervals. These describe the
+annotated cohorts, not population estimates or interaction tests; the
+high-agreement AITAH defending cohort contains only $15$ posts.
 
-Directional contrasts use all observed minority comments with valid labels,
-without an arrival-time cutoff. We average within-post certainty
-distributions equally across posts, excluding posts without valid minority
-observations, and compare the proportion at level $4$ and mean certainty.
-Within each community and agreement band, we construct $95\%$ percentile
-intervals for differences between blaming and defending by independently
-resampling whole posts within each direction, preserving within-post dependence. The differing
-sampling fractions are not used to estimate community-wide certainty.
-
-Figure~\ref{fig:certainty-low-high} reports post-equal full-period
-distributions. Contrasts subtract defending estimates from blaming estimates
-and use $10{,}000$ independent
-whole-post resamples within directional cohorts (seed $20260922$), with
-replicate-level differences and marginal percentile intervals. These are
-not interaction tests. The small high-agreement AITAH defending cohort
-is flagged even when its contrast interval excludes zero.
+In high-agreement AITA, the certainty-$4$ gap is $8.0$ percentage points
+(CI $[3.9,12.2]$), versus $1.2$ under low agreement ($[-1.6,4.1]$).
+Restricting high-agreement AITA to \texttt{v4} yields $5.0$ points
+($[-0.7,10.5]$); annotation version and post composition are confounded.
+Holding first-18h contributing posts and final judgment classifications
+fixed, adding later comments reduces the high-agreement mean-certainty
+gap by $0.019$ in AITA and $0.034$ in AITAH. This comparison does not
+identify effects of verdict disclosure.
 
 \begin{figure}[t]
   \centering
@@ -179,81 +172,27 @@ is flagged even when its contrast interval excludes zero.
   \label{fig:certainty-low-high}
 \end{figure}
 
-Restricting high-agreement AITA to \texttt{v4} gives a certainty-$4$
-difference of $5.0$ percentage points (CI $[-0.7,10.5]$) and a mean difference
-of $0.054$ ($[-0.018,0.123]$). Version and post composition are confounded.
-Sensitivity analyses compare full-period estimates with arrivals
-in $[0,18)$ hours, using fixed final-verdict labels. The same cutoff in AITAH
-defines a comparison window, not a verdict-disclosure event.
+\paragraph{Discussion stages and trends.}
+First-day judgments are ordered by timestamp, breaking ties by comment ID,
+and assigned to ten stages by $\lfloor10r/m\rfloor$, where $r$ is zero-based
+rank and $m$ is the first-day count. Each group retains posts with scored
+comments in every stage and weights posts equally; cohorts need not match
+across groups. Pointwise intervals resample complete post sequences
+($2{,}000$ replicates for all-agreement profiles; $4{,}000$ for high-agreement
+AITA). This selection favors discussions with persistent scored expression.
 
-
-Holding the post set fixed to first-18h contributors, adding later comments
-reduces the high-agreement mean-certainty gap by $0.019$ points in AITA
-(paired-window CI $[-0.035,-0.005]$) and $0.034$ in AITAH
-($[-0.061,-0.010]$). This is not a test of convergence at 18 hours or a
-causal effect of verdict disclosure. Pooled minority-comment fractions
-arriving after 18h are $10.3\%$/$13.4\%$ in AITA/AITAH; after 24h they are
-$4.3\%$/$7.0\%$.
-
-\section{Certainty Profiles and Trends}
-\label{sec:appendix-certainty-progress}
-
-Across all agreement levels in the broader AITA annotation archive, both
-fixed directional cohorts show positive post fixed-effects trends. The
-fitted change from the first to the last stage is $0.039$ for blaming ($95\%$
-post-bootstrap CI $[0.021,0.056]$) and $0.059$ for defending
-($[0.038,0.080]$). Both survive Holm correction across slopes estimated
-for the four combinations of community and dissent direction.
-The profiles are not monotonic, and the larger
-defending point estimate does not itself establish a directional difference
-in trends. These pooled-agreement estimates do not replace the high-agreement
-profiles or separate high/low full-period contrasts.
-
-\paragraph{Certainty profiles do not transfer uniformly.}
-Pooling agreement levels, the post fixed-effects analysis also evaluates
-first-day certainty in AITAH. Blaming has a positive
-fitted change of $0.036$ ($95\%$ post-bootstrap CI $[0.007,0.065]$;
-Holm-adjusted $p=0.031$), whereas defending has an uncertain estimate of
-$-0.015$ ($[-0.050,0.020]$; adjusted $p=0.413$). Thus, the combined
-annotation sample does not support an increasing linear trend for every
-combination of community and dissent direction. The AITAH defending profile now includes
-$155$ fixed-cohort posts across agreement levels; the separate full-period
-high-agreement comparison still contains only $15$ defending posts
-(Appendix Figure~\ref{fig:certainty-low-high}). Significance in one group
-and non-significance in another is not a test of a community difference
-or an interaction between community and dissent direction.
-
-The broader all-agreement analysis includes intermediate-agreement
-annotated posts without population reweighting. As for the high-agreement
-profile, each curve for a given community and dissent direction retains a fixed set of posts with
-scored comments in every first-day stage. Stage means receive equal post
-weight, and a stage without scored minority comments is undefined, not zero.
-
-Profiles use the fixed-stage eligibility rule in
-Section~\ref{subsec:method-certainty}. We order retained judgment comments
-posted within the first 24 hours by creation time, breaking ties by comment
-ID. A comment at zero-based rank $r$
-among $m$ retained first-day verdicts is assigned to stage
-$\lfloor10r/m\rfloor$. Resampling retains each post's complete sequence.
-Pointwise intervals use $2{,}000$ post-bootstrap
-replicates for all agreement levels (seed $20261007$) and $4{,}000$ for the
-high-agreement AITA profile in Figure~\ref{fig:certainty-responses}A
-(seed $20261008$). The latter includes separate
-majority/blaming/defending cohorts, not a common matched set. Its display
-range is $3.2$--$3.9$ on the original $1$--$4$ scale.
-
-Pooling agreement levels, we fit the following model separately for each
-community and dissent direction:
-$\overline C_{p,s}=\alpha_p+\beta(s/9)+\epsilon_{p,s}$ for $s=0,\ldots,9$,
-giving each post's stage mean equal weight. Thus $\beta$ is the fitted
-change from the first to the last stage, not an hourly slope.
-Intervals use $20{,}000$ whole-post percentile
+The all-agreement analysis includes intermediate posts without population
+reweighting. Separately for each community and dissent direction, we fit
+$\overline C_{p,s}=\alpha_p+\beta(s/9)+\epsilon_{p,s}$,
+$s=0,\ldots,9$, with equal post weights. Here $\beta$ is the fitted
+first-to-last-stage change. Intervals use $20{,}000$ whole-post percentile
 resamples; two-sided tests use post-cluster standard errors and $G-1$
-degrees of freedom. Holm correction covers four slopes; displayed intervals
-are unadjusted. Separate slopes do not test between-group differences or
-imply monotonic or within-person change. Fixed cohorts favor discussions
-with persistent scored expression; available-post profiles have different,
-potentially changing compositions.
+degrees of freedom ($G$ posts), with Holm correction across four slopes.
+Displayed intervals are unadjusted.
+Figure~\ref{fig:certainty-progress} shows positive trends for both AITA
+directions and AITAH blaming, but not a clear AITAH defending trend.
+Separate slopes establish neither between-group differences nor monotonic
+or within-person change.
 
 \begin{figure}[t]
   \centering

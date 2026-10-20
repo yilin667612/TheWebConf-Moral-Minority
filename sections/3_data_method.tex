@@ -4,74 +4,62 @@
 We analyze public archives from r/AmItheAsshole (AITA) and r/AITAH (AITAH),
 including posts, comments, replies, judgment labels, scores, timestamps, and reply structure.
 We examine how minority judgments are expressed and received, and whether
-replies introduce additional perspectives.
+replies introduce additional perspectives. Figure~\ref{fig:study-overview}
+illustrates the discussion structure, reception measures, and annotations.
 
 \input{components/fig_structure_overview}
 
 \subsection{Data and Measures}
 \label{subsec:dataset}
 
-A \emph{post} presents an interpersonal conflict described by its original
-poster (OP). Throughout this paper, a \emph{comment} means a top-level
-response to the post and a \emph{reply} means a direct response to a
-comment. A \emph{reply thread} comprises these replies and any further
-nested responses beneath the comment.
-The archives cover posts published from June 2013 to December 2025 in AITA and from March 2021 to December 2025 in AITAH.
-The posts with empty or removed bodies are excluded.
+A \emph{post} is its original poster's (OP's) account of an interpersonal
+conflict. A \emph{comment} is a top-level response to the post;
+a \emph{reply} responds directly to a comment. A \emph{reply thread}
+includes these replies and further nested responses.
+The archives cover June 2013--December 2025 for AITA and
+March 2021--December 2025 for AITAH, excluding posts with empty or removed bodies.
 
 \paragraph{Judgments.}
-A \emph{judgment} is a comment's expressed assessment of the OP's conduct.
-We group judgments that assign fault to the OP as \emph{YA}: YTA
-(``You're the Asshole'') and ESH (``Everyone Sucks Here,'' blaming both
-parties). Judgments that do not assign fault to the OP form \emph{NA}:
-NTA (``Not the Asshole'') and NAH (``No Assholes Here,'' blaming neither
-party). We use the first recognized judgment in each comment, matching
-short codes as case-sensitive whole words and full phrases regardless of
-case. Hypothetical forms and equivalent variants map to the same categories;
-Appendix~\ref{sec:appendix-tags} lists these forms.
-
-Judgment counts include only comments assigned to these four categories;
-INFO (requests for information), unrecognized comments, and AutoModerator
-messages are excluded. For the reception analysis, we retain posts with
-at least 200 such judgments. After these filters, the sample contains
-28,107 AITA posts and 8,217 AITAH posts.
+A \emph{judgment} assesses the OP's conduct. We group YTA
+(``You're the Asshole'') and ESH (``Everyone Sucks Here'') as \emph{YA},
+assigning fault to the OP; NTA (``Not the Asshole'') and NAH
+(``No Assholes Here'') form \emph{NA}, assigning no fault to the OP.
+We use each comment's first recognized judgment
+(matching rules and variants in Appendix~\ref{sec:appendix-tags}).
+Judgment counts exclude INFO (requests for information), unrecognized
+comments, and AutoModerator messages. Reception analyses retain posts
+with at least 200 judgments: 28,107 in AITA and 8,217 in AITAH.
 
 \paragraph{Majority, minority, and agreement.}
-The \emph{dominant judgment} is the more frequent category, YA or NA,
-among a post's retained judgments. \emph{Majority comments} express that
-judgment; \emph{minority comments} express the opposite judgment.
-We exclude posts with equal numbers of YA and NA judgments from comparisons
-requiring this distinction. \emph{High agreement} means that at least
-80\% of judgments favor one side. \emph{Low agreement} means that each
-side accounts for 40--60\%. Intermediate levels
-enter only analyses spanning the agreement range.
+The \emph{dominant judgment} is a post's more frequent category, YA or NA.
+\emph{Majority comments} match it; \emph{minority comments} oppose it.
+Comparisons requiring this distinction exclude exact ties.
+\emph{High agreement} means at least 80\% favor one side;
+\emph{low agreement} means each side accounts for 40--60\%.
+Intermediate posts enter only analyses spanning the agreement range.
 
 \emph{Blaming dissent} assigns fault to an OP whom the majority defends;
-\emph{defending dissent} defends an OP whom the majority blames. Comparing
-these directions therefore involves different sets of posts. These
-classifications use the final observed judgment distribution and remain
-fixed throughout temporal analyses. They do not represent the opinion
-distribution visible to a commenter or an official community judgment.
+\emph{defending dissent} defends an OP whom the majority blames.
+These directions concern different post sets. All classifications use
+final observed judgments and remain fixed in temporal analyses, rather
+than reflecting the distribution visible when a comment appeared or
+the community's official judgment.
 
 \paragraph{Reception measures.}
-\emph{Comment score} is the last recorded number of upvotes minus downvotes.
-\emph{Reply count} is the number of replies to a comment.
-\emph{Maximum reply depth} is the greatest number of response levels
-beneath a comment: zero for no replies, one for replies without further
-responses, and higher values for more deeply nested reply threads.
-These measures use stored judgment labels and response links; unlike
-annotation, they do not require usable reply text or verifiable authors.
+\emph{Comment score} is the last recorded net score (upvotes minus downvotes).
+\emph{Reply count} counts direct replies; \emph{maximum reply depth}
+is the deepest level beneath a comment (zero without replies,
+one for replies without further nesting). These measures use stored judgment labels
+and reply structure, without annotation's text and author eligibility filters.
 
-For each measure, we first average comments within each post and judgment
-group, then average across posts with equal weight. Missing groups are
-excluded rather than assigned zero, and missing scores affect only score
-averages. Groups can therefore include different sets of posts and are
-not necessarily paired comparisons. Scores and reply measures use all
-available archive observations, not a uniform follow-up period.
-Appendix Table~\ref{tab:dimensions} summarizes the dimensions and measures;
-additional reception measures and comparisons by comment arrival hour
-appear in Appendices~\ref{sec:appendix-aita-agreement-gradient}
-and~\ref{sec:appendix-aita-arrival}.
+We average comments within each post and judgment group, then weight
+posts equally. Empty groups are omitted, not assigned zero; missing
+scores affect only score averages. Contributing post sets may therefore
+differ between groups. Outcomes use all available observations rather
+than a uniform follow-up period. Appendix Table~\ref{tab:dimensions}
+summarizes the measures; Appendices~\ref{sec:appendix-aita-agreement-gradient}
+and~\ref{sec:appendix-aita-arrival} detail comparisons across agreement
+and comment arrival time.
 
 \subsection{Reply Annotation}
 \label{subsec:method-annotation}
@@ -117,7 +105,7 @@ We compare certainty distributions and the proportion at level 4 between
 blaming and defending dissent over the full observed period, weighting
 posts equally. These estimates describe the annotated sample, not
 community-wide certainty. Estimation and sensitivity procedures appear
-in Appendix~\ref{sec:appendix-certainty-comparison}.
+in Appendix~\ref{sec:appendix-certainty}.
 
 \paragraph{Certainty across discussion stages.}
 For high-agreement AITA posts, we divide the first 24 hours of judgment
@@ -127,4 +115,4 @@ minority comments using equal post weights. Each group retains a fixed
 set of posts with scored comments in every stage. The curves therefore
 describe successive comments in these selected discussions, not changes
 within individuals. Stage construction and uncertainty estimation appear
-in Appendix~\ref{sec:appendix-certainty-progress}.
+in Appendix~\ref{sec:appendix-certainty}.
