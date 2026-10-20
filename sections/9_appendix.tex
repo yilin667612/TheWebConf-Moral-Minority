@@ -102,6 +102,33 @@ an individual comment's score or replies.
   comparing high-agreement majority and minority with low-agreement comments.}
 \end{figure}
 
+Figure~\ref{fig:arrival-sequence-comparison} compares hourly reception with
+discussion progress. For the latter, each post's judgment comments within
+the first 24 hours are ordered by timestamp (then comment ID for ties) and
+divided into ten equal-count stages before separating majority and minority.
+For each group and measure, we retain posts with observations in all ten
+stages and average their stage-specific means with equal post weight.
+This retains 21,978 high-agreement posts for majority comments, 6,202 for
+minority comments, and 1,838 low-agreement posts combining both sides.
+Unlike the hourly curves, these
+curves hold the contributing posts fixed; differences between the two
+views therefore reflect both the horizontal scale and post selection.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aita_arrival_reception_overlay.pdf}
+  \par\smallskip
+  \includegraphics[width=\columnwidth]{figures/aita_sequence_reception_fixed.pdf}
+  \caption{AITA reception by arrival hour (top) and comment-sequence position
+  (bottom), using comments from the first 24 hours. Lines show post-equal
+  means on symmetric-log axes; hourly post sets vary, whereas sequence
+  post sets are fixed within each group and measure.}
+  \label{fig:arrival-sequence-comparison}
+  \Description{Two pairs of score and reply-count panels compare high-agreement
+  majority, high-agreement minority, and pooled low-agreement comments by
+  arrival hour and relative position in the comment sequence.}
+\end{figure}
+
 \section{Annotation Samples and Procedures}
 \label{sec:appendix-annotation-details}
 
