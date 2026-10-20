@@ -28,6 +28,16 @@ such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
 
 \paragraph{Additional reception summaries.}
 
+Figure~\ref{fig:reception-overview} tests majority--minority mean
+contrasts separately under low and high agreement, and blaming--defending
+contrasts under high agreement, for each of the three measures. Tests use
+equal-weight post/group means with CR1 cluster-robust standard errors by
+post, retaining available groups and their within-post dependence.
+Two-sided asymptotic Wald tests receive Holm correction across all nine
+comparisons. Eight contrasts have adjusted $p<.001$; the blaming--defending
+score contrast does not ($p=.057$). These are mean contrasts, not tests of
+distributional differences, agreement interactions, or causal effects.
+
 In high-agreement AITA posts, majority comments average $39.16$ score points
 in NA-dominant posts and $41.17$ in YA-dominant posts. The main figure pools
 these majority contexts, whereas blaming and defending separate the
@@ -253,6 +263,13 @@ and whiskers extending to observed values within $1.5$ interquartile ranges.
 Outlier points are hidden but retained in the means. Axis ranges are
 adjusted to AITAH and differ from Figure~\ref{fig:reception-overview}.
 
+Significance indicators use the same post-cluster Wald procedure as
+Figure~\ref{fig:reception-overview}, with Holm correction across the nine
+AITAH contrasts separately. All high-agreement contrasts and the
+low-agreement score contrast have adjusted $p<.001$; low-agreement
+reply-count and depth contrasts are not significant ($p=.708$ and $.121$).
+These within-community tests do not test differences between communities.
+
 \paragraph{The agreement-level pattern recurs.}
 AITAH also combines lower minority scores with greater engagement under
 high agreement (Appendix Figure~\ref{fig:aitah-reception-overview}).
@@ -299,10 +316,10 @@ replies, with original-unit ticks and matched community ranges.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aitah_reception_agreement_direction_boxes_vertical.pdf}
-  \caption{AITAH reception by agreement and dissent direction, matching
-  Figure~\ref{fig:reception-overview}. Boxes show post-level distributions;
-  diamonds and numbers mark means. Shaded boxes split high-agreement
-  minority comments into blaming and defending.}
+  \caption{AITAH reception, matching Figure~\ref{fig:reception-overview}.
+  Boxes show post-level distributions; diamonds mark group means.
+  Brackets: $^{***}p_{\mathrm{Holm}}<.001$ (post-cluster Wald tests);
+  unmarked comparisons are not significant.}
   \label{fig:aitah-reception-overview}
   \Description{Three box-plot panels show score, direct-reply count, and
   maximum reply depth for low- and high-agreement majority and minority
