@@ -14,7 +14,7 @@ from matplotlib.ticker import MaxNLocator
 import numpy as np
 
 METRICS={'mean_score':('score_sum','score_n','Mean comment score'),
-         'mean_reply':('reply_sum','n','Mean direct-reply count'),
+         'mean_reply':('reply_sum','n','Mean reply count'),
          'mean_depth':('depth_sum','n','Mean reply depth')}
 COLORS={'majority':'#5770DB','minority':'#DB5F57'}
 INK='#37474f'
@@ -100,7 +100,7 @@ def draw(summary,output):
     plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'pdf.fonttype':42,
         'text.color':INK,'axes.labelcolor':INK,'axes.edgecolor':INK,
         'xtick.color':INK,'ytick.color':INK})
-    fig,axes=plt.subplots(1,3,figsize=(7.4,2.65),sharex=True)
+    fig,axes=plt.subplots(1,3,figsize=(7.4,2.25),sharex=True)
     for ax,(metric,(_,_,ylabel)) in zip(axes,METRICS.items()):
         for lo,hi in [(0,.2),(.8,1)]:ax.axvspan(lo,hi,color='#E9EDEF',zorder=0)
         ax.axvspan(.4,.6,color='#F4F5F6',zorder=0)
@@ -120,7 +120,7 @@ def draw(summary,output):
         for k in ['left','bottom']:ax.spines[k].set_color(INK)
     fig.legend(*axes[0].get_legend_handles_labels(),loc='upper center',ncol=2,frameon=False,bbox_to_anchor=(.52,1.02))
     fig.supxlabel('Final YA share',y=.025,color=INK,fontsize=9)
-    fig.subplots_adjust(left=.085,right=.99,bottom=.16,top=.90,wspace=.58)
+    fig.subplots_adjust(left=.085,right=.99,bottom=.185,top=.89,wspace=.58)
     stem=output/'aita_reception_by_ya_share_post_equal'
     fig.savefig(stem.with_suffix('.pdf'),bbox_inches='tight',pad_inches=.025)
     fig.savefig(stem.with_suffix('.png'),dpi=200,bbox_inches='tight',pad_inches=.025)

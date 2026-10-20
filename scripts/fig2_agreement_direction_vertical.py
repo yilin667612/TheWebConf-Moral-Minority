@@ -61,12 +61,12 @@ def main():
         'text.color':INK,'axes.labelcolor':INK,'axes.edgecolor':INK,'xtick.color':INK,'ytick.color':INK})
     fig,axes=plt.subplots(1,3,figsize=(8.2,3.65) if community=='AITA' else (8.2,8.2*298.0781/735.528654))
     specs=[('mean_score','Mean comment score',(-60,125),[-50,0,50,100]),
-           ('mean_reply','Mean direct-reply count',(-.1,2.5),[0,.5,1,1.5,2,2.5]),
+           ('mean_reply','Mean reply count',(-.1,2.5),[0,.5,1,1.5,2,2.5]),
            ('mean_depth','Mean reply depth',(-.15,3.5),[0,1,2,3])]
     if community=='AITAH':
         # Fit the displayed AITAH whiskers, with room for mean annotations.
         specs=[('mean_score','Mean comment score',(-16,55),[-10,0,20,40]),
-               ('mean_reply','Mean direct-reply count',(-.06,1.65),[0,.5,1,1.5]),
+               ('mean_reply','Mean reply count',(-.06,1.65),[0,.5,1,1.5]),
                ('mean_depth','Mean reply depth',(-.1,2.65),[0,1,2])]
     report={}
     for ax,(m,label,limits,ticks) in zip(axes,specs):
