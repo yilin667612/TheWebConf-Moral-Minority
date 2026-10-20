@@ -3,8 +3,8 @@
 
 We analyze public archives from r/AmItheAsshole (AITA) and r/AITAH (AITAH),
 including posts, comments, replies, judgment labels, scores, timestamps, and reply structure.
-We identify perspectives in comments and replies and annotate expressed
-certainty in comments. Figure~\ref{fig:study-overview}
+We annotate expressed certainty in comments, then examine support/challenge
+and additional perspectives in comment--reply pairs. Figure~\ref{fig:study-overview}
 illustrates the discussion structure, reception measures, and annotations.
 Annotation sampling and procedures are detailed in
 Appendix~\ref{sec:appendix-annotation-details}.
@@ -63,6 +63,31 @@ summarizes the measures; Appendices~\ref{sec:appendix-aita-agreement-gradient}
 and~\ref{sec:appendix-aita-arrival} detail comparisons across agreement
 and comment arrival time.
 
+\subsection{Expressed Certainty}
+\label{subsec:method-certainty}
+
+We use comment-level certainty annotations from sampled high- and
+low-agreement posts. The scale captures
+expressed language, not private confidence: very uncertain (1), somewhat
+uncertain (2), somewhat certain (3), and very certain (4). The same
+criteria apply across judgments.
+
+We compare certainty distributions and the proportion at level 4 between
+blaming and defending dissent over the full observed period, weighting
+posts equally. These estimates describe the annotated sample, not
+community-wide certainty.
+
+\paragraph{Certainty across discussion stages.}
+For high-agreement AITA posts, we divide the first 24 hours of judgment
+comments into ten chronological stages containing approximately equal
+numbers of comments. We compare majority, blaming minority, and defending
+minority comments using equal post weights. For each group, we retain a
+fixed set of posts with at least one comment from that group with a valid
+certainty annotation in every stage. The curves therefore
+describe successive comments in these selected discussions, not changes
+within individuals. Estimation, sensitivity checks, and stage construction
+are detailed in Appendix~\ref{sec:appendix-certainty}.
+
 \subsection{Reply Annotation}
 \label{subsec:method-annotation}
 
@@ -91,28 +116,3 @@ support/challenge. Within each post and majority/minority group,
 proportions include all eligible replies, including those assigned no
 category; groups without replies are omitted. We then average these
 proportions across posts with equal weight.
-
-\subsection{Expressed Certainty}
-\label{subsec:method-certainty}
-
-We use comment-level certainty annotations from sampled high- and
-low-agreement posts. The scale captures
-expressed language, not private confidence: very uncertain (1), somewhat
-uncertain (2), somewhat certain (3), and very certain (4). The same
-criteria apply across judgments.
-
-We compare certainty distributions and the proportion at level 4 between
-blaming and defending dissent over the full observed period, weighting
-posts equally. These estimates describe the annotated sample, not
-community-wide certainty.
-
-\paragraph{Certainty across discussion stages.}
-For high-agreement AITA posts, we divide the first 24 hours of judgment
-comments into ten chronological stages containing approximately equal
-numbers of comments. We compare majority, blaming minority, and defending
-minority comments using equal post weights. For each group, we retain a
-fixed set of posts with at least one comment from that group with a valid
-certainty annotation in every stage. The curves therefore
-describe successive comments in these selected discussions, not changes
-within individuals. Estimation, sensitivity checks, and stage construction
-are detailed in Appendix~\ref{sec:appendix-certainty}.
