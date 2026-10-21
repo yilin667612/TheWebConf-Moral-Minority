@@ -32,7 +32,7 @@ audiences or a natural experiment.
   \label{fig:umap}
 \end{figure}
 
-\paragraph{User overlap.}
+\runinheading{User overlap.}
 \label{sec:appendix-overlap}
 Table~\ref{tab:shared-users} reports intersections and Jaccard overlap
 within the aligned calendar window. Audience overlap remains around a fifth
@@ -42,6 +42,18 @@ under activity and tenure restrictions; overlap among post authors is lower.
 
 \subsection{Certainty Annotation}
 \label{sec:supp-certainty-annotation}
+
+\runinheading{Certainty sampling and annotation.}
+We sample 3\% of eligible high-agreement posts and 15\% of low-agreement
+posts with at least 200 judgments, annotating their comments individually.
+The existing low/high export contains 1,195 posts and 665,107 valid YA/NA
+certainty records across the two communities.
+\textbf{[TODO - @Yilin] Fix the numbers above}
+The analysis retains the export's membership; additional draws exclude
+previously annotated posts within each community and agreement band.
+Judgment alignment follows the first recognized judgment in the comment.
+Independent held-out human validation and immutable model-version
+documentation remain unresolved. The prompt is shown below.
 
 Figure~\ref{fig:prompt} supplies the post and verdict comment, returning
 a certainty score and rationale. Its scale concerns hedging, not verdict
@@ -54,6 +66,22 @@ and immutable model/version documentation remain unresolved.
 
 \subsection{Direct-Response Annotation}
 \label{sec:supp-response-annotation}
+
+\runinheading{Reply sampling and eligibility.}
+We draw three seeded samples of 16,000 comment--reply pairs each, with
+2,000 pairs from each of eight strata defined by community (AITA or AITAH),
+dominant judgment in high-agreement posts (NA or YA), and comment alignment
+(majority or minority). Each sample therefore contains 8,000 pairs per
+community. Sampling is without replacement within strata, but the three
+samples can overlap. There is no cap on pairs from any post or comment.
+% These samples come from a broader set of comment--reply pairs not assumed to satisfy
+% the 200-judgment threshold.
+We exclude pairs involving the OP, exchanges by the same author,
+unverifiable identities, and pairs without usable post, comment, or reply
+text. The annotation prompt includes neither scores nor alignment metadata.
+Qualified agreement can remain support; rhetorical rebuttals count as
+challenge. Development-set review does not establish independent held-out
+accuracy. The prompt and execution records are described below.
 
 The eight strata cross community, high-agreement tail, and parent alignment.
 Seeds are $2026090901$--$2026090903$; author-ineligible draws are replaced
@@ -86,6 +114,26 @@ development-set figures, not held-out accuracy or inter-annotator reliability.
 % uncertainty. If used, document the separate October 24,000-pair sample:
 % .2<rho<.8 is broader than the defined low-agreement band.
 
+\subsection{Perspective Annotation}
+\label{sec:supp-perspective-annotation}
+
+The 100 AITA posts comprise 50 with more than 80\% NA judgments and 50
+with more than 80\% YA judgments. We retain all 7,023 eligible public
+comment--reply pairs under the author and text filters above and reuse
+their existing support/challenge labels. For each post, the model receives
+the post and 40 sampled eligible comments to construct four to eight
+perspective categories grounded in those comments rather than judgment
+labels. It then evaluates each distinct comment or reply separately
+against that fixed taxonomy, assigning a binary label and explanation
+to every category. Requests contain the post, taxonomy, and target text,
+but not the paired text or its support/challenge label. Both stages use
+temperature zero with thinking disabled. Categories are specific to each
+post; a reply with no assigned category is unmapped rather than excluded
+from the denominator.
+% TODO (@Ying, with Yilin): document the old20/new80 discovery-frame
+% difference, frozen prompts and recovery provenance; confirm citations
+% underlying the collaborator-supplied prompts.
+
 \subsection{Analytical Samples}
 \label{sec:supp-samples}
 
@@ -106,12 +154,428 @@ are subsets of their annotation frames, not additional samples.
 % labeled comments whose text was later deleted. Recover earlier annotation
 % selection procedures. These unresolved items are not resolved by compression.
 
+\subsection{Analytical Dimensions and Measures}
+\label{sec:appendix-dimensions}
+
+Table~\ref{tab:dimensions} summarizes the dimensions and measures defined
+in Section~\ref{sec:data-method}. Reception, certainty, and comment--reply
+analyses use distinct samples; fixed sets of posts used in stage analyses are subsets of the
+annotation samples, not additional draws. Detailed counts and exclusions
+appear in Supplementary Table~\ref{tab:analytical-samples}.
+
+\input{components/tab_dimensions}
+
+\subsection{Judgment Tags}
+\label{sec:supp-tags}
+
+We normalize YWBTA to YTA, YWNBTA to NTA, and the H-suffixed aliases in
+Table~\ref{tab:tags} to their unsuffixed forms. NAH, ESH, and INFO have no
+additional H-suffixed variant. Short codes require case-sensitive word
+boundaries, preventing matches to lowercase \texttt{nah} or substrings
+such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
+
+\input{components/tab_tags}
+
+\subsection{Reception by Arrival and Discussion Progress}
+\label{sec:supp-arrival}
+
+% Figure~\ref{fig:arrival-sequence-comparison} compares hourly reception with
+% the sequence-based view in Figure~\ref{fig:comment-engagement-over-time}.
+Hourly and sequence-based reception summaries both use first-day judgment
+comments and equal post weight. Hourly means
+exclude empty post--hour cells. Sequence stages are assigned by timestamp
+(then comment ID for ties) before splitting alignment; posts must contribute
+to every stage for the relevant group and measure. Fixed AITA sets contain
+21,978 high-agreement majority, 6,202 high-agreement minority, and 1,838
+low-agreement posts. Thus, the two views differ in post selection as well as
+horizontal scale. Scores and replies are archive-wide recorded outcomes,
+not outcomes measured at a common follow-up age.
+
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.68\columnwidth]{figures/aita_arrival_reception_overlay.pdf}
+%   \par\smallskip
+%   \includegraphics[width=0.68\columnwidth]{figures/aita_sequence_reception_fixed.pdf}
+%   \caption{AITA reception by arrival hour (top) and comment-sequence position
+%   (bottom), using comments from the first 24 hours. Lines show post-equal
+%   means on symmetric-log axes; hourly post sets vary, whereas sequence
+%   post sets are fixed within each group and measure.}
+%   \label{fig:arrival-sequence-comparison}
+%   \Description{Two pairs of score and reply-count panels compare high-agreement
+%   majority, high-agreement minority, and pooled low-agreement comments by
+%   arrival hour and relative position in the comment sequence.}
+% \end{figure}
+
+\subsection{Certainty Analyses}
+\label{sec:supp-certainty-analysis}
+
+\runinheading{Directional contrasts and sensitivity.}
+Figure~\ref{fig:certainty-low-high} compares full-period certainty
+distributions with equal post weights, excluding posts without
+certainty-annotated minority comments. Blaming-minus-defending contrasts use $10{,}000$
+independent whole-post resamples within each community, agreement band,
+and direction to obtain $95\%$ percentile intervals. These describe the
+annotated samples, not population estimates or interaction tests; the
+high-agreement AITAH defending sample contains only $15$ posts.
+
+In high-agreement AITA, the certainty-$4$ gap is $8.0$ percentage points
+(CI $[3.9,12.2]$), versus $1.2$ under low agreement ($[-1.6,4.1]$).
+Restricting high-agreement AITA to \texttt{v4} yields $5.0$ points
+($[-0.7,10.5]$); annotation version and post composition are confounded.
+Holding the set of posts contributing during the first 18 hours and final judgment classifications
+fixed, adding later comments reduces the high-agreement mean-certainty
+gap by $0.019$ in AITA and $0.034$ in AITAH. This comparison does not
+identify effects of disclosure of the official judgment.
+
+
+
+\runinheading{Discussion stages and trends.}
+First-day judgments are ordered by timestamp, breaking ties by comment ID,
+and divided into ten approximately equal-count stages within each post.
+Each group retains posts with comments that have valid certainty annotations
+in every stage and weights posts equally; contributing posts need not match
+across groups. Pointwise intervals resample complete post sequences
+($2{,}000$ replicates). This selection favors discussions in which the
+judgment group remains represented throughout.
+
+The analysis is restricted to high-agreement posts. Separately for
+majority, blaming minority, and defending minority
+comments in each community, we regress stage-level mean certainty on
+discussion progress, with post fixed effects and equal post weights.
+Progress is scaled from zero at the first stage to one at the last, so
+the slope estimates the linear change from the first to the last stage
+using all ten stages. Intervals use $20{,}000$ whole-post percentile
+resamples; two-sided tests use post-cluster standard errors and degrees
+of freedom equal to the number of posts minus one, with Holm correction
+across six slopes.
+Displayed intervals are unadjusted.
+Figure~\ref{fig:aita-certainty-progress} shows significant positive trends
+for AITA majority and blaming comments; defending does not survive Holm
+correction. No AITAH slope survives correction (Figure~\ref{fig:certainty-progress}).
+The fixed set of AITAH defending posts contains only eight posts and requires caution.
+Separate slopes establish neither between-group differences nor monotonic
+or within-person change.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.68\columnwidth]{figures/aitah_certainty_progress_post_fe.pdf}
+  \caption{AITAH certainty profiles (left) and post fixed-effects
+  trends (right), in high-agreement posts. Blue/orange/green: majority/blaming/defending;
+  bands/whiskers: $95\%$ post-bootstrap CIs. Stars: Holm-adjusted
+  $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$ (none here);
+  $n$ counts comments with valid certainty annotations in legend order.}
+  \label{fig:certainty-progress}
+  \Description{Mean certainty across first-day comment stages and estimated linear
+  changes from the first to the last stage in high-agreement AITAH posts.
+  No slope is significant after Holm correction; defending uses eight posts.}
+\end{figure}
+
+\subsection{Judgment Distributions}
+\label{sec:supp-verdict-distribution}
+
+Among the analyzed AITA posts, $80.6\%$ of high-agreement posts are NA-dominant.
+Post frequency and discussion volume are distinct: NA-dominant posts
+are more numerous, whereas the average retained judgment count per post
+is higher toward the YA end, particularly near unanimous YA judgments.
+This distribution does not establish a community-wide aversion to blame.
+The stories are supplied by the people whose conduct is being judged.
+Research on authors' dual roles as characters and narrators
+\cite{giorgi2023author}, and on selective retelling and possible
+validation-seeking \cite{haworth2021reasonability}, provides context for
+the imbalance without identifying the motives of individual posters.
+
+Figure~\ref{fig:verdict-distributions} uses one-percentage-point
+bins of stored final YA share, including exact ties and the endpoint $1$.
+Bars count posts; the line divides stored judgment totals by posts per bin.
+Both communities concentrate near the NA end, while judgment volume per post
+is higher toward the YA end.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.68\columnwidth]{figures/verdict_distributions_aita_aitah.pdf}
+  \caption{Final YA share in AITA (left) and AITAH (right). Bars show post
+  counts (left axes); red lines show mean judgment comments per post
+  (right axes). Shading marks high agreement.}
+  \label{fig:verdict-distributions}
+  \Description{Side-by-side judgment distributions for AITA and AITAH.
+  Posts concentrate near the NA end; mean judgment counts are higher toward
+  the YA end. Gray shading marks the high-agreement regions.}
+\end{figure}
+
+\subsection{Reception Across Agreement}
+\label{sec:supp-reception-analysis}
+
+\runinheading{Additional reception summaries.}
+
+Figure~\ref{fig:reception-overview} tests majority--minority mean
+contrasts separately under low and high agreement, and blaming--defending
+contrasts under high agreement, for each of the three measures. Tests use
+equal-weight post/group means with CR1 cluster-robust standard errors by
+post, retaining available groups and their within-post dependence.
+Two-sided asymptotic Wald tests receive Holm correction across all nine
+comparisons. Eight contrasts have adjusted $p<.001$; the blaming--defending
+score contrast does not ($p=.057$). These are mean contrasts, not tests of
+distributional differences, agreement interactions, or causal effects.
+
+In high-agreement AITA posts, majority comments average $39.16$ score points
+in NA-dominant posts and $41.17$ in YA-dominant posts. The main figure pools
+these majority contexts, whereas blaming and defending separate the
+minority judgments by context. Contributing post sets need not coincide.
+For supplementary group-mean summaries, marginal
+$95\%$ confidence intervals resample whole posts within each group
+($4{,}000$ percentile-bootstrap replicates); these are not tests of
+between-group contrasts. This interval procedure is distinct from the
+box-plot distributions in Figure~\ref{fig:reception-overview} and the
+$2{,}000$-replicate agreement-gradient procedure below.
+
+\runinheading{Continuous agreement gradient.}
+
+Figure~\ref{fig:aita-agreement-gradient} uses $0.05$-wide YA-share bins and
+post-equal reception means, with $2{,}000$ post-bootstrap replicates
+(seed $20261008$). Agreement strengthens toward either endpoint. Gaps are
+generally larger there, but asymmetry and near-balanced reversals preclude
+a uniformly monotonic interpretation. Intermediate-post summaries were
+retrieved on October~8, 2026; high/low summaries reuse the October~2 cache
+after post-metadata checks. Source hashes are retained with the scripts.
+
+\subsection{Reception in AITAH}
+\label{sec:supp-aitah-reception}
+\label{subsec:supp-community}
+
+The following figures apply the AITA definitions and post-equal aggregation
+to AITAH. Figure~\ref{fig:aitah-reception-overview} combines the agreement
+and directional comparisons, using a common high-agreement majority
+baseline across NA- and YA-dominant posts. Blaming and defending partition
+the high-agreement minority; absent minority cells are excluded, not zero.
+Boxes show interquartile ranges of post-level means, with median lines
+and whiskers extending to observed values within $1.5$ interquartile ranges.
+Outlier points are hidden but retained in the means. Axis ranges are
+adjusted to AITAH and differ from Figure~\ref{fig:reception-overview}.
+
+Significance indicators use the same post-cluster Wald procedure as
+Figure~\ref{fig:reception-overview}, with Holm correction across the nine
+AITAH contrasts separately. All high-agreement contrasts and the
+low-agreement score contrast have adjusted $p<.001$; low-agreement
+reply-count and depth contrasts are not significant ($p=.708$ and $.121$).
+These within-community tests do not test differences between communities.
+
+\runinheading{The agreement-level pattern recurs.}
+AITAH also combines lower minority scores with greater engagement under
+high agreement (Appendix Figure~\ref{fig:aitah-reception-overview}).
+Majority and minority equal-post mean scores are $16.14$ and $-1.89$,
+respectively; reply counts are $0.14$ and $0.48$; and maximum reply
+depths are $0.15$ and $0.79$. Under low agreement, the reply-count difference
+remains small ($0.233$ versus $0.237$), with depths of $0.37$ and $0.39$.
+As in AITA, the high-agreement minority therefore occupies a distinctive
+combination of lower evaluation and greater conversational engagement.
+
+\runinheading{Directional ordering is shared, not its magnitude.}
+Blaming dissent in AITAH receives a lower mean score than defending dissent
+($-2.02$ versus $-0.25$), more replies ($0.50$ versus $0.28$), and
+greater maximum reply depth ($0.81$ versus $0.51$)
+(Appendix Figure~\ref{fig:aitah-reception-overview}).
+The ratio of mean replies for blaming versus defending dissent is
+$1.77$, compared with $1.83$ in
+AITA. Both minority directions have negative equal-post mean scores in
+both communities. These results show a shared
+directional ordering alongside differences in recorded magnitudes.
+
+Raw cross-community differences do not, by themselves, establish greater
+tolerance, stronger normative pressure, or an effect of AITA's official judgment
+rule. The comparisons retain their analysis-specific observation frames
+and may differ in audience, story composition, and exposure.
+
+\textbf{[TODO: report uncertainty for cross-community contrasts and verify
+the common-period comparison before attributing differences to community
+context. Confirm whether stored canonical judgment metadata incorporate
+AITAH's H-suffixed aliases.]}
+
+Cumulative-participation patterns appear in
+Supplementary Section~\ref{sec:appendix-cumulative-participation}.
+
+Figure~\ref{fig:aitah-arrival-reception} applies the first-day sequence
+analysis in Figure~\ref{fig:comment-engagement-over-time} to AITAH.
+Fixed sets contain 6,709 high-agreement majority, 2,120 high-agreement
+minority, and 388 low-agreement posts. Percentile bands describe
+post-mean distributions, not confidence intervals. Symmetric-log axes
+are linear within $\pm1$ score point and $\pm0.01$ replies; ranges
+are fitted separately for each community.
+
+
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.68\columnwidth]{figures/aitah_sequence_reception_distributions_fixed.pdf}
+  \caption{AITAH reception across the first-day comment sequence, following
+  Figure~\ref{fig:comment-engagement-over-time}. Lines show means/medians of
+  post means; dark/light bands show 25th--75th/10th--90th percentiles,
+  not CIs. Post sets are fixed within groups.}
+  \label{fig:aitah-arrival-reception}
+  \Description{AITAH score and reply-count distributions across ten
+  comment-sequence stages for high-agreement majority and minority and
+  low-agreement comments.}
+\end{figure}
+
+\subsection{Supplementary Community Comparison Methods}
+\label{sec:appendix-community-comparison}
+
+\runinheading{Content and audience comparisons.}
+We apply the same definitions and measures in AITAH to assess which AITA
+patterns recur. Supporting content and audience comparisons use the aligned
+period 17 March 2021--23 December 2025; reception analyses retain their
+specified frames. These supporting analyses compare post-text embeddings
+and shared-user sets, rather than assuming equivalent content or audiences;
+Supplementary Section~\ref{sec:supp-community} provides the diagnostics.
+
+\runinheading{Matching cross-posted stories.}
+Cross-posted stories are identified by matching the combined text of their
+titles and bodies after
+Unicode NFKC normalization, case folding, and whitespace normalization,
+excluding empty, deleted, or removed bodies. We require observed judgment
+shares in both communities, without imputation; contextual case selection
+additionally requires at least $20$ retained judgments per post.
+Shared text permits comparison around the same narrative but does not
+control audiences, posting times, or exposure. Community differences are
+therefore observational, not estimates of rule effects. Public narratives
+may remain identifiable after usernames are removed.
+
+\runinheading{Illustrative cross-posted stories.}
+\label{subsec:supp-duplicates}
+
+
+The exploratory perspective export contains four paired stories, each
+posted in AITA and AITAH. Each post has an independently learned taxonomy,
+derived from up to $40$ comments, and multi-label annotations
+of eligible comment--reply pairs. These are model-generated
+labels without independent human validation. Category names and category
+frequencies are therefore not treated as directly comparable across
+communities. Comment and reply distributions describe separate sets of
+unique texts, not changes within individuals. The export does not
+break down these results by comment majority/minority alignment.
+
+For the bedside-drawer story, the AITA export contains $31$ eligible pairs
+and the AITAH export $96$. Both taxonomies include considerations concerning
+firearm storage, parental supervision, and household autonomy. Within AITA,
+$6/10$ challenging replies and $5/15$ supportive replies add a category
+absent from their comment; the corresponding AITAH counts are $28/40$ and
+$11/41$. These denominators include unmapped pairs, for which at least one
+text has no assigned category, and exclude information-seeking and
+other replies. Thus both support and challenge can introduce additional
+perspectives in this exploratory example. The exported summaries do not identify
+which specific considerations were added in each pair; establishing those
+connections requires checking the underlying comment--reply pairs.
+
+The story is used to illustrate the range of annotated moral considerations,
+not selected as representative of community differences. Its recorded YA
+shares are $70\%$ in AITA and $40\%$ in AITAH, so neither post is a
+high-agreement case under our thresholds. This example therefore does not
+extend the high-agreement reception findings to a matched-story comparison.
+
+\textbf{[TODO: add verified qualitative cases from the updated 107-pair
+export. Include a case illustrating a shared reception pattern as well as
+explicitly selected contrasts; explain selection and apply the quotation
+and privacy safeguards described in Supplementary Section~\ref{sec:appendix-community-comparison}.
+Do not present these cases as a representative or causal community test.]}
+
+% TODO (reporting): document reception uncertainty and any interaction tests;
+% institutional ethics review, archive access/retention, and safeguards for
+% examples. Assess identifiability from titles, verbatim quotes, and distinctive
+% details; do not equate removing usernames with anonymity. No ethical approval
+% or independent annotation validation is claimed by these unresolved notes.
+
+\subsection{Community Timing}
+\label{sec:appendix-community-timing}
+
+\runinheading{Comment timing.}
+\label{sec:appendix-timing}
+Among posts with at least 200 judgments, median times to $50\%$/$90\%$ of observed
+comments are $7.3$/$17.7$ hours in AITA and $6.7$/$20.1$ in AITAH.
+Including activity in reply threads, median times to the last contribution
+are $52.5$ versus $158.0$ days; for comments alone, they are
+$32.1$ versus $31.3$ days.
+These are archive-relative timings, not complete lifetime follow-up.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.68\columnwidth]{figures/comment_timing.pdf}
+  \caption{Participation timing in AITA (top) and AITAH (bottom): distributions
+  of arrival milestones (left) and cumulative proportions of posts reaching
+  $90\%$ or their last observed contribution (right), for comments alone
+  and including reply threads. Time axes are nonlinear.}
+  \label{fig:timing}
+  \Description{Box plots and cumulative distributions compare arrival
+  milestones for comments alone and for comments combined with activity in
+  reply threads. Most comments arrive early, while reply-thread activity can continue much later.}
+\end{figure}
+
+\runinheading{Retrieval timing.}
+\label{sec:appendix-retrieval-timing}
+Retrieval delay is \texttt{retrieved\_on} minus \texttt{created\_utc}.
+Both archives shift around June 2023 from retrospective retrieval, often
+after tens or hundreds of days, to near-immediate retrieval from July.
+Post-equal weighting does not standardize observation age; absolute reception
+values should not be interpreted as common-age or lifetime outcomes.
+
+\subsection{OP Participation}
+\label{sec:appendix-op-participation}
+\label{subsec:res-op-participation}
+
+Author matching includes comments and all activity in reply threads regardless of judgment,
+excluding missing/deleted/removed OP identities and AutoModerator. Within
+$0.05$-wide YA-share bins, presence is the fraction of posts with any OP contribution
+(pointwise $95\%$ Wilson intervals). Timing of the first OP contribution is conditional
+on presence; each participating post contributes once.
+
+OP presence is $81.0\%$ in AITA and $77.0\%$ in AITAH; among participating
+posts, $79.7\%$ and $75.1\%$ have an OP contribution within one hour.
+Lower presence near unanimous YA is an association, not evidence of
+blame-induced withdrawal: OP participation can precede the final judgment.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.68\columnwidth]{figures/op_participation_aita_aitah.pdf}
+  \caption{OP participation in AITA (top) and AITAH (bottom): presence
+  with $95\%$ Wilson intervals (left) and timing of the first contribution conditional
+  on participation (right), by final YA share.}
+  \label{fig:op-participation}
+  \Description{OP presence and timing of the first contribution by final YA share,
+  with AITA above AITAH. Most participating OPs first contribute within one hour.}
+\end{figure}
+
+\subsection{Cumulative Minority Participation}
+\label{sec:appendix-cumulative-participation}
+
+High-agreement posts with at least 200 judgments contribute judgment comments
+with valid nonnegative elapsed times below $24$ hours. At each hourly
+checkpoint, cumulative minority counts are divided by cumulative judgment
+counts pooled across these posts, using final alignment. Empty hours add
+no counts. These are not post-equal or window-specific shares and have no
+uncertainty bands; cumulative aggregation can obscure later variation.
+
+
+Both AITA directions initially decline; blaming recovers modestly and
+defending ends near its initial share. AITAH blaming rises modestly while
+defending declines early. These trajectories do not establish withdrawal
+by individuals, a regime change, or complete discussion follow-up.
+% TODO: recover contributing post counts and verify positive denominators;
+% legacy plotting substitutes zero when undefined. Verify any window-specific
+% low/high claims separately rather than inferring them from cumulative curves.
+
+\subsection{Survey Stimulus Properties}
+\label{sec:supp-survey-stimulus-properties}
+
+Table~\ref{tab:survey-posts} records scenario properties, comment scores,
+and participant allocation. The procedure is shown in
+Appendix Figure~\ref{fig:survey-procedure}.
+
+\input{components/tab_survey_posts}
+
 \subsection{Survey Questions}
 \label{sec:supp-survey-questions}
 
 Table~\ref{tab:survey-questions} records the questionnaire wording.
 Stimuli and participant allocation are summarized in
-Appendix~\ref{app:survey}.
+Table~\ref{tab:survey-posts}.
 
 \input{components/tab_survey_questions}
 
@@ -132,14 +596,14 @@ reproduce the posts and featured comments, not the expandable reply trees.
 \subsubsection{Meal-Payment Scenario}
 \label{app:stimulus-1ip7tv4}
 
-\paragraph{Post title}
+\runinheading{Post title}
 \textit{AITA for refusing to pay in full for a meal someone else took
 home}
 
 \noindent\textit{Displayed post score: 2,112; displayed comment count:
 1.1k.}
 
-\paragraph{Post body}
+\runinheading{Post body}
 
 \begin{quote}
 I (20F) went out for dinner with a friend (20F) and her boyfriend
@@ -180,7 +644,7 @@ That being said, I feel bad at how the friendship fell apart over some
 dollars. AITA? Should I have just paid the full meal?
 \end{quote}
 
-\paragraph{Comment 1: majority comment shown in both conditions
+\runinheading{Comment 1: majority comment shown in both conditions
 (YA; score: 12,341)}
 
 \begin{quote}
@@ -191,7 +655,7 @@ gone to waste. Your friend is simply not wasting food that you didn't
 want. You order it, you pay for it.
 \end{quote}
 
-\paragraph{Comment 2-MM: majority comment shown in MM
+\runinheading{Comment 2-MM: majority comment shown in MM
 (YA; score: 3,519)}
 
 \begin{quote}
@@ -201,7 +665,7 @@ asked to take it and you agreed. If they knew they had to pay for it
 why would they ask?
 \end{quote}
 
-\paragraph{Comment 2-Mm: minority comment shown in Mm
+\runinheading{Comment 2-Mm: minority comment shown in Mm
 (NA; score: 702)}
 
 \begin{quote}
@@ -217,14 +681,14 @@ they were taking home.
 \subsubsection{Dinner-Request Scenario}
 \label{app:stimulus-zlh4jp}
 
-\paragraph{Post title}
+\runinheading{Post title}
 \textit{AITA for telling my sister she's delusional if she thinks my
 daughter is her personal chef after she said to make her dinner?}
 
 \noindent\textit{Displayed post score: 3,880; displayed comment count:
 1,955.}
 
-\paragraph{Post body}
+\runinheading{Post body}
 
 \begin{quote}
 Using random names, throwaway account.
@@ -264,7 +728,7 @@ the wrong defending my daughter, when an adult asked a child to make
 her dinner? AITA?
 \end{quote}
 
-\paragraph{Comment 1: majority comment shown in both conditions
+\runinheading{Comment 1: majority comment shown in both conditions
 (YA; score: 11,366)}
 
 \begin{quote}
@@ -278,7 +742,7 @@ handle even that portion of the request?
 Lazy, incompetent, rude, ungrateful.
 \end{quote}
 
-\paragraph{Comment 2-MM: majority comment shown in MM
+\runinheading{Comment 2-MM: majority comment shown in MM
 (YA; score: 4,359)}
 
 \begin{quote}
@@ -297,7 +761,7 @@ world.
 YA, for sure. And you aren't doing your daughter any favors, either.
 \end{quote}
 
-\paragraph{Comment 2-Mm: minority comment shown in Mm
+\runinheading{Comment 2-Mm: minority comment shown in Mm
 (NA; score: 15)}
 
 \begin{quote}
@@ -315,13 +779,13 @@ someone else's kid.
 \subsubsection{Missed-Seminar Scenario}
 \label{app:stimulus-xhmshd}
 
-\paragraph{Post title}
+\runinheading{Post title}
 \textit{AITA for making my chronically late friend miss her seminar?}
 
 \noindent\textit{Displayed post score: 24,971; displayed comment count:
 5,013.}
 
-\paragraph{Post body}
+\runinheading{Post body}
 
 \begin{quote}
 My friend [25F] is constantly late for everything. Be it work-related
@@ -380,7 +844,7 @@ Regarding our friendship, it was already on its way out when this
 happened, and now we haven't talked at all for a while.
 \end{quote}
 
-\paragraph{Comment 1: majority comment shown in both conditions
+\runinheading{Comment 1: majority comment shown in both conditions
 (NA; score: 35,087)}
 
 \begin{quote}
@@ -406,7 +870,7 @@ Edit: Wow, thank you for the awards! I'm truly humbled by your
 appreciation! Thank you.
 \end{quote}
 
-\paragraph{Comment 2-MM: majority comment shown in MM
+\runinheading{Comment 2-MM: majority comment shown in MM
 (NA; score: 15,853)}
 
 \begin{quote}
@@ -417,7 +881,7 @@ important. Also her chronic lateness should not be affecting you
 getting to work on time.
 \end{quote}
 
-\paragraph{Comment 2-Mm: minority comment shown in Mm
+\runinheading{Comment 2-Mm: minority comment shown in Mm
 (YA; score: 375)}
 
 \begin{quote}
@@ -470,13 +934,13 @@ them. I accept this about them because their friendships are worth it.
 \subsubsection{Workplace-Email Scenario}
 \label{app:stimulus-r0dzr2}
 
-\paragraph{Post title}
+\runinheading{Post title}
 \textit{AITA for replying-all and humiliating my colleague at work?}
 
 \noindent\textit{Displayed post score: 12,856; displayed comment count:
 825.}
 
-\paragraph{Post body}
+\runinheading{Post body}
 
 \begin{quote}
 I am an in-house lawyer at a large MNC. I provide legal advice to the
@@ -515,7 +979,7 @@ that they have all experienced the same thing from Bill's team.
 AITA?
 \end{quote}
 
-\paragraph{Comment 1: majority comment shown in both conditions
+\runinheading{Comment 1: majority comment shown in both conditions
 (NA; score: 11,912)}
 
 \begin{quote}
@@ -526,7 +990,7 @@ friend doesn't seem to get that you're the company's lawyer, and not
 simply some chill guy who hands out legal advice willy nilly.
 \end{quote}
 
-\paragraph{Comment 2-MM: majority comment shown in MM
+\runinheading{Comment 2-MM: majority comment shown in MM
 (NA; score: 3,103)}
 
 \begin{quote}
@@ -537,7 +1001,7 @@ other embarrassment or legal liability his behavior's about to cause
 the company that you \textit{don't} know about yet.
 \end{quote}
 
-\paragraph{Comment 2-Mm: minority comment shown in Mm
+\runinheading{Comment 2-Mm: minority comment shown in Mm
 (YA; score: 149)}
 
 \begin{quote}

@@ -49,15 +49,8 @@
 \usepackage{colortbl}
 \usepackage{enumitem}
 
-% Keep run-in paragraph headings, without extra space above them.
-\makeatletter
-\patchcmd{\paragraph}
-  {-.5\baselineskip \@plus -2\p@ \@minus -.2\p@}
-  {\z@}{}{\PackageWarning{paper}{Paragraph spacing patch failed}}
-\patchcmd{\noindentparagraph}
-  {-.5\baselineskip \@plus -2\p@ \@minus -.2\p@}
-  {\z@}{}{\PackageWarning{paper}{Noindent paragraph spacing patch failed}}
-\makeatother
+% Plain run-in text keeps headings compact without redefining ACM sectioning.
+\newcommand{\runinheading}[1]{\par\noindent\textbf{#1}\enspace}
 
 %%
 %% \BibTeX command to typeset BibTeX logo in the docs
@@ -139,7 +132,7 @@
 \email{trovato@corporation.com}
 \orcid{1234-5678-9012}
 \author{G.K.M. Tobin}
-\correspondingauthor
+% \correspondingauthor % Unsupported by the bundled acmart class.
 \authornotemark[1]
 \email{webmaster@marysville-ohio.com}
 \affiliation{%
@@ -193,7 +186,7 @@
 \email{jsmith@affiliation.org}
 
 \author{Julius P. Kumquat}
-\correspondingauthor
+% \correspondingauthor % Unsupported by the bundled acmart class.
 \affiliation{%
   \institution{The Kumquat Consortium}
   \city{New York}
