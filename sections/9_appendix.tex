@@ -190,11 +190,44 @@ shows reception across first-day discussion stages.
   low-agreement comments.}
 \end{figure}
 
-\runinheading{Cross-posted case selection.}
+\runinheading{Cross-posted stories: matching and selection.}
 \label{subsec:res-duplicates}
-Section~\ref{subsec:discussion-cross-posted} discusses a case from four
-paired stories matched on normalized title and body, requiring observed
-judgment shares in both communities and at least $20$ retained judgments
-per post. The example illustrates moral considerations rather than
-representative community differences. Matching and exploratory annotation
-details appear in Supplementary Section~\ref{sec:appendix-community-comparison}.
+\label{sec:appendix-community-comparison}
+We match combined post titles and bodies across AITA and AITAH after
+Unicode NFKC normalization, case folding, and whitespace normalization,
+excluding empty, deleted, or removed bodies. Matches require observed
+judgment shares in both communities, without imputation; contextual case
+selection additionally requires at least $20$ retained judgments per post.
+Shared narratives provide context for comparison, while audiences,
+posting times, and exposure may differ. These comparisons are observational,
+and public narratives may remain identifiable after usernames are removed.
+
+\runinheading{Exploratory perspective annotations.}
+\label{subsec:appendix-cross-posted-annotations}
+The export contains four paired stories ($8$ posts). Each post has an
+independently learned taxonomy derived from up to $40$ comments, with
+multi-label annotations of eligible comment--reply pairs. These
+model-generated labels lack independent human validation. Category names
+and frequencies are not treated as directly comparable across communities.
+Comment and reply distributions describe separate sets of unique texts,
+not changes within individuals; the export has no majority/minority
+breakdown of parent comments.
+
+A reply adds a perspective when both texts map to at least one category
+and the reply contains a category absent from its comment
+(Section~\ref{subsec:method-annotation}). Support/challenge denominators
+retain unmapped pairs, in which at least one text has no assigned category,
+and exclude information-seeking and other replies. The bedside-drawer
+case has $31$ AITA and $96$ AITAH pairs;
+Section~\ref{subsec:discussion-cross-posted} presents its contrasting
+dominant judgments, annotated considerations, and addition counts.
+Aggregate summaries do not identify which consideration a particular
+reply adds; that requires checking the underlying pair.
+
+% TODO: Reconcile the separately mentioned updated 107-pair export with
+% the current bedside-drawer export (31 AITA + 96 AITAH pairs) before
+% replacing these estimates or adding pair-level qualitative examples.
+% Verify quotations, explain illustrative selection, and assess identifiability
+% from titles, verbatim quotes, and distinctive details. Removing usernames
+% does not establish anonymity. Document institutional ethics review and
+% archive access/retention; these notes claim no approval or validation.

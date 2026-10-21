@@ -288,6 +288,8 @@ period 17 March 2021--23 December 2025; reception analyses retain their
 specified frames. These supporting analyses compare post-text embeddings
 and shared-user sets, rather than assuming equivalent content or audiences;
 Supplementary Section~\ref{sec:supp-community} provides the diagnostics.
+Cross-posted story matching and exploratory perspective annotations
+are documented in Appendix~\ref{subsec:res-duplicates}.
 
 \subsection{Community Content and Audience Overlap}
 \label{sec:supp-community}
@@ -307,8 +309,6 @@ Shared stories therefore provide contextual comparisons, not equivalent
 audiences or a natural experiment.
 % TODO: document embedding preprocessing, classifier evaluation, permutation
 % settings, topic-model specification, and treatment of multiply posted stories.
-% Verify the 107-pair case selection and examples; do not generalize deliberately
-% selected contrasts as representative community differences.
 
 \begin{figure}[h]
   \centering
@@ -389,52 +389,7 @@ post-mean distributions, not confidence intervals. Symmetric-log axes
 are linear within $\pm1$ score point and $\pm0.01$ replies; ranges
 are fitted separately for each community.
 
-\subsection{Cross-Posted Stories}
-\label{sec:appendix-community-comparison}
-
-\runinheading{Matching cross-posted stories.}
-Cross-posted stories are identified by matching the combined text of their
-titles and bodies after
-Unicode NFKC normalization, case folding, and whitespace normalization,
-excluding empty, deleted, or removed bodies. We require observed judgment
-shares in both communities, without imputation; contextual case selection
-additionally requires at least $20$ retained judgments per post.
-Shared text permits comparison around the same narrative but does not
-control audiences, posting times, or exposure. Community differences are
-therefore observational, not estimates of rule effects. Public narratives
-may remain identifiable after usernames are removed.
-
-\runinheading{Exploratory perspective annotations.}
-\label{subsec:supp-duplicates}
-The exploratory perspective export contains four paired stories, each
-posted in AITA and AITAH. Each post has an independently learned taxonomy,
-derived from up to $40$ comments, and multi-label annotations
-of eligible comment--reply pairs. These are model-generated
-labels without independent human validation. Category names and category
-frequencies are therefore not treated as directly comparable across
-communities. Comment and reply distributions describe separate sets of
-unique texts, not changes within individuals. The export does not
-break down these results by comment majority/minority alignment.
-
-Section~\ref{subsec:discussion-cross-posted} presents the bedside-drawer
-case and its perspective-addition counts. Addition is defined as in
-Section~\ref{subsec:method-annotation}: both texts must map to at least
-one category, and the reply must contain a category absent from its
-comment. Orientation-specific denominators retain unmapped pairs and
-exclude information-seeking and other replies. The export provides
-aggregate categories and counts; identifying which consideration a
-particular reply adds requires checking the underlying pair.
-
-% TODO: Reconcile the separately mentioned updated 107-pair export with
-% the current bedside-drawer export (31 AITA + 96 AITAH pairs) before
-% replacing these estimates or adding pair-level qualitative examples.
-% Verify any quotations and apply the privacy safeguards above.
-
-% TODO (reporting): document reception uncertainty and any interaction tests;
-% institutional ethics review, archive access/retention, and safeguards for
-% examples. Assess identifiability from titles, verbatim quotes, and distinctive
-% details; do not equate removing usernames with anonymity. No ethical approval
-% or independent annotation validation is claimed by these unresolved notes.
+% TODO (reception reporting): document uncertainty and any interaction tests.
 
 \subsection{Comment and Retrieval Timing}
 \label{sec:appendix-community-timing}
