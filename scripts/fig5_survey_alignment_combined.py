@@ -2,7 +2,7 @@
 
 Use --publish to replace the manuscript Figure 5 PDF.
 Run with bundled Python; Rscript computes all 16 unadjusted Welch tests.
-The figure shows descriptive means without significance annotations.
+The figure shows means and exploratory, unadjusted significance asterisks.
 All groups are defined after exposure.
 """
 import argparse
@@ -54,6 +54,7 @@ subprocess.run([rscript,str(ROOT/'scripts/fig5_survey_alignment_tests.R'),str(ar
 with test_file.open(newline='') as f:
     tests=list(csv.DictReader(f))
 assert len(tests)==16
+p_values = {(t['alignment'],t['metric']):float(t['p']) for t in tests}
 for test in tests:
     for condition,_,_ in conditions:
         s=cells[test['alignment'],condition,test['metric']]
@@ -91,6 +92,18 @@ def bars(metric,y,upper):
             c.setFillColor(HexColor(color))
             c.rect(min(CENTER,end),y+dy-BAR_HEIGHT/2,abs(end-CENTER),BAR_HEIGHT,fill=1,stroke=0)
             text(end+side*2,y+dy-1.8,number(value),5.2,'right' if side<0 else 'left')
+        # One marker per MM--Mm comparison, centered between the paired bars.
+        p_value = p_values[alignment,metric]
+        stars = '***' if p_value < .001 else '**' if p_value < .01 else '*' if p_value < .05 else ''
+        if stars:
+            # Bracket spans the two bar centers and opens toward the bars.
+            bracket_x = 69.5 if side < 0 else 230.5
+            cap_x = bracket_x - side * .6
+            c.setStrokeColor(HexColor(INK)); c.setLineWidth(.45)
+            c.line(bracket_x,y-PAIR_OFFSET,bracket_x,y+PAIR_OFFSET)
+            for dy in [-PAIR_OFFSET,PAIR_OFFSET]:
+                c.line(bracket_x,y+dy,cap_x,y+dy)
+            text(65 if side < 0 else 235.5,y-2.2,stars,6,'center')
 for y,(name,_,color) in zip([180,171],conditions):
     c.setFillColor(HexColor(color)); c.rect(2,y,5,5,fill=1,stroke=0)
     text(10,y,name,7)
@@ -102,8 +115,8 @@ for x,(alignment,_,_) in zip([110,190],alignments):
 # Extend the alignment divider through both group headings and sample sizes.
 c.setStrokeColor(HexColor(INK)); c.setLineWidth(.3); c.setDash(1.4,1.4)
 c.line(CENTER,166,CENTER,186); c.setDash()
-text(2,161,'Judgment',6.1)
-text(2,154,'certainty',6.1)
+text(2,159.5,'Judgment',6.1)
+text(2,152.5,'certainty',6.1)
 guides(151,165,4,True)
 bars('certainty_1_4',158,4)
 text(150,134,'Mean certainty (1-4)',6.1,'center')
@@ -114,11 +127,12 @@ groups=[('Influence',None,'comment1_influence','comment2_influence',120,107),
         ('Agreement',None,'comment1_agreement','comment2_agreement',94,81),
         ('Perspective','consideration','comment1_reflection','comment2_reflection',68,55)]
 for title,line2,m1,m2,y1,y2 in groups:
-    text(2,y1,title,6.1)
-    if line2: text(2,y1-7,line2,6.1)
+    midpoint = (y1+y2)/2
+    text(2,midpoint+(1.5 if line2 else -2),title,6.1)
+    if line2: text(2,midpoint-5.5,line2,6.1)
     for metric,y,clabel in [(m1,y1,'C1'),(m2,y2,'C2')]:
-        text(60,y-2,clabel,5.8,'right'); bars(metric,y,5)
-text(2,31,'Perspective',6.1); text(2,24,'broadening',6.1)
+        text(56,y-2,clabel,5.8,'right'); bars(metric,y,5)
+text(2,29.5,'Perspective',6.1); text(2,22.5,'broadening',6.1)
 guides(21,34,7,ticks=True,tick_values=[1,3,5,7])
 bars('perspective_broadening_mean',28,7)
 c.save()
@@ -126,7 +140,7 @@ c.save()
     source_sha256=hashlib.sha256(args.source.read_bytes()).hexdigest(),
     cells=[dict(alignment=k[0],condition=k[1],metric=k[2],**v) for k,v in cells.items()],
     tests=tests,
-    caveat='Post-exposure alignment; descriptive subgroup patterns. No significance annotations are displayed.'),indent=2)+'\n')
+    caveat='Post-exposure alignment; exploratory subgroup comparisons. Asterisks use unadjusted two-sided Welch p-values: * < .05, ** < .01, *** < .001.'),indent=2)+'\n')
 poppler=Path('/Users/minjeongshin/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/pdftoppm')
 if poppler.exists():
     fonts=args.out/'fontconfig.xml'

@@ -12,8 +12,11 @@ The expected local input is
 R reads the literal judgment label `NA` as text, not a missing value.
 
 The source PDF and `fig5_survey_panels.py` preserve the older panel design;
-they are not used by the current builder. The current figure contains no
-p-values or significance indicators. Its subgroup means and sample sizes
+they are not used by the current builder. The current figure shows asterisks
+for unadjusted two-sided Welch p-values (* < .05, ** < .01, *** < .001),
+outside each MM--Mm pair. The exact-p-value appendix table is temporarily
+omitted from the manuscript; its component and computed CSV are retained.
+Its subgroup means and sample sizes
 are audited against the R results and reconcile with full-sample means.
 
 All comparisons use two-sided Welch tests with unadjusted p-values and are
