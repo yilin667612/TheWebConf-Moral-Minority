@@ -14,7 +14,7 @@ The Reddit-style interface retained the original wording, scores, and \textit{YA
 
 \paragraph{Participants and procedure}
 \textbf{TODO: Report eligibility and exclusion criteria.}
-We recruited 80 participants through the online platform Prolific (40 per condition). \textbf{Participants completed the study in an average of ?? minutes and received USD~?? each.} They read their assigned post and threads, reported a moral judgment with an explanation of at least two sentences, and completed the self-report measures below.
+We recruited 80 participants through the online platform Prolific (40 per condition). \textbf{Participants completed the study in an average of ?? minutes and received USD~?? each.} They read their assigned post and threads, reported a moral judgment once with an explanation of at least two sentences, and completed the self-report measures below.
 
 \paragraph{Measures}
 Moral judgment, the primary outcome, used an eight-point scale from 1 (Definitely YA) to 8 (Definitely NA), with four certainty levels in each direction. Each selected response thus encoded both judgment direction and certainty. We recoded certainty from 1 (least certain) to 4 (most certain), assigning the two innermost responses to 1 and the two endpoints to 4. This reader-selected certainty differs from the linguistic certainty annotated in comments. Per-comment influence, agreement, and perspective consideration used five-point scales (1--5). Participants also identified which comment contributed more to their judgment (Comment~1, Comment~2, both equally, or neither). Three seven-point items assessed discussion-level perspective broadening: considering both sides, encountering new considerations, and engaging with reasons supporting an alternative judgment. Display preference contrasted two highly upvoted comments supporting the same judgment with two representing opposing judgments, plus a neither option.
@@ -35,25 +35,32 @@ Moral judgment, the primary outcome, used an eight-point scale from 1 (Definitel
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/survey_results_bars.pdf}
-  \caption{Mean survey responses under majority--majority (MM) and
-  majority--minority (Mm) exposure ($n=40$ per condition). C1 is the shared
-  majority comment; C2 is a majority comment in MM and a minority comment in
-  Mm. Numbers label means; $p$-values are from two-sided Welch's $t$-tests.
-  Axes span each measure's response scale.}
+  \includegraphics[width=\columnwidth]{figures/survey_results_panels.pdf}
+  \caption{Mean survey responses ($n=40$ per condition).
+  (a) Certainty by reported judgment alignment. Bars extend from 1;
+  internal labels give subgroup sizes, and $^{***}$ denotes
+  Holm-adjusted $p<.001$ for the MM--Mm comparison.
+  (b) Comment and discussion ratings with unadjusted $p$-values.
+  C1 is the shared majority comment; C2 is a majority comment in MM
+  and a minority comment in Mm.}
   \label{fig:survey-results}
-  \Description{Horizontal bars compare mean judgment certainty,
-  comment influence, agreement, perspective consideration, and
-  discussion-level perspective broadening between MM and Mm.
-  Each comparison includes its reported p-value; axes begin at one
-  and use measure-specific ranges.}
+  \Description{Panel a places majority-aligned judgments to the left and
+  minority-aligned judgments to the right of a dashed divider, with
+  separate certainty scales from one to four. MM means are 3.43 and 2.30;
+  Mm means are 2.61 and 2.89. Subgroup sizes are printed inside the bars.
+  A bracket marks the significant MM versus Mm comparison on the majority
+  side. Panel b shows full-sample mean ratings of comment influence,
+  agreement, perspective consideration, and discussion-level perspective
+  broadening, with p-values beside the corresponding comparisons.}
 \end{figure}
 
-Figure~\ref{fig:survey-results} summarizes mean responses for the 80 participants across the four scenarios. Condition comparisons use two-sided Welch's independent-samples $t$-tests.
-% , with differences calculated as Mm minus MM. 
-Participants in Mm reported greater discussion-level perspective broadening than those in MM ($\Delta=0.81$ on the 7-point scale, $p=.012$). Comment-level perspective consideration was also descriptively higher for both comments, although evidence for these differences was inconclusive. This broader consideration did not imply greater agreement: agreement with Comment~2 was lower in Mm than in MM ($\Delta=-1.25$ on the five-point scale, $p<.001$), while agreement with the shared majority Comment~1 was descriptively similar. Evidence for condition differences in perceived influence was likewise inconclusive for both comments. At the level of participants' own judgments, certainty was lower in Mm than in MM (reported $\Delta=-0.48$ on the 4-point scale, $p=.037$). Regarding display preferences, participants in both conditions most often preferred seeing one comment from each side (MM: $n=??$, ??\%; Mm: $n=??$, ??\%). 
+Figure~\ref{fig:survey-results} summarizes responses across the four scenarios. All comparisons use two-sided Welch's independent-samples $t$-tests. We apply Holm correction to the two exploratory certainty comparisons in panel~(a); panel~(b) reports unadjusted $p$-values. Differences below are calculated as Mm minus MM, and 95\% confidence intervals are unadjusted.
 
-Together, these results address \textbf{RQ4}: exposure to a minority thread was associated with broader self-reported consideration of perspectives and less certain judgments, without clear evidence of greater perceived influence of the replacement comment. These exploratory findings concern the combined presentation of comment content, replies, and scores, rather than minority status alone; they do not establish a shift toward the minority judgment or better reasoning.
+Figure~\ref{fig:survey-results}(a) separates certainty by whether readers' reported judgments agreed with the majority or minority. Among those agreeing with the majority, mean certainty was lower in Mm than in MM (2.61 vs.\ 3.43; $\Delta=-0.82$, 95\% CI $[-1.26,-0.39]$, $p_{\mathrm{Holm}}<.001$). Among those agreeing with the minority, certainty was descriptively higher in Mm, but the difference was inconclusive (2.89 vs.\ 2.30; $\Delta=0.59$, 95\% CI $[-0.57,1.75]$, $p_{\mathrm{Holm}}=.299$). These comparisons group readers by a judgment measured once after exposure; they do not estimate within-person change or causal effects within judgment groups.
+
+Figure~\ref{fig:survey-results}(b) shows comment and discussion ratings for all participants. Participants in Mm reported greater discussion-level perspective broadening than those in MM ($\Delta=0.81$ on the seven-point scale, $p=.012$). Comment-level perspective consideration was also descriptively higher for both comments, although evidence for these differences was inconclusive. Broader consideration did not imply greater agreement: agreement with Comment~2 was lower in Mm ($\Delta=-1.25$ on the five-point scale, $p<.001$), whereas agreement with the shared majority Comment~1 was descriptively similar. Evidence for differences in perceived influence was inconclusive for both comments. Regarding display preferences, participants in both conditions most often preferred seeing one comment from each side (MM: $n=??$, ??\%; Mm: $n=??$, ??\%).
+
+Together, these results address \textbf{RQ4}: Mm participants reported broader consideration of perspectives, and those agreeing with the majority expressed lower certainty than their MM counterparts, without clear evidence of greater perceived influence of the replacement comment. These exploratory findings concern the combined presentation of comment content, replies, and scores, rather than minority status alone; they do not establish a shift toward the minority judgment or better reasoning.
 % TODO: Confirm that reported differences use unrounded means.
 % TODO: Replace placeholders with verified counts and percentages and confirm
 % the number of valid responses to the display-preference question.
