@@ -125,14 +125,14 @@ text(150,134,'Mean certainty (1-4)',6.1,'center')
 guides(48,126,5,ticks=True,tick_values=[1,3,5])
 groups=[('Influence',None,'comment1_influence','comment2_influence',120,107),
         ('Agreement',None,'comment1_agreement','comment2_agreement',94,81),
-        ('Perspective','consideration','comment1_reflection','comment2_reflection',68,55)]
+        ('New moral','considerations','comment1_reflection','comment2_reflection',68,55)]
 for title,line2,m1,m2,y1,y2 in groups:
     midpoint = (y1+y2)/2
     text(2,midpoint+(1.5 if line2 else -2),title,6.1)
     if line2: text(2,midpoint-5.5,line2,6.1)
     for metric,y,clabel in [(m1,y1,'C1'),(m2,y2,'C2')]:
         text(56,y-2,clabel,5.8,'right'); bars(metric,y,5)
-text(2,29.5,'Perspective',6.1); text(2,22.5,'broadening',6.1)
+text(2,29.5,'Range of moral',6.1); text(2,22.5,'considerations',6.1)
 guides(21,34,7,ticks=True,tick_values=[1,3,5,7])
 bars('perspective_broadening_mean',28,7)
 c.save()

@@ -4,7 +4,7 @@
 We analyze public archives from r/AmItheAsshole (AITA) and r/AITAH (AITAH),
 including posts, comments, replies, judgment labels, scores, timestamps, and reply structure.
 We annotate expressed certainty in comments, then examine support/challenge
-and additional perspectives in comment--reply pairs. Figure~\ref{fig:study-overview}
+and additional moral considerations in comment--reply pairs. Figure~\ref{fig:study-overview}
 illustrates the discussion structure, reception measures, and annotations.
 Appendix Table~\ref{tab:dimensions} summarizes the measures;
 Appendix~\ref{sec:appendix-annotation-details} outlines annotation
@@ -106,13 +106,13 @@ which covers remaining functions. Challenge denotes disagreement, not necessaril
 personal attack. Proportions weight eligible comment--reply pairs equally
 and describe reply composition, not all comments.
 
-\runinheading{Perspectives in replies.}
+\runinheading{Moral considerations in replies.}
 We analyze 7,023 eligible comment--reply pairs from 100 high-agreement
-AITA posts, reusing their support/challenge labels. A \emph{perspective}
-is an argumentative consideration represented by a category in a taxonomy
+AITA posts, reusing their support/challenge labels. A \emph{moral consideration}
+is an argumentative reason represented by a category in a taxonomy
 derived separately for each post. An LLM constructs this taxonomy and
 labels each comment and reply independently; each text may receive
-multiple categories or none. A reply adds a perspective when both texts
+multiple categories or none. A reply adds a moral consideration when both texts
 map to at least one category and the reply receives a category absent
 from its comment. This measures addition relative to
 that comment, not novelty across the discussion, independently of
