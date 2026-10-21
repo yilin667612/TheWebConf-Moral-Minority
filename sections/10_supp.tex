@@ -1,44 +1,51 @@
 \onecolumn
 
-\section{Supplementary Material}
+\section*{Supplementary Material}
+
+\section{Data and Measures}
 \label{sec:supp}
+\label{sec:supp-data}
 
-\subsection{Community Content and Audience Overlap}
-\label{sec:supp-community}
+\subsection{Analytical Samples}
+\label{sec:supp-samples}
 
-We characterize post content with embeddings from
-\texttt{BAAI/\allowbreak bge-\allowbreak base-\allowbreak en-v1.5} \citep{bge_embedding} and
-\texttt{intfloat/\allowbreak e5-\allowbreak base-v2} \citep{wang2022text}, and audiences with
-user intersections and Jaccard overlap in the aligned calendar window.
+Table~\ref{tab:analytical-samples} distinguishes archive coverage, posts used for reception analyses, and annotation samples. Posts meeting
+the 200-judgment threshold span 2018--2025;
+the broader archive starts earlier. Stored verdict metadata determine
+eligibility and alignment, while available comments determine reception.
+The low/high certainty export retains its original membership and band
+assignments; supplementary draws use seed $0$. Versions \texttt{v4} and
+\texttt{v4.1} do not identify immutable model backends. Fixed sets of posts used in stage analyses
+are subsets of their annotation frames, not additional samples.
 
-Post-text embeddings overlap in UMAP (Figure~\ref{fig:umap}), but source
-classification exceeds chance (ROC-AUC: BGE $0.613$, E5 $0.568$).
-MMD and energy-distance tests reject equal distributions under both encoders
-(permutation $p=.005$). Topic distributions also differ (Jensen--Shannon
-distance: $0.187$/$0.206$): AITAH emphasizes intimate relationships, whereas
-AITA includes more everyday disputes over resources and obligations.
-Shared stories therefore provide contextual comparisons, not equivalent
-audiences or a natural experiment.
-% TODO: document embedding preprocessing, classifier evaluation, permutation
-% settings, topic-model specification, and treatment of multiply posted stories.
-% Verify the 107-pair case selection and examples; do not generalize deliberately
-% selected contrasts as representative community differences.
+\input{components/tab_samples}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.6\columnwidth]{figures/embeddings.png}
-  \caption{UMAP projection of BGE post-text embeddings by community.
-  Interleaving indicates overlap, not identical topic distributions.}
-  \label{fig:umap}
-\end{figure}
+% TODO (source provenance): identify the exact Academic Torrents release,
+% retrieval dates, archive gaps, and calendar filters for each analysis.
+% Verify bot filtering beyond AutoModerator and the treatment of previously
+% labeled comments whose text was later deleted. Recover earlier annotation
+% selection procedures. These unresolved items are not resolved by compression.
 
-\runinheading{User overlap.}
-\label{sec:appendix-overlap}
-Table~\ref{tab:shared-users} reports intersections and Jaccard overlap
-within the aligned calendar window. Audience overlap remains around a fifth
-under activity and tenure restrictions; overlap among post authors is lower.
+\subsection{Analytical Dimensions and Measures}
+\label{sec:supp-dimensions}
 
-\input{components/tab_shared_users}
+Appendix Table~\ref{tab:dimensions} summarizes the dimensions and measures defined
+in Section~\ref{sec:data-method}. Reception, certainty, and comment--reply
+analyses use distinct samples; fixed sets of posts used in stage analyses are subsets of the
+annotation samples, not additional draws. Detailed counts and exclusions
+appear in Supplementary Table~\ref{tab:analytical-samples}.
+
+\subsection{Judgment Tags}
+\label{sec:supp-tags}
+
+We normalize YWBTA to YTA, YWNBTA to NTA, and the H-suffixed aliases in
+Appendix Table~\ref{tab:tags} to their unsuffixed forms. NAH, ESH, and INFO have no
+additional H-suffixed variant. Short codes require case-sensitive word
+boundaries, preventing matches to lowercase \texttt{nah} or substrings
+such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
+
+\section{Annotation Protocols}
+\label{sec:supp-annotation}
 
 \subsection{Certainty Annotation}
 \label{sec:supp-certainty-annotation}
@@ -64,7 +71,7 @@ and immutable model/version documentation remain unresolved.
 
 \input{components/box_prompt}
 
-\subsection{Direct-Response Annotation}
+\subsection{Reply-Orientation Annotation}
 \label{sec:supp-response-annotation}
 
 \runinheading{Reply sampling and eligibility.}
@@ -134,45 +141,66 @@ from the denominator.
 % difference, frozen prompts and recovery provenance; confirm citations
 % underlying the collaborator-supplied prompts.
 
-\subsection{Analytical Samples}
-\label{sec:supp-samples}
+\section{Reception and Certainty Analyses}
+\label{sec:supp-analyses}
 
-Table~\ref{tab:analytical-samples} distinguishes archive coverage, posts used for reception analyses, and annotation samples. Posts meeting
-the 200-judgment threshold span 2018--2025;
-the broader archive starts earlier. Stored verdict metadata determine
-eligibility and alignment, while available comments determine reception.
-The low/high certainty export retains its original membership and band
-assignments; supplementary draws use seed $0$. Versions \texttt{v4} and
-\texttt{v4.1} do not identify immutable model backends. Fixed sets of posts used in stage analyses
-are subsets of their annotation frames, not additional samples.
+\subsection{Judgment Distributions}
+\label{sec:supp-verdict-distribution}
 
-\input{components/tab_samples}
+Among the analyzed AITA posts, $80.6\%$ of high-agreement posts are NA-dominant.
+Post frequency and discussion volume are distinct: NA-dominant posts
+are more numerous, whereas the average retained judgment count per post
+is higher toward the YA end, particularly near unanimous YA judgments.
+This distribution does not establish a community-wide aversion to blame.
+The stories are supplied by the people whose conduct is being judged.
+Research on authors' dual roles as characters and narrators
+\cite{giorgi2023author}, and on selective retelling and possible
+validation-seeking \cite{haworth2021reasonability}, provides context for
+the imbalance without identifying the motives of individual posters.
 
-% TODO (source provenance): identify the exact Academic Torrents release,
-% retrieval dates, archive gaps, and calendar filters for each analysis.
-% Verify bot filtering beyond AutoModerator and the treatment of previously
-% labeled comments whose text was later deleted. Recover earlier annotation
-% selection procedures. These unresolved items are not resolved by compression.
+Appendix Figure~\ref{fig:verdict-distributions} uses one-percentage-point
+bins of stored final YA share, including exact ties and the endpoint $1$.
+Bars count posts; the line divides stored judgment totals by posts per bin.
+Both communities concentrate near the NA end, while judgment volume per post
+is higher toward the YA end.
 
-\subsection{Analytical Dimensions and Measures}
-\label{sec:supp-dimensions}
+\subsection{Reception Across Agreement}
+\label{sec:supp-reception-analysis}
 
-Appendix Table~\ref{tab:dimensions} summarizes the dimensions and measures defined
-in Section~\ref{sec:data-method}. Reception, certainty, and comment--reply
-analyses use distinct samples; fixed sets of posts used in stage analyses are subsets of the
-annotation samples, not additional draws. Detailed counts and exclusions
-appear in Supplementary Table~\ref{tab:analytical-samples}.
+\runinheading{Additional reception summaries.}
 
-\subsection{Judgment Tags}
-\label{sec:supp-tags}
+Figure~\ref{fig:reception-overview} tests majority--minority mean
+contrasts separately under low and high agreement, and blaming--defending
+contrasts under high agreement, for each of the three measures. Tests use
+equal-weight post/group means with CR1 cluster-robust standard errors by
+post, retaining available groups and their within-post dependence.
+Two-sided asymptotic Wald tests receive Holm correction across all nine
+comparisons. Eight contrasts have adjusted $p<.001$; the blaming--defending
+score contrast does not ($p=.057$). These are mean contrasts, not tests of
+distributional differences, agreement interactions, or causal effects.
 
-We normalize YWBTA to YTA, YWNBTA to NTA, and the H-suffixed aliases in
-Appendix Table~\ref{tab:tags} to their unsuffixed forms. NAH, ESH, and INFO have no
-additional H-suffixed variant. Short codes require case-sensitive word
-boundaries, preventing matches to lowercase \texttt{nah} or substrings
-such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
+In high-agreement AITA posts, majority comments average $39.16$ score points
+in NA-dominant posts and $41.17$ in YA-dominant posts. The main figure pools
+these majority contexts, whereas blaming and defending separate the
+minority judgments by context. Contributing post sets need not coincide.
+For supplementary group-mean summaries, marginal
+$95\%$ confidence intervals resample whole posts within each group
+($4{,}000$ percentile-bootstrap replicates); these are not tests of
+between-group contrasts. This interval procedure is distinct from the
+box-plot distributions in Figure~\ref{fig:reception-overview} and the
+$2{,}000$-replicate agreement-gradient procedure below.
 
-\subsection{Reception by Arrival and Discussion Progress}
+\runinheading{Continuous agreement gradient.}
+
+Appendix Figure~\ref{fig:aita-agreement-gradient} uses $0.05$-wide YA-share bins and
+post-equal reception means, with $2{,}000$ post-bootstrap replicates
+(seed $20261008$). Agreement strengthens toward either endpoint. Gaps are
+generally larger there, but asymmetry and near-balanced reversals preclude
+a uniformly monotonic interpretation. Intermediate-post summaries were
+retrieved on October~8, 2026; high/low summaries reuse the October~2 cache
+after post-metadata checks. Source hashes are retained with the scripts.
+
+\subsection{Reception Across Discussion Stages}
 \label{sec:supp-arrival}
 
 % Figure~\ref{fig:arrival-sequence-comparison} compares hourly reception with
@@ -247,99 +275,64 @@ across six slopes.
 Displayed intervals are unadjusted.
 Figure~\ref{fig:aita-certainty-progress} shows significant positive trends
 for AITA majority and blaming comments; defending does not survive Holm
-correction. No AITAH slope survives correction (Figure~\ref{fig:certainty-progress}).
+correction. No AITAH slope survives correction (Appendix Figure~\ref{fig:certainty-progress}).
 The fixed set of AITAH defending posts contains only eight posts and requires caution.
 Separate slopes establish neither between-group differences nor monotonic
 or within-person change.
 
-\begin{figure}[t]
+\section{Community Comparisons}
+\label{sec:supp-community-comparisons}
+
+We apply the same definitions and measures in AITAH to assess which AITA
+patterns recur. Supporting content and audience comparisons use the aligned
+period 17 March 2021--23 December 2025; reception analyses retain their
+specified frames. These supporting analyses compare post-text embeddings
+and shared-user sets, rather than assuming equivalent content or audiences;
+Supplementary Section~\ref{sec:supp-community} provides the diagnostics.
+
+\subsection{Community Content and Audience Overlap}
+\label{sec:supp-community}
+
+We characterize post content with embeddings from
+\texttt{BAAI/\allowbreak bge-\allowbreak base-\allowbreak en-v1.5} \citep{bge_embedding} and
+\texttt{intfloat/\allowbreak e5-\allowbreak base-v2} \citep{wang2022text}, and audiences with
+user intersections and Jaccard overlap in the aligned calendar window.
+
+Post-text embeddings overlap in UMAP (Figure~\ref{fig:umap}), but source
+classification exceeds chance (ROC-AUC: BGE $0.613$, E5 $0.568$).
+MMD and energy-distance tests reject equal distributions under both encoders
+(permutation $p=.005$). Topic distributions also differ (Jensen--Shannon
+distance: $0.187$/$0.206$): AITAH emphasizes intimate relationships, whereas
+AITA includes more everyday disputes over resources and obligations.
+Shared stories therefore provide contextual comparisons, not equivalent
+audiences or a natural experiment.
+% TODO: document embedding preprocessing, classifier evaluation, permutation
+% settings, topic-model specification, and treatment of multiply posted stories.
+% Verify the 107-pair case selection and examples; do not generalize deliberately
+% selected contrasts as representative community differences.
+
+\begin{figure}[h]
   \centering
-  \includegraphics[width=0.68\columnwidth]{figures/aitah_certainty_progress_post_fe.pdf}
-  \caption{AITAH certainty profiles (left) and post fixed-effects
-  trends (right), in high-agreement posts. Blue/orange/green: majority/blaming/defending;
-  bands/whiskers: $95\%$ post-bootstrap CIs. Stars: Holm-adjusted
-  $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$ (none here);
-  $n$ counts comments with valid certainty annotations in legend order.}
-  \label{fig:certainty-progress}
-  \Description{Mean certainty across first-day comment stages and estimated linear
-  changes from the first to the last stage in high-agreement AITAH posts.
-  No slope is significant after Holm correction; defending uses eight posts.}
+  \includegraphics[width=0.6\columnwidth]{figures/embeddings.png}
+  \caption{UMAP projection of BGE post-text embeddings by community.
+  Interleaving indicates overlap, not identical topic distributions.}
+  \label{fig:umap}
 \end{figure}
 
-\subsection{Judgment Distributions}
-\label{sec:supp-verdict-distribution}
+\runinheading{User overlap.}
+\label{sec:appendix-overlap}
+Table~\ref{tab:shared-users} reports intersections and Jaccard overlap
+within the aligned calendar window. Audience overlap remains around a fifth
+under activity and tenure restrictions; overlap among post authors is lower.
 
-Among the analyzed AITA posts, $80.6\%$ of high-agreement posts are NA-dominant.
-Post frequency and discussion volume are distinct: NA-dominant posts
-are more numerous, whereas the average retained judgment count per post
-is higher toward the YA end, particularly near unanimous YA judgments.
-This distribution does not establish a community-wide aversion to blame.
-The stories are supplied by the people whose conduct is being judged.
-Research on authors' dual roles as characters and narrators
-\cite{giorgi2023author}, and on selective retelling and possible
-validation-seeking \cite{haworth2021reasonability}, provides context for
-the imbalance without identifying the motives of individual posters.
-
-Figure~\ref{fig:verdict-distributions} uses one-percentage-point
-bins of stored final YA share, including exact ties and the endpoint $1$.
-Bars count posts; the line divides stored judgment totals by posts per bin.
-Both communities concentrate near the NA end, while judgment volume per post
-is higher toward the YA end.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.68\columnwidth]{figures/verdict_distributions_aita_aitah.pdf}
-  \caption{Final YA share in AITA (left) and AITAH (right). Bars show post
-  counts (left axes); red lines show mean judgment comments per post
-  (right axes). Shading marks high agreement.}
-  \label{fig:verdict-distributions}
-  \Description{Side-by-side judgment distributions for AITA and AITAH.
-  Posts concentrate near the NA end; mean judgment counts are higher toward
-  the YA end. Gray shading marks the high-agreement regions.}
-\end{figure}
-
-\subsection{Reception Across Agreement}
-\label{sec:supp-reception-analysis}
-
-\runinheading{Additional reception summaries.}
-
-Figure~\ref{fig:reception-overview} tests majority--minority mean
-contrasts separately under low and high agreement, and blaming--defending
-contrasts under high agreement, for each of the three measures. Tests use
-equal-weight post/group means with CR1 cluster-robust standard errors by
-post, retaining available groups and their within-post dependence.
-Two-sided asymptotic Wald tests receive Holm correction across all nine
-comparisons. Eight contrasts have adjusted $p<.001$; the blaming--defending
-score contrast does not ($p=.057$). These are mean contrasts, not tests of
-distributional differences, agreement interactions, or causal effects.
-
-In high-agreement AITA posts, majority comments average $39.16$ score points
-in NA-dominant posts and $41.17$ in YA-dominant posts. The main figure pools
-these majority contexts, whereas blaming and defending separate the
-minority judgments by context. Contributing post sets need not coincide.
-For supplementary group-mean summaries, marginal
-$95\%$ confidence intervals resample whole posts within each group
-($4{,}000$ percentile-bootstrap replicates); these are not tests of
-between-group contrasts. This interval procedure is distinct from the
-box-plot distributions in Figure~\ref{fig:reception-overview} and the
-$2{,}000$-replicate agreement-gradient procedure below.
-
-\runinheading{Continuous agreement gradient.}
-
-Appendix Figure~\ref{fig:aita-agreement-gradient} uses $0.05$-wide YA-share bins and
-post-equal reception means, with $2{,}000$ post-bootstrap replicates
-(seed $20261008$). Agreement strengthens toward either endpoint. Gaps are
-generally larger there, but asymmetry and near-balanced reversals preclude
-a uniformly monotonic interpretation. Intermediate-post summaries were
-retrieved on October~8, 2026; high/low summaries reuse the October~2 cache
-after post-metadata checks. Source hashes are retained with the scripts.
+\input{components/tab_shared_users}
 
 \subsection{Reception in AITAH}
 \label{sec:supp-aitah-reception}
 \label{subsec:supp-community}
 
-The following figures apply the AITA definitions and post-equal aggregation
-to AITAH. Appendix Figure~\ref{fig:aitah-reception-overview} combines the agreement
+The AITAH analyses use the AITA definitions and post-equal aggregation.
+Appendix Figure~\ref{fig:aitah-reception-overview} combines the agreement
 and directional comparisons, using a common high-agreement majority
 baseline across NA- and YA-dominant posts. Blaming and defending partition
 the high-agreement minority; absent minority cells are excluded, not zero.
@@ -389,7 +382,7 @@ AITAH's H-suffixed aliases.]}
 Cumulative-participation patterns appear in
 Supplementary Section~\ref{sec:appendix-cumulative-participation}.
 
-Figure~\ref{fig:aitah-arrival-reception} applies the first-day sequence
+Appendix Figure~\ref{fig:aitah-arrival-reception} applies the first-day sequence
 analysis in Figure~\ref{fig:comment-engagement-over-time} to AITAH.
 Fixed sets contain 6,709 high-agreement majority, 2,120 high-agreement
 minority, and 388 low-agreement posts. Percentile bands describe
@@ -397,31 +390,8 @@ post-mean distributions, not confidence intervals. Symmetric-log axes
 are linear within $\pm1$ score point and $\pm0.01$ replies; ranges
 are fitted separately for each community.
 
-
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.68\columnwidth]{figures/aitah_sequence_reception_distributions_fixed.pdf}
-  \caption{AITAH reception across the first-day comment sequence, following
-  Figure~\ref{fig:comment-engagement-over-time}. Lines show means/medians of
-  post means; dark/light bands show 25th--75th/10th--90th percentiles,
-  not CIs. Post sets are fixed within groups.}
-  \label{fig:aitah-arrival-reception}
-  \Description{AITAH score and reply-count distributions across ten
-  comment-sequence stages for high-agreement majority and minority and
-  low-agreement comments.}
-\end{figure}
-
-\subsection{Supplementary Community Comparison Methods}
+\subsection{Cross-Posted Stories}
 \label{sec:appendix-community-comparison}
-
-\runinheading{Content and audience comparisons.}
-We apply the same definitions and measures in AITAH to assess which AITA
-patterns recur. Supporting content and audience comparisons use the aligned
-period 17 March 2021--23 December 2025; reception analyses retain their
-specified frames. These supporting analyses compare post-text embeddings
-and shared-user sets, rather than assuming equivalent content or audiences;
-Supplementary Section~\ref{sec:supp-community} provides the diagnostics.
 
 \runinheading{Matching cross-posted stories.}
 Cross-posted stories are identified by matching the combined text of their
@@ -479,7 +449,7 @@ Do not present these cases as a representative or causal community test.]}
 % details; do not equate removing usernames with anonymity. No ethical approval
 % or independent annotation validation is claimed by these unresolved notes.
 
-\subsection{Community Timing}
+\subsection{Comment and Retrieval Timing}
 \label{sec:appendix-community-timing}
 
 \runinheading{Comment timing.}
@@ -557,6 +527,9 @@ by individuals, a regime change, or complete discussion follow-up.
 % legacy plotting substitutes zero when undefined. Verify any window-specific
 % low/high claims separately rather than inferring them from cumulative curves.
 
+\section{Survey Materials}
+\label{sec:supp-survey}
+
 \subsection{Survey Stimulus Properties}
 \label{sec:supp-survey-stimulus-properties}
 
@@ -568,8 +541,6 @@ Appendix Figure~\ref{fig:survey-procedure}.
 \label{sec:supp-survey-questions}
 
 Table~\ref{tab:survey-questions} records the questionnaire wording.
-Stimuli and participant allocation are summarized in
-Appendix Table~\ref{tab:survey-posts}.
 
 \input{components/tab_survey_questions}
 
