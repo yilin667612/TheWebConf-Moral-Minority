@@ -1,4 +1,5 @@
-# Exploratory conditional comparisons. Final alignment is post-treatment.
+# Exploratory conditional comparisons with unadjusted p-values.
+# Alignment uses the single reported judgment, measured after exposure.
 # Run: Rscript scripts/fig5_survey_certainty_tests.R [source.csv] [output_dir]
 args <- commandArgs(trailingOnly=TRUE)
 source <- if(length(args)>0) args[1] else '../minority-voices-aita/output/80_participants_merged_analysis.csv'
@@ -26,7 +27,6 @@ tests <- lapply(c(1,0), function(a) {
              hedges_g=J*(mean(mixed)-mean(mm))/pooled_sd)
 })
 result <- do.call(rbind, tests)
-result$p_holm <- p.adjust(result$p, method='holm')
 write.csv(result, file.path(out,'certainty_tests.csv'), row.names=FALSE)
 print(result, digits=7, row.names=FALSE)
 # Audit the pre-existing full-sample values, without changing their test family.

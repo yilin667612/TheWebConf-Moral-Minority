@@ -1,7 +1,7 @@
 """Compact Figure 5: conditional certainty means + original remaining panels.
 
-Run bundled Python from the paper root. R supplies Welch tests and Holm
-adjustment across the two certainty comparisons. Alignment is defined by
+Run bundled Python from the paper root. R supplies two-sided Welch tests;
+all reported p-values are unadjusted and exploratory. Alignment is defined by
 the single reported judgment, measured after exposure, not a baseline.
 The lower panel is preserved vector artwork from the original Figure 5.
 """
@@ -93,7 +93,7 @@ c.setDash()
 
 # Brackets denote MM vs Mm within one reported-judgment alignment.
 for alignment,side in [('majority',-1),('minority',1)]:
-    p = float(stats[alignment]['p_holm'])
+    p = float(stats[alignment]['p'])
     stars = '***' if p<.001 else '**' if p<.01 else '*' if p<.05 else ''
     if stars:
         x = 38 if side==-1 else 233
@@ -150,7 +150,7 @@ with TARGET.open('wb') as f:
 (OUT/'manifest.json').write_text(json.dumps(dict(
     source_sha256=hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
     original_artwork_sha256=hashlib.sha256(ORIGINAL.read_bytes()).hexdigest(),
-    method='Two-sided Welch tests, Holm across two certainty comparisons. Unadjusted 95% difference CIs. B retains verified original full-sample unadjusted tests.',
+    method='Exploratory two-sided Welch tests; all reported p-values and 95% difference CIs are unadjusted. B retains verified original full-sample unadjusted tests.',
     caveat='Single reported judgment after exposure. Conditional groups are not randomized; neither within-person change nor causal effect modification is identified.',
     original_artwork=str(ORIGINAL),output=str(TARGET)),indent=2)+'\n')
 print(TARGET)
