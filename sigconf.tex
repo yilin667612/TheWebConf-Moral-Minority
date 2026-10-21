@@ -49,6 +49,16 @@
 \usepackage{colortbl}
 \usepackage{enumitem}
 
+% Keep run-in paragraph headings, without extra space above them.
+\makeatletter
+\patchcmd{\paragraph}
+  {-.5\baselineskip \@plus -2\p@ \@minus -.2\p@}
+  {\z@}{}{\PackageWarning{paper}{Paragraph spacing patch failed}}
+\patchcmd{\noindentparagraph}
+  {-.5\baselineskip \@plus -2\p@ \@minus -.2\p@}
+  {\z@}{}{\PackageWarning{paper}{Noindent paragraph spacing patch failed}}
+\makeatother
+
 %%
 %% \BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%

@@ -59,11 +59,11 @@ def summarize_post(post, comments):
                 first_day_judgments=total, cells=cells)
 
 
-def collect_remote(expected, completed_ids=()):
+def collect_remote(expected, completed_ids=(), community='AITA'):
     # Runs only on the archive host. Deliberately no write-capable operations.
     from pymongo import MongoClient
     client = MongoClient('mongodb://127.0.0.1:27017', serverSelectionTimeoutMS=10000)
-    db = client['reddit']
+    db = client['reddit' if community == 'AITA' else 'aitah']
     posts = []
     for p in db.submissions.find({'YANA_total': {'$gte': 200}, 'YANA_split': {'$ne': None}},
             {'_id': 1, 'YANA_split': 1, 'created_utc': 1}).sort('_id', 1):
@@ -79,7 +79,7 @@ def collect_remote(expected, completed_ids=()):
     assert [str(p['_id']) for p in posts[:len(completed_ids)]] == list(completed_ids), 'Resume prefix differs'
     def emit(record):
         print(json.dumps(record, separators=(',', ':')), flush=True)
-    manifest = dict(kind='manifest', community='AITA', posts=len(posts), bands=dict(collections.Counter(p['band'] for p in posts)),
+    manifest = dict(kind='manifest', community=community, posts=len(posts), bands=dict(collections.Counter(p['band'] for p in posts)),
         post_ids_sha256=digest, first_day_hours=24, stages=10,
         retrieved_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
         score='Last recorded score; missing excluded',
@@ -112,7 +112,7 @@ def collect_remote(expected, completed_ids=()):
 def fetch(args):
     import bson
     import pymongo
-    expected = json.loads(args.reference.read_text())['communities']['AITA']['manifest']
+    expected = json.loads(args.reference.read_text())['communities'][args.community]['manifest']
     previous, completed_ids = [], []
     if args.resume:
         lines = args.resume.read_text().splitlines()
@@ -124,6 +124,7 @@ def fetch(args):
                 break
             if index == 0:
                 assert record['kind'] == 'manifest' and record['post_ids_sha256'] == expected['post_ids_sha256']
+                assert record['community'] == args.community
                 assert record['first_day_hours'] == 24 and record['stages'] == 10
             else:
                 assert record['kind'] == 'post', 'Resume only an incomplete collection'
@@ -140,7 +141,7 @@ def fetch(args):
     source = Path(__file__).read_text()
     bootstrap = "import base64,io,sys,tempfile,zipfile\nwith tempfile.TemporaryDirectory(prefix='sequence-reception-') as tmp:\n"
     bootstrap += f" zipfile.ZipFile(io.BytesIO(base64.b64decode({payload!r}))).extractall(tmp)\n sys.path.insert(0,tmp)\n"
-    bootstrap += f" scope={{'__name__':'sequence_remote','__file__':'/tmp/fig7_sequence_reception.py'}}\n exec(compile({source!r},'fig7_sequence_reception.py','exec'),scope)\n scope['collect_remote']({expected!r},{completed_ids!r})\n"
+    bootstrap += f" scope={{'__name__':'sequence_remote','__file__':'/tmp/fig7_sequence_reception.py'}}\n exec(compile({source!r},'fig7_sequence_reception.py','exec'),scope)\n scope['collect_remote']({expected!r},{completed_ids!r},{args.community!r})\n"
     command = ['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=15', '-o', 'ServerAliveInterval=30',
         'u1033719@cray.comp.anu.edu.au',
         'srun --nodes=1 --ntasks=1 --nodelist=dijkstra --partition=cpu --qos=interactive --time=01:00:00 --cpus-per-task=4 --mem=8G python3 -u -']
@@ -257,6 +258,7 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('self-test')
     p = sub.add_parser('fetch')
+    p.add_argument('--community', choices=['AITA', 'AITAH'], default='AITA')
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--resume', type=Path, help='Continue an incomplete collection into a NEW output file')
     p.add_argument('--reference', type=Path, default=ROOT/'scripts/data/fig3_arrival_post_equal.json')
