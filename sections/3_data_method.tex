@@ -6,8 +6,9 @@ including posts, comments, replies, judgment labels, scores, timestamps, and rep
 We annotate expressed certainty in comments, then examine support/challenge
 and additional perspectives in comment--reply pairs. Figure~\ref{fig:study-overview}
 illustrates the discussion structure, reception measures, and annotations.
-Annotation sampling and procedures are detailed in
-Appendix~\ref{sec:appendix-annotation-details}.
+Appendix Table~\ref{tab:dimensions} summarizes the measures;
+Appendix~\ref{sec:appendix-annotation-details} outlines annotation
+procedures and samples.
 
 \input{components/fig_structure_overview}
 
@@ -27,7 +28,8 @@ A \emph{judgment} assesses the OP's conduct. We group YTA
 assigning fault to the OP; NTA (``Not the Asshole'') and NAH
 (``No Assholes Here'') form \emph{NA}, assigning no fault to the OP.
 We use each comment's first recognized judgment
-(matching rules and variants in Appendix~\ref{sec:appendix-tags}).
+(matching rules in Appendix~\ref{sec:appendix-annotation-details};
+variants in Appendix Table~\ref{tab:tags}).
 Judgment counts exclude INFO (requests for information), unrecognized
 comments, and AutoModerator messages. Reception analyses retain posts
 with at least 200 judgments: 28,107 in AITA and 8,217 in AITAH.
@@ -58,8 +60,8 @@ We average comments within each post and judgment group, then weight
 posts equally. Empty groups are omitted, not assigned zero; missing
 scores affect only score averages. Contributing post sets may therefore
 differ between groups. Outcomes use all available observations rather
-than a uniform follow-up period. Appendix~\ref{sec:appendix-aita-arrival}
-details stage construction and post selection.
+than a uniform follow-up period. Appendix~\ref{sec:appendix-annotation-details}
+summarizes stage construction, post selection, and inference.
 
 \subsection{Expressed Certainty}
 \label{subsec:method-certainty}
@@ -83,8 +85,8 @@ minority comments using equal post weights. For each group, we retain a
 fixed set of posts with at least one comment from that group with a valid
 certainty annotation in every stage. The curves therefore
 describe successive comments in these selected discussions, not changes
-within individuals. Estimation, sensitivity checks, and stage construction
-are detailed in Appendix~\ref{sec:appendix-certainty}.
+within individuals. Estimation and sensitivity checks are summarized in
+Appendices~\ref{sec:appendix-annotation-details} and~\ref{sec:appendix-evidence}.
 
 \subsection{Reply Annotation}
 \label{subsec:method-annotation}

@@ -1,8 +1,13 @@
 \appendix
-\newpage
 
 \section{Annotation and Analysis Details}
 \label{sec:appendix-annotation-details}
+\label{sec:appendix-dimensions}
+
+Table~\ref{tab:dimensions} summarizes the analytical dimensions and
+measures; Table~\ref{tab:tags} lists the judgment tags used for matching.
+
+\input{components/tab_dimensions}
 
 \runinheading{Annotation samples.}
 Certainty annotations sample 3\% of eligible high-agreement posts and 15\%
@@ -22,29 +27,54 @@ Sections~\ref{sec:supp-certainty-annotation}--\ref{sec:supp-samples}.
 \label{sec:appendix-tags}
 Short judgment codes are case-sensitive and word-bounded; full phrases
 are case-insensitive. Hypothetical and H-suffixed variants are normalized
-(Supplementary Table~\ref{tab:tags}).
+(Table~\ref{tab:tags}).
+
+\input{components/tab_tags}
 
 \runinheading{Discussion stages.}
 \label{sec:appendix-aita-arrival}
-First-day judgments are ordered by timestamp, then comment ID, and divided
-into ten approximately equal-count stages before splitting alignment.
-Each group retains posts represented in every stage, with equal post
-weight. For reception, this retains 21,978 high-agreement majority,
-6,202 high-agreement minority, and 1,838 low-agreement AITA posts.
-Selection favors persistently represented groups; scores and replies are
-archive-wide outcomes, not observations at a common follow-up age.
+First-day judgments are ordered by timestamp (then comment ID for ties)
+and divided into ten approximately equal-count stages before splitting
+alignment. Groups retain posts represented in every stage, with equal
+post weights: 21,978 high-agreement majority, 6,202 high-agreement minority,
+and 1,838 low-agreement AITA posts. This selects persistently represented
+groups; recorded scores and replies have no common follow-up age.
 
-\runinheading{Statistical comparisons.}
-Reception contrasts use post/group means with CR1 post-cluster standard
-errors and two-sided Wald tests, with Holm correction across nine
-contrasts per community. Certainty trends use post fixed effects and
-progress scaled from zero to one; post-cluster tests use post-count minus
-one degrees of freedom and Holm correction across six slopes.
-Trend CIs use 20,000 whole-post bootstrap replicates and are unadjusted.
-These tests do not establish differences between communities or slopes.
-Further estimation details appear in Supplementary
+\runinheading{Inference.}
+Reception contrasts use post/group means, CR1 post-cluster standard
+errors, and two-sided Wald tests; Holm correction covers nine contrasts
+per community. Certainty trends use post fixed effects, progress from
+zero to one, and post-cluster tests with post-count minus one degrees
+of freedom. Holm correction covers six slopes; the 20,000-replicate
+post-bootstrap CIs are unadjusted. These are separate community and
+slope estimates, not direct comparisons. Supplementary
 Sections~\ref{sec:supp-certainty-analysis} and
-\ref{sec:supp-reception-analysis}.
+\ref{sec:supp-reception-analysis} provide estimation details.
+
+\section{Survey Experiment}
+\label{app:survey}
+
+Table~\ref{tab:survey-posts} documents the four scenarios (two YA
+majorities and two NA majorities), comment scores, and participant
+allocation. Figure~\ref{fig:survey-procedure} shows the procedure;
+majority/minority labels and agreement percentages were not displayed.
+Questionnaire wording and original texts appear in Supplementary
+Table~\ref{tab:survey-questions} and Section~\ref{app:full-survey-stimuli}.
+The 16 unadjusted Welch comparisons are exploratory; groups defined by
+post-exposure judgments do not identify causal subgroup effects.
+
+\input{components/tab_survey_posts}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/survey_procedure.png}
+  \caption{Survey procedure: participants read a post and two comment
+  threads under MM or Mm exposure, then reported their judgment,
+  explanation, and reader responses.}
+  \Description{Two-step survey procedure with an NA-majority example
+  and an eight-point judgment scale.}
+  \label{fig:survey-procedure}
+\end{figure}
 
 \section{Additional Evidence}
 \label{sec:appendix-evidence}
@@ -72,8 +102,9 @@ appear in Supplementary Section~\ref{sec:supp-certainty-analysis}.
 
 \runinheading{Judgment distributions.}
 \label{sec:appendix-verdict-distribution}
-Both communities concentrate toward NA-dominant judgments; post frequency
-and mean judgment volume per post are distinct. Supplementary
+High-agreement posts account for $78.2\%$ of analyzed AITA posts, of which
+$80.6\%$ are NA-dominant; AITAH likewise concentrates toward NA dominance.
+Post frequency and mean judgment volume per post are distinct. Supplementary
 Figure~\ref{fig:verdict-distributions} shows the distributions.
 
 \runinheading{Reception across agreement.}
@@ -97,14 +128,14 @@ preclude a uniformly monotonic interpretation.
 \runinheading{Reception in AITAH.}
 \label{sec:appendix-aitah-reception}
 \label{subsec:res-community}
-Figure~\ref{fig:aitah-reception-overview} reproduces the high-agreement
-combination of lower minority scores and greater reply engagement.
-Blaming dissent receives lower mean scores, more replies, and deeper
-threads than defending dissent. All high-agreement contrasts have
-Holm-adjusted $p<.001$; low-agreement reply-count and depth contrasts
-are not significant. Shared ordering does not establish equal magnitudes,
-greater tolerance, or a causal community effect. Additional summaries
-appear in Supplementary Section~\ref{sec:supp-aitah-reception}.
+Figure~\ref{fig:aitah-reception-overview} reproduces lower scores and
+greater reply engagement for high-agreement minority comments. Blaming
+dissent receives lower scores, more replies, and deeper threads than
+defending dissent. High-agreement contrasts have Holm-adjusted
+$p<.001$; low-agreement reply-count and depth contrasts are not
+significant. Shared ordering implies neither equal magnitudes nor a
+causal community effect. Supplementary Section~\ref{sec:supp-aitah-reception}
+provides additional summaries.
 
 \begin{figure}[t]
   \centering
@@ -121,33 +152,8 @@ appear in Supplementary Section~\ref{sec:supp-aitah-reception}.
 
 \runinheading{Cross-posted examples.}
 \label{subsec:res-duplicates}
-The bedside-drawer example in the Discussion illustrates considerations
-about firearm storage, supervision, and household autonomy, not a
-representative community difference. Its posts are not high-agreement
-cases, and independently learned taxonomies are not directly comparable.
-Matching procedures and exploratory cases appear in Supplementary
-Section~\ref{sec:appendix-community-comparison}.
-
-\section{Survey Experiment}
-\label{app:survey}
-
-Figure~\ref{fig:survey-procedure} summarizes the between-subjects design.
-The four scenarios concern meal payment, a daughter's refusal to prepare
-dinner, a late friend, and a workplace email; two have YA majorities and
-two NA majorities. Majority/minority labels and agreement percentages
-were not displayed. Stimulus properties, questions, and original texts
-appear in Supplementary Table~\ref{tab:survey-posts},
-Table~\ref{tab:survey-questions}, and Section~\ref{app:full-survey-stimuli}.
-The 16 unadjusted Welch comparisons are exploratory; post-exposure
-alignment groups do not identify causal subgroup effects.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/survey_procedure.png}
-  \caption{Survey procedure: participants read a post and two comment
-  threads under MM or Mm exposure, then reported their judgment,
-  explanation, and reader responses.}
-  \Description{Two-step survey procedure with an NA-majority example
-  and an eight-point judgment scale.}
-  \label{fig:survey-procedure}
-\end{figure}
+The bedside-drawer example illustrates storage, supervision, and
+household autonomy. It is neither high-agreement nor representative
+of community differences; independently learned taxonomies are not
+directly comparable. Matching and exploratory cases appear in
+Supplementary Section~\ref{sec:appendix-community-comparison}.
