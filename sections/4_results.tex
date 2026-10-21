@@ -32,16 +32,34 @@ across the full agreement range, complementing the high--low comparison.
 The same reception pattern recurs in AITAH
 (Appendix Figure~\ref{fig:aitah-reception-overview}).
 
-Figure~\ref{fig:comment-engagement-over-time} situates reception within
-discussion progress. We order each post's first-day judgment comments
-and divide them into ten approximately equal-count stages before splitting
-alignment. Each group uses a fixed set of posts represented in every stage,
-with equal weight per post. Minority comments appearing earlier receive
-more replies than later ones; early majority comments have higher recorded
-scores. These are archive-wide outcomes for different comments, not changes
-in the same comment's reception. Arrival timing and exposure remain relevant
-to the aggregate comparisons; aggregation and selection details appear in
-Appendix~\ref{sec:appendix-annotation-details}.
+\runinheading{High-agreement minority comments follow a distinct reception profile.}
+Figure~\ref{fig:comment-engagement-over-time} shows that high-agreement
+minority comments differ from both high-agreement majority comments and
+low-agreement comments pooled across alignments. In the two comparison
+groups, mean scores are highest at the beginning of the first-day comment
+sequence and decline toward approximately one. The minority profile
+instead falls below zero after the first stage, remains negative through
+most subsequent stages, and rises toward zero in the later stages,
+ending slightly above it. Thus, later minority comments have less negative
+mean scores than those appearing in the early-to-middle stages, whereas
+both comparison groups show a decline from initially high positive scores.
+
+Mean reply counts decline across the sequence in all three groups, but
+remain higher for high-agreement minority comments at every stage.
+Their greater reply engagement therefore extends beyond the earliest
+comments. This higher mean does not imply that replies are widespread:
+the median of post-level mean reply counts reaches zero around the
+middle of the minority sequence, while the mean remains positive.
+The plotted percentile bands describe variation across posts, not
+uncertainty in the differences between groups.
+
+These profiles use ten approximately equal-count stages of each post's
+first-day judgment-comment sequence, with a fixed set of posts within
+each group and equal weight per post. They compare archive-wide outcomes
+for different comments, not changes in the same comment's reception or
+evidence that a minority judgment gains acceptance over time. Arrival
+timing and exposure remain relevant; aggregation and selection details
+appear in Appendix~\ref{sec:appendix-annotation-details}.
 
 \begin{figure}[t]
   \centering
@@ -111,7 +129,7 @@ are summarized in Appendix~\ref{sec:appendix-evidence}.
 \runinheading{Support predominates for majority judgments, challenge for minority judgments.}
 \label{subsec:res-rq2}
 Annotated replies predominantly support majority comments but challenge
-both minority directions (Figure~\ref{fig:reply-responses}). In AITA,
+both minority directions (Figure~\ref{fig:reply-responses}a). In AITA,
 $68.7\%$ support majority comments and $21.8\%$ challenge them;
 for blaming minority comments,
 $16.1\%$ of replies support and $77.3\%$ challenge; for defending minority
@@ -140,19 +158,53 @@ distinct developmental trajectories.
 \subsection{Perspectives in Direct Replies}
 \label{subsec:res-perspectives}
 
-For \textbf{RQ3}, we compare the prevalence and types of new perspectives
-in direct replies across parent alignment and blaming--defending stance.
-Perspective novelty and support/challenge are separate annotation axes.
-The perspective results will be combined with the reply-orientation
-summary in Figure~\ref{fig:reply-responses}.
+% Working narrative: the planned 100-post update is assumed to retain the
+% qualitative trends in the current 20-post export. Replace the figure's
+% estimates and bootstrap intervals, verify these trends, and update the
+% preliminary-sample caption before treating this as the 100-post result.
+For \textbf{RQ3}, Figure~\ref{fig:reply-responses}b compares how often direct
+replies introduce a perspective absent from their parent comment, across
+majority, blaming minority, and defending minority comments. Perspective
+addition and response orientation are distinct: a reply can support a
+comment while adding a consideration, or challenge it without adding one.
 
-\begin{figure}[t]
+\runinheading{Perspective addition varies with reply orientation.}
+Across all replies, the observed proportion adding a perspective is higher
+for both minority directions than for majority comments, with blaming
+minority comments having the highest mean. Within support and challenge
+separately, the group means are closer. Challenging replies more often add
+a perspective than supportive replies in all three parent groups. The
+overall minority--majority contrast is therefore less pronounced when
+comparing replies with the same response orientation. These descriptive
+patterns do not identify an effect of minority status or establish a
+difference between blaming and defending dissent.
+
+These results address the prevalence component of \textbf{RQ3}: both
+supportive and challenging exchanges can extend the considerations in
+their parent comments, with additions more common in challenges.
+Categories are learned separately for each post, so this comparison does
+not establish a shared distribution of perspective types across stories.
+The two panels use separate samples and weighting schemes; the
+reply-orientation proportions in panel~(a) cannot numerically decompose
+the perspective-addition rates in panel~(b).
+
+\begin{figure*}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/aita_response_proportions.pdf}
-  \caption{Reply orientations in high-agreement AITA posts, grouped by
-  parent judgment. Proportions are pair-weighted; other includes
-  information-seeking and other responses.}
+  \includegraphics[width=\textwidth]{figures/aita_reply_orientation_perspectives.pdf}
+  \caption{Reply orientation and perspective addition in high-agreement
+  AITA posts. (a) Pair-weighted support, challenge, and other reply
+  proportions by parent judgment; other includes information-seeking.
+  (b) Post-equal mean proportions of replies adding a perspective, with
+  $95\%$ percentile CIs from 20,000 joint post-bootstrap resamples.
+  Unmapped pairs remain in the denominators; empty post/group/orientation
+  cells are omitted. Panel~(b) shows preliminary estimates from 20 posts
+  (3,362 pairs), to be updated to the 100-post analysis. The panels use
+  separate samples and weighting schemes.}
   \label{fig:reply-responses}
-  \Description{Stacked reply proportions show support, challenge, and other
-  responses to majority, blaming minority, and defending minority comments.}
-\end{figure}
+  \Description{Panel a shows stacked support, challenge, and other reply
+  proportions. Panel b shows means and 95 percent confidence intervals
+  for perspective addition in all replies, support replies, and challenge
+  replies. Blue diamonds, orange circles, and green squares identify
+  majority, blaming minority, and defending minority parents. Challenges
+  have higher observed addition rates than support in each group.}
+\end{figure*}
