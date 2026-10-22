@@ -123,14 +123,27 @@ independently of support/challenge.
 We analyze 7,023 eligible comment--reply pairs from 100 high-agreement
 AITA posts, reusing their support/challenge labels. Because relevant reasons
 depend on the conflict, an LLM constructs a separate category taxonomy for
-each post and labels each comment and reply independently against it.
+each post and labels each comment and reply against the frozen taxonomy.
+Reply classification may use the parent as context but records only
+reasons expressed by the reply itself.
 Each text may receive
-multiple categories or none. A reply adds a moral consideration when both texts
-map to at least one category and the reply receives a category absent
-from its comment. This measures addition relative to
+multiple categories or none. A reply adds a moral consideration when it receives a category absent
+from its parent's recorded positive category set, including when the
+parent set is empty. This measures addition relative to
 that comment, not novelty across the discussion.
 Within each post, parent group, and reply orientation,
 proportions include all eligible replies, including those assigned no
 category; empty cells are omitted. We average these proportions across
 posts with equal weight and estimate $95\%$ percentile CIs from 20,000
 joint whole-post bootstrap resamples.
+For exploratory comparisons of the displayed means, we use two-sided,
+centered studentized bootstrap tests with 99,999 joint whole-post
+resamples, preserving dependence between cells from the same post.
+We test all three pairwise parent-group contrasts within each of the
+three reply subsets (all, support, and challenge), plus challenge versus
+support within each parent group. Holm adjustment covers these 12
+comparisons as one family. Contrasts compare marginal post-equal means
+using each cell's contributing posts, rather than restricting both cells
+to their shared posts. These tests treat model-assigned labels as fixed;
+they do not account for classification uncertainty or omitted category
+assignments.
