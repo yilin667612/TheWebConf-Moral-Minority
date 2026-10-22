@@ -199,20 +199,22 @@ a uniformly monotonic interpretation. Intermediate-post summaries were
 retrieved on October~8, 2026; high/low summaries reuse the October~2 cache
 after post-metadata checks. Source hashes are retained with the scripts.
 
-\subsection{Reception Across Discussion Stages}
+\subsection{Reception by Comment Arrival Time}
 \label{sec:supp-arrival}
 
 % Figure~\ref{fig:arrival-sequence-comparison} compares hourly reception with
 % the sequence-based view in Figure~\ref{fig:comment-engagement-over-time}.
-Hourly and sequence-based reception summaries both use first-day judgment
-comments and equal post weight. Hourly means
-exclude empty post--hour cells. Sequence stages are assigned by timestamp
-(then comment ID for ties) before splitting alignment; posts must contribute
-to every stage for the relevant group and measure. Fixed AITA sets contain
-21,978 high-agreement majority, 6,202 high-agreement minority, and 1,838
-low-agreement posts. Thus, the two views differ in post selection as well as
-horizontal scale. Scores and replies are archive-wide recorded outcomes,
-not outcomes measured at a common follow-up age.
+Reception profiles group judgment comments arriving in the first 24 hours
+into one-hour bins. Means are computed within each post, hour, and
+high-agreement alignment group; low-agreement comments are pooled within
+post and hour before averaging. Nonempty post means receive equal weight.
+Missing scores affect only score summaries, and comments with zero replies
+remain included. Contributing posts vary by hour and group. Bands show
+empirical percentiles of post means, not confidence intervals. Scores and
+reply counts use all recorded activity, including replies arriving after
+the first day; they are not measured at a common follow-up age.
+Archived sequence-based alternatives retain fixed post sets across ten
+equal-count stages and therefore differ in post selection as well as scale.
 
 % \begin{figure}[t]
 %   \centering
@@ -381,10 +383,10 @@ AITAH's H-suffixed aliases.]}
 Cumulative-participation patterns appear in
 Supplementary Section~\ref{sec:appendix-cumulative-participation}.
 
-Appendix Figure~\ref{fig:aitah-arrival-reception} applies the first-day sequence
+Appendix Figure~\ref{fig:aitah-arrival-reception} applies the first-day hourly
 analysis in Figure~\ref{fig:comment-engagement-over-time} to AITAH.
-Fixed sets contain 6,709 high-agreement majority, 2,120 high-agreement
-minority, and 388 low-agreement posts. Percentile bands describe
+Each hour gives equal weight to contributing post means; post sets vary
+by hour and group. Percentile bands describe
 post-mean distributions, not confidence intervals. Symmetric-log axes
 are linear within $\pm1$ score point and $\pm0.01$ replies; ranges
 are fitted separately for each community.

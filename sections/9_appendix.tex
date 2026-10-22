@@ -31,14 +31,15 @@ are case-insensitive. Hypothetical and H-suffixed variants are normalized
 
 \input{components/tab_tags}
 
-\runinheading{Discussion stages.}
+\runinheading{Arrival-time profiles.}
 \label{sec:appendix-aita-arrival}
-First-day judgments are ordered by timestamp (then comment ID for ties)
-and divided into ten approximately equal-count stages before splitting
-alignment. Groups retain posts represented in every stage, with equal
-post weights: 21,978 high-agreement majority, 6,202 high-agreement minority,
-and 1,838 low-agreement AITA posts. This selects persistently represented
-groups; recorded scores and replies have no common follow-up age.
+Comments posted in the first 24 hours are grouped into one-hour arrival
+bins. Within each post and hour, means are computed separately for
+high-agreement majority and minority comments and jointly for both sides
+under low agreement. Nonempty post means receive equal weight; posts
+can contribute to some hours but not others. Zero-reply comments remain
+included. Scores and replies use all recorded activity, not a common
+follow-up period or only replies received within the first day.
 
 \runinheading{Inference.}
 Reception contrasts use post/group means, CR1 post-cluster standard
@@ -162,7 +163,7 @@ $p<.001$; low-agreement reply-count and depth contrasts are not
 significant. Shared ordering implies neither equal magnitudes nor a
 causal community effect. Supplementary Section~\ref{sec:supp-aitah-reception}
 provides additional summaries. Figure~\ref{fig:aitah-arrival-reception}
-shows reception across first-day discussion stages.
+shows recorded reception by comment arrival hour during the first day.
 
 \begin{figure}[t]
   \centering
@@ -179,15 +180,15 @@ shows reception across first-day discussion stages.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_sequence_reception_distributions_fixed.pdf}
-  \caption{AITAH reception across the first-day comment sequence, following
+  \includegraphics[width=\columnwidth]{figures/aitah_arrival_reception_symlog.pdf}
+  \caption{AITAH recorded reception by comment arrival hour, following
   Figure~\ref{fig:comment-engagement-over-time}. Lines show means/medians of
   post means; dark/light bands show 25th--75th/10th--90th percentiles,
-  not CIs. Post sets are fixed within groups.}
+  not CIs. Contributing posts vary by hour.}
   \label{fig:aitah-arrival-reception}
-  \Description{AITAH score and reply-count distributions across ten
-  comment-sequence stages for high-agreement majority and minority and
-  low-agreement comments.}
+  \Description{AITAH score and reply-count distributions by comment arrival
+  hour during the first 24 hours for high-agreement majority and minority
+  and low-agreement comments. Outcomes include all recorded reception.}
 \end{figure}
 
 \runinheading{Cross-posted stories: matching and selection.}
