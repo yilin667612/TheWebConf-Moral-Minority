@@ -30,6 +30,8 @@ with args.source.open(newline='', encoding='utf-8-sig') as f:
 assert len(rows) == len({r['participant_id'] for r in rows}) == 80
 assert all(r['majority_aligned_judgment'] == str(int(r['judgment_direction']==r['majority_judgment'])) for r in rows)
 conditions = [('MM','majority_majority','#5770DB'),('Mm','majority_minority','#DB5F57')]
+# Keep source/test keys unchanged; use descriptive condition names in the paper.
+condition_labels = {'MM': 'Two Majority', 'Mm': 'Majority + Minority'}
 alignments = [('majority','1',-1),('minority','0',1)]
 metrics = ['certainty_1_4','comment1_influence','comment2_influence',
            'comment1_agreement','comment2_agreement','comment1_reflection',
@@ -92,7 +94,7 @@ def bars(metric,y,upper):
             c.setFillColor(HexColor(color))
             c.rect(min(CENTER,end),y+dy-BAR_HEIGHT/2,abs(end-CENTER),BAR_HEIGHT,fill=1,stroke=0)
             text(end+side*2,y+dy-1.8,number(value),5.2,'right' if side<0 else 'left')
-        # One marker per MM--Mm comparison, centered between the paired bars.
+        # One marker per between-condition comparison, centered between the paired bars.
         p_value = p_values[alignment,metric]
         stars = '***' if p_value < .001 else '**' if p_value < .01 else '*' if p_value < .05 else ''
         if stars:
@@ -106,12 +108,12 @@ def bars(metric,y,upper):
             text(65 if side < 0 else 235.5,y-2.2,stars,6,'center')
 for y,(name,_,color) in zip([180,171],conditions):
     c.setFillColor(HexColor(color)); c.rect(2,y,5,5,fill=1,stroke=0)
-    text(10,y,name,7)
+    text(10,y,condition_labels[name],6.1)
 for x,(alignment,_,_) in zip([110,190],alignments):
     text(x,180,'Agrees with '+alignment,6,'center')
     mm=cells[alignment,'MM','certainty_1_4']['n']
     mixed=cells[alignment,'Mm','certainty_1_4']['n']
-    text(x,171,f'MM: n = {mm}; Mm: n = {mixed}',5.2,'center')
+    text(x,171,f'n = {mm} / {mixed}',5.2,'center')
 # Extend the alignment divider through both group headings and sample sizes.
 c.setStrokeColor(HexColor(INK)); c.setLineWidth(.3); c.setDash(1.4,1.4)
 c.line(CENTER,166,CENTER,186); c.setDash()
@@ -138,6 +140,7 @@ bars('perspective_broadening_mean',28,7)
 c.save()
 (args.out/'summary.json').write_text(json.dumps(dict(
     source_sha256=hashlib.sha256(args.source.read_bytes()).hexdigest(),
+    condition_labels=condition_labels,
     cells=[dict(alignment=k[0],condition=k[1],metric=k[2],**v) for k,v in cells.items()],
     tests=tests,
     caveat='Post-exposure alignment; exploratory subgroup comparisons. Asterisks use unadjusted two-sided Welch p-values: * < .05, ** < .01, *** < .001.'),indent=2)+'\n')

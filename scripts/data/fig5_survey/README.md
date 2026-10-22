@@ -14,7 +14,10 @@ R reads the literal judgment label `NA` as text, not a missing value.
 The source PDF and `fig5_survey_panels.py` preserve the older panel design;
 they are not used by the current builder. The current figure shows asterisks
 for unadjusted two-sided Welch p-values (* < .05, ** < .01, *** < .001),
-outside each MM--Mm pair. The exact-p-value appendix table is temporarily
+outside each Two Majority versus Majority + Minority pair. Condition names
+are display labels; the source treatment values and statistical output keys
+remain unchanged. Group counts follow legend order (Two Majority / Majority + Minority).
+The exact-p-value appendix table is temporarily
 omitted from the manuscript; its component and computed CSV are retained.
 Its subgroup means and sample sizes
 are audited against the R results and reconcile with full-sample means.
@@ -28,3 +31,8 @@ Aggregate tests (`alignment_tests.csv`), means, input hashes, and previews
 are saved in the ignored `output/pdf/fig5_alignment_combined/` directory.
 `components/tab_survey_alignment_tests.tex` reports every p-value, rounded
 to three decimals (values below .001 are reported as <.001).
+
+The procedure diagram is generated with bundled Python:
+`python3 scripts/fig_survey_procedure.py --publish`.
+Its editable source preserves the previous diagram's structure and content,
+with the same descriptive condition names used in the results figure.
