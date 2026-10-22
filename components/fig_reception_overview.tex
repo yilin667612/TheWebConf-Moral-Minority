@@ -13,28 +13,32 @@
 % \end{figure}
 
 
-\begin{figure}[t]
+\begin{figure*}[t]
   \centering
-    \includegraphics[width=\columnwidth]{figures/fig2.pdf}
-    \vspace{-15pt}
-    \caption{Reception by agreement and dissent direction. Boxes show
-    post-level means; diamonds mark group means. Shading identifies minority
-    directions. Brackets: $^{***}p<.001$.
+  % Widths follow the artwork aspect ratios so the images and captions align.
+  \begin{minipage}[t]{0.57\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/fig2.pdf}
+    \caption{Reception by (a) agreement and judgment alignment and
+    (b) minority direction within high-agreement posts. Boxes show
+    post-level means; diamonds mark group means. Brackets: $^{***}p<.001$.
     % Brackets: $^{***}p_{\mathrm{Holm}}<.001$;
     % unmarked comparisons are not significant.
     }
     \label{fig:reception-overview}
-    \Description{Post-level score, reply count, and reply depth by agreement
-    and judgment alignment, with blaming and defending minority subsets.}
-\vspace{3pt}
-    \includegraphics[width=\columnwidth]{figures/aita_arrival_reception_symlog.pdf}
-    \vspace{-15pt}
-    \caption{Recorded reception by comment arrival hour. Solid/dashed
-    lines show means/medians of post means; dark/light bands show
-    25th--75th/10th--90th percentiles. Axes use symmetric-log scales;
-    contributing posts vary by hour.}
+    \Description{Three horizontal box-plot panels show post-level score,
+    reply count, and reply depth. Block (a) compares majority and minority
+    comments under low and high agreement. The separated shaded block (b)
+    compares blaming and defending minority comments under high agreement.}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.405\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/aita_arrival_reception_symlog.pdf}
+    \caption{Reception by arrival hour. Lines and percentile bands
+    summarize post-level averages on symmetric-log axes.}
     \label{fig:comment-engagement-over-time}
     \Description{Score and reply-count distributions by comment arrival hour
     during the first 24 hours, for high-agreement majority and minority
     and low-agreement comments. Outcomes include all recorded reception.}
-\end{figure}
+  \end{minipage}
+\end{figure*}
