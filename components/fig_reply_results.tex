@@ -1,23 +1,28 @@
-% Keep certainty and reply annotation results together (Figures 4 and 5).
-\begin{figure}[t]
+% Keep certainty and reply annotation results side by side (Figures 4 and 5).
+\begin{figure*}[t]
   \centering
-  \includegraphics[width=0.92\columnwidth]{figures/fig3_certainty.pdf}
-  \vspace{-15pt}
-  \caption{High-agreement certainty: post-equal profiles
-  (left) and post fixed-effects trends (right), with $95\%$ bootstrap CIs.
-  Stars: Holm-adjusted $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$;
-  $n$ counts comments in legend order.}
+  % Widths follow the artwork aspect ratios to align images and captions.
+  \begin{minipage}[t]{0.41\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/fig3_certainty.pdf}
+  \caption{High-agreement certainty for majority and blaming/defending
+  minority comments: post-equal means (left) and estimated linear trends
+  (right). $95\%$ post-bootstrap CIs; $^{***}p<.001$ (Holm-adjusted);
+  $n$: comments in legend order.}
   \label{fig:aita-certainty-progress}
-  \Description{Certainty profiles and fitted changes for majority,
-  blaming minority, and defending minority comments.}
+  \Description{Mean expressed certainty across first-day comment stages
+  and estimated linear changes from post fixed-effects regression for
+  majority, blaming minority, and defending minority comments.}
 
-\vspace{5pt}
-  \includegraphics[width=\columnwidth]{figures/aita_reply_orientation_perspectives.pdf}
-  \vspace{-15pt}
-  \caption{Replies in high-agreement AITA posts. (a) Pair-weighted reply
-  orientations. (b) Post-equal rates of replies adding moral considerations with $95\%$
-  post-bootstrap CIs (preliminary 20-post estimates). Panels use separate
-  samples.}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.565\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/aita_reply_orientation_perspectives.pdf}
+  \caption{Replies to majority, blaming minority, and defending minority
+  comments in high-agreement posts. (a) Pair-weighted proportions of support,
+  challenge, and other replies. (b) Post-equal rates of replies adding moral
+  considerations, with $95\%$ post-bootstrap CIs (preliminary 20-post estimates).
+  Panels use separate annotation samples.}
   \label{fig:reply-responses}
   % TODO: Replace panel (b)'s estimates and intervals with the 100-post
   % analysis, verify the qualitative trends, and update the sample note.
@@ -27,4 +32,5 @@
   replies. Blue diamonds, orange circles, and green squares identify
   majority, blaming minority, and defending minority parents. Challenges
   have higher observed addition rates than support in each group.}
-\end{figure}
+  \end{minipage}
+\end{figure*}
