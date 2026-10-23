@@ -55,41 +55,6 @@ Sections~\ref{sec:supp-certainty-analysis} and
 \section{Additional Evidence}
 \label{sec:appendix-evidence}
 
-\runinheading{Certainty contrasts and sensitivity.}
-\label{sec:appendix-certainty}
-Figure~\ref{fig:certainty-low-high} compares full-period post-equal
-certainty. The high-agreement AITA certainty-4 gap is 8.0 percentage
-points (95\% CI [3.9,12.2]), but restricting annotations to version
-\texttt{v4} yields 5.0 points ([-0.7,10.5]); version and post composition
-are confounded. The AITAH high-agreement defending sample has 15 posts
-for full-period contrasts and eight for stage analysis. No AITAH slope
-survives Holm correction (Figure~\ref{fig:certainty-progress}). Detailed
-sensitivity checks appear in Supplementary Section~\ref{sec:supp-certainty-analysis}.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
-  \caption{Post-equal certainty distributions (left) and differences in
-  certainty-$4$ proportions (blaming minus defending) with $95\%$ bootstrap CIs (right). Hollow markers
-  flag the small AITAH high-agreement defending sample;
-  $n$ denotes posts (blaming/defending).}
-  \label{fig:certainty-low-high}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_certainty_progress_post_fe.pdf}
-  \caption{AITAH certainty profiles (left) and post fixed-effects
-  trends (right), in high-agreement posts. Blue/orange/green: majority/blaming/defending;
-  bands/whiskers: $95\%$ post-bootstrap CIs. Stars: Holm-adjusted
-  $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$ (none here);
-  $n$ counts comments with valid certainty annotations in legend order.}
-  \label{fig:certainty-progress}
-  \Description{Mean certainty across first-day comment stages and estimated linear
-  changes from the first to the last stage in high-agreement AITAH posts.
-  No slope is significant after Holm correction; defending uses eight posts.}
-\end{figure}
-
 \runinheading{Judgment distributions.}
 \label{sec:appendix-verdict-distribution}
 High-agreement posts account for $78.2\%$ of analyzed AITA posts, of which
@@ -100,9 +65,11 @@ Figure~\ref{fig:verdict-distributions} shows the distributions.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/verdict_distributions_aita_aitah.pdf}
+  \vspace{-20pt}
   \caption{Final YA share in AITA (left) and AITAH (right). Bars show post
   counts (left axes); red lines show mean judgment comments per post
   (right axes). Shading marks high agreement.}
+  \vspace{-10pt}
   \label{fig:verdict-distributions}
   \Description{Side-by-side judgment distributions for AITA and AITAH.
   Posts concentrate near the NA end; mean judgment counts are higher toward
@@ -119,13 +86,56 @@ preclude a uniformly monotonic interpretation.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/aita_reception_by_ya_share_post_equal.pdf}
+  \vspace{-20pt}
   \caption{AITA post-equal score, reply count, and maximum reply depth
   across final YA share. Blue/red: majority/minority; bands: pointwise $95\%$
   bootstrap CIs. Dark/light shading marks high/low agreement.}
+  \vspace{-10pt}
   \label{fig:aita-agreement-gradient}
   \Description{Three panels compare majority and minority reception across
   final YA-share bins. Gaps are generally larger toward the endpoints.}
 \end{figure}
+
+\runinheading{Certainty contrasts and sensitivity.}
+\label{sec:appendix-certainty}
+Figure~\ref{fig:certainty-low-high} compares full-period post-equal
+certainty. The high-agreement AITA certainty-4 gap is 8.0 percentage
+points (95\% CI [3.9,12.2]), but restricting annotations to version
+\texttt{v4} yields 5.0 points ([-0.7,10.5]); version and post composition
+are confounded. The AITAH high-agreement defending sample has 15 posts
+for full-period contrasts and eight for stage analysis. No AITAH slope
+survives Holm correction (Figure~\ref{fig:certainty-progress}). Detailed
+sensitivity checks appear in Supplementary Section~\ref{sec:supp-certainty-analysis}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
+  \vspace{-20pt}
+  \caption{Post-equal certainty distributions (left) and differences in
+  certainty-$4$ proportions (blaming minus defending) with $95\%$ bootstrap CIs (right). Hollow markers
+  flag the small AITAH high-agreement defending sample;
+  $n$ denotes posts (blaming/defending).}
+  \vspace{-10pt}
+  \label{fig:certainty-low-high}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aitah_certainty_progress_post_fe.pdf}
+  \vspace{-20pt}
+  \caption{AITAH certainty profiles (left) and post fixed-effects
+  trends (right), in high-agreement posts. Blue/orange/green: majority/blaming/defending;
+  bands/whiskers: $95\%$ post-bootstrap CIs. Stars: Holm-adjusted
+  $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$ (none here);
+  $n$ counts comments with valid certainty annotations in legend order.}
+  \vspace{-10pt}
+  \label{fig:certainty-progress}
+  \Description{Mean certainty across first-day comment stages and estimated linear
+  changes from the first to the last stage in high-agreement AITAH posts.
+  No slope is significant after Holm correction; defending uses eight posts.}
+\end{figure}
+
+
 
 \runinheading{Reception in AITAH.}
 \label{sec:appendix-aitah-reception}
@@ -214,7 +224,7 @@ reply adds; that requires checking the underlying pair.
 \input{components/tab_survey_posts}
 
 % Keep the compact survey overview together beside its procedure figure.
-\noindent\begin{minipage}{\columnwidth}
+% \noindent\begin{minipage}{\columnwidth}
 \section{Survey Experiment}
 \label{app:survey}
 
