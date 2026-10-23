@@ -33,5 +33,5 @@ ax.tick_params(axis='y',length=0)
 ax.legend(handles=[Patch(facecolor='#A8B0B5',label='Support'),Patch(facecolor='white',edgecolor=ink,hatch='///',label='Challenge'),Patch(facecolor='#E4E7E9',edgecolor='#A8B0B5',label='Other')],
     loc='upper center',bbox_to_anchor=(.5,1.25),ncol=3,frameon=False,fontsize=9,handlelength=1.1,columnspacing=.8)
 fig.subplots_adjust(left=.24,right=.93,bottom=.16,top=.79)
-fig.savefig(ROOT/'figures/aita_response_proportions.pdf')
+fig.savefig(ROOT/'figures/NOT_USED/aita_response_proportions.pdf')
 plt.close(fig)

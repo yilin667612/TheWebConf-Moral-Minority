@@ -1,6 +1,6 @@
 """Recreate the survey procedure as an editable vector figure.
 
-Preserves the structure and content of figures/survey_procedure.png while
+Preserves the structure and content of figures/NOT_USED/survey_procedure.png while
 using the paper's descriptive condition names. Run with bundled Python.
 """
 import argparse

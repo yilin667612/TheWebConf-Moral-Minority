@@ -21,7 +21,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / 'figures/fig2.pdf'
-BACKUP = ROOT / 'figures/alternatives/fig2_before_significance.pdf'
+BACKUP = ROOT / 'figures/NOT_USED/alternatives/fig2_before_significance.pdf'
 OUT = ROOT / 'output/fig2_significance'
 SOURCE = ROOT.parent / 'minority-voices-aita/output/reception_full_min200_20261002/posts.jsonl'
 METRICS = {'mean_score': ('score_sum', 'score_n'),
@@ -89,8 +89,8 @@ def main():
     args = parser.parse_args()
     target, backup, out = TARGET, BACKUP, OUT
     if args.community == 'AITAH':
-        target = ROOT / 'figures/aitah_reception_agreement_direction_boxes_vertical.pdf'
-        backup = ROOT / 'figures/alternatives/aitah_reception_before_significance.pdf'
+        target = ROOT / 'figures/NOT_USED/aitah_reception_agreement_direction_boxes_vertical.pdf'
+        backup = ROOT / 'figures/NOT_USED/alternatives/aitah_reception_before_significance.pdf'
         out = ROOT / 'output/aitah_reception_significance'
     digest, results = comparisons(args.community)
     out.mkdir(parents=True, exist_ok=True)

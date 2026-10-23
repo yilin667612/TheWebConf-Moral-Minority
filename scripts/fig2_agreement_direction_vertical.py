@@ -26,7 +26,7 @@ METRICS={'mean_score':('score_sum','score_n'),'mean_reply':('reply_sum','n'),'me
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--community',choices=['AITA','AITAH'],default='AITA')
-    p.add_argument('--pdf-dir',type=Path,default=ROOT/'figures/alternatives')
+    p.add_argument('--pdf-dir',type=Path,default=ROOT/'figures/NOT_USED/alternatives')
     p.add_argument('--preview-dir',type=Path,default=ROOT/'output/fig2_agreement_direction_vertical')
     args=p.parse_args()
     community=args.community

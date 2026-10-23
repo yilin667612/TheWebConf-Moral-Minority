@@ -220,7 +220,7 @@ if __name__=='__main__':
     p.add_argument('--source-manifest',type=Path,default=MANIFEST)
     p.add_argument('--legacy-values',type=Path,default=ROOT/'scripts/data/fig5_certainty_progress/fixed/post_stage_values.csv')
     p.add_argument('--data',type=Path,default=ROOT/'scripts/data/fig8_all_groups/fixed')
-    p.add_argument('--pdf',type=Path,default=ROOT/'figures/certainty_progress_all_agreement_post_fe.pdf')
+    p.add_argument('--pdf',type=Path,default=ROOT/'figures/NOT_USED/certainty_progress_all_agreement_post_fe.pdf')
     p.add_argument('--preview',type=Path)
     p.add_argument('--community',choices=['AITA','AITAH'])
     p.add_argument('--width',type=float,default=8.2)
