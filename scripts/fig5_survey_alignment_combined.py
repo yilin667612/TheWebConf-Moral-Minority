@@ -31,7 +31,7 @@ assert len(rows) == len({r['participant_id'] for r in rows}) == 80
 assert all(r['majority_aligned_judgment'] == str(int(r['judgment_direction']==r['majority_judgment'])) for r in rows)
 conditions = [('MM','majority_majority','#5770DB'),('Mm','majority_minority','#C6538C')]
 # Keep source/test keys unchanged; use descriptive condition names in the paper.
-condition_labels = {'MM': 'Two Majority', 'Mm': 'Majority + Minority'}
+condition_labels = {'MM': 'Highly Scored', 'Mm': 'Balanced'}
 alignments = [('majority','1',-1),('minority','0',1)]
 metrics = ['certainty_1_4','comment1_influence','comment2_influence',
            'comment1_agreement','comment2_agreement','comment1_reflection',

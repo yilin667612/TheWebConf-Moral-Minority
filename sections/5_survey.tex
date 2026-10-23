@@ -4,8 +4,8 @@ We examine how readers respond when a minority comment thread is presented
 alongside a majority thread, compared with exposure to two majority threads.
 We ask whether readers in these conditions differ in their certainty about
 their own judgments, their agreement with the comments, and the influence
-they attribute to each comment. We also compare the new moral considerations
-and the range of considerations they report, examining readers' responses
+they attribute to each comment. We also compare whether readers report considering
+multiple sides, new considerations, and reasons for alternative judgments, examining their responses
 to dissent beyond agreement with its position (\textbf{RQ3}).
 
 \subsection{Survey Design}
@@ -14,7 +14,7 @@ to dissent beyond agreement with its position (\textbf{RQ3}).
 \runinheading{Design and stimuli}
 We conducted a between-subjects survey experiment. Participants were randomly assigned to one of four high-agreement AITA posts (two with a majority \textit{YA} judgment and two with a majority \textit{NA} judgment) and one of two comment-display conditions. The posts concerned financial obligations between friends, parenting, punctuality, and workplace conduct. Appendix~\ref{app:survey} provides details of the survey procedure and scenarios.
 
-In the \textit{Two Majority} condition, participants saw the two highest-scoring majority comments. In the \textit{Majority + Minority} condition, the highest-scoring minority comment replaced the second majority comment. Within each scenario, the post and Comment~1 were held constant; only Comment~2 and its reply thread varied. The manipulation therefore combined thread content, replies, and observed scores.
+In the \textit{Highly Scored} condition, participants saw the two highest-scoring majority comments. In the \textit{Balanced} condition, the highest-scoring minority comment replaced the second majority comment. Within each scenario, the post and Comment~1 were held constant; only Comment~2 and its reply thread varied. The manipulation therefore combined thread content, replies, and observed scores.
 
 The Reddit-style interface retained the original wording, scores, and \textit{YA}/\textit{NA} judgments. Replies were nested up to four levels, initially collapsed, and expandable via \textit{View replies}. Usernames were replaced with generic labels; majority/minority labels and agreement percentages were omitted.
 
@@ -22,10 +22,9 @@ The Reddit-style interface retained the original wording, scores, and \textit{YA
 We recruited 80 participants through the online platform Prolific, with fluency in English as an eligibility criterion. Participants were aged 19–58 years (M = 34.10, SD = 9.27), with 40 identifying as male and 40 as female. Most participants were aged 25–34 (55.0\%). Participants completed the study in an average of 9 minutes and received €1 as compensation.
 
 \runinheading{Measures}
-Moral judgment, the primary outcome, used an eight-point scale from 1 (Definitely YA) to 8 (Definitely NA), with four certainty levels in each direction. Each selected response thus encoded both judgment direction and certainty. We recoded certainty from 1 (least certain) to 4 (most certain), assigning the two innermost responses to 1 and the two endpoints to 4. This reader-selected certainty differs from the linguistic certainty annotated in comments. Per-comment influence, agreement, and ratings of \emph{new moral considerations} used five-point scales (1--5). Participants also identified which comment contributed more to their judgment (Comment~1, Comment~2, both equally, or neither). Three seven-point items assessed the discussion-level \emph{range of moral considerations}: considering both sides, encountering new considerations, and engaging with reasons supporting an alternative judgment. Display preference contrasted two highly upvoted comments supporting the same judgment with two representing opposing judgments, plus a no-preference option.
+Moral judgment, the primary outcome, used an eight-point scale from 1 (Definitely YA) to 8 (Definitely NA), with four certainty levels in each direction. Each selected response thus encoded both judgment direction and certainty. We recoded certainty from 1 (least certain) to 4 (most certain), assigning the two innermost responses to 1 and the two endpoints to 4. This reader-selected certainty differs from the linguistic certainty annotated in comments. Per-comment influence, agreement, and ratings of \emph{new moral considerations} used five-point scales (1--5). Participants also identified which comment contributed more to their judgment (Comment~1, Comment~2, both equally, or neither). Three seven-point discussion-level items assessed considering multiple sides, considerations that had not initially occurred to the reader, and why someone might reach a different conclusion. We report these items separately; all 80 participants answered each item. Display preference contrasted two highly upvoted comments supporting the same judgment with two representing opposing judgments, plus a no-preference option.
 
-% TODO: Specify item wording and anchors, how the three items assessing the range of moral
-% considerations are aggregated, and the treatment of missing item responses.
+% TODO: Verify the response anchors for the three discussion-level items.
 % TODO: Report judgment distributions, open-ended explanations, and comparative
 % comment contributions, or explain their omission.
 
@@ -39,45 +38,48 @@ Moral judgment, the primary outcome, used an eight-point scale from 1 (Definitel
 
 Figure~\ref{fig:survey-results} separates readers by final judgment
 alignment to show contrasting patterns in certainty and responses to C2.
-Majority-aligned judgments account for $75.0\%$ of Two Majority and
-$77.5\%$ of Majority + Minority responses. Readers were grouped by their
+Majority-aligned judgments account for $75.0\%$ of Highly Scored and
+$77.5\%$ of Balanced responses. Readers were grouped by their
 final judgments after exposure; their judgments before exposure were not
-measured. C1 is shared across conditions; C2 is a second majority comment in Two Majority and a minority
-comment in Majority + Minority.
+measured. C1 is shared across conditions; C2 is a second majority comment in Highly Scored and a minority
+comment in Balanced.
 
-\begin{figure}[t]
+\begin{figure*}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figures/survey_results_panels.pdf}
-  \vspace{-15pt}
-  \caption{Mean survey responses by reported judgment alignment;
-  group sizes follow legend order. C1 is shared across conditions;
-  C2 is majority-aligned in Two Majority and minority-aligned in Majority + Minority.
-  Asterisks mark exploratory between-condition comparisons within each judgment group:
-  $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$ (unadjusted).}
+  \includegraphics[width=\textwidth]{figures/survey_results_panels.pdf}
+  \caption{Survey responses by reported judgment alignment. Points show means;
+  whiskers show pointwise 95\% participant-bootstrap confidence intervals.
+  Panel~(b) reports three discussion-level items separately.
+  C1 is shared across conditions; C2 is majority-aligned in Highly Scored
+  and minority-aligned in Balanced.}
   \label{fig:survey-results}
-  \Description{Mirrored horizontal bars compare Two Majority and Majority + Minority means separately
-  for readers agreeing with the majority (left) and minority (right).
-  Group sizes are 30 and 31 on the left and 10 and 9 on the right.
-  The upper block shows judgment certainty and the discussion-level range of moral considerations.
-  The lower block shows comment influence, agreement, and new moral considerations.
-  Certainty is lower in Majority + Minority on the majority side but higher on the minority
-  side. Ratings for the range of moral considerations are higher in Majority + Minority on both sides.
-  Asterisks outside each pair mark unadjusted Welch comparisons between conditions,
-  not comparisons between judgment groups.}
-\end{figure}
+  \Description{Three side-by-side dot-and-whisker panels show judgment certainty,
+  three discussion-level items, and comment-level influence, agreement, and new
+  moral considerations. The final panel groups ratings by C1 and C2. Blue denotes
+  Highly Scored and magenta denotes Balanced. Circles denote agreement with the
+  majority and triangles agreement with the minority. Group sizes are 30 and 31
+  for majority-aligned readers and 10 and 9 for minority-aligned readers.
+  Panel b separates considering multiple sides, new considerations, and why
+  someone might reach an alternative judgment. Whiskers show 95 percent
+  bootstrap confidence intervals around means.}
+\end{figure*}
 
 \runinheading{Certainty differs by judgment alignment.}
-Majority-aligned readers report lower certainty in Majority + Minority
-than in Two Majority ($2.61$ versus $3.43$; $p<.001$), while
+Majority-aligned readers report lower certainty in Balanced
+than in Highly Scored ($2.61$ versus $3.43$; $p<.001$), while
 minority-aligned readers show the opposite descriptive pattern
 ($2.89$ versus $2.30$; $p=.299$).
 
-\runinheading{Readers report a broader range of moral considerations in Majority + Minority.}
-The next panel shows higher discussion-level ratings in Majority + Minority for majority-aligned readers ($4.80$ versus $3.93$; $p=.020$)
-and minority-aligned readers ($5.22$ versus $4.53$; $p=.300$).
+\runinheading{Readers report greater consideration of alternative views in Balanced.}
+Panel~(b) shows higher observed means in Balanced on all three discussion-level
+items, within both reported-judgment groups. Across all readers, the largest
+observed difference concerns considering why someone might reach a different
+conclusion ($5.08$ in Balanced versus $3.85$ in Highly Scored). This item asks
+about considering an alternative judgment, not agreeing with it. The item-level
+comparisons are descriptive.
 
 At the comment level, the unchanged C1 receives higher mean influence
-ratings in Majority + Minority from both majority-aligned readers
+ratings in Balanced from both majority-aligned readers
 ($2.94$ versus $2.53$; $p=.227$) and minority-aligned readers
 ($2.44$ versus $1.50$; $p=.082$), although neither difference is
 statistically significant.
@@ -86,11 +88,11 @@ minority-aligned readers (both $p<.05$). Agreement with C1 is similar
 across conditions, while agreement with C2 follows the same alignment-dependent
 pattern as its influence (both $p<.05$).
 
-The final panel asks whether each comment introduces new moral
-considerations, complementing the discussion-level range measured above.
+Panel~(c) also shows whether each comment introduces new moral
+considerations, complementing the discussion-level items above.
 Within each condition and judgment group, C1 and C2 have similar observed
 means; the more consistent pattern is higher ratings for both comments
-in Majority + Minority, including the unchanged C1. These between-condition
+in Balanced, including the unchanged C1. These between-condition
 contrasts are descriptive (all $p\geq.115$). The pattern concerns perceived
 new considerations across the displayed comments, rather than a uniquely
 higher rating for the minority comment. For \textbf{RQ3}, majority-aligned
@@ -99,14 +101,16 @@ agreement with and influence attributed to it.
 
 \runinheading{Relative comment contribution and preferred display.}
 Beyond the plotted measures, readers more often select C1 as contributing
-most to their judgment in Majority + Minority than in Two Majority
+most to their judgment in Balanced than in Highly Scored
 ($50\%$ versus $20\%$). C2 is selected by $15\%$ versus $10\%$, both equally
-by $10\%$ versus $30\%$, and neither by $25\%$ versus $40\%$. Within Majority + Minority, C1 is the most frequent choice among majority-aligned
+by $10\%$ versus $30\%$, and neither by $25\%$ versus $40\%$. Within Balanced, C1 is the most frequent choice among majority-aligned
 readers ($61.3\%$), and C2 among minority-aligned readers ($44.4\%$).
-Most participants prefer one comment from each side in both Two Majority
-($67.5\%$) and Majority + Minority ($57.5\%$), although fewer report equal
+Most participants prefer one comment from each side in both Highly Scored
+($67.5\%$) and Balanced ($57.5\%$), although fewer report equal
 contribution from both comments.
 
-These exploratory comparisons concern four selected scenarios; the
-figure's $16$ Welch tests use unadjusted $p$-values.
+These exploratory comparisons concern four selected scenarios; reported
+Welch tests are two-sided and use unadjusted $p$-values. The figure's confidence intervals
+use 20,000 bootstrap resamples of participants within each condition and
+reported-judgment group, retaining each participant's responses together.
 % TODO: Confirm that reported differences use unrounded means.

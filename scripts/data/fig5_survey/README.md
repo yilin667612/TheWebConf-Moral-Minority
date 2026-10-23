@@ -1,34 +1,50 @@
-# Survey Figure 5
+# Survey Figure 6
 
-Run `python3 scripts/fig5_survey_alignment_combined.py --publish` from the
-paper root with ReportLab installed and `Rscript` available. This replaces
-`figures/survey_results_panels.pdf` with means for all outcomes, split by
-reported judgment alignment. Omit `--publish` to generate a preview only.
-The script calls `scripts/fig5_survey_alignment_tests.R` for all 16 tests.
+Run `python3 scripts/fig6_survey_alignment_dotwhisker.py --wide --publish`
+from the paper root with the bundled Python (NumPy, ReportLab, pypdf).
+This replaces `figures/survey_results_panels.pdf` with a three-panel row of
+means and pointwise 95% participant-bootstrap confidence intervals.
+Omit `--publish` to generate a preview only. The builder imports shared layout
+helpers from `scripts/fig6_survey_alignment_boxplots.py`.
+
+Panel (b) reports `perspective_broadening_1`, `_2`, and `_3` separately:
+considering multiple sides, new considerations, and why someone might reach
+an alternative judgment. Each item retains all four treatment/alignment
+groups, with means and pointwise 95% CIs. The existing
+`perspective_broadening_mean` is verified as the unweighted three-item mean
+for every participant and retained only as a supplementary score. No item
+responses are missing. The main manuscript describes item-level differences
+without new significance tests; the largest observed gap across all 80
+readers concerns considering alternative judgments. This is not a test of
+differences in treatment effects across items or a claim about every subgroup.
 
 The participant-level CSV is deliberately not included in this repository.
 The expected local input is
 `../minority-voices-aita/output/80_participants_merged_analysis.csv`.
 R reads the literal judgment label `NA` as text, not a missing value.
 
-The source PDF and `fig5_survey_panels.py` preserve the older panel design;
-they are not used by the current builder. The current figure shows asterisks
-for unadjusted two-sided Welch p-values (* < .05, ** < .01, *** < .001),
-outside each Two Majority versus Majority + Minority pair. Condition names
-are display labels; the source treatment values and statistical output keys
-remain unchanged. Group counts follow legend order (Two Majority / Majority + Minority).
+The previous bar and boxplot builders preserve earlier designs. The published
+figure has no asterisks: circles/triangles show majority/minority alignment;
+blue/magenta show Highly Scored/Balanced. Condition names are display labels;
+the source treatment values and statistical output keys remain unchanged.
+Highly Scored displays two majority comments; Balanced displays one majority
+and one minority comment. Group counts are 30/31 for majority alignment and
+10/9 for minority alignment, in Highly Scored/Balanced order.
 The exact-p-value appendix table is temporarily
 omitted from the manuscript; its component and computed CSV are retained.
-Its subgroup means and sample sizes
-are audited against the R results and reconcile with full-sample means.
+Subgroup means and sample sizes are audited against the existing R results.
 
-All comparisons use two-sided Welch tests with unadjusted p-values and are
+Existing hypothesis tests use two-sided Welch tests with unadjusted p-values and are
 interpreted as exploratory given the multiple comparisons. Certainty
 comparisons group readers by the single reported judgment measured after
 exposure, not a baseline. Confidence intervals are also unadjusted; the
 analyses do not establish within-person change or causal subgroup effects.
-Aggregate tests (`alignment_tests.csv`), means, input hashes, and previews
-are saved in the ignored `output/pdf/fig5_alignment_combined/` directory.
+The 20,000 bootstrap resamples (seed 20261023) draw whole participant rows
+within condition-by-alignment groups, preserving dependence across outcomes.
+The percentile intervals do not resample scenarios and are conditional on the
+selected stimuli. Means, intervals, input hash, and previews are saved in
+`output/pdf/fig6_alignment_dotwhisker/`. Existing Welch tests are retained in
+`output/pdf/fig5_alignment_combined/alignment_tests.csv`.
 `components/tab_survey_alignment_tests.tex` reports every p-value, rounded
 to three decimals (values below .001 are reported as <.001).
 

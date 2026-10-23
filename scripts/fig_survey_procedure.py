@@ -21,7 +21,7 @@ args.out.mkdir(parents=True, exist_ok=True)
 pdf = args.out/'survey_procedure.pdf'
 W, H = 990, 725
 c = canvas.Canvas(str(pdf), pagesize=(W, H))
-c.setTitle('Survey procedure: Two Majority and Majority + Minority')
+c.setTitle('Survey procedure: Highly Scored and Balanced')
 INK, GRAY = '#242424', '#BDBDBD'
 BLUE, RED = '#5770DB', '#DB5F57'
 FONT_DIR = Path('/System/Library/Fonts/Supplemental')
@@ -53,8 +53,8 @@ box(45, 96, 900, 84)
 text(80, 147, 'AITA for not waiting for my always-late friend?', 32, 'Helvetica-Bold')
 box(45, 192, 426, 210)
 box(519, 192, 426, 210)
-text(258, 243, 'Two Majority', 33, 'Helvetica-Bold', align='center')
-text(732, 243, 'Majority + Minority', 33, 'Helvetica-Bold', align='center')
+text(258, 243, 'Highly Scored', 33, 'Helvetica-Bold', align='center')
+text(732, 243, 'Balanced', 33, 'Helvetica-Bold', align='center')
 comment(80, 270, 'NA comment', BLUE)
 comment(80, 333, 'NA comment', BLUE)
 comment(555, 270, 'NA comment', BLUE)
