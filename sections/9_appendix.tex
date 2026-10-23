@@ -38,6 +38,8 @@ are case-insensitive. Hypothetical and H-suffixed variants are normalized
 
 \input{components/tab_tags}
 
+
+
 \runinheading{Arrival-time profiles.}
 \label{sec:appendix-aita-arrival}
 Comments posted in the first 24 hours are grouped into one-hour arrival
@@ -83,6 +85,8 @@ Figure~\ref{fig:verdict-distributions} shows the distributions.
   the YA end. Gray shading marks the high-agreement regions.}
 \end{figure}
 
+
+
 \runinheading{Reception across agreement.}
 \label{sec:appendix-aita-agreement-gradient}
 Figure~\ref{fig:aita-agreement-gradient} uses 0.05-wide YA-share bins,
@@ -114,9 +118,21 @@ for full-period contrasts and eight for stage analysis. No AITAH slope
 survives Holm correction (Figure~\ref{fig:certainty-progress}). Detailed
 sensitivity checks appear in Supplementary Section~\ref{sec:supp-certainty-analysis}.
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/survey_procedure.pdf}
+  \vspace{-10pt}
+  \caption{Survey procedure: participants read a post and two comment
+  threads in the Highly Scored or Balanced condition, then reported their judgment,
+  explanation, and reader responses.}
+  \vspace{-10pt}
+  \Description{Two-step survey procedure with an NA-majority example
+  and an eight-point judgment scale.}
+  \label{fig:survey-procedure}
+\end{figure}
 
 
-
+\input{components/tab_survey_posts}
 
 \runinheading{Reception in AITAH.}
 \label{sec:appendix-aitah-reception}
@@ -194,13 +210,6 @@ considerations, and addition counts.
 Aggregate summaries do not identify which consideration a particular
 reply adds; that requires checking the underlying pair.
 
-% TODO: Reconcile the separately mentioned updated 107-pair export with
-% the current bedside-drawer export (31 AITA + 96 AITAH pairs) before
-% replacing these estimates or adding pair-level qualitative examples.
-% Verify quotations, explain illustrative selection, and assess identifiability
-% from titles, verbatim quotes, and distinctive details. Removing usernames
-% does not establish anonymity. Document institutional ethics review and
-% archive access/retention; these notes claim no approval or validation.
 
 \begin{figure}[t]
   \centering
@@ -230,7 +239,7 @@ reply adds; that requires checking the underlying pair.
   No slope is significant after Holm correction; defending uses eight posts.}
 \end{figure}
 
-\input{components/tab_survey_posts}
+
 
 \section{Survey Experiment}
 \label{app:survey}
@@ -258,14 +267,3 @@ Table~\ref{tab:survey-questions} and Section~\ref{app:full-survey-stimuli}.
 The retained three-item composite is reported in Supplementary
 Section~\ref{sec:supp-survey-composite}. Unadjusted Welch comparisons are exploratory; groups defined by
 post-exposure judgments do not identify causal subgroup effects.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/survey_procedure.pdf}
-  \caption{Survey procedure: participants read a post and two comment
-  threads in the Highly Scored or Balanced condition, then reported their judgment,
-  explanation, and reader responses.}
-  \Description{Two-step survey procedure with an NA-majority example
-  and an eight-point judgment scale.}
-  \label{fig:survey-procedure}
-\end{figure}
