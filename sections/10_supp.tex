@@ -106,6 +106,29 @@ development-set figures, not held-out accuracy or inter-annotator reliability.
 % uncertainty. If used, document the separate October 24,000-pair sample:
 % .2<rho<.8 is broader than the defined low-agreement band.
 
+\subsection{Annotation of Moral Reasons}
+\label{sec:supp-perspective-annotation}
+
+For each of the 100 AITA posts, we initialize a taxonomy from up to
+50 sampled top-level comments and refine it against the remaining eligible
+comments and replies in batches of up to 50, drawing on inductive category
+formation~\citep{mayring2014qualitative}. Initialization targets four to
+eight categories; refinement permits up to 16 before freezing the taxonomy.
+Construction covers 57,555 eligible texts, while the reply analysis retains
+the original 7,023 pairs and their existing reply-orientation labels.
+
+DeepSeek Flash assigns binary category labels and explanations to each
+text, using temperature zero with thinking disabled. Replies receive their
+parent as context, but only reasons expressed by the target are coded;
+bare agreement does not inherit the parent's categories. Multiple labels
+or none are allowed. Categories remain post-specific. Addition uses
+recorded positive labels, and missing assignments are not imputed as zeros.
+Replies without positive labels remain unmapped in the analysis.
+
+\textbf{[TODO: Report human validation of category assignments using
+100 sampled comments (one per post), including the evaluation procedure,
+metric, and result.]}
+
 \section{Reception and Certainty Analyses}
 \label{sec:supp-analyses}
 
