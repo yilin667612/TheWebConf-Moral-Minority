@@ -113,6 +113,18 @@ or none are allowed. Categories remain post-specific. Addition uses
 recorded positive labels, and missing assignments are not imputed as zeros.
 Replies without positive labels remain unmapped in the analysis.
 
+Figures~\ref{fig:moral-reason-initialize-prompt}--\ref{fig:moral-reason-classify-prompt}
+reproduce the user prompt templates for taxonomy initialization, revision,
+and comment classification, with headings and JSON layout reformatted for
+readability. The prompts use ``perspective'' for the post-specific moral
+reasons discussed here; braces denote substituted inputs. The revision
+prompt shown is the current template; four earlier posts used a
+variant with different version-tracking and unresolved-issue instructions.
+
+\input{components/box_moral_reason_initialize_prompt}
+\input{components/box_moral_reason_revise_prompt}
+\input{components/box_moral_reason_classify_prompt}
+
 \section{Reception and Certainty Analyses}
 \label{sec:supp-analyses}
 
