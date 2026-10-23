@@ -17,6 +17,11 @@ The low/high certainty export retains its original membership and band
 assignments; supplementary draws use seed $0$. Versions \texttt{v4} and
 \texttt{v4.1} do not identify immutable model backends. Fixed sets of posts used in stage analyses
 are subsets of their annotation frames, not additional samples.
+Additional draws exclude previously annotated posts within each community
+and agreement band.
+% TODO: reconcile the historical 3\%/15\% sampling rates with the later
+% 3.3\%/21.2\% figures before reporting selection probabilities. The table
+% records the current export counts; pooled fractions need not be draw rates.
 
 \input{components/tab_samples}
 
@@ -44,60 +49,40 @@ additional H-suffixed variant. Short codes require case-sensitive word
 boundaries, preventing matches to lowercase \texttt{nah} or substrings
 such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
 
-\section{Annotation Protocols}
+\section{Annotation Prompts and Execution}
 \label{sec:supp-annotation}
 
-\subsection{Certainty Annotation}
+Appendix~\ref{sec:appendix-annotation-details} describes annotation samples
+and eligibility, including the moral-consideration procedure. This section
+provides the certainty and reply-orientation prompts and execution records.
+
+\subsection{Certainty Prompt}
 \label{sec:supp-certainty-annotation}
 
-\runinheading{Certainty sampling and annotation.}
-We sample 3.3\% of eligible high-agreement posts and 21.2\% of low-agreement
-posts with at least 200 judgments, annotating their comments individually.
-The existing low/high export contains 1,424 posts and 830,287 valid YA/NA
-certainty records across the two communities.
-The analysis retains the export's membership; additional draws exclude
-previously annotated posts within each community and agreement band.
-Judgment alignment follows the first recognized judgment in the comment.
-Independent held-out human validation and immutable model-version
-documentation remain unresolved. The prompt is shown below.
-
-Figure~\ref{fig:prompt} supplies the post and verdict comment, returning
-a certainty score and rationale. Its scale concerns hedging, not verdict
-direction; displayed examples are abridged. Independent human validation
+Figure~\ref{fig:prompt} supplies the post and comment, returning
+a certainty score and rationale. Its scale concerns hedging, not judgment
+direction; displayed examples are abridged. Independent held-out human validation
 and immutable model/version documentation remain unresolved.
 % TODO: report certainty model/backend, decoding settings, and held-out human
 % validation. Locally recorded v4/v4.1 labels do not identify an immutable model.
 
 \input{components/box_prompt}
 
-\subsection{Reply-Orientation Annotation}
+\subsection{Reply-Orientation Prompt and Execution}
 \label{sec:supp-response-annotation}
 
-\runinheading{Reply sampling and eligibility.}
-We draw three seeded samples of 16,000 comment--reply pairs each, with
-2,000 pairs from each of eight strata defined by community (AITA or AITAH),
-dominant judgment in high-agreement posts (NA or YA), and comment alignment
-(majority or minority). Each sample therefore contains 8,000 pairs per
-community. Sampling is without replacement within strata, but the three
-samples can overlap. There is no cap on pairs from any post or comment.
-% These samples come from a broader set of comment--reply pairs not assumed to satisfy
-% the 200-judgment threshold.
-We exclude pairs involving the OP, exchanges by the same author,
-unverifiable identities, and pairs without usable post, comment, or reply
-text. The annotation prompt includes neither scores nor alignment metadata.
-Qualified agreement can remain support; rhetorical rebuttals count as
-challenge. Development-set review does not establish independent held-out
-accuracy. The prompt and execution records are described below.
+For the stratified samples described in Appendix~\ref{sec:appendix-annotation-details},
+seeds are $2026090901$--$2026090903$. Sampling is without replacement
+within each stratum, with no cap on pairs per post or comment;
+author-ineligible draws are replaced in deterministic candidate order.
+Overlapping pairs are annotated separately in each sample. Equal-stratum
+proportions are not population prevalence. The sampling frame's minimum-judgment
+requirement remains to be verified.
 
-The eight strata cross community, high-agreement tail, and parent alignment.
-Seeds are $2026090901$--$2026090903$; author-ineligible draws are replaced
-in deterministic candidate order. Samples may share pairs, annotated
-separately each time; equal-stratum proportions are not population prevalence.
-The response frame's minimum-verdict requirement remains to be verified.
-
-Prompt \texttt{v0.3.3} classifies the reply's central stance: qualifications
+Prompt \texttt{v0.3.3} includes no scores or alignment metadata and
+classifies the reply's central stance: qualifications
 preserving the parent's position may remain support, while substantive
-rebuttals are challenge (Figure~\ref{fig:rq2-prompt}). Post, parent, and reply
+or rhetorical rebuttals are challenge (Figure~\ref{fig:rq2-prompt}). Post, parent, and reply
 text are required; missing model outputs are not assigned to \emph{other}.
 All completed samples have labels for every pair.
 
@@ -110,8 +95,9 @@ as V4.1 Flash but not an immutable backend. Prompts, responses, and attempt
 records were retained. Three fresh requests on each of $32$ frozen examples
 checked repeatability, not accuracy.
 
-Human review covered $100$ author-verified pairs ($80$ retained and $20$
-replacements), with labels revised after examining model disagreements.
+The development review reported in Appendix~\ref{sec:appendix-annotation-details}
+used $80$ retained pairs and $20$ replacements, all author-verified;
+labels were revised after examining model disagreements.
 Agreement was $91/100$ overall and $88/93$ among human support/challenge
 labels; other model predictions remain disagreements. These are
 development-set figures, not held-out accuracy or inter-annotator reliability.
@@ -119,26 +105,6 @@ development-set figures, not held-out accuracy or inter-annotator reliability.
 % establish independent category-level validation and post/parent-clustered
 % uncertainty. If used, document the separate October 24,000-pair sample:
 % .2<rho<.8 is broader than the defined low-agreement band.
-
-\subsection{Annotation of Moral Considerations}
-\label{sec:supp-perspective-annotation}
-
-The 100 AITA posts comprise 50 with more than 80\% NA judgments and 50
-with more than 80\% YA judgments. We retain all 7,023 eligible public
-comment--reply pairs under the author and text filters above and reuse
-their existing support/challenge labels. For each post, the model receives
-the post and 40 sampled eligible comments to construct four to eight
-categories of moral considerations grounded in those comments rather than judgment
-labels. It then evaluates each distinct comment or reply separately
-against that fixed taxonomy, assigning a binary label and explanation
-to every category. Requests contain the post, taxonomy, and target text,
-but not the paired text or its support/challenge label. Both stages use
-temperature zero with thinking disabled. Categories are specific to each
-post; a reply with no assigned category is unmapped rather than excluded
-from the denominator.
-% TODO (@Ying, with Yilin): document the old20/new80 discovery-frame
-% difference, frozen prompts and recovery provenance; confirm citations
-% underlying the collaborator-supplied prompts.
 
 \section{Reception and Certainty Analyses}
 \label{sec:supp-analyses}

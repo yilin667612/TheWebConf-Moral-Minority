@@ -10,18 +10,33 @@ measures; Table~\ref{tab:tags} lists the judgment tags used for matching.
 \input{components/tab_dimensions}
 
 \runinheading{Annotation samples.}
-Certainty annotations sample 3\% of eligible high-agreement posts and 15\%
-of low-agreement posts. Reply annotation uses three seeded samples of
+Certainty annotations cover sampled high- and low-agreement posts;
+sample counts are reported in Supplementary Table~\ref{tab:analytical-samples}.
+Reply annotation uses three seeded samples of
 16,000 pairs, balanced across community, dominant judgment, and comment
 alignment in high-agreement posts; samples may overlap. Pairs involving
 the OP, the same author, unverifiable identities, or unusable text are
 excluded. Review of 100 development pairs is not held-out validation.
-Annotation of moral considerations uses 7,023 eligible pairs from 100 posts, equally
-split between NA- and YA-dominant high agreement. Post-specific categories
-are derived from 40 sampled comments, then assigned independently to
-comments and replies; unmapped texts remain in the denominator.
-Full procedures, prompts, and sample counts appear in Supplementary
-Sections~\ref{sec:supp-data} and~\ref{sec:supp-annotation}.
+Prompts and execution details appear in Supplementary
+Section~\ref{sec:supp-annotation}.
+
+\runinheading{Annotation of moral considerations.}
+\label{subsec:appendix-moral-annotation}
+We use all 7,023 eligible pairs from 100 AITA posts, split equally between
+posts with more than 80\% NA and more than 80\% YA judgments. The author
+and text filters above apply, and existing support/challenge labels are
+reused. For each post, the model receives the post and 40 sampled eligible
+comments to construct four to eight categories grounded in their reasons,
+not judgment labels. Each distinct comment or reply is then independently
+assigned a binary label and explanation for every category in the fixed
+taxonomy. Requests include the post, taxonomy, and target text, but neither
+the paired text nor its support/challenge label. Both stages use temperature
+zero with thinking disabled. Categories are post-specific; texts assigned
+no category remain in the denominator. Addition is measured relative to
+the parent comment, as defined in Section~\ref{subsec:method-annotation}.
+% TODO (@Ying, with Yilin): document the old20/new80 discovery-frame
+% difference, frozen prompts and recovery provenance; confirm citations
+% underlying the collaborator-supplied prompts.
 
 \runinheading{Judgment matching.}
 \label{sec:appendix-tags}
@@ -225,8 +240,6 @@ reply adds; that requires checking the underlying pair.
 
 \input{components/tab_survey_posts}
 
-% Keep the compact survey overview together beside its procedure figure.
-% \noindent\begin{minipage}{\columnwidth}
 \section{Survey Experiment}
 \label{app:survey}
 
@@ -244,7 +257,6 @@ Table~\ref{tab:survey-questions} and Section~\ref{app:full-survey-stimuli}.
 The retained three-item composite is reported in Supplementary
 Section~\ref{sec:supp-survey-composite}. Unadjusted Welch comparisons are exploratory; groups defined by
 post-exposure judgments do not identify causal subgroup effects.
-\end{minipage}
 
 \begin{figure}[t]
   \centering
