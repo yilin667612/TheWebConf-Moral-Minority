@@ -100,16 +100,16 @@ selected discussions, not changes within individuals.
 Estimation and sensitivity checks are summarized in
 Appendices~\ref{sec:appendix-annotation-details} and~\ref{sec:appendix-evidence}.
 
-\runinheading{Reply orientation.}
+\runinheading{Reply stance.}
 Whereas certainty compares how firmly judgments are expressed, reply
-orientation captures how others respond. Drawing on prior work~\citep{andreas2012annotating}, we classify replies (towards their top-level comments) into four response categories:
+stance captures how others respond. Drawing on prior work~\citep{andreas2012annotating}, we classify replies (towards their top-level comments) into four response categories:
 \emph{support} (endorsing the parent's position), \emph{challenge}
 (disputing it), \emph{information-seeking} (requesting clarification), and
 \emph{other}.
 
 We sample three stratified sets of 16,000 top-level comment--direct reply
 pairs from high-agreement posts while excluding pairs involving OPs, who are parties to the conflict and may reply to explain or defend their conduct~\citep{giorgi2023author}.
-Given the post as context, an LLM classifies each reply's orientation toward its parent comment.
+Given the post as context, an LLM classifies each reply's stance toward its parent comment.
 
 \begin{comment}
 We annotate reply stance to distinguish endorsement from opposition within
@@ -127,14 +127,14 @@ Challenge denotes disagreement, not necessarily personal attack. Proportions wei
 
 \runinheading{Moral reasons in replies.}
 Beyond whether replies support or challenge their parent comments, we further examine whether they contribute additional moral reasons for judging.
-We analyze 7,023 eligible pairs from 100 high-agreement AITA posts, alongside their reply orientations.
+We analyze 7,023 eligible pairs from 100 high-agreement AITA posts, alongside their reply stances.
 To identify the moral reasons expressed in these comments, we use a two-stage LLM-based procedure inspired by inductive category formation~\citep{mayring2014qualitative}.
 First, we construct a taxonomy of moral reasons for each post through iterative refinement.
 We then use the resulting categories to label top-level comments and their direct replies, allowing multiple labels per comment.
 A reply is coded as adding a moral reason category if it receives a label absent from its parent comment.
 More details about the annotation process are provided in Appendix~\ref{sec:appendix-annotation-details}.
 
-Within each post, parent group, and reply orientation, proportions include all eligible replies, including those assigned no
+Within each post, parent group, and reply stance, proportions include all eligible replies, including those assigned no
 category; empty cells are omitted. We average these proportions across
 posts with equal weight and estimate $95\%$ percentile CIs from 20,000
 joint whole-post bootstrap resamples.
