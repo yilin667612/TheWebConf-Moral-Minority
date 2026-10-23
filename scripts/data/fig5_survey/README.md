@@ -7,10 +7,18 @@ means and pointwise 95% participant-bootstrap confidence intervals.
 The compact row is 516 by 140 pt, with 5.2-pt two-decimal mean labels placed
 outside their confidence intervals to avoid data marks and other labels.
 Bold C1/C2 headings sit inside the top-left corner of each region. Panel (c)
-uses the short display label `New considerations` for the reflection items.
+uses the short display label `New reasons` for the reflection items, as does
+the second item in panel (b). Original questionnaire wording and data keys
+remain unchanged.
 Panels (b) and (c) space the four group estimates 8 pt apart, with item centers
 42 pt apart (within C1/C2 for panel c). Panel (c) has 274 pt of plotting width,
 retaining the overall figure width and font sizes.
+Outer margins are reduced by shifting panel (a) 5 pt left and panel (c) 7 pt
+right. Panel (b) is centered between them, giving equal 21.5-pt plotting-area
+gaps, including space for the next panel's y-axis tick labels.
+All panels map the minimum rating of 1 to the same horizontal line (20 pt)
+and their respective maxima (4, 7, 5) to the same top line (98 pt), using
+4-pt physical padding inside the shared plotting height.
 Omit `--publish` to generate a preview only. The builder imports shared layout
 helpers from `scripts/fig6_survey_alignment_boxplots.py`.
 
@@ -30,9 +38,16 @@ The expected local input is
 `../minority-voices-aita/output/80_participants_merged_analysis.csv`.
 R reads the literal judgment label `NA` as text, not a missing value.
 
-The previous bar and boxplot builders preserve earlier designs. The published
-figure has no asterisks: circles/triangles show majority/minority alignment;
-blue/magenta show Highly Scored/Balanced. Condition names are display labels;
+The previous bar and boxplot builders and non-wide previews preserve earlier
+designs. In the published figure, circles show Highly Scored and triangles show
+Balanced; blue (`#5770DB`) shows majority alignment and red (`#DB5F57`) minority
+alignment. Estimates show the two blue majority-aligned groups first, followed
+by the two red minority-aligned groups, with Highly Scored before Balanced
+within each pair. The bracketed legend retains treatment-first blocks.
+Stacked C1/C2 cards beside each treatment label depict the presented comments:
+two blue cards for Highly Scored, and blue C1/red C2 for Balanced.
+This display order does not change the bootstrap seed assignment or intervals.
+The figure has no asterisks. Condition names are display labels;
 the source treatment values and statistical output keys remain unchanged.
 Highly Scored displays two majority comments; Balanced displays one majority
 and one minority comment. Group counts are 30/31 for majority alignment and

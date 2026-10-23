@@ -2,7 +2,9 @@
 
 The main figure separates (a) certainty, (b) three discussion-level items,
 and (c) C1/C2 first, with three comment-level metrics in each.
-Colors identify treatments; circles/triangles identify reported alignment.
+In the main figure, colors identify reported alignment and circles/triangles
+identify treatments. Estimates are grouped by alignment, then treatment;
+the legend retains treatment blocks with C1/C2 stimulus cards.
 
 Resamples whole participant rows within the four treatment-by-alignment groups.
 The same bootstrap indices are used for all outcomes, preserving C1/C2
@@ -39,19 +41,26 @@ from fig6_survey_alignment_boxplots import (
 DISCUSSION_ITEMS = [
     ("perspective_broadening_1", ("Multiple", "sides"),
      "The discussion made me consider more than one side of the situation."),
-    ("perspective_broadening_2", ("New", "considerations"),
+    ("perspective_broadening_2", ("New", "reasons"),
      "The discussion made me think about considerations that had not initially occurred to me."),
     ("perspective_broadening_3", ("Alternative", "judgments"),
      "The discussion made me think about why someone might reach a different conclusion."),
 ]
 METRICS = LEGACY_METRICS + [item[0] for item in DISCUSSION_ITEMS]
+# Display order only: retain GROUPS order for unchanged bootstrap seeds/CIs.
+DISPLAY_GROUPS = list(GROUPS)
+ALIGNMENT_COLORS = {"majority": "#5770DB", "minority": "#DB5F57"}
 
 
-def marker(c, x, y, color, minority, radius=3.2):
+def main_style(group):
+    return ALIGNMENT_COLORS[group[0]], "circle" if group[2] == "MM" else "triangle"
+
+
+def marker(c, x, y, color, minority=False, radius=3.2, shape=None):
     c.setFillColor(HexColor(color))
     c.setStrokeColor(HexColor("#FFFFFF"))
     c.setLineWidth(.5)
-    if minority:
+    if shape == "triangle" or (shape is None and minority):
         # Equilateral triangle centered at its centroid.
         path = c.beginPath()
         path.moveTo(x, y + radius * 1.25)
@@ -89,25 +98,51 @@ def wide_figure(path, cells):
     c = canvas.Canvas(str(path), pagesize=(516, 140))
     c.setTitle("Survey responses: Highly Scored and Balanced")
     c.setSubject("Means and pointwise 95% whole-participant bootstrap confidence intervals")
-    legend_labels = []
-    for group in GROUPS:
-        alignment, _, condition, _, treatment, _, _ = group
-        n = cells[alignment, condition, METRICS[0]]["n"]
-        legend_labels.append(f"Agrees with {alignment}: {treatment} (n = {n})")
-    # Center the complete two-column legend using its actual marker/text bounds.
-    legend_left = -2.75
-    legend_right = max(258 * (i // 2) + 7 + stringWidth(text, "Helvetica", 6.8)
-                       for i, text in enumerate(legend_labels))
-    legend_start = (516 - (legend_right - legend_left)) / 2 - legend_left
-    for i, group in enumerate(GROUPS):
-        color, minority = group[-2:]
-        x, yy = legend_start + 258 * (i // 2), 133 - 10 * (i % 2)
-        marker(c, x, yy + 2, color, minority, 2.5)
-        label(c, x + 7, yy, legend_labels[i], 6.8)
+    # Each treatment branches into two alignment rows; center the two blocks.
+    legend_blocks = []
+    for condition in ("MM", "Mm"):
+        groups = [group for group in DISPLAY_GROUPS if group[2] == condition]
+        treatment = groups[0][4]
+        entries = [f"Agrees with {g[0]} (n = {cells[g[0], g[2], METRICS[0]]['n']})"
+                   for g in groups]
+        treatment_width = stringWidth(treatment, "Helvetica", 6.8)
+        text_offset = treatment_width + 43
+        width = text_offset + max(stringWidth(text, "Helvetica", 6.8) for text in entries)
+        legend_blocks.append((groups, treatment, entries, treatment_width, text_offset, width))
+    block_gap = 32
+    x = (516 - sum(block[-1] for block in legend_blocks) - block_gap) / 2
+    for groups, treatment, entries, treatment_width, text_offset, width in legend_blocks:
+        label(c, x, 128, treatment, 6.8)
+        # Two compact cards depict the comments shown in each treatment.
+        card_x, card_width, card_height = x + treatment_width + 5, 14, 7
+        comment_alignments = ("majority", "majority" if groups[0][2] == "MM" else "minority")
+        for i, alignment in enumerate(comment_alignments):
+            center_y = 135 - 10 * i
+            c.setFillColor(HexColor(ALIGNMENT_COLORS[alignment]))
+            c.roundRect(card_x, center_y - card_height / 2, card_width, card_height,
+                        1.1, fill=1, stroke=0)
+            c.setFillColor(HexColor("#FFFFFF"))
+            c.setFont("Helvetica-Bold", 5.1)
+            c.drawCentredString(card_x + card_width / 2, center_y - 1.8, f"C{i + 1}")
+        bracket_x = x + treatment_width + 25
+        c.setStrokeColor(HexColor(INK))
+        c.setLineWidth(.55)
+        c.line(bracket_x, 125, bracket_x, 135)
+        c.line(bracket_x, 135, bracket_x + 4, 135)
+        c.line(bracket_x, 125, bracket_x + 4, 125)
+        for i, (group, text) in enumerate(zip(groups, entries)):
+            yy = 133 - 10 * i
+            color, shape = main_style(group)
+            marker(c, x + text_offset - 7, yy + 2, color, radius=2.5, shape=shape)
+            label(c, x + text_offset, yy, text, 6.8)
+        x += width + block_gap
 
     def panel_axes(x, width, upper):
         y, height = 16, 86
-        sy = lambda value: y + (value - .8) / (upper - .6) * height
+        # Use physical padding, not scale units, to align 1 and each maximum.
+        tick_padding = 4
+        sy = lambda value: (y + tick_padding + (value - 1) / (upper - 1)
+                            * (height - 2 * tick_padding))
         ticks = [1, 3, 5, 7] if upper == 7 else range(1, upper + 1)
         for value in ticks:
             yy = sy(value)
@@ -122,13 +157,13 @@ def wide_figure(path, cells):
 
     def point(x, sy, metric, group, annotations):
         stats = cells[group[0], group[2], metric]
-        color, minority = group[-2:]
+        color, shape = main_style(group)
         c.setStrokeColor(HexColor(color))
         c.setLineWidth(.7)
         c.line(x, sy(stats["ci_low"]), x, sy(stats["ci_high"]))
         for bound in ("ci_low", "ci_high"):
             c.line(x - 1.6, sy(stats[bound]), x + 1.6, sy(stats[bound]))
-        marker(c, x, sy(stats["mean"]), color, minority, 2.25)
+        marker(c, x, sy(stats["mean"]), color, radius=2.25, shape=shape)
         annotations.append(dict(x=x, mean=stats["mean"],
                                 mean_y=sy(stats["mean"]),
                                 low=sy(stats["ci_low"]), high=sy(stats["ci_high"])))
@@ -154,7 +189,7 @@ def wide_figure(path, cells):
         for i, item in enumerate(annotations):
             value = f"{item['mean']:.2f}"
             half_width = stringWidth(value, "Helvetica", layout_size) / 2
-            # Alternating above/below keeps closely spaced treatment pairs legible.
+            # Alternating above/below keeps within-alignment treatment pairs legible.
             preferred = ("above", "below") if i % 2 == 0 else ("below", "above")
             candidates = []
             for extra in range(0, 35, 2):
@@ -176,33 +211,33 @@ def wide_figure(path, cells):
             c.rect(box[0], box[1], box[2] - box[0], box[3] - box[1], fill=1, stroke=0)
             label(c, item["x"], baseline, value, size, "center")
 
-    x, width = 16, 60
+    x, width = 11, 60
     label(c, x - 10, 111, "(a) Judgment certainty", 7.1)
     sy = panel_axes(x, width, 4)
     annotations = []
-    for fraction, group in zip([.16, .34, .66, .84], GROUPS):
+    for fraction, group in zip([.16, .34, .66, .84], DISPLAY_GROUPS):
         point(x + width * fraction, sy, METRICS[0], group, annotations)
     annotate_means(annotations, x, width)
     for fraction, alignment in ((1 / 6, "Majority"), (5 / 6, "Minority")):
         label(c, x + width * fraction, 9, "Agrees with", 6.5, "center")
         label(c, x + width * fraction, 2, alignment, 6.5, "center")
 
-    # Keep paper width fixed, using tighter panel gaps to give (c) more room.
+    # Keep widths fixed; reclaim outer margins for larger inter-panel gaps.
     dot_spacing = 8.0
-    x, width = 90, 126
+    x, width = 92.5, 126
     item_spacing = width / len(DISCUSSION_ITEMS)
     label(c, x, 111, "(b) Discussion-level considerations", 7.1)
     sy = panel_axes(x, width, 7)
     annotations = []
     for m, (metric, lines, _) in enumerate(DISCUSSION_ITEMS):
         center = x + item_spacing * (m + .5)
-        for i, group in enumerate(GROUPS):
+        for i, group in enumerate(DISPLAY_GROUPS):
             point(center + (i - 1.5) * dot_spacing, sy, metric, group, annotations)
         for j, text in enumerate(lines):
             label(c, center, 9 - j * 7, text, 6.4, "center")
     annotate_means(annotations, x, width)
 
-    x, width = 233, 274
+    x, width = 240, 274
     label(c, x, 111, "(c) Comment-level ratings", 7.1)
     sy = panel_axes(x, width, 5)
     gap, region = 12, (width - 12) / 2
@@ -222,11 +257,11 @@ def wide_figure(path, cells):
             # Match (b)'s between-item spacing as well as its within-item dots.
             center = left + region / 2 + (m - 1) * item_spacing
             metric = (metric1, metric2)[j]
-            for i, group in enumerate(GROUPS):
+            for i, group in enumerate(DISPLAY_GROUPS):
                 point(center + (i - 1.5) * dot_spacing, sy, metric, group, annotations)
             if name == "New moral considerations":
                 label(c, center, 9, "New", 6.4, "center")
-                label(c, center, 2, "considerations", 6.4, "center")
+                label(c, center, 2, "reasons", 6.4, "center")
             else:
                 label(c, center, 9, name, 6.4, "center")
     annotate_means(annotations, x, width)
