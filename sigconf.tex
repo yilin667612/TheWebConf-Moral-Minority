@@ -49,6 +49,29 @@
 \usepackage{colortbl}
 \usepackage{enumitem}
 
+%% EDITING MARCOs
+\newcommand{\TODO}[1]{{\color{red} {\bf TODO:~}#1}}
+\newcommand{\verify}[1]{{\textcolor{red}{#1}}}
+\newcommand{\shorten}[1]{{\color{gray}{#1}}}
+\newcommand{\lx}[1]{{\color{violet}{#1}}}
+\newcommand{\yd}[1]{{\color{blue}{#1}}}
+\newcommand{\yz}[1]{{\color{teal}{#1}}}
+\newcommand{\mj}[1]{{\color{orange}{#1}}}
+
+%\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorinlistoftodos]{todonotes}
+\setlength{\marginparwidth}{2.5cm}
+% Define a custom font size (e.g., 6pt font with 7pt line spacing)
+\newcommand{\customnotesize}{\fontsize{6pt}{7pt}\selectfont}
+\newcommand{\lxnote}[1]{\todo[linecolor=violet,backgroundcolor=violet!25,bordercolor=violet,size=footnotesize]{#1}}
+
+
+\newcommand{\ydnote}[1]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,size=footnotesize]{#1}}
+
+\newcommand{\yznote}[1]{\todo[linecolor=green!70!black,backgroundcolor=green!20,bordercolor=green!60!black,size=footnotesize]{#1}}
+
+\newcommand{\mjnote}[1]{\todo[linecolor=orange,backgroundcolor=orange!25,bordercolor=orange,size=footnotesize]{#1}}
+
 % Plain run-in text keeps headings compact without redefining ACM sectioning.
 \newcommand{\runinheading}[1]{\par\noindent\textbf{#1}\enspace}
 
