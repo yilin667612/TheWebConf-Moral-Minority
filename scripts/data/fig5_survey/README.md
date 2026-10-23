@@ -4,6 +4,13 @@ Run `python3 scripts/fig6_survey_alignment_dotwhisker.py --wide --publish`
 from the paper root with the bundled Python (NumPy, ReportLab, pypdf).
 This replaces `figures/survey_results_panels.pdf` with a three-panel row of
 means and pointwise 95% participant-bootstrap confidence intervals.
+The compact row is 516 by 140 pt, with 5.2-pt two-decimal mean labels placed
+outside their confidence intervals to avoid data marks and other labels.
+Bold C1/C2 headings sit inside the top-left corner of each region. Panel (c)
+uses the short display label `New considerations` for the reflection items.
+Panels (b) and (c) space the four group estimates 8 pt apart, with item centers
+42 pt apart (within C1/C2 for panel c). Panel (c) has 274 pt of plotting width,
+retaining the overall figure width and font sizes.
 Omit `--publish` to generate a preview only. The builder imports shared layout
 helpers from `scripts/fig6_survey_alignment_boxplots.py`.
 

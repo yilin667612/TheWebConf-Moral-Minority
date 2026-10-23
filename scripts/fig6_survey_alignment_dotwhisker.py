@@ -28,6 +28,7 @@ import subprocess
 import numpy as np
 from pypdf import PdfReader
 from reportlab.lib.colors import HexColor
+from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 
 from fig6_survey_alignment_boxplots import (
@@ -85,18 +86,27 @@ def legend(c, width, y, cells):
 
 def wide_figure(path, cells):
     """Paper-width row: one certainty outcome, three discussion items, six ratings."""
-    c = canvas.Canvas(str(path), pagesize=(516, 177))
+    c = canvas.Canvas(str(path), pagesize=(516, 140))
     c.setTitle("Survey responses: Highly Scored and Balanced")
     c.setSubject("Means and pointwise 95% whole-participant bootstrap confidence intervals")
-    for i, group in enumerate(GROUPS):
-        alignment, _, condition, _, treatment, color, minority = group
-        x, yy = 31 + 258 * (i // 2), 168 - 11 * (i % 2)
-        marker(c, x, yy + 2, color, minority, 2.5)
+    legend_labels = []
+    for group in GROUPS:
+        alignment, _, condition, _, treatment, _, _ = group
         n = cells[alignment, condition, METRICS[0]]["n"]
-        label(c, x + 7, yy, f"Agrees with {alignment}: {treatment} (n = {n})", 6.8)
+        legend_labels.append(f"Agrees with {alignment}: {treatment} (n = {n})")
+    # Center the complete two-column legend using its actual marker/text bounds.
+    legend_left = -2.75
+    legend_right = max(258 * (i // 2) + 7 + stringWidth(text, "Helvetica", 6.8)
+                       for i, text in enumerate(legend_labels))
+    legend_start = (516 - (legend_right - legend_left)) / 2 - legend_left
+    for i, group in enumerate(GROUPS):
+        color, minority = group[-2:]
+        x, yy = legend_start + 258 * (i // 2), 133 - 10 * (i % 2)
+        marker(c, x, yy + 2, color, minority, 2.5)
+        label(c, x + 7, yy, legend_labels[i], 6.8)
 
     def panel_axes(x, width, upper):
-        y, height = 31, 86
+        y, height = 16, 86
         sy = lambda value: y + (value - .8) / (upper - .6) * height
         ticks = [1, 3, 5, 7] if upper == 7 else range(1, upper + 1)
         for value in ticks:
@@ -110,7 +120,7 @@ def wide_figure(path, cells):
         c.line(x, y, x, y + height)
         return sy
 
-    def point(x, sy, metric, group):
+    def point(x, sy, metric, group, annotations):
         stats = cells[group[0], group[2], metric]
         color, minority = group[-2:]
         c.setStrokeColor(HexColor(color))
@@ -119,47 +129,107 @@ def wide_figure(path, cells):
         for bound in ("ci_low", "ci_high"):
             c.line(x - 1.6, sy(stats[bound]), x + 1.6, sy(stats[bound]))
         marker(c, x, sy(stats["mean"]), color, minority, 2.25)
+        annotations.append(dict(x=x, mean=stats["mean"],
+                                mean_y=sy(stats["mean"]),
+                                low=sy(stats["ci_low"]), high=sy(stats["ci_high"])))
+
+    def annotate_means(annotations, left, width):
+        """Place values outside their CI, avoiding other labels and data marks."""
+        size = 5.2
+        # Preserve the established label positions while shrinking the text.
+        layout_size = 5.8
+        obstacles, occupied = [], []
+        for item in annotations:
+            x, low, high, mean_y = item["x"], item["low"], item["high"], item["mean_y"]
+            obstacles.extend([
+                (x - .45, low, x + .45, high),
+                (x - 2, low - .6, x + 2, low + .6),
+                (x - 2, high - .6, x + 2, high + .6),
+                (x - 2.9, mean_y - 2.9, x + 2.9, mean_y + 3.4),
+            ])
+
+        def overlaps(a, b):
+            return a[0] < b[2] and a[2] > b[0] and a[1] < b[3] and a[3] > b[1]
+
+        for i, item in enumerate(annotations):
+            value = f"{item['mean']:.2f}"
+            half_width = stringWidth(value, "Helvetica", layout_size) / 2
+            # Alternating above/below keeps closely spaced treatment pairs legible.
+            preferred = ("above", "below") if i % 2 == 0 else ("below", "above")
+            candidates = []
+            for extra in range(0, 35, 2):
+                for side in preferred:
+                    baseline = (item["high"] + 3 + extra if side == "above"
+                                else item["low"] - 6.8 - extra)
+                    box = (item["x"] - half_width - .2, baseline - 1.4,
+                           item["x"] + half_width + .2, baseline + 4.6)
+                    if (box[0] >= left and box[2] <= left + width and
+                            box[1] >= 17 and box[3] <= 101 and
+                            not any(overlaps(box, b) for b in obstacles + occupied)):
+                        candidates.append((baseline, box))
+                if candidates:
+                    break
+            assert candidates, f"No unobstructed mean label position for {value} at {item['x']}"
+            baseline, box = candidates[0]
+            occupied.append(box)
+            c.setFillColor(HexColor("#FFFFFF"))
+            c.rect(box[0], box[1], box[2] - box[0], box[3] - box[1], fill=1, stroke=0)
+            label(c, item["x"], baseline, value, size, "center")
 
     x, width = 16, 60
-    label(c, x, 139, "(a) Judgment certainty", 7.1)
+    label(c, x - 10, 111, "(a) Judgment certainty", 7.1)
     sy = panel_axes(x, width, 4)
+    annotations = []
     for fraction, group in zip([.16, .34, .66, .84], GROUPS):
-        point(x + width * fraction, sy, METRICS[0], group)
-    for fraction, alignment in ((.25, "Majority"), (.75, "Minority")):
-        label(c, x + width * fraction, 20, alignment, 6.5, "center")
+        point(x + width * fraction, sy, METRICS[0], group, annotations)
+    annotate_means(annotations, x, width)
+    for fraction, alignment in ((1 / 6, "Majority"), (5 / 6, "Minority")):
+        label(c, x + width * fraction, 9, "Agrees with", 6.5, "center")
+        label(c, x + width * fraction, 2, alignment, 6.5, "center")
 
-    x, width = 96, 144
-    label(c, x, 139, "(b) Discussion-level considerations", 7.1)
+    # Keep paper width fixed, using tighter panel gaps to give (c) more room.
+    dot_spacing = 8.0
+    x, width = 90, 126
+    item_spacing = width / len(DISCUSSION_ITEMS)
+    label(c, x, 111, "(b) Discussion-level considerations", 7.1)
     sy = panel_axes(x, width, 7)
+    annotations = []
     for m, (metric, lines, _) in enumerate(DISCUSSION_ITEMS):
-        center = x + width * (m + .5) / 3
+        center = x + item_spacing * (m + .5)
         for i, group in enumerate(GROUPS):
-            point(center + (i - 1.5) * 6.4, sy, metric, group)
+            point(center + (i - 1.5) * dot_spacing, sy, metric, group, annotations)
         for j, text in enumerate(lines):
-            label(c, center, 20 - j * 8, text, 6.4, "center")
+            label(c, center, 9 - j * 7, text, 6.4, "center")
+    annotate_means(annotations, x, width)
 
-    x, width = 261, 246
-    label(c, x, 139, "(c) Comment-level ratings", 7.1)
+    x, width = 233, 274
+    label(c, x, 111, "(c) Comment-level ratings", 7.1)
     sy = panel_axes(x, width, 5)
     gap, region = 12, (width - 12) / 2
     c.setStrokeColor(HexColor("#BFC8CE"))
     c.setLineWidth(.4)
     c.setDash(1.8, 2.4)
-    c.line(x + width / 2, 7, x + width / 2, 129)
+    c.line(x + width / 2, 1, x + width / 2, 102)
     c.setDash()
+    annotations = []
     for j in range(2):
         left = x + j * (region + gap)
-        label(c, left + region / 2, 123, f"C{j + 1}", 7, "center")
+        # Put the subgroup heading inside the plotting area, over an empty corner.
+        c.setFillColor(HexColor("#FFFFFF"))
+        c.rect(left + 2, 92, 13, 9, fill=1, stroke=0)
+        label(c, left + 4, 94, f"C{j + 1}", 7, bold=True)
         for m, (name, metric1, metric2) in enumerate(COMMENT_METRICS):
-            center = left + region * (m + .5) / 3
+            # Match (b)'s between-item spacing as well as its within-item dots.
+            center = left + region / 2 + (m - 1) * item_spacing
             metric = (metric1, metric2)[j]
             for i, group in enumerate(GROUPS):
-                point(center + (i - 1.5) * 6.4, sy, metric, group)
+                point(center + (i - 1.5) * dot_spacing, sy, metric, group, annotations)
             if name == "New moral considerations":
-                label(c, center, 20, "New moral", 6.4, "center")
-                label(c, center, 12, "considerations", 6.4, "center")
+                label(c, center, 9, "New", 6.4, "center")
+                label(c, center, 2, "considerations", 6.4, "center")
             else:
-                label(c, center, 20, name, 6.4, "center")
+                label(c, center, 9, name, 6.4, "center")
+    annotate_means(annotations, x, width)
     c.save()
 
 
