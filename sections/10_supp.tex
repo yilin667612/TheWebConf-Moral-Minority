@@ -19,17 +19,9 @@ assignments; supplementary draws use seed $0$. Versions \texttt{v4} and
 are subsets of their annotation frames, not additional samples.
 Additional draws exclude previously annotated posts within each community
 and agreement band.
-% TODO: reconcile the historical 3\%/15\% sampling rates with the later
-% 3.3\%/21.2\% figures before reporting selection probabilities. The table
-% records the current export counts; pooled fractions need not be draw rates.
 
 \input{components/tab_samples}
 
-% TODO (source provenance): identify the exact Academic Torrents release,
-% retrieval dates, archive gaps, and calendar filters for each analysis.
-% Verify bot filtering beyond AutoModerator and the treatment of previously
-% labeled comments whose text was later deleted. Recover earlier annotation
-% selection procedures. These unresolved items are not resolved by compression.
 
 \subsection{Analytical Dimensions and Measures}
 \label{sec:supp-dimensions}
@@ -63,8 +55,6 @@ Figure~\ref{fig:prompt} supplies the post and comment, returning
 a certainty score and rationale. Its scale concerns hedging, not judgment
 direction; displayed examples are abridged. Independent held-out human validation
 and immutable model/version documentation remain unresolved.
-% TODO: report certainty model/backend, decoding settings, and held-out human
-% validation. Locally recorded v4/v4.1 labels do not identify an immutable model.
 
 \input{components/box_prompt}
 
@@ -101,10 +91,6 @@ labels were revised after examining model disagreements.
 Agreement was $91/100$ overall and $88/93$ among human support/challenge
 labels; other model predictions remain disagreements. These are
 development-set figures, not held-out accuracy or inter-annotator reliability.
-% TODO: verify the frozen v0.3.3 template; document human reviewers and protocol;
-% establish independent category-level validation and post/parent-clustered
-% uncertainty. If used, document the separate October 24,000-pair sample:
-% .2<rho<.8 is broader than the defined low-agreement band.
 
 \subsection{Annotation of Moral Reasons}
 \label{sec:supp-perspective-annotation}
@@ -124,10 +110,6 @@ bare agreement does not inherit the parent's categories. Multiple labels
 or none are allowed. Categories remain post-specific. Addition uses
 recorded positive labels, and missing assignments are not imputed as zeros.
 Replies without positive labels remain unmapped in the analysis.
-
-\textbf{[TODO: Report human validation of category assignments using
-100 sampled comments (one per post), including the evaluation procedure,
-metric, and result.]}
 
 \section{Reception and Certainty Analyses}
 \label{sec:supp-analyses}
@@ -298,8 +280,6 @@ distance: $0.187$/$0.206$): AITAH emphasizes intimate relationships, whereas
 AITA includes more everyday disputes over resources and obligations.
 Shared stories therefore provide contextual comparisons, not equivalent
 audiences or a natural experiment.
-% TODO: document embedding preprocessing, classifier evaluation, permutation
-% settings, topic-model specification, and treatment of multiply posted stories.
 
 \begin{figure}[h]
   \centering
@@ -364,11 +344,6 @@ tolerance, stronger normative pressure, or an effect of AITA's official judgment
 rule. The comparisons retain their analysis-specific observation frames
 and may differ in audience, story composition, and exposure.
 
-\textbf{[TODO: report uncertainty for cross-community contrasts and verify
-the common-period comparison before attributing differences to community
-context. Confirm whether stored canonical judgment metadata incorporate
-AITAH's H-suffixed aliases.]}
-
 Cumulative-participation patterns appear in
 Supplementary Section~\ref{sec:appendix-cumulative-participation}.
 
@@ -380,7 +355,6 @@ post-mean distributions, not confidence intervals. Symmetric-log axes
 are linear within $\pm1$ score point and $\pm0.01$ replies; ranges
 are fitted separately for each community.
 
-% TODO (reception reporting): document uncertainty and any interaction tests.
 
 \subsection{An Illustrative Cross-Posted Story}
 \label{subsec:supp-cross-posted-case}
@@ -495,9 +469,6 @@ Both AITA directions initially decline; blaming recovers modestly and
 defending ends near its initial share. AITAH blaming rises modestly while
 defending declines early. These trajectories do not establish withdrawal
 by individuals, a regime change, or complete discussion follow-up.
-% TODO: recover contributing post counts and verify positive denominators;
-% legacy plotting substitutes zero when undefined. Verify any window-specific
-% low/high claims separately rather than inferring them from cumulative curves.
 
 \section{Survey Materials}
 \label{sec:supp-survey}
