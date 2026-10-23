@@ -1,0 +1,176 @@
+% Alternative draft aligned with the three RQs in sections/1_intro.tex.
+% Use instead of sections/2_related.tex, not alongside it.
+% Additional citation entries are in related_work_additions.bib.
+% To integrate later, use \bibliography{aaai2026,related_work_additions}.
+\section{Related Work}
+\label{sec:related-work}
+
+We connect three strands of research: the reception of minority judgments,
+the moral reasons exchanged in online discussions, and interventions that
+shape readers' exposure to different views. Together, they motivate
+examining dissent through community responses, the content of replies,
+and readers' consideration of alternative reasons.
+
+\paragraph{Minority Reception and Moral Direction}
+%\label{subsec:related-reception}
+Social influence involves both treating others' judgments as evidence and
+seeking social acceptance \cite{deutsch1955normative}. Although individuals
+may conform to unanimous majorities \cite{asch1956independence}, consistent
+minorities can also influence majority responses
+\cite{moscovici1969minority}. Such influence is more evident on private,
+indirect measures than in public responses \cite{wood1994minority}.
+Reception and influence therefore need to be distinguished: a minority
+position may receive little public approval while still affecting how
+others approach an issue. Group research likewise shows that dissenters
+can attract both communication and rejection
+\cite{schachter1951deviation,wesselmann2014revisiting}, with rejection
+varying with the relative size of the dissenting faction
+\cite{tata1996proportionate}.
+
+Online feedback makes the distinction between evaluation and attention
+especially relevant. Prior ratings can shape subsequent evaluations
+\cite{muchnik2013social,glenski2017rating}, while Reddit voting also
+reflects local norms and practices \cite{graham2021sociomateriality}.
+Negatively rated comments can attract more replies and larger reply trees
+\cite{davis2021emotional}, and different response behaviors need not
+indicate the same reaction \cite{kalch2017replying}. Within AITA,
+\citet{mellody2025consensus} finds that the relative valuation of agreement
+and dissent varies nonlinearly with the strength of the developing
+consensus: dissent is favored at intermediate levels, whereas no
+significant preference emerges at very strong consensus. This work makes
+agreement context central to understanding reception. Our analysis
+compares discussions by their final judgment composition and extends the
+comparison from scores to reply counts and depth, while distinguishing
+the moral direction of dissent.
+
+Moral direction provides a further distinction among dissenting
+judgments. Blame depends on assessments of norm violations, causality,
+intentionality, and reasons or preventability \cite{malle2014blame}.
+It is also socially regulated: people who assign blame may themselves
+face demands for justification or criticism of unwarranted condemnation
+\cite{malle2022socially}. Thus, opposing a majority that defends an original
+poster calls for condemnation, whereas opposing a blaming majority
+resists it. Both positions are numerically minoritarian, but they make
+different moral claims. This distinction motivates examining blaming and
+defending dissent separately within high-agreement discussions.
+
+Anticipated reception can also shape which views are expressed and how
+firmly they are stated. Accountability can encourage accommodation to an
+audience, consideration of alternatives, or bolstering of prior
+commitments \cite{tetlock1989strategies}. Research on the spiral of silence
+links expression to opinion climate and attitude certainty
+\cite{matthes2010spiral}, while anticipated personal attacks are associated
+with willingness to express minority views \cite{neubaum2018sanctions}.
+Expressions of doubt also receive fewer recommendations in online news
+discussions \cite{evans2023doubt}. These findings motivate examining
+expressed certainty alongside reception in \textbf{RQ1}, while recognizing
+that linguistic certainty need not reveal private confidence and that
+aggregate patterns may reflect selective participation.
+
+\paragraph{Moral Reasons in Online Exchanges}
+%\label{subsec:related-reasons}
+AITA research characterizes the topics and judgments found in everyday
+moral dilemmas \cite{nguyen2022mapping,yudkin2025large}, demographic and
+narrative correlates of evaluations
+\cite{decandia2022socialnorms,giorgi2023author}, and the situational and
+relational contexts of moral disagreement \cite{shi2025moral}. Work on
+growing conversation networks \cite{goglia2024structure} and judgment and
+language patterns around AITA's judgment disclosure
+\cite{goglia2026influence} further situates judgments within unfolding
+discussions. Together, these studies characterize moral evaluations in
+relation to both the narrated situation and the conversational setting.
+
+Understanding disagreement also requires examining the reasons supporting
+judgments. Social Chemistry 101 represents situation-specific norms as
+natural-language rules of thumb \cite{forbes2020social}, and Value
+Kaleidoscope represents potentially conflicting values, rights, and duties
+\cite{sorensen2024value}. More directly, \citet{xi2024morality} extract and
+categorize rationale elements in AITA comments and relate their
+distributions to social context. These approaches provide ways to
+characterize moral content within contributions. A complementary question
+is how that content develops between contributions: whether a reply
+introduces a moral reason absent from the comment it addresses.
+
+Minority-influence research suggests why these exchanges may matter even
+when dissent is rejected. Dissent can encourage divergent thinking
+\cite{nemeth1986differential,nemeth1987divergent}, and groups with a history
+of minority dissent can exhibit greater cognitive complexity despite
+social rejection \cite{curseu2012socially}. Deliberative communication
+research similarly distinguishes agreement from the ability to articulate
+reasons for different positions. \citet{cappella2002argument} develop the
+concept of \emph{argument repertoire}, encompassing reasons supporting
+one's own and opposing views; \citet{price2002disagreement} associate
+exposure to disagreement with a greater ability to offer reasons for
+opposing positions. These findings motivate attention to reasons beyond
+whether an exchange produces agreement. In \textbf{RQ2}, we examine this
+at the level of direct replies, measuring support and challenge
+separately from additional moral reasons. This allows both supportive and
+challenging replies to extend their parent's reasoning without treating
+addition as evidence of argument quality or subsequent uptake.
+
+\paragraph{Information Exposure and Reader Responses}
+%\label{subsec:related-exposure}
+The presence of different views in a discussion does not ensure that
+readers encounter them. Research on Facebook distinguishes the diversity
+available through social connections, the content displayed by ranking
+algorithms, and the content users choose to consume
+\cite{bakshy2015exposure}. Interventions can therefore target different
+parts of the exposure process. \citet{munson2010presenting} vary the mix
+and presentation of supporting and challenging political opinions,
+identifying differences between diversity-seeking and challenge-averse
+readers. Such differences suggest that providing diverse views and
+securing readers' willingness to engage with them are separate design
+questions.
+
+Interventions can also encourage reflection on the sources of exposure.
+In \emph{Me, My Echo Chamber, and I: Introspection on Social Media
+Polarization}, \citet{gillani2018mirror} introduce Social Mirror, which
+lets Twitter users locate themselves in a network
+visualization and, in one treatment, receive recommendations for accounts
+with opposing political views. Their experiment distinguishes beliefs
+about network homogeneity, the diversity of followed accounts, and the
+political alignment of shared URLs. Differences between treatments in
+network beliefs and subsequent following behavior were not accompanied
+by detectable changes in the average alignment of shared URLs. This
+distinction highlights the need to evaluate what an intervention changes,
+rather than assuming that reflection, exposure, and expression move
+together.
+
+At the level of discussion interfaces, Opinion Space supports navigation
+among comments from different perspectives and increases engagement and
+respect for comments relative to a chronological list, without increasing
+the diversity of comments read \cite{faridani2010opinion}. ConsiderIt
+organizes public deliberation around shared pro/con reasons, enabling
+participants to consider arguments contributed by people with different
+positions \cite{kriplean2012considerit}. Comment-ranking diversification
+also seeks to include less redundant content among highly visible
+comments \cite{northcutt2017diversification}. Complementing these systems,
+\citet{dutceac2022cueing} experimentally compare pairs of agreeing and
+disagreeing Facebook comments, finding different effects on visual
+attention and reported intentions to read or share news. These studies
+connect the selection and presentation of comments to distinct forms of
+reader engagement.
+
+Field experiments further show that changing exposure does not have a
+uniform effect on attitudes. Exposure to opposing political elites on
+Twitter increased conservatism among Republican participants in
+\citet{bail2018exposure}, whereas counter-attitudinal news subscriptions
+on Facebook reduced negative attitudes toward the opposing party in
+\citet{levy2021social}. Reducing exposure to like-minded sources changed
+Facebook feeds without detectable effects on several preregistered
+attitudinal outcomes \cite{nyhan2023likeminded}. More targeted reranking
+of content expressing partisan animosity and antidemocratic attitudes
+altered affective polarization on X \cite{piccardi2025reranking}.
+Collectively, these findings motivate specifying both the content being
+surfaced and the outcome being evaluated.
+
+\textbf{RQ3} brings these questions to everyday moral judgment by comparing
+two majority threads with one majority and one minority thread. The
+comparison makes disagreement available within a single discussion and
+examines readers' judgment certainty, reported moral reasons, and
+perceived comment influence. Unlike interventions defined by a reader's
+prior political position, minority status here is relative to the
+discussion's judgment distribution. Our focus is therefore on readers'
+responses to the combined presentation of thread content, replies, and
+scores, including their reported consideration of reasons beyond those
+supporting their final judgment.
