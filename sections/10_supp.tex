@@ -1,9 +1,15 @@
 \onecolumn
+% Reset the available page height after flushing two-column appendix floats.
+\makeatletter
+\global\@colht\textheight
+\global\@colroom\textheight
+\global\vsize\textheight
+\makeatother
+\raggedbottom
 
 \section*{Supplementary Material}
 
 \section{Data and Measures}
-\label{sec:supp}
 \label{sec:supp-data}
 
 \subsection{Analytical Samples}
@@ -301,7 +307,6 @@ under activity and tenure restrictions; overlap among post authors is lower.
 
 \subsection{Reception in AITAH}
 \label{sec:supp-aitah-reception}
-\label{subsec:supp-community}
 
 The AITAH analyses use the AITA definitions and post-equal aggregation.
 Appendix Figure~\ref{fig:aitah-reception-overview} combines the agreement
@@ -432,7 +437,6 @@ values should not be interpreted as common-age or lifetime outcomes.
 
 \subsection{OP Participation}
 \label{sec:appendix-op-participation}
-\label{subsec:res-op-participation}
 
 Author matching includes comments and all activity in reply threads regardless of judgment,
 excluding missing/deleted/removed OP identities and AutoModerator. Within
