@@ -1,0 +1,119 @@
+% Revised alternative to sections/2_related_v3.tex.
+% Uses the existing aaai2026.bib and aaai_additions.bib files.
+\section{Related Work}
+\label{sec:related-work}
+
+We draw on research on minority reception, minority expression and moral
+reasoning, and interventions that shape exposure to different views.
+These strands connect how dissent is received, how judgments and reasons
+are expressed and discussed, and how readers respond when minority
+threads are displayed.
+
+\subsubsection*{Minority Reception}
+
+Minority influence need not coincide with public acceptance
+\cite{wood1994minority}. Dissenters can attract communication while also
+facing rejection \cite{schachter1951deviation}. Attention to a minority
+position therefore need not indicate approval of it.
+
+Online feedback similarly separates evaluation from engagement. Prior
+ratings can influence subsequent evaluations \cite{muchnik2013social},
+and Reddit voting reflects local norms and practices
+\cite{graham2021sociomateriality}. Negatively rated comments can
+nevertheless attract more replies and larger reply trees
+\cite{davis2021emotional}. In AITA, the relative valuation of agreement
+and dissent also varies with the strength of the developing consensus
+\cite{mellody2025consensus}. These studies motivate examining scores and
+conversational engagement separately and considering the discussion's
+level of agreement.
+
+Reception may also differ with the moral direction of dissent. Public
+blame can itself invite scrutiny and demands for justification
+\cite{malle2022socially}. Blaming dissent assigns fault to a poster whom
+the majority defends, whereas defending dissent challenges the
+majority's blame. In \textbf{RQ1}, we examine how the relationship between
+evaluation and conversational engagement varies with agreement strength
+and the moral direction of dissent, using majority comments as a
+reference.
+
+\subsubsection*{Minority Discourse and Moral Reasoning}
+
+AITA research maps everyday moral dilemmas and examines how disagreement
+varies across situations and relationships
+\cite{nguyen2022mapping,shi2025moral}. Within these discussions, judgments
+express moral positions and contribute to exchanges of reasons.
+Understanding minority discourse requires examining how firmly judgments
+are expressed, how others respond, and what moral reasons emerge.
+
+When people expect others to judge their views, they may try to please
+their audience or defend what they already believe
+\cite{tetlock1989strategies}. Research on the spiral of silence finds
+that opinion climate is associated with expression among people with low
+or moderate attitude certainty, but not those with high certainty
+\cite{matthes2010spiral}. Anticipated personal attacks are also associated
+with willingness to express minority views \cite{neubaum2018sanctions},
+and expressions of doubt receive fewer recommendations in online news
+discussions \cite{evans2023doubt}. These findings suggest that selective
+participation may contribute to observed certainty patterns. Expressed
+certainty must also be distinguished from private certainty.
+
+Beyond how firmly judgments are expressed, replies can support or
+challenge them. \citet{andreas2012annotating} annotate agreement and
+disagreement in threaded discussions, interpreting responses in their
+conversational context. We examine reply orientation alongside moral
+content, asking whether supportive and challenging replies introduce
+reasons absent from their parent comments.
+
+Computational research represents situation-specific moral norms
+\cite{forbes2020social} and potentially conflicting values, rights, and
+duties \cite{sorensen2024value}. \citet{xi2024morality} extract and
+categorize reasons supporting moral judgments in AITA comments. These
+approaches characterize moral content within contributions; examining
+replies lets us identify how that content develops through interaction.
+\textbf{RQ2} brings these dimensions together by examining expressed
+certainty, reply orientation, and moral reasons in comments and replies.
+
+\subsubsection*{Information Exposure and Reader Responses}
+
+Research on information exposure distinguishes available content,
+algorithmic selection, and users' consumption choices
+\cite{bakshy2015exposure}. Much intervention research concerns political
+news and partisan attitudes, with varying effects of exposure to opposing
+or like-minded sources
+\cite{bail2018exposure,levy2021social,nyhan2023likeminded}.
+
+Interventions differ in how they shape exposure. Social Mirror supports
+reflection through network visualization and account recommendations
+\cite{gillani2018mirror}, while Opinion Space and ConsiderIt introduce
+dedicated interfaces for navigating perspectives or reasons
+\cite{faridani2010opinion,kriplean2012considerit}. Other approaches change
+which existing contributions appear prominently through comment
+diversification \cite{northcutt2017diversification} or feed reranking
+\cite{piccardi2025reranking}. Such selection changes what readers see
+without adding a separate interface.
+
+Closer experimental precedents compare agreeing and disagreeing comment
+pairs in Facebook-style displays \cite{dutceac2022cueing}.
+Moral-judgment studies examine exposure to peer evaluations and arguments
+\cite{kelly2017moral}, or aggregate controversy and group-certainty
+signals derived from AITA discussions \cite{chen2026controversy}.
+Our comparison combines comment selection with a moral-judgment task,
+surfacing an existing minority thread about the same interpersonal
+dilemma rather than an aggregate summary of community opinion.
+
+Reader outcomes can extend beyond agreement. Dissent can encourage
+divergent thinking \cite{nemeth1986differential}. Deliberative research
+defines \emph{argument repertoire} as the reasons people can offer for
+their own and opposing views \cite{cappella2002argument}, and associates
+exposure to disagreement with a greater ability to offer opposing reasons
+\cite{price2002disagreement}. These findings motivate examining readers'
+consideration of reasons alongside their final judgments.
+
+In \textbf{RQ3}, we test the replacement of a second majority thread with
+the highest-scoring minority thread in a Reddit-style display, retaining
+original wording, scores, and replies. Minority status is relative to the
+discussion, rather than the reader's prior position. The experiment
+compares these combined presentations of content and social cues. We
+examine readers' judgment certainty and reported consideration of
+alternative moral reasons, including among readers whose final judgment
+agrees with the majority.
