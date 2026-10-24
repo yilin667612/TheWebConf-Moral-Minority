@@ -1,3 +1,4 @@
+\clearpage
 \appendix
 
 \section{Annotation and Analysis Details}
@@ -70,28 +71,19 @@ $80.6\%$ are NA-dominant; AITAH likewise concentrates toward NA dominance.
 Post frequency and mean judgment volume per post are distinct.
 Figure~\ref{fig:verdict-distributions} shows the distributions.
 
-\begin{figure}[t]
+\begin{figure}[!t]
   \centering
   \includegraphics[width=\columnwidth]{figures/verdict_distributions_aita_aitah.pdf}
   \vspace{-20pt}
   \caption{Final YA share in AITA (left) and AITAH (right). Bars show post
   counts (left axes); red lines show mean judgment comments per post
   (right axes). Shading marks high agreement.}
-  \vspace{-10pt}
+  \vspace{0pt}
   \label{fig:verdict-distributions}
   \Description{Side-by-side judgment distributions for AITA and AITAH.
   Posts concentrate near the NA end; mean judgment counts are higher toward
   the YA end. Gray shading marks the high-agreement regions.}
-\end{figure}
-
-\runinheading{Reception across agreement.}
-\label{sec:appendix-aita-agreement-gradient}
-Figure~\ref{fig:aita-agreement-gradient} uses 0.05-wide YA-share bins,
-post-equal means, and 2,000 post-bootstrap replicates. Reception gaps
-are generally larger toward the endpoints, but reversals near balance
-preclude a uniformly monotonic interpretation.
-
-\begin{figure}[t]
+  \par\medskip
   \centering
   \includegraphics[width=\columnwidth]{figures/aita_reception_by_ya_share_post_equal.pdf}
   \vspace{-20pt}
@@ -104,6 +96,13 @@ preclude a uniformly monotonic interpretation.
   final YA-share bins. Gaps are generally larger toward the endpoints.}
 \end{figure}
 
+\runinheading{Reception across agreement.}
+\label{sec:appendix-aita-agreement-gradient}
+Figure~\ref{fig:aita-agreement-gradient} uses 0.05-wide YA-share bins,
+post-equal means, and 2,000 post-bootstrap replicates. Reception gaps
+are generally larger toward the endpoints, but reversals near balance
+preclude a uniformly monotonic interpretation.
+
 \runinheading{Certainty contrasts and sensitivity.}
 \label{sec:appendix-certainty}
 Figure~\ref{fig:certainty-low-high} compares full-period post-equal
@@ -114,19 +113,6 @@ are confounded. The AITAH high-agreement defending sample has 15 posts
 for full-period contrasts and eight for stage analysis. No AITAH slope
 survives Holm correction (Figure~\ref{fig:certainty-progress}). Detailed
 sensitivity checks appear in Supplementary Section~\ref{sec:supp-certainty-analysis}.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/survey_procedure.pdf}
-  \vspace{-10pt}
-  \caption{Survey procedure: participants read a post and two comment
-  threads in the Highly Scored or Balanced condition, then reported their judgment,
-  explanation, and reader responses.}
-  \vspace{-10pt}
-  \Description{Two-step survey procedure with an NA-majority example
-  and an eight-point judgment scale.}
-  \label{fig:survey-procedure}
-\end{figure}
 
 \input{components/tab_survey_posts}
 
@@ -241,7 +227,7 @@ alignment-specific summaries in Figure~\ref{fig:survey-results}.
   certainty-$4$ proportions (blaming minus defending) with $95\%$ bootstrap CIs (right). Hollow markers
   flag the small AITAH high-agreement defending sample;
   $n$ denotes posts (blaming/defending).}
-  \vspace{-10pt}
+  \vspace{0pt}
   \label{fig:certainty-low-high}
   \par\medskip
   \centering
@@ -252,28 +238,44 @@ alignment-specific summaries in Figure~\ref{fig:survey-results}.
   changes from post fixed-effects regressions (right). Bands/whiskers:
   $95\%$ post-bootstrap CIs; no trend survives Holm correction.
   $n$: annotated comments in legend order.}
-  \vspace{-10pt}
+  \vspace{0pt}
   \label{fig:certainty-progress}
   \Description{Mean certainty across first-day comment stages and estimated linear
   changes from the first to the last stage in high-agreement AITAH posts.
   No slope is significant after Holm correction; defending uses eight posts.}
+  \par\medskip
+  {\raggedright
+\runinheading{Survey materials and comparisons.}
+Questionnaire wording and original stimuli appear in Supplementary
+Table~\ref{tab:survey-questions} and Section~\ref{app:full-survey-stimuli}.
+The retained three-item composite is reported in Supplementary
+Section~\ref{sec:supp-survey-composite}. Unadjusted Welch comparisons are exploratory; groups defined by
+post-exposure judgments do not identify causal subgroup effects.
+  \par}
   \end{minipage}\hfill
   \begin{minipage}[t]{0.49\textwidth}
   \vspace{0pt}
   \centering
+  \includegraphics[width=\columnwidth]{figures/survey_procedure.pdf}
+  \vspace{0pt}
+  \caption{Survey procedure: participants read a post and two comment
+  threads in the Highly Scored or Balanced condition, then reported their judgment,
+  explanation, and reader responses.}
+  \vspace{0pt}
+  \Description{Two-step survey procedure with an NA-majority example
+  and an eight-point judgment scale.}
+  \label{fig:survey-procedure}
+  \par\medskip
+  \centering
   \includegraphics[width=\columnwidth]{figures/survey_results_pooled.pdf}
-  \caption{Survey responses by display condition, pooled across final
-  judgment alignment ($n=40$ per condition). Blue circles denote Highly
-  Scored; purple triangles denote Balanced. Points and labels show means;
-  whiskers show pointwise 95\% percentile confidence intervals from 20,000
-  bootstrap resamples of participants within each condition, retaining
-  each participant's responses together. Panels show (a) judgment certainty,
-  (b) discussion-level considerations, and (c) C1/C2 ratings, using the same
-  scales as Figure~\ref{fig:survey-results}. Brackets indicate exploratory
-  two-sided Welch tests using unadjusted $p$-values:
+  \caption{Survey responses pooled across final judgment alignment
+  ($n=40$ per condition): (a) certainty, (b) discussion-level considerations,
+  and (c) C1/C2 ratings. Blue circles: Highly Scored; purple triangles:
+  Balanced. Points/labels: means; whiskers: pointwise 95\% percentile CIs
+  from 20,000 whole-participant bootstrap resamples within condition.
+  Brackets: exploratory two-sided Welch tests with unadjusted $p$-values:
   $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$.
-  C1 is shared across conditions; C2 is a majority comment in Highly Scored
-  and a minority comment in Balanced.}
+  C1 is shared; C2 is majority in Highly Scored and minority in Balanced.}
   \label{fig:survey-results-pooled}
   \Description{Three panels arranged from left to right compare Highly Scored and Balanced using all
   40 participants per condition. Panel a shows judgment certainty on a
@@ -286,10 +288,3 @@ alignment-specific summaries in Figure~\ref{fig:survey-results}.
   consideration in Balanced, and higher C2 agreement in Highly Scored.}
   \end{minipage}
 \end{figure*}
-
-\runinheading{Survey materials and comparisons.}
-Questionnaire wording and original stimuli appear in Supplementary
-Table~\ref{tab:survey-questions} and Section~\ref{app:full-survey-stimuli}.
-The retained three-item composite is reported in Supplementary
-Section~\ref{sec:supp-survey-composite}. Unadjusted Welch comparisons are exploratory; groups defined by
-post-exposure judgments do not identify causal subgroup effects.
