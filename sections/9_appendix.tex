@@ -1,4 +1,3 @@
-\clearpage
 \appendix
 
 \section{Annotation and Analysis Details}
@@ -39,8 +38,6 @@ are case-insensitive. Hypothetical and H-suffixed variants are normalized
 (Table~\ref{tab:tags}).
 
 \input{components/tab_tags}
-
-
 
 \runinheading{Arrival-time profiles.}
 \label{sec:appendix-aita-arrival}
@@ -87,8 +84,6 @@ Figure~\ref{fig:verdict-distributions} shows the distributions.
   the YA end. Gray shading marks the high-agreement regions.}
 \end{figure}
 
-
-
 \runinheading{Reception across agreement.}
 \label{sec:appendix-aita-agreement-gradient}
 Figure~\ref{fig:aita-agreement-gradient} uses 0.05-wide YA-share bins,
@@ -132,7 +127,6 @@ sensitivity checks appear in Supplementary Section~\ref{sec:supp-certainty-analy
   and an eight-point judgment scale.}
   \label{fig:survey-procedure}
 \end{figure}
-
 
 \input{components/tab_survey_posts}
 
@@ -212,37 +206,6 @@ considerations, and addition counts.
 Aggregate summaries do not identify which consideration a particular
 reply adds; that requires checking the underlying pair.
 
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
-  \vspace{-20pt}
-  \caption{Post-equal certainty distributions (left) and differences in
-  certainty-$4$ proportions (blaming minus defending) with $95\%$ bootstrap CIs (right). Hollow markers
-  flag the small AITAH high-agreement defending sample;
-  $n$ denotes posts (blaming/defending).}
-  \vspace{-10pt}
-  \label{fig:certainty-low-high}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/aitah_certainty_progress_post_fe.pdf}
-  \vspace{-20pt}
-  \caption{Certainty in high-agreement AITAH posts: post-equal means across
-  first-day comment stages (left) and estimated first-to-last-stage linear
-  changes from post fixed-effects regressions (right). Bands/whiskers:
-  $95\%$ post-bootstrap CIs; no trend survives Holm correction.
-  $n$: annotated comments in legend order.}
-  \vspace{-10pt}
-  \label{fig:certainty-progress}
-  \Description{Mean certainty across first-day comment stages and estimated linear
-  changes from the first to the last stage in high-agreement AITAH posts.
-  No slope is significant after Holm correction; defending uses eight posts.}
-\end{figure}
-
-
-
 \section{Survey Experiment}
 \label{app:survey}
 
@@ -262,6 +225,67 @@ ethnicity (8.8\%); one participant preferred not to disclose their
 ethnicity (1.3\%). Participants resided across 23 countries, with
 the largest groups residing in South Africa ($n=14$, 17.5\%) and
 the United Kingdom ($n=12$, 15.0\%).
+
+\runinheading{Responses pooled across final judgment alignment.}
+Figure~\ref{fig:survey-results-pooled} reports the survey outcomes using
+all 40 participants in each display condition, complementing the
+alignment-specific summaries in Figure~\ref{fig:survey-results}.
+
+\begin{figure*}[!t]
+  \begin{minipage}[t]{0.49\textwidth}
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
+  \vspace{-20pt}
+  \caption{Post-equal certainty distributions (left) and differences in
+  certainty-$4$ proportions (blaming minus defending) with $95\%$ bootstrap CIs (right). Hollow markers
+  flag the small AITAH high-agreement defending sample;
+  $n$ denotes posts (blaming/defending).}
+  \vspace{-10pt}
+  \label{fig:certainty-low-high}
+  \par\medskip
+  \centering
+  \includegraphics[width=\columnwidth]{figures/aitah_certainty_progress_post_fe.pdf}
+  \vspace{-20pt}
+  \caption{Certainty in high-agreement AITAH posts: post-equal means across
+  first-day comment stages (left) and estimated first-to-last-stage linear
+  changes from post fixed-effects regressions (right). Bands/whiskers:
+  $95\%$ post-bootstrap CIs; no trend survives Holm correction.
+  $n$: annotated comments in legend order.}
+  \vspace{-10pt}
+  \label{fig:certainty-progress}
+  \Description{Mean certainty across first-day comment stages and estimated linear
+  changes from the first to the last stage in high-agreement AITAH posts.
+  No slope is significant after Holm correction; defending uses eight posts.}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.49\textwidth}
+  \vspace{0pt}
+  \centering
+  \includegraphics[width=\columnwidth]{figures/survey_results_pooled.pdf}
+  \caption{Survey responses by display condition, pooled across final
+  judgment alignment ($n=40$ per condition). Blue circles denote Highly
+  Scored; purple triangles denote Balanced. Points and labels show means;
+  whiskers show pointwise 95\% percentile confidence intervals from 20,000
+  bootstrap resamples of participants within each condition, retaining
+  each participant's responses together. Panels show (a) judgment certainty,
+  (b) discussion-level considerations, and (c) C1/C2 ratings, using the same
+  scales as Figure~\ref{fig:survey-results}. Brackets indicate exploratory
+  two-sided Welch tests using unadjusted $p$-values:
+  $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$.
+  C1 is shared across conditions; C2 is a majority comment in Highly Scored
+  and a minority comment in Balanced.}
+  \label{fig:survey-results-pooled}
+  \Description{Three panels arranged from left to right compare Highly Scored and Balanced using all
+  40 participants per condition. Panel a shows judgment certainty on a
+  one-to-four scale. Panel b shows multiple sides, new reasons, and
+  alternative judgments on a one-to-seven scale. Panel c shows influence,
+  agreement, and new reasons for C1 on the left and C2 on the right on a one-to-five scale.
+  Highly Scored uses blue circles and Balanced uses purple triangles.
+  Whiskers show 95 percent participant-bootstrap confidence intervals.
+  Unadjusted comparisons show lower certainty and higher alternative-judgment
+  consideration in Balanced, and higher C2 agreement in Highly Scored.}
+  \end{minipage}
+\end{figure*}
 
 \runinheading{Survey materials and comparisons.}
 Questionnaire wording and original stimuli appear in Supplementary
