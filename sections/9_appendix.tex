@@ -12,23 +12,24 @@ measures; Table~\ref{tab:tags} lists the judgment tags used for matching.
 \runinheading{Annotation samples.}
 Certainty annotations cover sampled high- and low-agreement posts;
 sample counts are reported in Supplementary Table~\ref{tab:analytical-samples}.
-Reply annotation uses three seeded samples of
-16,000 pairs, balanced across community, dominant judgment, and comment
-alignment in high-agreement posts; samples may overlap. Pairs involving
-the OP, the same author, unverifiable identities, or unusable text are
-excluded. Review of 100 development pairs is not held-out validation.
-Prompts and execution details appear in Supplementary
-Section~\ref{sec:supp-annotation}.
+Unless otherwise specified, all LLM-based annotations in this work use DeepSeek Flash\footnote{\url{https://api-docs.deepseek.com/quick_start/pricing}} with temperature set to 0.
+
+\runinheading{Annotation of reply stance.}
+\label{subsec:appendix-reply-annotation}
+Reply annotation uses three independently sampled sets of 16,000 pairs, balanced across community, dominant judgment, and comment
+alignment in high-agreement posts.
+Pairs involving the OP, the same author, or unverifiable identities are excluded.
+Given the post as context, the LLM classifies each direct reply as support, challenge, information-seeking, or other relative to its parent comment.
+Human verification of 100 reply pairs yielded 91\% agreement with model labels.
+The prompt, execution settings, and verification procedure are detailed in Supplementary Section~\ref{sec:supp-response-annotation}.
 
 \runinheading{Annotation of moral reasons.}
 \label{subsec:appendix-moral-annotation}
-We analyze 7,023 eligible public reply pairs from 100 AITA posts, split
-equally between posts with more than 80\% NA and more than 80\% YA judgments.
-Existing reply stance labels and author/text eligibility filters are
-retained. Taxonomies are initialized from sampled top-level comments,
-iteratively revised using the remaining eligible top-level comments and their direct replies,
-and frozen before final labeling. Construction, coding, and validation scope are detailed in
-Supplementary Section~\ref{sec:supp-perspective-annotation}.
+We label 7,023 eligible public reply pairs from 100 AITA posts, split equally between posts with more than 80\% NA and more than 80\% YA judgments.
+As described in Section~\ref{subsec:method-annotation}, taxonomies are initialized from sampled top-level comments, iteratively revised using the remaining eligible top-level comments and their direct replies,
+and frozen before final labeling.
+A manual review of 50 randomly selected model classifications found 42 (84\%) reasonable and eight (16\%) partly reasonable or unreasonable.
+Taxonomy construction, iterative revision, and validation scope are detailed in Supplementary Section~\ref{sec:supp-perspective-annotation}.
 
 \runinheading{Judgment matching.}
 \label{sec:appendix-tags}

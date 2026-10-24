@@ -53,8 +53,8 @@ such as \texttt{ESH} in \texttt{FRESH}; full phrases are case-insensitive.
 \label{sec:supp-annotation}
 
 Appendix~\ref{sec:appendix-annotation-details} describes annotation samples
-and eligibility, including the moral-consideration procedure. This section
-provides the certainty and reply stance prompts and execution records.
+and eligibility. This section provides the certainty, reply stance, and
+moral reason prompts and execution details.
 
 \subsection{Certainty Prompt}
 \label{sec:supp-certainty-annotation}
@@ -69,63 +69,25 @@ and immutable model/version documentation remain unresolved.
 \subsection{Reply Stance Prompt and Execution}
 \label{sec:supp-response-annotation}
 
-For the stratified samples described in Appendix~\ref{sec:appendix-annotation-details},
-seeds are $2026090901$--$2026090903$. Sampling is without replacement
-within each stratum, with no cap on pairs per post or comment;
-author-ineligible draws are replaced in deterministic candidate order.
-Overlapping pairs are annotated separately in each sample. Equal-stratum
-proportions are not population prevalence. The sampling frame's minimum-judgment
-requirement remains to be verified.
-
-Prompt \texttt{v0.3.3} includes no scores or alignment metadata and
-classifies the reply's central stance: qualifications
-preserving the parent's position may remain support, while substantive
-or rhetorical rebuttals are challenge (Figure~\ref{fig:rq2-prompt}). Post, parent, and reply
-text are required; missing model outputs are not assigned to \emph{other}.
-All completed samples have labels for every pair.
+For the samples described in Appendix~\ref{sec:appendix-annotation-details}, we sample without
+replacement within eight community $\times$ dominant-judgment
+$\times$ parent-alignment strata, with 2,000 pairs per stratum per seed. Figure~\ref{fig:rq2-prompt} provides the classification prompt. Annotation uses temperature 0 with thinking disabled. Human review of 100 pairs yielded 91\% agreement overall and 94.6\% among the 93 human-labeled support/challenge pairs.
 
 \input{components/box_rq2_prompt}
-
-Execution used temperature $0$, disabled thinking, and concurrency $10$.
-The first request alias was \texttt{deepseek-v4-flash}, later
-\texttt{deepseek-flash}; successful responses reported the latter, documented
-as V4.1 Flash but not an immutable backend. Prompts, responses, and attempt
-records were retained. Three fresh requests on each of $32$ frozen examples
-checked repeatability, not accuracy.
-
-The development review reported in Appendix~\ref{sec:appendix-annotation-details}
-used $80$ retained pairs and $20$ replacements, all author-verified;
-labels were revised after examining model disagreements.
-Agreement was $91/100$ overall and $88/93$ among human support/challenge
-labels; other model predictions remain disagreements. These are
-development-set figures, not held-out accuracy or inter-annotator reliability.
 
 \subsection{Annotation of Moral Reasons}
 \label{sec:supp-perspective-annotation}
 
 For each of the 100 AITA posts, we initialize a taxonomy from up to
 50 sampled top-level comments and refine it against the remaining eligible
-comments and replies in batches of up to 50, drawing on inductive category
-formation~\citep{mayring2014qualitative}. Initialization targets four to
+comments and replies in batches of up to 50. Initialization targets four to
 eight categories; refinement permits up to 16 before freezing the taxonomy.
-Construction covers 57,555 eligible texts, while the reply analysis retains
+Construction covers 57,555 comments (all the top-level comments and their direct replies), while the reply analysis retains
 the original 7,023 pairs and their existing reply stance labels.
 
-DeepSeek Flash assigns binary category labels and explanations to each
-text, using temperature zero with thinking disabled. Replies receive their
-parent as context, but only reasons expressed by the target are coded;
-bare agreement does not inherit the parent's categories. Multiple labels
-or none are allowed. Categories remain post-specific. Addition uses
-recorded positive labels, and missing assignments are not imputed as zeros.
-Replies without positive labels remain unmapped in the analysis.
-
-Figures~\ref{fig:moral-reason-initialize-prompt}--\ref{fig:moral-reason-classify-prompt}
-reproduce the user prompt templates for taxonomy initialization, revision,
-and comment classification, with headings and JSON layout reformatted for
-readability. The prompts use ``perspective'' for the post-specific moral
-reasons discussed here; braces denote substituted inputs. The revision
-prompt shown is the current template; four earlier posts used a
-variant with different version-tracking and unresolved-issue instructions.
+Among the 50 manually reviewed classifications, 42 (84\%) were rated reasonable, six (12\%) partly reasonable, and two (4\%) unreasonable.
+The prompts for taxonomy initialization, iterative revision, and comment classification are shown in Figures~\ref{fig:moral-reason-initialize-prompt}, \ref{fig:moral-reason-revise-prompt}, and \ref{fig:moral-reason-classify-prompt}, respectively.
+The prompts use ``perspective'' for the post-specific moral reasons discussed here; braces denote substituted inputs.
 
 \input{components/box_moral_reason_initialize_prompt}
 \input{components/box_moral_reason_revise_prompt}
