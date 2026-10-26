@@ -42,7 +42,8 @@ judgment comments from posts with at least 200 judgments: 28,107 posts
 in AITA and 8,217 in AITAH. Supplementary
 Table~\ref{tab:analytical-samples} summarizes archive coverage and the
 analytical samples; annotation-specific sampling procedures are described
-in Section~\ref{subsec:method-annotation}.
+in Section~\ref{subsec:method-annotation}. 
+\lx{Due to the cost of LLM-driven annotations for large datasets, we did not annotate all of the above posts and their comment tree. We have provided robustness analysis for subsampling where applicable.}
 
 \runinheading{Agreement and minority stance.}
 A post’s \emph{dominant judgment} is whichever of YA or NA appears in more top-level comments.
@@ -105,7 +106,7 @@ to depth but not to direct-reply count.
 For arrival-time analyses, we calculate post-level means within hourly bins of comment posting time during the first 24 hours, then average across contributing posts. 
 Appendix~\ref{sec:appendix-annotation-details} provides further
 aggregation and inference details.
-}
+}\lxnote{the original para (commented out) was very confusing, rewrote and omitted some details}
 
 %We average comments within each post and judgment group, then weight
 %posts equally. Empty groups are omitted, not assigned zero; missing
@@ -119,15 +120,18 @@ aggregation and inference details.
 \subsection{Annotation of Comments and Replies}
 \label{subsec:method-annotation}
 
-To examine access to alternative moral reasons, we prioritize the reasons
-articulated in comments and replies. Our primary annotation measure
-captures whether a reply introduces a reason absent from its parent,
-identifying additional grounds for judgment available in an exchange
-rather than measuring readers' actual exposure. We first distinguish
-supportive from challenging replies, then examine the reasons added
-within these exchanges. Comment certainty provides a complementary
-measure of how firmly judgments are expressed
-(Figure~\ref{fig:study-overview}).
+\lx{We annotate three aspects of comments and replies: reply stance, additional moral reasons, and expressed certainty (Figure~\ref{fig:study-overview}). The first two characterize exchanges around judgments, while} certainty provides a complementary measure of how firmly judgments are expressed.
+\lx{More details about these annotations and human validation are provided in Appendix~\ref{sec:appendix-annotation-details}.}
+
+%To examine access to alternative moral reasons, we prioritize the reasons
+%articulated in comments and replies. Our primary annotation measure
+%captures whether a reply introduces a reason absent from its parent,
+%identifying additional grounds for judgment available in an exchange
+%rather than measuring readers' actual exposure. We first distinguish
+%supportive from challenging replies, then examine the reasons added
+%within these exchanges. Comment certainty provides a complementary
+%measure of how firmly judgments are expressed
+%(Figure~\ref{fig:study-overview}).
 
 
 
@@ -138,8 +142,8 @@ independently of whether they add moral reasons. Drawing on prior work~\citep{an
 (disputing it), \emph{information-seeking} (requesting clarification), and
 \emph{other}.
 
-We sample three stratified sets of 16,000 top-level comment--direct reply
-pairs from high-agreement posts while excluding pairs involving OPs, who are parties to the conflict and may reply to explain or defend their conduct~\citep{giorgi2023author}, as well as same-author pairs and pairs with unverifiable author identities.
+We sample three stratified sets of 16,000 top-level comment-reply
+pairs from high-agreement posts. We exclude pairs \lx{from the same authors, with unverifiable author identities, and those} involving OPs, who are parties to the conflict and may reply to explain or defend their conduct~\citep{giorgi2023author}. %as well as same-author pairs and pairs with unverifiable author identities.
 Given the post as context, an LLM classifies each reply's stance toward its parent comment.
 
 
@@ -158,42 +162,46 @@ adds appreciation of the car beyond its parent's concern with relationship
 harm; the challenging reply adds running costs beyond its parent's
 concern with gender bias. Addition is assessed relative to the parent,
 not to the discussion as a whole.
-More details about the annotation process are provided in Appendix~\ref{sec:appendix-annotation-details}.
 
-
-Within each post, parent group, and reply stance, proportions include
-all eligible replies, including those assigned no category; empty cells
-are omitted. We average these proportions across posts with equal weight.
-Confidence intervals and exploratory comparisons use whole-post bootstrap
-resampling, with Holm adjustment for multiple comparisons. Estimates use
-each cell's contributing posts and treat model-assigned labels as fixed,
-without accounting for classification uncertainty or omitted category
-assignments. Supplementary Section~\ref{sec:supp-moral-reason-inference}
-provides inference details.
 
 \runinheading{Expressed certainty.}
 As a complementary outcome, we compare how firmly majority and minority
 comments express their judgments.
-we use comment-level certainty annotations from sampled high- and
-low-agreement posts. The scale captures
-expressed language, not private confidence: very uncertain (1), somewhat
-uncertain (2), somewhat certain (3), and very certain (4). The same
-criteria apply across judgments.
-
-We compare certainty distributions and the proportion at level 4 between
+we use comment-level certainty annotations from sampled\lxnote{this one doesn't say how samples are made, and how many!} 
+high- and
+low-agreement posts. The scale \lx{was developed to match linguistic expressions of uncertainty~\cite{chen2026controversy} and does not reflect} private confidence: very uncertain (1), somewhat
+uncertain (2), somewhat certain (3), and very certain (4). 
+\lx{Most comments have a certainty level of 4 (XX\%) or 3 (YY\%)\lxnote{Can someone supply this stat?}, we do not score certainty for replies since most of them do not contain a judgment.} 
+%The same criteria apply across judgments.
+\lxnote{I deleted these, seems incorrect about Fig 6. Should be moved to the appropriate place in supp material
+``We compare certainty distributions and the proportion at level 4 between
 blaming and defending dissent over the full observed period, weighting
 posts equally. These estimates describe the annotated sample, not
 community-wide certainty.
+"
+}
 
-To compare expression as discussions progress, we divide the first
-24 hours of judgment comments in high-agreement AITA posts into ten
-chronological stages containing approximately equal numbers of comments.
-We compare majority, blaming minority, and defending
-minority comments using equal post weights. For each group, we retain a
-fixed set of posts with at least one comment from that group with a valid
-certainty annotation in every stage, keeping post composition constant
-across stages. Post fixed-effects regressions estimate linear changes
-across the sequence. These analyses describe successive comments in the
-selected discussions, not changes within individuals.
-Estimation and sensitivity checks are summarized in
-Appendices~\ref{sec:appendix-annotation-details} and~\ref{sec:appendix-evidence}.
+\lx{Reply stance and additional moral reasons are reported as aggregate proportions. Stance proportions weight each annotated comment–reply pair equally. For moral reasons, we calculate the proportion of replies adding a reason within each post, separately by parent judgment group and reply stance, then average across posts with equal weight. Certainty is reported across ten chronological stages of the first-day discussion, each with equal number of comments. At each stage, we average certainty within each post and judgment group, then across a fixed set of posts for that group, giving posts equal weight. These estimates describe the annotated samples; statistical procedures are detailed in the supplement.}
+
+%Within each post, parent group, and reply stance, proportions include
+%all eligible replies, including those assigned no category; empty cells
+%are omitted. We average these proportions across posts with equal weight.
+%Confidence intervals and exploratory comparisons use whole-post bootstrap
+%resampling, with Holm adjustment for multiple comparisons. Estimates use
+%each cell's contributing posts and treat model-assigned labels as fixed,
+%without accounting for classification uncertainty or omitted category
+%assignments. Supplementary Section~\ref{sec:supp-moral-reason-inference}
+%provides inference details.
+
+%To compare expression as discussions progress, we divide the first
+%24 hours of judgment comments in high-agreement AITA posts into ten
+%chronological stages containing approximately equal numbers of comments.
+%We compare majority, blaming minority, and defending
+%minority comments using equal post weights. For each group, we retain a
+%fixed set of posts with at least one comment from that group with a valid
+%certainty annotation in every stage, keeping post composition constant
+%across stages. Post fixed-effects regressions estimate linear changes
+%across the sequence. These analyses describe successive comments in the
+%selected discussions, not changes within individuals.
+%Estimation and sensitivity checks are summarized in
+%Appendices~\ref{sec:appendix-annotation-details} and~\ref{sec:appendix-evidence}.
