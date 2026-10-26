@@ -1,18 +1,18 @@
-\section{\ai{Observational Data and Methods}}
+\section{Observational Data and Methods}
 \label{sec:data-method}
 
-\ai{We analyze public discussion archives from r/AmItheAsshole (AITA) to
+We analyze public discussion archives from r/AmItheAsshole (AITA) to
 examine how minority judgments are received (RQ1) and how they are
 expressed and discussed (RQ2). We first define judgment alignment and
 reception measures, then describe annotations of expressed certainty,
 reply stance, and moral reasons. Figure~\ref{fig:study-overview}
 illustrates how these measures and annotations relate to the discussion
 structure. We also examine r/AITAH (AITAH) as a comparison community,
-with additional results reported in the supplementary material.}
+with additional results reported in the Appendix.
 
 \input{components/fig_structure_overview}
 
-\subsection{\ai{Discussion Data and Reception Measures}}
+\subsection{Discussion Data and Reception Measures}
 \label{subsec:dataset}
 
 A \emph{post} is its original poster's (OP's) account of an interpersonal
@@ -20,14 +20,14 @@ conflict. A \emph{comment} is a top-level response to the post;
 a \emph{reply} responds directly to a comment. A \emph{reply thread}
 includes replies to the comment and further nested responses.
 
-\runinheading{\ai{Judgment categories.}}
+\runinheading{Judgment categories.}
 A \emph{judgment} assesses the OP's conduct. We group YTA
 (``You're the Asshole'') and ESH (``Everyone Sucks Here'') as \emph{YA},
 assigning fault to the OP; NTA (``Not the Asshole'') and NAH
 (``No Assholes Here'') form \emph{NA}, assigning no fault to the OP.
 
-\runinheading{\ai{Archive coverage and analytical samples.}}
-\ai{The public archives cover June 2013--December 2025 for AITA and
+\runinheading{Archive coverage and analytical samples.}
+The public archives cover June 2013--December 2025 for AITA and
 March 2021--December 2025 for AITAH. We exclude posts with empty or
 removed bodies and use each comment's first recognized judgment
 (matching rules in Appendix~\ref{sec:appendix-annotation-details};
@@ -38,13 +38,13 @@ judgment comments from posts with at least 200 judgments: 28,107 posts
 in AITA and 8,217 in AITAH. Supplementary
 Table~\ref{tab:analytical-samples} summarizes archive coverage and the
 analytical samples; annotation-specific sampling procedures are described
-in Section~\ref{subsec:method-annotation}.}
+in Section~\ref{subsec:method-annotation}.
 
 \runinheading{\ai{Agreement and minority status.}}
-The \emph{dominant judgment} is a post's more frequent judgement category, YA or NA.
-\emph{Majority comments} match it; \emph{minority comments} oppose it.
-\ai{We use \emph{dissent} to denote judgments that differ from the post's
-dominant judgment.}
+\lx{A post’s \emph{dominant judgment} is whichever of YA or NA appears in more top-level comments.}
+%The \emph{dominant judgment} is a post's more frequent judgement category, YA or NA.
+\emph{Majority comments} match it; \emph{minority comments}, \lx{or \emph{dissent}}, oppose it.
+%\ai{We use \emph{dissent} to denote judgments that differ from the post's dominant judgment.}
 Comparisons requiring this distinction exclude exact ties.
 \emph{High agreement} means at least 80\% favor one side;
 \emph{low agreement} means each side accounts for 40--60\%.
@@ -52,6 +52,7 @@ Comparisons requiring this distinction exclude exact ties.
 less than 80\% of judgments are excluded from high-versus-low agreement
 comparisons. We retain these posts when examining how reception varies
 across the full range of agreement.}
+\lxnote{need a pointer to where the additional results for the middle agreement lies}
 
 \emph{Blaming dissent} assigns fault to an OP (\emph{YA}) whom the majority defends (\emph{NA});
 \emph{defending dissent} defends an OP (\emph{NA}) whom the majority blames (\emph{YA}).
@@ -156,19 +157,22 @@ which covers remaining functions.
 Challenge denotes disagreement, not necessarily personal attack. Proportions weight eligible comment--reply pairs equally and describe reply composition, not all comments.
 \end{comment}
 
-\runinheading{\ai{Additional moral reasons.}}
-\ai{We also examine whether replies introduce moral reasons absent from their parent comments.}
+\runinheading{Additional moral reasons.}
+We also examine whether replies introduce moral reasons absent from their parent comments.
 We analyze 7,023 eligible pairs from 100 high-agreement AITA posts, alongside their reply stances.
-To identify the moral reasons expressed in these comments, we use a two-stage LLM-based procedure inspired by inductive category formation~\citep{mayring2014qualitative}.
+To identify the moral reasons in these comments, we use a two-stage LLM-based procedure inspired by inductive category formation~\citep{mayring2014qualitative}.
 First, we construct a taxonomy of moral reasons for each post through iterative refinement.
-We then use the resulting categories to label top-level comments and their direct replies, allowing multiple labels per comment.
+We then use the resulting categories to label top-level comments and their direct replies, allowing multiple labels for each.
 A reply is coded as adding a moral reason category if it receives a label absent from its parent comment.
-\ai{In Figure~\ref{fig:study-overview}, the supporting reply adds financial
-obligations, while the challenging reply adds privacy beyond the
+For example, in Figure~\ref{fig:study-overview}, the supporting and challenging replies add financial obligations and privacy, respectively, beyond the parent's concern with trust.
+More details about the annotation process are provided in Appendix~\ref{sec:appendix-annotation-details}.
+
+\begin{comment}
+\ai{In Figure~\ref{fig:study-overview}, the supporting reply adds financial obligations, while the challenging reply adds privacy beyond the
 parent's concern with trust. Privacy counts as an addition even though
 it appears in another comment: addition is assessed relative to the
 parent, not the discussion as a whole.}
-More details about the annotation process are provided in Appendix~\ref{sec:appendix-annotation-details}.
+\end{comment}
 
 Within each post, parent group, and reply stance, proportions include all eligible replies, including those assigned no
 category; empty cells are omitted. We average these proportions across
