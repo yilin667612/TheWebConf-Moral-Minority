@@ -56,9 +56,9 @@ Comparisons requiring this distinction exclude exact ties.
 
 A \emph{blaming dissent} assigns fault to an OP (\emph{YA}) whom the majority defends;
 a \emph{defending dissent} insists an OP being not at fault (\emph{NA}) whom the majority blames.
-In Figure~\ref{fig:study-overview}, the post has a YA majority:
+The example post in Figure~\ref{fig:study-overview} has a YA majority:
 the YTA comment therefore represents the majority, while the NTA
-comment represents defending dissent.
+comment represents {\it defending} dissent.
 
 \lx{
 We assign majority and minority status retrospectively from final observed judgments, independently of the community’s official verdict, and keep these labels fixed in temporal analyses. They do not reconstruct what readers encountered, since comment order depends on ranking and sorting.
@@ -87,7 +87,7 @@ High-agreement discussions provide a setting in which the prevailing judgment ma
 %only in analyses of reception across the full agreement range.
 
 \runinheading{Reception measures.} 
-\lx{We obtain the snapshot of Reddit measures from an August 2026 archive. Most reddit posts accumulate 99\% of their comments within 24 hours, therefore posts in our dataset would have accumulated their comments and reactions during the 7+ months since their posting.}
+\lx{We obtain a snapshot of Reddit measures from an August 2026 archive. Most reddit posts accumulate 99\% of their comments within 24 hours, therefore posts in our dataset would have accumulated their comments and reactions during the 7+ months since their posting.}
 \emph{Comment score} is the last recorded net score (upvotes minus downvotes).
 \emph{Reply count} counts direct replies; \emph{maximum reply depth}
 is the deepest level beneath a comment (zero without replies,
@@ -101,14 +101,20 @@ scored is $-54$. The selected excerpt illustrates two direct replies
 and a maximum reply depth of two; the nested reply contributes
 to depth but not to direct-reply count.
 
-We average comments within each post and judgment group, then weight
-posts equally. Empty groups are omitted, not assigned zero; missing
-scores affect only score averages. Contributing post sets may therefore
-differ between groups. Outcomes use all available observations rather
-than a uniform follow-up period. Arrival-time profiles group comments by
-their posting hour during the first 24 hours; contributing post sets can
-vary by hour. Appendix~\ref{sec:appendix-annotation-details} summarizes
-aggregation and inference.
+\lx{For each reception measure, we first calculate the mean across comments within each post, separately for each judgment group (e.g., majority and minority). We then average these post-level means across posts, giving each contributing post equal weight regardless of its number of comments. The reported distributions also summarize these post-level means. Posts without comments in a particular group are omitted from that group’s summary.
+For arrival-time analyses, we calculate post-level means within hourly bins of comment posting time during the first 24 hours, then average across contributing posts. 
+Appendix~\ref{sec:appendix-annotation-details} provides further
+aggregation and inference details.
+}
+
+%We average comments within each post and judgment group, then weight
+%posts equally. Empty groups are omitted, not assigned zero; missing
+%scores affect only score averages. Contributing post sets may therefore
+%differ between groups. Outcomes use all available observations rather
+%than a uniform follow-up period. Arrival-time profiles group comments by
+%their posting hour during the first 24 hours; contributing post sets can
+%vary by hour. Appendix~\ref{sec:appendix-annotation-details} summarizes
+%aggregation and inference.
 
 \subsection{Annotation of Comments and Replies}
 \label{subsec:method-annotation}
