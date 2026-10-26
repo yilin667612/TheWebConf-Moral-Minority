@@ -44,7 +44,7 @@ Table~\ref{tab:analytical-samples} summarizes archive coverage and the
 analytical samples; annotation-specific sampling procedures are described
 in Section~\ref{subsec:method-annotation}.
 
-\runinheading{Agreement and minority status.}
+\runinheading{Agreement and minority stance.}
 A post’s \emph{dominant judgment} is whichever of YA or NA appears in more top-level comments.
 \emph{Majority comments} match it; \emph{minority comments}, or \emph{dissent}, oppose it.
 Comparisons requiring this distinction exclude exact ties.
@@ -60,35 +60,44 @@ In Figure~\ref{fig:study-overview}, the post has a YA majority:
 the YTA comment therefore represents the majority, while the NTA
 comment represents defending dissent.
 
-These directions concern different post sets.
-We assign majority and minority status retrospectively from the final
-observed judgment distribution, rather than the community's official
-judgment, and keep these classifications fixed in temporal analyses.
-These classifications need not reflect the judgment distribution or
-comment ordering readers encountered at the time.
-On Reddit, comment visibility depends on sorting and ranking, including vote-based
-ordering. A prevailing judgment may be
-easier to discern in high-agreement discussions; in low-agreement
-discussions, readers may encounter either side first without perceiving
-a clear majority. Dissent therefore describes a comment's relation to
-the final observed majority, without assuming that its author recognized
-or deliberately opposed that majority.
+\lx{
+We assign majority and minority status retrospectively from final observed judgments, independently of the community’s official verdict, and keep these labels fixed in temporal analyses. They do not reconstruct what readers encountered, since comment order depends on ranking and sorting.
 
-To simplify comparisons along this gradient, we focus on high- versus
-low-agreement posts. Intermediate posts, in which the dominant judgment
-accounts for more than 60\% but less than 80\% of judgments, are retained
-only in analyses of reception across the full agreement range.
+High-agreement discussions provide a setting in which the prevailing judgment may be more apparent to readers. We therefore focus on these discussions, using low-agreement discussions—where readers may encounter either side first—as a comparison. Analyses across the full agreement range, including intermediate posts, appear in Appendix Figure~\ref{fig:aita-agreement-gradient} and Supplementary Section~\ref{sec:supp-reception-analysis}.
+\lxnote{I remember there were figures across the full agreement range, can we insert the correct ref? I think the Section reference here is wrong, Fig ref seem ok}
+}
 
-\runinheading{Reception measures.}
+%These directions concern different post sets.
+%We assign majority and minority status retrospectively from the final
+%observed judgment distribution, rather than the community's official
+%judgment, and keep these classifications fixed in temporal analyses.
+%These classifications need not reflect the judgment distribution or
+%comment ordering readers encountered at the time.
+%On Reddit, comment visibility depends on sorting and ranking, including vote-based
+%ordering. A prevailing judgment may be
+%easier to discern in high-agreement discussions; in low-agreement
+%discussions, readers may encounter either side first without perceiving
+%a clear majority. Dissent therefore describes a comment's relation to
+%the final observed majority, without assuming that its author recognized
+%or deliberately opposed that majority.
+
+%To simplify comparisons along this gradient, we focus on high- versus
+%low-agreement posts. Intermediate posts, in which the dominant judgment
+%accounts for more than 60\% but less than 80\% of judgments, are retained
+%only in analyses of reception across the full agreement range.
+
+\runinheading{Reception measures.} 
+\lx{We obtain the snapshot of Reddit measures from an August 2026 archive. Most reddit posts accumulate 99\% of their comments within 24 hours, therefore posts in our dataset would have accumulated their comments and reactions during the 7+ months since their posting.}
 \emph{Comment score} is the last recorded net score (upvotes minus downvotes).
 \emph{Reply count} counts direct replies; \emph{maximum reply depth}
 is the deepest level beneath a comment (zero without replies,
-one for replies without further nesting). These measures use stored judgment labels
+one for replies without further nesting). 
+\lxnote{I'm removing these, see if the latter should be in Sec 3.2 ``These measures use stored judgment labels
 and reply structure; the OP exclusions used for
-annotation do not apply to reception measures.
-
-In Figure~\ref{fig:study-overview}, the minority comment's recorded
-score is $-54$. The selected excerpt illustrates two direct replies
+annotation do not apply to reception measures."}
+For the example shown in Figure~\ref{fig:study-overview}, 
+the majority comment scored 15,936 and the minority comment  
+scored is $-54$. The selected excerpt illustrates two direct replies
 and a maximum reply depth of two; the nested reply contributes
 to depth but not to direct-reply count.
 
