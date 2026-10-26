@@ -60,8 +60,8 @@ moral reason prompts and execution details.
 \label{sec:supp-certainty-annotation}
 
 Figure~\ref{fig:prompt} supplies the post and comment, returning
-a certainty score and rationale. Its scale concerns hedging, not judgment
-direction; displayed examples are abridged. We recruited four authors with expertise in data annotation and a deep
+a certainty score and rationale. Its scale captures linguistic certainty in the expressed judgment,
+not private confidence or judgment direction; displayed examples are abridged. We recruited four authors with expertise in data annotation and a deep
 understanding of the AITA community's discourse. These experts
 independently annotated 200 comments. Overall agreement among the four annotators reached Krippendorff's $\alpha=.69$, while agreement between individual
 annotators and the majority-vote labels ranged from $\alpha=.75$ to $.85$. 
@@ -216,7 +216,7 @@ equal-count stages and therefore differ in post selection as well as scale.
 \subsection{Certainty Analyses}
 \label{sec:supp-certainty-analysis}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.68\columnwidth]{figures/certainty_distribution_low_high_full_period.pdf}
   \caption{Post-equal certainty distributions (left) and differences in
@@ -302,7 +302,7 @@ AITA includes more everyday disputes over resources and obligations.
 Shared stories therefore provide contextual comparisons, not equivalent
 audiences or a natural experiment.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.6\columnwidth]{figures/embeddings.png}
   \caption{UMAP projection of BGE post-text embeddings by community.
@@ -448,7 +448,7 @@ are $52.5$ versus $158.0$ days; for comments alone, they are
 $32.1$ versus $31.3$ days.
 These are archive-relative timings, not complete lifetime follow-up.
 
-\begin{figure}[t]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.68\columnwidth]{figures/comment_timing.pdf}
   \caption{Participation timing in AITA (top) and AITAH (bottom): distributions
@@ -483,7 +483,7 @@ posts, $79.7\%$ and $75.1\%$ have an OP contribution within one hour.
 Lower presence near unanimous YA is an association, not evidence of
 blame-induced withdrawal: OP participation can precede the final judgment.
 
-\begin{figure}[t]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.68\columnwidth]{figures/op_participation_aita_aitah.pdf}
   \caption{OP participation in AITA (top) and AITAH (bottom): presence
@@ -534,11 +534,12 @@ For comparison with earlier summaries, we retain the unweighted mean of
 the three discussion-level items as a supplementary score (1--7).
 All 80 participants answered all three items, so no imputation or
 partial-item averaging was required. The mean is $4.89$ in Balanced
-and $4.08$ in Highly Scored. Within reported-judgment groups, the corresponding
+and $4.08$ in Highly Scored. Within post-exposure judgment-alignment groups, the corresponding
 means are $4.80$ versus $3.93$ for majority-aligned readers
 ($n=31$ versus $30$; unadjusted Welch $p=.020$), and $5.22$ versus $4.53$
 for minority-aligned readers ($n=9$ versus $10$; $p=.300$).
-The main analysis reports the items separately to distinguish considering
+These subgroup comparisons are descriptive. The main analysis reports
+the items separately to distinguish considering
 multiple sides, new considerations, and reasons for alternative judgments.
 
 \subsection{Full Text of the Survey Stimuli}
@@ -981,7 +982,7 @@ Figures~\ref{fig:qualtrics-consent}--\ref{fig:qualtrics-end} reproduce
 the survey pages presented to participants, including consent, task
 instructions, the assigned story and comments, judgment and rating measures, display preferences, and the completion page.
 
-\begin{figure*}[p]
+\begin{figure}[H]
   \centering
   \includegraphics[
     width=0.9\textwidth,
@@ -996,9 +997,9 @@ instructions, the assigned story and comments, judgment and rating measures, dis
   survey procedure, data handling, potential risks, expected duration,
   and consent options. Identifying contact and institutional
   information is redacted.}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[p]
+\begin{figure}[H]
   \centering
   \includegraphics[
     width=0.9\textwidth,
@@ -1010,9 +1011,9 @@ instructions, the assigned story and comments, judgment and rating measures, dis
   \label{fig:qualtrics-training}
   \Description{Screenshot of the training page explaining the task,
   judgment options, and survey response procedure.}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[p]
+\begin{figure}[H]
   \centering
   \includegraphics[
     width=0.9\textwidth,
@@ -1023,9 +1024,9 @@ instructions, the assigned story and comments, judgment and rating measures, dis
   \label{fig:qualtrics-story-display}
   \Description{Screenshot of the survey page displaying the assigned
   AITA story that participants evaluated.}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[p]
+\begin{figure}[H]
   \centering
   \includegraphics[
     width=0.9\textwidth,
@@ -1037,9 +1038,9 @@ instructions, the assigned story and comments, judgment and rating measures, dis
   \Description{Screenshot of the page displaying the 1st and 2nd
   comments and asking participants to report their final moral judgment
   on the eight-point bipolar judgment scale.}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[p]
+\begin{figure}[H]
   \centering
   \includegraphics[
     width=0.9\textwidth,
@@ -1052,9 +1053,9 @@ instructions, the assigned story and comments, judgment and rating measures, dis
   \Description{Screenshot of the comment-level rating page on which
   participants evaluated the 1st and 2nd comments in terms of new moral
   considerations, perceived influence, and agreement.}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[p]
+\begin{figure}[H]
   \centering
   \includegraphics[
     width=0.9\textwidth,
@@ -1068,9 +1069,9 @@ instructions, the assigned story and comments, judgment and rating measures, dis
   whether the two-comment discussion prompted participants to consider
   multiple sides, new reasons, and why someone might reach an
   alternative judgment.}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[p]
+\begin{figure}[H]
   \centering
   \includegraphics[
     width=0.9\textwidth,
@@ -1079,12 +1080,11 @@ instructions, the assigned story and comments, judgment and rating measures, dis
   ]{figures/qualtrics_preference.png}
   \caption{Display preference.}
   \label{fig:qualtrics-preference}
-  \Description{Screenshot of the page asking which comment contributed
-  most to participants' final judgments and whether they preferred the
+  \Description{Screenshot of the page asking whether participants preferred the
   Highly Scored display, the Balanced display, or neither.}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[p]
+\begin{figure}[H]
   \centering
   \includegraphics[
     width=0.9\textwidth,
@@ -1096,4 +1096,4 @@ instructions, the assigned story and comments, judgment and rating measures, dis
   \Description{Screenshot of the final page confirming completion of
   the survey and providing any closing information shown to
   participants.}
-\end{figure*}
+\end{figure}
