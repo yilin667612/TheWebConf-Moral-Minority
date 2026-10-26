@@ -93,6 +93,31 @@ The prompts use ``perspective'' for the post-specific moral reasons discussed he
 \input{components/box_moral_reason_revise_prompt}
 \input{components/box_moral_reason_classify_prompt}
 
+\subsection{Inference for Additional Moral Reasons}
+\label{sec:supp-moral-reason-inference}
+
+The analysis uses 7,023 eligible direct reply pairs from 100 AITA posts.
+For each post, parent group (majority, blaming minority, or defending
+minority), and reply subset (all, support, or challenge), we compute the
+proportion of replies assigned at least one moral-reason category absent
+from the parent. All eligible replies enter the denominator, including
+those with no assigned category; empty cells are omitted. Displayed means
+weight contributing posts equally. Pointwise $95\%$ percentile confidence
+intervals use 20,000 whole-post bootstrap resamples, drawn separately
+from each cell's contributing posts.
+
+Exploratory contrasts use two-sided, centered studentized bootstrap tests
+with 99,999 resamples of the full 100-post frame. Posts are sampled jointly
+across cells, preserving within-post dependence. The comparison family
+contains the three pairwise parent-group contrasts within each of the
+three reply subsets, plus challenge versus support within each parent
+group (12 contrasts in total); Holm adjustment is applied to this family.
+Each contrast compares marginal post-equal means over the respective
+cells' contributing posts, rather than restricting both cells to shared
+posts. Resampling uses seed 20261023. These analyses treat the taxonomy,
+reply stance, and moral-reason labels as fixed and do not propagate
+classification uncertainty or omitted category assignments.
+
 
 \runinheading{Illustrative comment--reply exchanges.}
 Table~\ref{tab:reason-examples-17v3n65} and \ref{tab:reason-examples-1abtals} present selected comment--reply excerpts illustrating supportive and challenging replies, with and without added reason categories; the first two tables also show parent certainty scores.

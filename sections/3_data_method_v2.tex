@@ -82,11 +82,10 @@ one for replies without further nesting). These measures use stored judgment lab
 and reply structure; the OP exclusions used for
 annotation do not apply to reception measures.
 
-In the illustrated excerpt in Figure~\ref{fig:study-overview},
-the minority comment has a recorded score of $-54$;
-two direct replies, and a maximum reply depth of two. The nested
-reply contributes to depth but not to direct-reply count. The displayed
-reply structure is a selected excerpt, not the full observed thread.
+In Figure~\ref{fig:study-overview}, the minority comment's recorded
+score is $-54$. The selected excerpt illustrates two direct replies
+and a maximum reply depth of two; the nested reply contributes
+to depth but not to direct-reply count.
 
 We average comments within each post and judgment group, then weight
 posts equally. Empty groups are omitted, not assigned zero; missing
@@ -143,23 +142,10 @@ We sample three stratified sets of 16,000 top-level comment--direct reply
 pairs from high-agreement posts while excluding pairs involving OPs, who are parties to the conflict and may reply to explain or defend their conduct~\citep{giorgi2023author}, as well as same-author pairs and pairs with unverifiable author identities.
 Given the post as context, an LLM classifies each reply's stance toward its parent comment.
 
-\begin{comment}
-We annotate reply stance to distinguish endorsement from opposition within
-the engagement captured by reply counts. We use three samples of 16,000
-comment--reply pairs each from high-agreement posts, excluding OP
-participation. Unlike other commenters, OPs are
-parties to the conflict and may use replies to explain or defend their own
-conduct. Excluding their participation focuses the analysis on how other
-community members respond to judgments.
-Given the post as context, DeepSeek labels each reply's stance toward its comment, with human review of 100 development-set pairs. Labels distinguish \emph{support}, which endorses the comment's position; \emph{challenge}, which disputes it;
-\emph{information-seeking}, which requests clarification; and \emph{other},
-which covers remaining functions.
-Challenge denotes disagreement, not necessarily personal attack. Proportions weight eligible comment--reply pairs equally and describe reply composition, not all comments.
-\end{comment}
 
 \runinheading{Additional moral reasons.}
 We also examine whether replies introduce moral reasons absent from their parent comments.
-We use a separate 100-post AITA sample, balanced between NA-dominant
+We use a 100-post AITA sample, balanced between NA-dominant
 and YA-dominant high-agreement posts (50 each). The analysis includes
 7,023 eligible direct reply pairs from these posts and retains their
 existing reply stance labels. 
@@ -174,12 +160,6 @@ concern with gender bias. Addition is assessed relative to the parent,
 not to the discussion as a whole.
 More details about the annotation process are provided in Appendix~\ref{sec:appendix-annotation-details}.
 
-\begin{comment}
-\ai{In Figure~\ref{fig:study-overview}, the supporting reply adds financial obligations, while the challenging reply adds privacy beyond the
-parent's concern with trust. Privacy counts as an addition even though
-it appears in another comment: addition is assessed relative to the
-parent, not the discussion as a whole.}
-\end{comment}
 
 Within each post, parent group, and reply stance, proportions include
 all eligible replies, including those assigned no category; empty cells
