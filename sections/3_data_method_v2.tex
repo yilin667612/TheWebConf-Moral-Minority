@@ -82,10 +82,11 @@ one for replies without further nesting). These measures use stored judgment lab
 and reply structure; the OP exclusions used for
 annotation do not apply to reception measures.
 
-The minority comment in Figure~\ref{fig:study-overview} has a score
-of $-54$, two direct replies, and a maximum reply depth of two. The nested
-reply contributes to depth but is not counted as a direct reply to
-the top-level comment.
+In the illustrated excerpt in Figure~\ref{fig:study-overview},
+the minority comment has a recorded score of $-54$;
+two direct replies, and a maximum reply depth of two. The nested
+reply contributes to depth but not to direct-reply count. The displayed
+reply structure is a selected excerpt, not the full observed thread.
 
 We average comments within each post and judgment group, then weight
 posts equally. Empty groups are omitted, not assigned zero; missing
@@ -139,7 +140,7 @@ stance captures how others respond. Drawing on prior work~\citep{andreas2012anno
 \emph{other}.
 
 We sample three stratified sets of 16,000 top-level comment--direct reply
-pairs from high-agreement posts while excluding pairs involving OPs, who are parties to the conflict and may reply to explain or defend their conduct~\citep{giorgi2023author}.
+pairs from high-agreement posts while excluding pairs involving OPs, who are parties to the conflict and may reply to explain or defend their conduct~\citep{giorgi2023author}, as well as same-author pairs and pairs with unverifiable author identities.
 Given the post as context, an LLM classifies each reply's stance toward its parent comment.
 
 \begin{comment}
@@ -158,12 +159,19 @@ Challenge denotes disagreement, not necessarily personal attack. Proportions wei
 
 \runinheading{Additional moral reasons.}
 We also examine whether replies introduce moral reasons absent from their parent comments.
-We analyze 7,023 eligible pairs from 100 high-agreement AITA posts, alongside their reply stances.
+We use a separate 100-post AITA sample, balanced between NA-dominant
+and YA-dominant high-agreement posts (50 each). The analysis includes
+7,023 eligible direct reply pairs from these posts and retains their
+existing reply stance labels. 
 To identify the moral reasons in these comments, we use a two-stage LLM-based procedure inspired by inductive category formation~\citep{mayring2014qualitative}.
 First, we construct a taxonomy of moral reasons for each post through iterative refinement.
 We then use the resulting categories to label top-level comments and their direct replies, allowing multiple labels for each.
 A reply is coded as adding a moral reason category if it receives a label absent from its parent comment.
-For example, in Figure~\ref{fig:study-overview}, the supporting and challenging replies add financial obligations and privacy, respectively, beyond the parent's concern with trust.
+For example, in Figure~\ref{fig:study-overview}, the supporting reply
+adds appreciation of the car beyond its parent's concern with relationship
+harm; the challenging reply adds running costs beyond its parent's
+concern with gender bias. Addition is assessed relative to the parent,
+not to the discussion as a whole.
 More details about the annotation process are provided in Appendix~\ref{sec:appendix-annotation-details}.
 
 \begin{comment}
@@ -173,18 +181,12 @@ it appears in another comment: addition is assessed relative to the
 parent, not the discussion as a whole.}
 \end{comment}
 
-Within each post, parent group, and reply stance, proportions include all eligible replies, including those assigned no
-category; empty cells are omitted. We average these proportions across
-posts with equal weight and estimate $95\%$ percentile CIs from 20,000
-joint whole-post bootstrap resamples.
-For exploratory comparisons of the displayed means, we use two-sided,
-centered studentized bootstrap tests with 99,999 joint whole-post
-resamples, preserving dependence between cells from the same post.
-We test all three pairwise parent-group contrasts within each of the
-three reply subsets (all, support, and challenge), plus challenge versus
-support within each parent group. Holm adjustment covers these 12
-comparisons as one family. Contrasts compare marginal post-equal means
-using each cell's contributing posts, rather than restricting both cells
-to their shared posts. These tests treat model-assigned labels as fixed;
-they do not account for classification uncertainty or omitted category
-assignments.
+Within each post, parent group, and reply stance, proportions include
+all eligible replies, including those assigned no category; empty cells
+are omitted. We average these proportions across posts with equal weight.
+Confidence intervals and exploratory comparisons use whole-post bootstrap
+resampling, with Holm adjustment for multiple comparisons. Estimates use
+each cell's contributing posts and treat model-assigned labels as fixed,
+without accounting for classification uncertainty or omitted category
+assignments. Supplementary Section~\ref{sec:supp-moral-reason-inference}
+provides inference details.
