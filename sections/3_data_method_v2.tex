@@ -2,13 +2,14 @@
 \label{sec:data-method}
 
 We analyze public discussion archives from r/AmItheAsshole (AITA) to
-examine how minority judgments are received (RQ1) and how they are
-expressed and discussed (RQ2). We first define judgment alignment and
-reception measures, then describe annotations of expressed certainty,
-reply stance, and moral reasons. Figure~\ref{fig:study-overview}
+examine how minority judgments are received (RQ1) and what moral reasons
+are articulated around them (RQ2). We first define judgment alignment and
+reception measures, then describe annotations of 
+reply stance, and moral reasons, expressed certainty. Figure~\ref{fig:study-overview}
 illustrates how these measures and annotations relate to the discussion
 structure. We also examine r/AITAH (AITAH) as a comparison community,
 with additional results reported in the Appendix.
+Supplementary materials are available in an anonymous repository.\footnote{\url{https://anonymous.4open.science/r/AITA_for_Disagreeing}}
 
 \input{components/fig_structure_overview}
 
@@ -99,41 +100,21 @@ aggregation and inference.
 \subsection{Annotation of Comments and Replies}
 \label{subsec:method-annotation}
 
-We annotate how firmly comments express their judgments, how direct
-replies respond to those judgments, and whether replies introduce
-additional moral reasons. Figure~\ref{fig:study-overview} distinguishes
-certainty at the comment level from reply stance and the addition of
-reasons relative to a parent comment.
+To examine access to alternative moral reasons, we prioritize the reasons
+articulated in comments and replies. Our primary annotation measure
+captures whether a reply introduces a reason absent from its parent,
+identifying additional grounds for judgment available in an exchange
+rather than measuring readers' actual exposure. We first distinguish
+supportive from challenging replies, then examine the reasons added
+within these exchanges. Comment certainty provides a complementary
+measure of how firmly judgments are expressed
+(Figure~\ref{fig:study-overview}).
 
-\runinheading{Expressed certainty.}
-To compare how firmly majority and minority comments express their judgments,
-we use comment-level certainty annotations from sampled high- and
-low-agreement posts. The scale captures
-expressed language, not private confidence: very uncertain (1), somewhat
-uncertain (2), somewhat certain (3), and very certain (4). The same
-criteria apply across judgments.
 
-We compare certainty distributions and the proportion at level 4 between
-blaming and defending dissent over the full observed period, weighting
-posts equally. These estimates describe the annotated sample, not
-community-wide certainty.
-
-To compare expression as discussions progress, we divide the first
-24 hours of judgment comments in high-agreement AITA posts into ten
-chronological stages containing approximately equal numbers of comments.
-We compare majority, blaming minority, and defending
-minority comments using equal post weights. For each group, we retain a
-fixed set of posts with at least one comment from that group with a valid
-certainty annotation in every stage, keeping post composition constant
-across stages. Post fixed-effects regressions estimate linear changes
-across the sequence. These analyses describe successive comments in the
-selected discussions, not changes within individuals.
-Estimation and sensitivity checks are summarized in
-Appendices~\ref{sec:appendix-annotation-details} and~\ref{sec:appendix-evidence}.
 
 \runinheading{Reply stance.}
-Whereas certainty compares how firmly judgments are expressed, reply
-stance captures how others respond. Drawing on prior work~\citep{andreas2012annotating}, we classify replies (towards their top-level comments) into four response categories:
+We first establish how replies respond to their parent judgments,
+independently of whether they add moral reasons. Drawing on prior work~\citep{andreas2012annotating}, we classify replies (towards their top-level comments) into four response categories:
 \emph{support} (endorsing the parent's position), \emph{challenge}
 (disputing it), \emph{information-seeking} (requesting clarification), and
 \emph{other}.
@@ -170,3 +151,30 @@ each cell's contributing posts and treat model-assigned labels as fixed,
 without accounting for classification uncertainty or omitted category
 assignments. Supplementary Section~\ref{sec:supp-moral-reason-inference}
 provides inference details.
+
+\runinheading{Expressed certainty.}
+As a complementary outcome, we compare how firmly majority and minority
+comments express their judgments.
+we use comment-level certainty annotations from sampled high- and
+low-agreement posts. The scale captures
+expressed language, not private confidence: very uncertain (1), somewhat
+uncertain (2), somewhat certain (3), and very certain (4). The same
+criteria apply across judgments.
+
+We compare certainty distributions and the proportion at level 4 between
+blaming and defending dissent over the full observed period, weighting
+posts equally. These estimates describe the annotated sample, not
+community-wide certainty.
+
+To compare expression as discussions progress, we divide the first
+24 hours of judgment comments in high-agreement AITA posts into ten
+chronological stages containing approximately equal numbers of comments.
+We compare majority, blaming minority, and defending
+minority comments using equal post weights. For each group, we retain a
+fixed set of posts with at least one comment from that group with a valid
+certainty annotation in every stage, keeping post composition constant
+across stages. Post fixed-effects regressions estimate linear changes
+across the sequence. These analyses describe successive comments in the
+selected discussions, not changes within individuals.
+Estimation and sensitivity checks are summarized in
+Appendices~\ref{sec:appendix-annotation-details} and~\ref{sec:appendix-evidence}.

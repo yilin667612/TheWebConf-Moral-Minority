@@ -61,8 +61,23 @@ moral reason prompts and execution details.
 
 Figure~\ref{fig:prompt} supplies the post and comment, returning
 a certainty score and rationale. Its scale concerns hedging, not judgment
-direction; displayed examples are abridged. Independent held-out human validation
-and immutable model/version documentation remain unresolved.
+direction; displayed examples are abridged. We recruited four authors with expertise in data annotation and a deep
+understanding of the AITA community's discourse. These experts
+independently annotated 200 comments. Overall agreement among the four annotators reached Krippendorff's $\alpha=.69$, while agreement between individual
+annotators and the majority-vote labels ranged from $\alpha=.75$ to $.85$. 
+
+We evaluated model and prompt configurations using ten repeated
+stratified 50:50 splits of the 200 human-annotated comments, preserving the distribution of certainty labels across the development and test sets. Few-shot prompts included 14 annotated examples. Agreement with the human majority-vote labels was measured using Krippendorff's $\alpha$ and Spearman's $\rho$, reported as means and standard deviations across the ten splits. The selected few-shot DeepSeek v4 Flash configuration without chain-of-thought prompting achieved an average test
+Krippendorff's $\alpha=.811$ ($SD=.042$) and Spearman correlation
+$\rho=.825$ ($SD=.034$).
+
+Large-scale annotation was conducted in two batches. The original
+comments were annotated using the legacy DeepSeek v4 Flash model,
+whereas later additions were annotated using its successor, DeepSeek
+V4.1 Flash, with the same prompt and certainty rubric.
+
+
+% Independent held-out human validation and immutable model/version documentation remain unresolved.
 
 \input{components/box_prompt}
 
