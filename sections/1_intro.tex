@@ -30,7 +30,7 @@ with Facebook news posts show that displaying agreeing versus
 disagreeing comment pairs changes readers' patterns of
 attention~\cite{dutceac2022cueing}. These findings leave questions
 about the content and consequences of minority discussion.
-Scores and reply counts alone do not reveal how minority
+Voting patterns and reply counts alone do not reveal how minority
 judgments are expressed, whether replies support or challenge
 them, or what moral reasons emerge in those exchanges. A further
 question is whether making minority views more visible changes
@@ -85,23 +85,46 @@ while minority comments oppose it.
 
 %r/AmItheAsshole (AITA) provides a setting for examining these distinctions. An original poster (OP) describes an interpersonal conflict. Commenters judge the OP's conduct using judgments such as YTA (``You're the Asshole'') and NTA (``Not the Asshole''). Research in AITA examines how the valuation of agreement and dissent varies as consensus develops \cite{mellody2025consensus}. Other work examines authors as both participants and narrators \cite{giorgi2023author}. Personal retellings are also studied as requests for feedback about one's actions \cite{haworth2021reasonability}. OPs describe conflicts from their own perspective and may seek confirmation that their conduct was justified. These accounts suggest a possible link between self-presentation and agreement.
 \lx{
-Figure~\ref{fig:teaser} provides an overview of our study in three parts. 
-%linking minority reception, the moral reasons developed in replies, and readers’ responses to comment displays.
-We first ask \textbf{RQ1: Reception of minority comments.} How are minority
-comments received in high- and low-agreement discussions, and how
-does reception differ between comments that blame or defend? 
-Using majority comments as 
-reference, we measure community evaluation through each comment's
-net vote score (upvotes minus downvotes), and conversational
-engagement through its number of direct replies and the 
-depth of its nested reply thread. These measures distinguish how
-favorably a comment is evaluated from how much discussion it
-attracts, as illustrated in Figure~\ref{fig:teaser}. We compare
-discussions with a strongly dominant judgment against more evenly
-divided discussions. Within high-agreement discussions, we further
-distinguish \emph{blaming dissent}, which assigns fault to an OP
-whom the majority defends, from \emph{defending dissent}, which
-defends an OP whom the majority blames.
+Figure~\ref{fig:teaser} provides an overview of our study in three
+parts. We first ask \textbf{RQ1: Reception of minority comments.}
+How are minority comments received across agreement levels and,
+within high-agreement discussions, when they blame or defend the
+OP? We analyze archived AITA discussions, using majority comments
+as a reference. We measure community evaluation through each
+comment's net vote score (upvotes minus downvotes), and conversational
+engagement through its number of direct replies and the maximum
+depth of its nested reply thread. We compare discussions with a
+strongly dominant judgment against more evenly divided discussions.
+Within high-agreement discussions, we further distinguish
+\emph{blaming dissent}, which assigns fault to an OP whom the
+majority defends, from \emph{defending dissent}, which defends an
+OP whom the majority blames.
+
+We next examine the content of minority comments and the exchanges
+around them. \textbf{RQ2: Minority discourse.} How are minority
+judgments expressed and discussed? We annotate expressed certainty
+in comment language, reply stance toward the parent comment, and
+the moral reasons covered by comments and replies. We compare
+majority, blaming minority, and defending minority comments, and
+examine expressed certainty in successive comments as discussions
+develop. The example in Figure~\ref{fig:teaser} illustrates why
+reply stance and moral reasons are examined separately: supportive
+and challenging replies can both introduce considerations absent
+from the parent comment.
+
+Finally, we explore an intervention that makes a minority view
+more visible to readers. \textbf{RQ3: Balanced comment displays.}
+How does promoting a minority comment alongside a majority comment
+affect readers' certainty in their own judgments and consideration
+of alternative moral reasons? In an exploratory survey experiment,
+we randomly assign readers to one of the two displays shown in
+Figure~\ref{fig:teaser}. The \emph{Highly Scored} condition presents
+two highly scored comments, both majority-aligned in the selected
+posts; the \emph{Balanced} condition replaces the second with the
+highest-scoring minority comment. Each selected comment retains
+its original wording, score, and accompanying reply thread. Readers
+report their judgment certainty, consideration of alternative views
+and moral reasons, and the perceived influence of individual comments.
 }
 
 %Building on prior work on agreement and dissent, we examine variation in minority reception along two dimensions: the discussion's level of agreement and the moral direction of dissent. High-agreement discussions, in which one judgment predominates, are prevalent among the AITA posts we analyze. Low-agreement discussions provide a comparison: taking the less common side in a divided discussion differs from opposing a nearly unanimous crowd. Within high-agreement discussions, we further distinguish \emph{blaming dissent}, which assigns fault to an OP whom the majority defends, from \emph{defending dissent}, which challenges the majority's blame. Both oppose the prevailing judgment, but they respectively call for condemnation and resist it. Accounts of socially regulated blame suggest that public criticism can itself invite scrutiny and demands for justification \cite{malle2022socially}. We ask 
@@ -113,38 +136,10 @@ defends an OP whom the majority blames.
 %How do majority--minority differences in evaluation and conversational reception vary between high- and low-agreement discussions, and how does the reception of blaming and defending dissent differ within high-agreement discussions?
 
 %We compare comment scores, reply counts, and reply depth across agreement levels, then examine blaming and defending dissent within high-agreement discussions. To characterize these directional patterns, we also annotate expressed certainty, with majority comments as a reference. Certainty annotations capture expressed language rather than private confidence. Together, these analyses examine when reception gaps are more pronounced and how they differ with the moral position that dissent challenges.
-\lx{
-We next examine the content of minority comments and the exchanges
-around them in \textbf{RQ2: Minority discourse.} How are minority
-judgments expressed and discussed? We annotate the certainty
-expressed in comments, the stance of replies toward their parent
-comments, and the moral reasons covered by both. We compare
-blaming and defending minority comments with majority comments,
-including how expressed certainty varies as discussions progress.
-The example in Figure~\ref{fig:teaser} illustrates why reply
-stance and moral reasons are examined separately: supportive and
-challenging replies can both introduce considerations absent from
-the parent comment. We therefore assess whether replies add moral
-reasons alongside whether they support or challenge the judgment.
-}
+
 %The greater engagement around minority judgments raises two connected questions: how replies respond to these judgments, and what reasons those exchanges introduce. We first classify reply stance, distinguishing support for the parent comment's position from challenges to it, while retaining information-seeking and other replies as separate categories. We then annotate \emph{additional moral reasons}: reasons expressed in a reply that are absent from its parent comment. We measure addition separately from stance, allowing both supportive and challenging replies to introduce further considerations. We ask
 %{\bf RQ2: Minority discourse.} How are minority judgments expressed and discussed?We examine three aspects: the certainty expressed in minority comments; whether replies support or challenge their judgments; and the moral reasons covered by comments and their replies, including whether replies introduce reasons absent from the parent comment.
 
-\lx{
-Finally, we explore a display intervention that makes a minority
-view more visible to readers in \textbf{RQ3: Balanced comment display.}
-How does promoting a minority comment alongside a majority comment
-affect readers' judgment certainty and consideration of alternative
-moral reasons? We conduct an exploratory between-subjects survey
-experiment comparing the two displays shown in
-Figure~\ref{fig:teaser}. The \emph{Highly Scored} condition presents
-two highly scored comments, all of which are in the majority in our experiment material; the \emph{Balanced} condition
-replaces the second with the highest-scoring minority comment.
-The displays retain the comments' original wording, scores, and
-accompanying reply threads. We measure readers' judgment certainty,
-reported consideration of alternative views and moral reasons,
-and perceived influence of individual comments.
-}
 % \lxnote{I reworded the RQs, the rest of the intro is yet untouched, we should revise those after Sec 3 and 4 settles}
 %On Reddit and other online platforms, comment rankings use votes and engagement signals to shape which contributions readers encounter first. Such displays can foreground majority opinion, leaving minority views less visible. We therefore explore a display intervention that promotes a minority comment so readers encounter both sides of a moral disagreement.
 %In a between-subjects survey experiment, we compare a display containing two highly scored majority comments with a balanced display in which the highest-scoring minority comment replaces the second majority comment. Both conditions retain the comments’ original wording, scores, and accompanying reply threads. We ask {\bf RQ3: Displaying both sides.} How does promoting a minority comment alongside a majority comment affect readers’ judgment certainty and consideration of alternative moral reasons?
