@@ -2,12 +2,12 @@
 \label{sec:data-method}
 
 We analyze public discussion archives from r/AmItheAsshole (AITA) to
-examine how minority judgments are received (RQ1) and how discussions unfol
+examine how minority judgments are received (RQ1) and how discussions unfold
 %what moral reasons are articulated 
 around them (RQ2). We first define judgment alignment and
 reception measures, then describe annotations of 
 reply stance, moral reasons, and expressed certainty. We also examine r/AITAH (AITAH) as a comparison community,
-with results in the appendix (an online supplement contains additional details on method and results\footnote{Available at \url{https://anonymous.4open.science/r/AITA_for_Disagreeing}}).
+with results in the appendix (an online Supplementary contains additional details on method and results\footnote{Available at \url{https://anonymous.4open.science/r/AITA_for_Disagreeing}}).
 Figure~\ref{fig:study-overview}
 illustrates how these measures and annotations relate to the discussion
 structure. 
@@ -49,7 +49,7 @@ A post’s \emph{dominant judgment} is whichever of YA or NA appears in more top
 Comparisons requiring this distinction exclude exact ties.
 \emph{High agreement} means at least 80\% favor one side;
 \emph{low agreement} means each side accounts for 40--60\%.
-\lx{Most of the analyzed AITA posts are in \emph{high agreement} ($21,978$, or 78\%), 6.5\% have \emph{low agreement}, with 15\% in-between.}
+Most of the analyzed AITA posts are in \emph{high agreement} ($21,978$, or 78\%), 6.5\% have \emph{low agreement}, with 15\% in-between.
 %Posts concentrate toward the endpoints of YA share, where majority--minority reception gaps are generally larger
 (see appendix Figures~\ref{fig:verdict-distributions} and Table~\ref{tab:analytical-samples}).
 
@@ -59,12 +59,12 @@ The example post in Figure~\ref{fig:study-overview} has a YA majority:
 the YTA comment therefore represents the majority, while the NTA
 comment represents {\it defending} dissent.
 
-\lx{
+
 We assign majority and minority status retrospectively from final observed judgments, independently of the community’s official verdict, and keep these labels fixed in temporal analyses. They do not reconstruct what readers encountered, since comment order depends on ranking and sorting.
 
-High-agreement discussions provide a setting in which the prevailing judgment may be more apparent to readers. We therefore focus on these discussions, using low-agreement discussions—where readers may encounter either side first—as a comparison. Analyses across the full agreement range, including intermediate posts, appear in Appendix Figure~\ref{fig:aita-agreement-gradient} and Supplementary Section~\ref{sec:supp-reception-analysis}.
+High-agreement discussions provide a setting in which the prevailing judgment may be more apparent to readers. We therefore focus on these discussions, using low-agreement discussions—where readers may encounter either side first—as a comparison.
+Analyses across the full agreement range, including intermediate posts, appear in Appendix Figure~\ref{fig:aita-agreement-gradient} and Supplementary Section~\ref{sec:supp-reception-analysis}.
 \lxnote{I remember there were figures across the full agreement range, can we insert the correct ref? I think the Section reference here is wrong, Fig ref seem ok}
-}
 
 %These directions concern different post sets.
 %We assign majority and minority status retrospectively from the final
@@ -86,7 +86,7 @@ High-agreement discussions provide a setting in which the prevailing judgment ma
 %only in analyses of reception across the full agreement range.
 
 \runinheading{Reception measures.} 
-\lx{We obtain a snapshot of Reddit measures from an August 2026 archive. Most reddit posts accumulate 99\% of their comments within 24 hours, therefore posts in our dataset would have accumulated their comments and reactions during the 7+ months since their posting.}
+We obtain a snapshot of Reddit measures from an August 2026 archive. Most reddit posts accumulate 99\% of their comments within 24 hours, therefore posts in our dataset would have accumulated their comments and reactions during the 7+ months since their posting.
 \emph{Comment score} is the last recorded net score (upvotes minus downvotes).
 \emph{Reply count} counts direct replies; \emph{maximum reply depth}
 is the deepest level beneath a comment (zero without replies,
@@ -118,8 +118,8 @@ aggregation and inference details.
 \subsection{Annotation of Comments and Replies}
 \label{subsec:method-annotation}
 
-\lx{We annotate three aspects of comments and replies: reply stance, additional moral reasons, and expressed certainty (Figure~\ref{fig:study-overview}). The first two characterize exchanges around judgments, while} certainty provides a complementary measure of how firmly judgments are expressed.
-\lx{More details about these annotations and human validation are provided in Appendix~\ref{sec:appendix-annotation-details}.}
+We annotate three aspects of comments and replies: reply stance, additional moral reasons, and expressed certainty (Figure~\ref{fig:study-overview}). The first two characterize exchanges around judgments, while certainty provides a complementary measure of how firmly judgments are expressed.
+More details about these annotations and human validation are provided in Appendix~\ref{sec:appendix-annotation-details}.
 
 %To examine access to alternative moral reasons, we prioritize the reasons
 %articulated in comments and replies. Our primary annotation measure
@@ -141,7 +141,7 @@ independently of whether they add moral reasons. Drawing on prior work~\citep{an
 \emph{other}.
 
 We sample three stratified sets of 16,000 top-level comment-reply
-pairs from high-agreement posts. We exclude pairs \lx{from the same authors, with unverifiable author identities, and those} involving OPs, who are parties to the conflict and may reply to explain or defend their conduct~\citep{giorgi2023author}. %as well as same-author pairs and pairs with unverifiable author identities.
+pairs from high-agreement posts. We exclude pairs from the same authors, with unverifiable author identities, and those involving OPs, who are parties to the conflict and may reply to explain or defend their conduct~\citep{giorgi2023author}. %as well as same-author pairs and pairs with unverifiable author identities.
 Given the post as context, an LLM classifies each reply's stance toward its parent comment.
 
 
